@@ -1,0 +1,11 @@
+{
+ "values":[
+  "mine_fargo:truedamage",
+  "mine_fargo:dotdamage",
+  "mine_fargo:tick_fire_damage",
+  "mine_fargo:tick_freeze_damage",
+  "mine_fargo:tick_lightning_damage",
+  "mine_fargo:tick_poison_damage",
+  "mine_fargo:tick_wither_damage"
+ ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:iron_mana_flower"
+        },
+        {
+            "item": "confluence:putrid_scent"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:iron_arcane_flower"
+    }
+}

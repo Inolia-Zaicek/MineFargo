@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "confluence:avenger_emblem"
+        },
+        {
+            "item": "mine_fargo:iron_celestial_magnet"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:iron_celestial_emblem"
+    }
+}

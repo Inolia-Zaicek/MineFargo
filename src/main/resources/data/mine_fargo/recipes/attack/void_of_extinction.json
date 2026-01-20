@@ -1,0 +1,17 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:abaddon"
+        },
+        {
+            "item": "confluence:demon_heart"
+        },
+        {
+            "item": "minecraft:netherite_ingot"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:void_of_extinction"
+    }
+}

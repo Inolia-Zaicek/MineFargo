@@ -1,0 +1,10 @@
+{
+  "values": [
+    {"id":"mine_fargo:iron_soul_stone","required":false},
+    {"id":"mine_fargo:gold_soul_stone","required":false},
+    {"id":"mine_fargo:diamond_soul_stone","required":false},
+    {"id":"mine_fargo:lapis_lazuli_soul_stone","required":false},
+    {"id":"mine_fargo:redstone_soul_stone","required":false},
+    {"id":"mine_fargo:emerald_soul_stone","required":false}
+  ]
+}

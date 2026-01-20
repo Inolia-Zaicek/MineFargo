@@ -1,0 +1,17 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:statis_blessing"
+        },
+        {
+            "item": "minecraft:totem_of_undying"
+        },
+        {
+            "item": "minecraft:echo_shard"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:statis_curse"
+    }
+}

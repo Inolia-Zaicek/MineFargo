@@ -1,0 +1,23 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ambrosial_ampoule"
+        },
+        {
+            "item": "mine_fargo:infected_jewel"
+        },
+        {
+            "item": "mine_fargo:celestial_onion"
+        },
+        {
+            "item": "confluence:demon_heart"
+        },
+        {
+            "item": "minecraft:totem_of_undying"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:radiance"
+    }
+}

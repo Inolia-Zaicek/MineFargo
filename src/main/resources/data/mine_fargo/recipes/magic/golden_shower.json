@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ichor"
+        },
+        {
+            "item": "minecraft:book"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:golden_shower"
+    }
+}

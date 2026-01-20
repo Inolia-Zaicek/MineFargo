@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:iron_celestial_emblem"
+        },
+        {
+            "item": "confluence:demon_heart"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:sigil_of_calamitas"
+    }
+}

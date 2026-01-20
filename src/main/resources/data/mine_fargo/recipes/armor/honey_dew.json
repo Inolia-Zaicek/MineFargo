@@ -1,0 +1,17 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:bottled_honey"
+        },
+        {
+            "item": "minecraft:moss_block"
+        },
+        {
+            "item": "minecraft:glow_berries"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:honey_dew"
+    }
+}

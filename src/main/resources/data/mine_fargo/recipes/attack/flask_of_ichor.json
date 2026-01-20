@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ichor"
+        },
+        {
+            "item": "minecraft:iron_sword"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:flask_of_ichor"
+    }
+}

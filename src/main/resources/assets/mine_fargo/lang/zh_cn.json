@@ -1,0 +1,20 @@
+{
+"item.mine_fargo.empty_soul_stone":"空白魂石",
+"tooltip.mine_fargo.empty_soul_stone.text":"",
+"item.mine_fargo.iron_soul_stone":"铁魂石",
+"tooltip.mine_fargo.iron_soul_stone.text":"提升7.5护甲值",
+"item.mine_fargo.gold_soul_stone":"金魂石",
+"tooltip.mine_fargo.gold_soul_stone.text":"附魔时，提升5级附魔等级",
+"item.mine_fargo.diamond_soul_stone":"钻石魂石",
+"tooltip.mine_fargo.diamond_soul_stone.text":"提升1级时运等级与1级抢夺等级",
+"item.mine_fargo.lapis_lazuli_soul_stone":"青金石魂石",
+"tooltip.mine_fargo.lapis_lazuli_soul_stone.text":"获取经验时，提升50%%经验获取数额",
+"item.mine_fargo.redstone_soul_stone":"红石魂石",
+"tooltip.mine_fargo.redstone_soul_stone.text":"提升25%%挖掘速度",
+"item.mine_fargo.emerald_soul_stone":"绿宝石魂石",
+"tooltip.mine_fargo.emerald_soul_stone.text":"提升50点村民声望，降低村民的交易价格",
+
+"curios.identifier.soul_stone": "魂石",
+"curios.modifiers.soul_stone": "佩戴在魂石栏位时",
+"item_group.mine_fargo.tab":"泰拉饰品拓展"
+}

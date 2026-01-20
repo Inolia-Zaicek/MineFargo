@@ -1,0 +1,20 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "confluence"
+        }
+    ],
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "confluence:celestial_stone"
+        },
+        {
+            "item": "mine_fargo:moon_shell"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:celestial_shell"
+    }
+}

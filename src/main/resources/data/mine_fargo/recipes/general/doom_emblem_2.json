@@ -1,0 +1,23 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "confluence"
+        }
+    ],
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "confluence:avenger_emblem"
+        },
+        {
+            "item": "mine_fargo:summoner_emblem"
+        },
+        {
+            "item": "confluence:eye_of_the_golem"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:doom_emblem"
+    }
+}

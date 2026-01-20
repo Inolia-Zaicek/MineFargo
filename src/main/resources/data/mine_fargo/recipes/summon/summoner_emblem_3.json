@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "confluence:sorcerer_emblem"
+        },
+        {
+            "tag": "forge:gems/amethyst"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:summoner_emblem",
+        "count": 1
+    }
+}

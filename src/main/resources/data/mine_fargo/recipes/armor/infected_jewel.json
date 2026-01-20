@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:crown_jewel"
+        },
+        {
+            "item": "confluence:demon_heart"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:infected_jewel"
+    }
+}

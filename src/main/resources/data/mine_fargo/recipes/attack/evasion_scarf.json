@@ -1,0 +1,14 @@
+{
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:counter_scarf"
+        },
+        {
+            "item": "confluence:demon_heart"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:evasion_scarf"
+    }
+}

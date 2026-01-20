@@ -1,0 +1,32 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "confluence"
+        }
+    ],
+    "type": "confluence:workshop",
+    "ingredients": [
+        {
+            "item": "mine_fargo:deadshot_brooch"
+        },
+        {
+            "item": "mine_fargo:chlorophyte_quiver"
+        },
+        {
+            "item": "mine_fargo:celestial_onion"
+        },
+        {
+            "item": "minecraft:blaze_rod"
+        },
+        {
+            "item": "minecraft:blue_ice"
+        },
+        {
+            "item": "minecraft:amethyst_shard"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:elemental_quiver"
+    }
+}
