@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:blaze_soul_stone"
+        },
+        {
+            "item": "mine_fargo:death_soul_stone"
+        },
+        {
+            "item": "mine_fargo:arthropod_soul_stone"
+        },
+        {
+            "item": "mine_fargo:animal_soul_stone"
+        },
+        {
+            "item": "mine_fargo:aquatic_soul_stone"
+        },
+        {
+            "item": "mine_fargo:wing_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_entity",
+        "count": 1
+    }
+}

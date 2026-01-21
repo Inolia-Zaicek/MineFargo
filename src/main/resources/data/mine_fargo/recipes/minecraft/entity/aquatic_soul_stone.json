@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ADC",
+    "BOB",
+    "CDA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:cod"
+    },
+    "B": {
+      "item": "minecraft:salmon"
+    },
+    "C": {
+      "item": "minecraft:tropical_fish"
+    },
+    "D": {
+      "item": "minecraft:pufferfish"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:aquatic_soul_stone",
+    "count": 1
+  }
+}

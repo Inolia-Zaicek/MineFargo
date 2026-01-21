@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo;
 
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Event.*;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
@@ -14,6 +15,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -28,6 +30,7 @@ public class MineFargo {
     public MineFargo() {
         init();
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
+        modLoadingContext.registerConfig(ModConfig.Type.COMMON, MyGoConfig.SPEC);
     }
 
     public void init(){
@@ -46,6 +49,8 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(DropsEvent.class);
         MinecraftForge.EVENT_BUS.register(BreakSpeedEvent.class);
         MinecraftForge.EVENT_BUS.register(ExpEvent.class);
+        MinecraftForge.EVENT_BUS.register(UseItemEvent.class);
+        MinecraftForge.EVENT_BUS.register(FluidCollisionEvent.class);
     }
 
     @SubscribeEvent

@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Mixins;
 
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.EmeraldSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.EmeraldSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
@@ -17,12 +18,11 @@ public abstract class VillagerMixin {
                     target = "Lnet/minecraft/world/entity/npc/Villager;getPlayerReputation(Lnet/minecraft/world/entity/player/Player;)I"
             )}
     )
-    private int increaseReputation(int original, Player player) {
-        if (MyGoUtil.hasSpecificItem(player, EmeraldSoulStoneItem.class)) {
+    private int updateSpecialPrices(int original, Player player) {
+        if (MyGoUtil.hasOre(player, EmeraldSoulStoneItem.class)) {
             //声望*0.2=折扣数量
-            original += 50;
+            original += MyGoConfig.emerald_soul_stone.get();
         }
-
         return original;
     }
 }

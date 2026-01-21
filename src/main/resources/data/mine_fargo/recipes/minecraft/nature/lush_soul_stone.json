@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:glow_berries"
+    },
+    "B": {
+      "item": "minecraft:melon_slice"
+    },
+    "C": {
+      "item": "minecraft:sweet_berries"
+    },
+    "D": {
+      "item": "minecraft:apple"
+    },
+    "E": {
+      "item": "minecraft:pumpkin"
+    },
+    "F": {
+      "item": "minecraft:potato"
+    },
+    "G": {
+      "item": "minecraft:carrot"
+    },
+    "H": {
+      "item": "minecraft:beetroot"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:lush_soul_stone",
+    "count": 1
+  }
+}

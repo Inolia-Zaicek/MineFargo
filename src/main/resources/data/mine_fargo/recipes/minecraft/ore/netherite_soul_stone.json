@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:netherite_helmet"
+    },
+    "B": {
+      "item": "minecraft:netherite_chestplate"
+    },
+    "C": {
+      "item": "minecraft:netherite_leggings"
+    },
+    "D": {
+      "item": "minecraft:netherite_boots"
+    },
+    "E": {
+      "item": "minecraft:netherite_sword"
+    },
+    "F": {
+      "item": "minecraft:netherite_pickaxe"
+    },
+    "G": {
+      "item": "minecraft:netherite_axe"
+    },
+    "H": {
+      "item": "minecraft:netherite_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:netherite_soul_stone",
+    "count": 1
+  }
+}

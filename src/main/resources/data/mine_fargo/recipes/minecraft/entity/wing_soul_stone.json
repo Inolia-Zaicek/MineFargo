@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "AOA",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:feathers"
+    },
+    "B": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:wing_soul_stone",
+    "count": 1
+  }
+}

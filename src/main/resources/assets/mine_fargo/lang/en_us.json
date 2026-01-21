@@ -241,5 +241,6 @@
 
 "item.mine_fargo.ambrosial_ampoule":"§eAmbrosial Bottled Incense",
 
-"item_group.mine_fargo.tab":"Terra Accessories Expansion"
+"item_group.mine_fargo.tab":"Terra Accessories Expansion",
+"tooltip.mine_fargo.lapis_lazuli_soul_stone.text": "1"
 }

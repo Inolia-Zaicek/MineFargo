@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Mixins;
 
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.GoldSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.GoldSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoEnchantmentUtil;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -43,9 +44,8 @@ public abstract class MyGoMixinEnchantmentContainer extends AbstractContainerMen
             container = EnchantmentMenu.class.cast(this);
         } catch (Exception ignored) {}
         if(container == null) return;
-
-        // 检查玩家是否佩戴理性+德谬歌/裂分
-        if (MyGoUtil.hasSpecificItem(player, GoldSoulStoneItem.class)) {
+        //检查是否有饰品
+        if (MyGoUtil.hasOre(player, GoldSoulStoneItem.class)) {
             ItemStack inputItem = container.enchantSlots.getItem(0);
             int levelsRequired = clickedID + 1;
             if (container.costs[clickedID] > 0 && !inputItem.isEmpty() && (player.experienceLevel >= levelsRequired && player.experienceLevel >= container.costs[clickedID] || player.getAbilities().instabuild)) {
@@ -55,8 +55,8 @@ public abstract class MyGoMixinEnchantmentContainer extends AbstractContainerMen
                     List<EnchantmentInstance> rolledEnchantments = finalContainer.getEnchantmentList(inputItem, clickedID, finalContainer.costs[clickedID]);
                     if (!rolledEnchantments.isEmpty()) {
                         int number = 0;
-                        if( MyGoUtil.hasSpecificItem(player, GoldSoulStoneItem.class) ){
-                            number+=5;
+                        if( MyGoUtil.hasOre(player, GoldSoulStoneItem.class) ){
+                            number+=(int)(MyGoConfig.gold_soul_stone.get()*1);
                         }
                         //提升等级
                         ItemStack doubleRoll = EnchantmentHelper.enchantItem(player.getRandom(), inputItem.copy(),

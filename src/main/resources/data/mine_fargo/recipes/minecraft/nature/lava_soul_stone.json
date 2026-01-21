@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BOB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:magma_block"
+    },
+    "B": {
+      "item": "minecraft:lava_bucket"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:lava_soul_stone",
+    "count": 1
+  }
+}

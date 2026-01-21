@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ADA",
+    "BOB",
+    "CEC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:beef"
+    },
+    "B": {
+      "item": "minecraft:porkchop"
+    },
+    "C": {
+      "item": "minecraft:mutton"
+    },
+    "D": {
+      "item": "minecraft:chicken"
+    },
+    "E": {
+      "item": "minecraft:rabbit"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:animal_soul_stone",
+    "count": 1
+  }
+}

@@ -1,10 +1,32 @@
 {
   "values": [
+    {"id":"mine_fargo:soul_of_ores","required":false},
     {"id":"mine_fargo:iron_soul_stone","required":false},
     {"id":"mine_fargo:gold_soul_stone","required":false},
     {"id":"mine_fargo:diamond_soul_stone","required":false},
     {"id":"mine_fargo:lapis_lazuli_soul_stone","required":false},
     {"id":"mine_fargo:redstone_soul_stone","required":false},
-    {"id":"mine_fargo:emerald_soul_stone","required":false}
+    {"id":"mine_fargo:emerald_soul_stone","required":false},
+    {"id":"mine_fargo:copper_soul_stone","required":false},
+    {"id":"mine_fargo:coal_soul_stone","required":false},
+    {"id":"mine_fargo:netherite_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_nature","required":false},
+    {"id":"mine_fargo:snow_soul_stone","required":false},
+    {"id":"mine_fargo:lava_soul_stone","required":false},
+    {"id":"mine_fargo:mushroom_soul_stone","required":false},
+    {"id":"mine_fargo:nether_soul_stone","required":false},
+    {"id":"mine_fargo:ender_soul_stone","required":false},
+    {"id":"mine_fargo:ocean_soul_stone","required":false},
+    {"id":"mine_fargo:lush_soul_stone","required":false},
+    {"id":"mine_fargo:forest_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_entity","required":false},
+    {"id":"mine_fargo:blaze_soul_stone","required":false},
+    {"id":"mine_fargo:death_soul_stone","required":false},
+    {"id":"mine_fargo:arthropod_soul_stone","required":false},
+    {"id":"mine_fargo:animal_soul_stone","required":false},
+    {"id":"mine_fargo:aquatic_soul_stone","required":false},
+    {"id":"mine_fargo:wing_soul_stone","required":false}
   ]
 }

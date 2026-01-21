@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:coal_soul_stone"
+        },
+        {
+            "item": "mine_fargo:copper_soul_stone"
+        },
+        {
+            "item": "mine_fargo:lapis_lazuli_soul_stone"
+        },
+        {
+            "item": "mine_fargo:iron_soul_stone"
+        },
+        {
+            "item": "mine_fargo:redstone_soul_stone"
+        },
+        {
+            "item": "mine_fargo:gold_soul_stone"
+        },
+        {
+            "item": "mine_fargo:emerald_soul_stone"
+        },
+        {
+            "item": "mine_fargo:diamond_soul_stone"
+        },
+        {
+            "item": "mine_fargo:netherite_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_ores",
+        "count": 1
+    }
+}

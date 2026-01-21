@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BOB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:end_stone"
+    },
+    "B": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ender_soul_stone",
+    "count": 1
+  }
+}

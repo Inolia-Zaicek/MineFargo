@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Event;
 
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.LapisLazuliSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.LapisLazuliSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,8 +19,8 @@ public class ExpEvent {
         if(event.getAmount()>0) {
             LivingEntity livingEntity = event.getEntity();
             float number = 1;
-            if (MyGoUtil.hasSpecificItem(livingEntity, LapisLazuliSoulStoneItem.class)) {
-                number*=1+0.5F;
+            if (MyGoUtil.hasOre(livingEntity, LapisLazuliSoulStoneItem.class)) {
+                number+=MyGoConfig.lapis_lazuli_soul_stone.get();
             }
             event.setAmount((int) (event.getAmount() * number));
         }

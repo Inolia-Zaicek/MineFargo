@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Util;
 
+import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -198,6 +199,68 @@ public class MyGoUtil {
                 }
             }
         });
+        return hasItem.get();
+    }
+    //矿石之力系列专用判断——【有矿石之力的情况下返回true
+    public static boolean hasOre(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                    ItemStack stack = stackHandler.getStackInSlot(i);
+                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                        hasItem.set(true);
+                        return;
+                    }
+                }
+            }
+        });
+        //有矿石之力，直接返回true
+        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() )){
+            hasItem.set(true);
+        }
+        return hasItem.get();
+    }
+    //自然之魂系列专用判断——【有集合的情况下返回true
+    public static boolean hasNature(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                    ItemStack stack = stackHandler.getStackInSlot(i);
+                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                        hasItem.set(true);
+                        return;
+                    }
+                }
+            }
+        });
+        //有矿石之力，直接返回true
+        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get() )){
+            hasItem.set(true);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasEntity(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                    ItemStack stack = stackHandler.getStackInSlot(i);
+                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                        hasItem.set(true);
+                        return;
+                    }
+                }
+            }
+        });
+        //有矿石之力，直接返回true
+        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get() )){
+            hasItem.set(true);
+        }
         return hasItem.get();
     }
 }

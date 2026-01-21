@@ -135,6 +135,15 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    //jarjar
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.4.1") {
+        jarJar.ranged(it, "[0.4.1,)")
+    })
+    implementation fg.deobf(jarJar("blank:expandability-1.20.1:9.0.4") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
+    //implementation fg.deobf("blank:expandability-1.20.1:9.0.4")
     //implementation fg.deobf("blank:jei-1.20.1:forge-15.20.0.112")compileOnly
     implementation fg.deobf("blank:architectury-1.20.1:1")
     implementation fg.deobf("blank:jade-1.20.1:1")
@@ -151,15 +160,9 @@ dependencies {
     implementation fg.deobf("blank:citadel-1.20.1:1")
     implementation fg.deobf("blank:curios-1.20.1:1")
     compileOnly fg.deobf("blank:ars_nouveau-1.20.1:1")
-    compileOnly fg.deobf("blank:irons_spellbooks-1.20.1:1")
+    implementation fg.deobf("blank:irons_spellbooks-1.20.1:1")
     implementation fg.deobf("blank:playeranimator-1.20.1:1")
     implementation fg.deobf("blank:TerraCurio-1.20.1:1")
-
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.2.0")) {
-        jarJar.ranged(it, "[0.2.0,)")
-    }
-
     compileOnly fg.deobf("blank:touhoulittlemaid-1.20.1:1")
     compileOnly fg.deobf("blank:tacz-1.20.1:1")
 

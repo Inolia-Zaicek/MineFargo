@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "HOD",
+    "GFE"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:oak_log"
+    },
+    "B": {
+      "item": "minecraft:spruce_log"
+    },
+    "C": {
+      "item": "minecraft:birch_log"
+    },
+    "D": {
+      "item": "minecraft:jungle_log"
+    },
+    "E": {
+      "item": "minecraft:acacia_log"
+    },
+    "F": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "G": {
+      "item": "minecraft:mangrove_log"
+    },
+    "H": {
+      "item": "minecraft:cherry_log"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:forest_soul_stone",
+    "count": 1
+  }
+}
