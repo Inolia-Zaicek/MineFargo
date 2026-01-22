@@ -51,7 +51,7 @@ public class TickEvent {
 
         //森林催熟
         if(livingEntity.level().getGameTime() % (20L*MyGoConfig.forest_soul_stone.get()) == 0
-               &&  MyGoUtil.hasNature(livingEntity, ForestSoulStoneItem.class)) {
+               &&  MyGoUtil.hasNature(livingEntity, ForestSoulStoneItem.class)&&livingEntity.isShiftKeyDown()) {
             Level world = livingEntity.level();
             Random random = new Random();
             float rx = random.nextFloat() * 5.0F - 3.0F;

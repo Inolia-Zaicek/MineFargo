@@ -160,7 +160,9 @@ dependencies {
     implementation fg.deobf("blank:citadel-1.20.1:1")
     implementation fg.deobf("blank:curios-1.20.1:1")
     compileOnly fg.deobf("blank:ars_nouveau-1.20.1:1")
+
     implementation fg.deobf("blank:irons_spellbooks-1.20.1:1")
+
     implementation fg.deobf("blank:playeranimator-1.20.1:1")
     implementation fg.deobf("blank:TerraCurio-1.20.1:1")
     compileOnly fg.deobf("blank:touhoulittlemaid-1.20.1:1")

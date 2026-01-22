@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Register;
 
+import com.inolia_zaicek.mine_fargo.Item.Iron.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.*;
@@ -59,13 +60,31 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> AquaticSoulStone=registerCommonMaterials(ZeroingITEM,"aquatic_soul_stone", AquaticSoulStoneItem::new);
     public static RegistryObject<Item> WingSoulStone=registerCommonMaterials(ZeroingITEM,"wing_soul_stone", WingSoulStoneItem::new);
 
-    public static RegistryObject<Item> SoulOfFlight;
+    public static RegistryObject<Item> SoulOfIronSpell;
+    public static RegistryObject<Item> FireSectSoulStone;
+    public static RegistryObject<Item> IceSectSoulStone;
+    public static RegistryObject<Item> LightningSectSoulStone;
+    public static RegistryObject<Item> EvocationSectSoulStone;
+    public static RegistryObject<Item> HolySectSoulStone;
+    public static RegistryObject<Item> BloodSectSoulStone;
+    public static RegistryObject<Item> NatureSectSoulStone;
+    public static RegistryObject<Item> EnderSectSoulStone;
+    public static RegistryObject<Item> EldritchSectSoulStone;
 
     public static void register(IEventBus bus){
         ZeroingITEM.register(bus);
         if (ModList.get().isLoaded("irons_spellbooks")) {
             IronItem.register(bus);
-            SoulOfFlight = registerCommonMaterials(ZeroingITEM,"soul_of_flight", () -> new TooltipItem(new Item.Properties().stacksTo(64).fireResistant() ));
+            SoulOfIronSpell = registerCommonMaterials(ZeroingITEM,"soul_of_iron_spell", SoulOfIronSpellItem::new);
+            FireSectSoulStone = registerCommonMaterials(ZeroingITEM,"fire_sect_soul_stone", FireSectSoulStoneItem::new);
+            IceSectSoulStone = registerCommonMaterials(ZeroingITEM,"ice_sect_soul_stone", IceSectSoulStoneItem::new);
+            LightningSectSoulStone = registerCommonMaterials(ZeroingITEM,"lightning_sect_soul_stone", LightningSectSoulStoneItem::new);
+            EvocationSectSoulStone = registerCommonMaterials(ZeroingITEM,"evocation_sect_soul_stone", EvocationSectSoulStoneItem::new);
+            HolySectSoulStone = registerCommonMaterials(ZeroingITEM,"holy_sect_soul_stone", HolySectSoulStoneItem::new);
+            BloodSectSoulStone = registerCommonMaterials(ZeroingITEM,"blood_sect_soul_stone", BloodSectSoulStoneItem::new);
+            NatureSectSoulStone = registerCommonMaterials(ZeroingITEM,"nature_sect_soul_stone", NatureSectSoulStoneItem::new);
+            EnderSectSoulStone = registerCommonMaterials(ZeroingITEM,"ender_sect_soul_stone", EnderSectSoulStoneItem::new);
+            EldritchSectSoulStone = registerCommonMaterials(ZeroingITEM,"eldritch_sect_soul_stone", EldritchSectSoulStoneItem::new);
         }
     }
 }

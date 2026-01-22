@@ -27,6 +27,17 @@
     {"id":"mine_fargo:arthropod_soul_stone","required":false},
     {"id":"mine_fargo:animal_soul_stone","required":false},
     {"id":"mine_fargo:aquatic_soul_stone","required":false},
-    {"id":"mine_fargo:wing_soul_stone","required":false}
+    {"id":"mine_fargo:wing_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_iron_spell","required":false},
+    {"id":"mine_fargo:fire_sect_soul_stone","required":false},
+    {"id":"mine_fargo:ice_sect_soul_stone","required":false},
+    {"id":"mine_fargo:lightning_sect_soul_stone","required":false},
+    {"id":"mine_fargo:evocation_sect_soul_stone","required":false},
+    {"id":"mine_fargo:holy_sect_soul_stone","required":false},
+    {"id":"mine_fargo:blood_sect_soul_stone","required":false},
+    {"id":"mine_fargo:nature_sect_soul_stone","required":false},
+    {"id":"mine_fargo:ender_sect_soul_stone","required":false},
+    {"id":"mine_fargo:eldritch_sect_soul_stone","required":false}
   ]
 }

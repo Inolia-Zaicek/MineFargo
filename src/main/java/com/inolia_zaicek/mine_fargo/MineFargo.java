@@ -2,7 +2,10 @@ package com.inolia_zaicek.mine_fargo;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Event.*;
+import com.inolia_zaicek.mine_fargo.Event.BuffEvent;
+import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
+import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Register.Tab;
 import com.inolia_zaicek.mine_fargo.loot.ModLootModifiers;
@@ -13,6 +16,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -43,6 +47,7 @@ public class MineFargo {
         bus.addListener(this::commonSetup);
         // !!! 注册 ClientSetup 事件 !!!
         bus.addListener(this::clientSetup);
+        MyGoEffectsRegister.INOEFFECT.register(bus);
 
         MinecraftForge.EVENT_BUS.register(HurtEvent.class);
         MinecraftForge.EVENT_BUS.register(HealEvent.class);
@@ -51,6 +56,11 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(ExpEvent.class);
         MinecraftForge.EVENT_BUS.register(UseItemEvent.class);
         MinecraftForge.EVENT_BUS.register(FluidCollisionEvent.class);
+        MinecraftForge.EVENT_BUS.register(TeleportEvent.class);
+        MinecraftForge.EVENT_BUS.register(BuffEvent.class);
+        if (ModList.get().isLoaded("irons_spellbooks")) {
+            MinecraftForge.EVENT_BUS.register(IronHurtEvent.class);
+        }
     }
 
     @SubscribeEvent
