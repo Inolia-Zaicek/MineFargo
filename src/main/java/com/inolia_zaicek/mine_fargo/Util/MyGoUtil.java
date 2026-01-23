@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.confluence.mod.item.curio.combat.IMagicQuiver;
@@ -265,21 +266,49 @@ public class MyGoUtil {
     }
     public static boolean hasIron(LivingEntity living, Class<?> targetClass) {
         AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
+        if (ModList.get().isLoaded("irons_spellbooks")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
                     }
                 }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get())) {
+                hasItem.set(true);
             }
-        });
-        //有集合，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get() )){
-            hasItem.set(true);
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasArs(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("ars_nouveau")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
         }
         return hasItem.get();
     }

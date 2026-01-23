@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fantasy_ending"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "item": "fantasy_ending:dream_shadow_helmet"
+    },
+    "B": {
+      "item": "fantasy_ending:dream_shadow_chestplate"
+    },
+    "C": {
+      "item": "fantasy_ending:dream_shadow_leggings"
+    },
+    "D": {
+      "item": "fantasy_ending:dream_shadow_boots"
+    },
+    "E": {
+      "item": "fantasy_ending:fantasy_factor"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:fantacy_sect_soul_stone",
+    "count": 1
+  }
+}

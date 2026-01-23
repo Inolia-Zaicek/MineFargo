@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:shadowwalker_helmet"
+    },
+    "B": {
+      "item": "irons_spellbooks:shadowwalker_chestplate"
+    },
+    "C": {
+      "item": "irons_spellbooks:shadowwalker_leggings"
+    },
+    "D": {
+      "item": "irons_spellbooks:shadowwalker_boots"
+    },
+    "E": {
+      "tag": "irons_spellbooks:ender_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ender_sect_soul_stone",
+    "count": 1
+  }
+}

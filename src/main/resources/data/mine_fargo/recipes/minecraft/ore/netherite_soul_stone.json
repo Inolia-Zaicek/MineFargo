@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "EAF",
+    "EAE",
     "BOC",
-    "GDH"
+    "EDE"
   ],
   "key": {
     "A": {
@@ -19,16 +19,7 @@
       "item": "minecraft:netherite_boots"
     },
     "E": {
-      "item": "minecraft:netherite_sword"
-    },
-    "F": {
-      "item": "minecraft:netherite_pickaxe"
-    },
-    "G": {
-      "item": "minecraft:netherite_axe"
-    },
-    "H": {
-      "item": "minecraft:netherite_shovel"
+      "item": "minecraft:netherite_ingot"
     },
     "O": {
       "item": "mine_fargo:empty_soul_stone"

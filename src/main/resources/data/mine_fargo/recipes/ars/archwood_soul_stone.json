@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "ars_nouveau:red_archwood_sapling"
+    },
+    "B": {
+      "item": "ars_nouveau:blue_archwood_sapling"
+    },
+    "C": {
+      "item": "ars_nouveau:purple_archwood_sapling"
+    },
+    "D": {
+      "item": "ars_nouveau:green_archwood_sapling"
+    },
+    "E": {
+      "item": "ars_nouveau:bombegranate_pod"
+    },
+    "F": {
+      "item": "ars_nouveau:frostaya_pod"
+    },
+    "G": {
+      "item": "ars_nouveau:bastion_pod"
+    },
+    "H": {
+      "item": "ars_nouveau:mendosteen_pod"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:archwood_soul_stone",
+    "count": 1
+  }
+}

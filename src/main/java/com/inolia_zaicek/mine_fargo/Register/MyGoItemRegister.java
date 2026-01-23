@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Register;
 
+import com.inolia_zaicek.mine_fargo.Item.Ars.*;
 import com.inolia_zaicek.mine_fargo.Item.Iron.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.*;
@@ -70,6 +71,23 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> NatureSectSoulStone;
     public static RegistryObject<Item> EnderSectSoulStone;
     public static RegistryObject<Item> EldritchSectSoulStone;
+    public static RegistryObject<Item> AquaSectSoulStone;
+    public static RegistryObject<Item> SoundSectSoulStone;
+    public static RegistryObject<Item> EarthSectSoulStone;
+    public static RegistryObject<Item> FantacySectSoulStone;
+
+    public static RegistryObject<Item> SoulOfArsNouveau;
+    public static RegistryObject<Item> ArsSourceSoulStone;
+    public static RegistryObject<Item> DrygmySoulStone;
+    public static RegistryObject<Item> WhirlisprigSoulStone;
+    public static RegistryObject<Item> StarbuncleSoulStone;
+    public static RegistryObject<Item> BookwyrmSoulStone;
+    public static RegistryObject<Item> WixieSoulStone;
+    public static RegistryObject<Item> AmethystGolemSoulStone;
+    public static RegistryObject<Item> ArchwoodSoulStone;
+    public static RegistryObject<Item> WildenSoulStone;
+    public static RegistryObject<Item> SirenSoulStone;
+    public static RegistryObject<Item> FirenandoSoulStone;
 
     public static void register(IEventBus bus){
         ZeroingITEM.register(bus);
@@ -85,6 +103,34 @@ public class MyGoItemRegister {
             NatureSectSoulStone = registerCommonMaterials(ZeroingITEM,"nature_sect_soul_stone", NatureSectSoulStoneItem::new);
             EnderSectSoulStone = registerCommonMaterials(ZeroingITEM,"ender_sect_soul_stone", EnderSectSoulStoneItem::new);
             EldritchSectSoulStone = registerCommonMaterials(ZeroingITEM,"eldritch_sect_soul_stone", EldritchSectSoulStoneItem::new);
+            if (ModList.get().isLoaded("traveloptics")) {
+                AquaSectSoulStone = registerCommonMaterials(ZeroingITEM,"aqua_sect_soul_stone", AquaSectSoulStoneItem::new);
+            }
+            if (ModList.get().isLoaded("alshanex_familiars")) {
+                SoundSectSoulStone = registerCommonMaterials(ZeroingITEM,"sound_sect_soul_stone", SoundSectSoulStoneItem::new);
+            }
+            if (ModList.get().isLoaded("gtbcs_geomancy_plus")) {
+                EarthSectSoulStone = registerCommonMaterials(ZeroingITEM,"earth_sect_soul_stone", EarthSectSoulStoneItem::new);
+            }
+            if (ModList.get().isLoaded("gtbcs_geomancy_plus")) {
+                FantacySectSoulStone = registerCommonMaterials(ZeroingITEM,"fantacy_sect_soul_stone", FantacySectSoulStoneItem::new);
+            }
+        }
+        if (ModList.get().isLoaded("ars_nouveau")) {
+            SoulOfArsNouveau = registerCommonMaterials(ZeroingITEM,"soul_of_ars_nouveau", SoulOfArsNouveauItem::new);
+            ArsSourceSoulStone = registerCommonMaterials(ZeroingITEM,"ars_source_soul_stone", ArsSourceSoulStoneItem::new);
+            DrygmySoulStone = registerCommonMaterials(ZeroingITEM,"drygmy_soul_stone", DrygmySoulStoneItem::new);
+            WhirlisprigSoulStone = registerCommonMaterials(ZeroingITEM,"whirlisprig_soul_stone", WhirlisprigSoulStoneItem::new);
+            StarbuncleSoulStone = registerCommonMaterials(ZeroingITEM,"starbuncle_soul_stone", StarbuncleSoulStoneItem::new);
+            BookwyrmSoulStone = registerCommonMaterials(ZeroingITEM,"bookwyrm_soul_stone", BookwyrmSoulStoneItem::new);
+            WixieSoulStone = registerCommonMaterials(ZeroingITEM,"wixie_soul_stone", WixieSoulStoneItem::new);
+            AmethystGolemSoulStone = registerCommonMaterials(ZeroingITEM,"amethyst_golem_soul_stone", AmethystGolemSoulStoneItem::new);
+            ArchwoodSoulStone = registerCommonMaterials(ZeroingITEM,"archwood_soul_stone", ArchwoodSoulStoneItem::new);
+            WildenSoulStone = registerCommonMaterials(ZeroingITEM,"wilden_soul_stone", WildenSoulStoneItem::new);
+            if (ModList.get().isLoaded("ars_elemental")) {
+                SirenSoulStone = registerCommonMaterials(ZeroingITEM, "siren_soul_stone", SirenSoulStoneItem::new);
+                FirenandoSoulStone = registerCommonMaterials(ZeroingITEM, "firenando_soul_stone", FirenandoSoulStoneItem::new);
+            }
         }
     }
 }

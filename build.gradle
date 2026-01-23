@@ -159,7 +159,9 @@ dependencies {
     implementation fg.deobf("blank:placebo-1.20.1:1")
     implementation fg.deobf("blank:citadel-1.20.1:1")
     implementation fg.deobf("blank:curios-1.20.1:1")
-    compileOnly fg.deobf("blank:ars_nouveau-1.20.1:1")
+
+    implementation fg.deobf("blank:ars_nouveau-1.20.1:1")
+    implementation fg.deobf("blank:ars_elemental-1.20.1:1")
 
     implementation fg.deobf("blank:irons_spellbooks-1.20.1:1")
 
@@ -174,10 +176,17 @@ dependencies {
     compileOnly fg.deobf("blank:malum-1.20.1:1.6.7")
     compileOnly fg.deobf("blank:goety-2.5.36.1-1.20.1:1")
 
-    compileOnly fg.deobf("blank:traveloptics-1.20.1:1")
+    implementation fg.deobf("blank:traveloptics-1.20.1:1")
+    implementation fg.deobf("blank:alexscaves-1.20.1:1")
+    implementation fg.deobf("blank:cataclysm-1.20.1:1")
+    implementation fg.deobf("blank:lionfishapi-1.20.1:1")
+
+    compileOnly fg.deobf("blank:gtbcs_spell_lib-1.20.1:1")
+    compileOnly fg.deobf("blank:mowziesmobs-1.20.1:1")
     compileOnly fg.deobf("blank:gtbcs_geomancy_plus-1.20.1:1")
+
     compileOnly fg.deobf("blank:fantasy_ending-1.20.1:1")
-    compileOnly fg.deobf("blank:alshanex_familiars-1.20.1:1")
+    implementation fg.deobf("blank:alshanex_familiars-1.20.1:1")
     compileOnly fg.deobf("blank:musketmod-1.20.1:1")
     compileOnly fg.deobf("blank:cgm-1.20.1:1")
     compileOnly fg.deobf("blank:framework-1.20.1:1")

@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:archevoker_helmet"
+    },
+    "B": {
+      "item": "irons_spellbooks:archevoker_chestplate"
+    },
+    "C": {
+      "item": "irons_spellbooks:archevoker_leggings"
+    },
+    "D": {
+      "item": "irons_spellbooks:archevoker_boots"
+    },
+    "E": {
+      "tag": "irons_spellbooks:evocation_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:evocation_sect_soul_stone",
+    "count": 1
+  }
+}

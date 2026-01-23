@@ -92,16 +92,16 @@
 "tooltip.mine_fargo.soul_of_iron_spell.lightning_sect_soul_stone":"雷霆学派——提升%d%%雷霆法强，在造成雷霆法术伤害时，会获得时长等同于伤害数额%d%%的超负荷I效果，最多提供%d秒超负荷I",
 
 "item.mine_fargo.evocation_sect_soul_stone":"唤魔学派魂石",
-"tooltip.mine_fargo.evocation_sect_soul_stone.text":"提升%d%%唤魔法强，穿戴者的随从获得%d%%伤害增幅与%d%%伤害减免",
-"tooltip.mine_fargo.soul_of_iron_spell.evocation_sect_soul_stone":"唤魔学派——提升%d%%唤魔法强，穿戴者的随从获得%d%%伤害增幅与%d%%伤害减免",
+"tooltip.mine_fargo.evocation_sect_soul_stone.text":"提升%d%%唤魔法强，穿戴者的随从获得%d%%伤害增幅与%d%%伤害减免，且穿戴者的唤魔法术伤害提升%d%%数额",
+"tooltip.mine_fargo.soul_of_iron_spell.evocation_sect_soul_stone":"唤魔学派——提升%d%%唤魔法强，穿戴者的随从获得%d%%伤害增幅与%d%%伤害减免，且穿戴者的唤魔法术伤害提升%d%%数额",
 
 "item.mine_fargo.holy_sect_soul_stone":"神圣学派魂石",
 "tooltip.mine_fargo.holy_sect_soul_stone.text":"提升%d%%神圣法强，在造成神圣法术伤害时，会对目标施加%d秒的神圣指引效果，并使伤害提升%d%%数额",
 "tooltip.mine_fargo.soul_of_iron_spell.holy_sect_soul_stone":"神圣学派——提升%d%%神圣法强，在造成神圣法术伤害时，会对目标施加%d秒的神圣指引效果，并使伤害提升%d%%数额",
 
 "item.mine_fargo.blood_sect_soul_stone":"猩红学派魂石",
-"tooltip.mine_fargo.blood_sect_soul_stone.text":"提升%d%%猩红法强，在造成血腥法术伤害时，会治疗自身相当于伤害数额%d%%的生命值,周围41x41范围内的随从也会获得%d%%的治疗量",
-"tooltip.mine_fargo.soul_of_iron_spell.blood_sect_soul_stone":"猩红学派——提升%d%%猩红法强，在造成血腥法术伤害时，会治疗自身相当于伤害数额%d%%的生命值,周围41x41范围内的随从也会获得%d%%的治疗量",
+"tooltip.mine_fargo.blood_sect_soul_stone.text":"提升%d%%猩红法强，在造成猩红法术伤害时，会治疗自身相当于伤害数额%d%%的生命值,周围41x41范围内的随从也会获得%d%%的治疗量",
+"tooltip.mine_fargo.soul_of_iron_spell.blood_sect_soul_stone":"猩红学派——提升%d%%猩红法强，在造成猩红法术伤害时，会治疗自身相当于伤害数额%d%%的生命值,周围41x41范围内的随从也会获得%d%%的治疗量",
 
 "item.mine_fargo.nature_sect_soul_stone":"自然学派魂石",
 "tooltip.mine_fargo.nature_sect_soul_stone.text":"提升%d%%自然法强，在造成自然法术伤害时，会延长目标中毒/枯萎/破甲状态%d%%时间，并有%d%%概率使状态等级提升1级(至多提升到%d级)",
@@ -114,6 +114,67 @@
 "item.mine_fargo.eldritch_sect_soul_stone":"邪术学派魂石",
 "tooltip.mine_fargo.eldritch_sect_soul_stone.text":"提升%d%%邪术法强，在造成邪术法术伤害时，会对目标施加%d秒的黑暗、缓慢、虚弱、失明效果，并使伤害提升%d%%数额",
 "tooltip.mine_fargo.soul_of_iron_spell.eldritch_sect_soul_stone":"邪术学派——提升%d%%邪术法强，在造成邪术法术伤害时，会对目标施加%d秒的黑暗、缓慢、虚弱、失明效果，并使伤害提升%d%%数额",
+
+"item.mine_fargo.aqua_sect_soul_stone":"源流学派魂石",
+"tooltip.mine_fargo.aqua_sect_soul_stone.text":"提升%d%%源流法强，在造成源流法术伤害时，会对目标施加%d秒的潮湿效果，造成雷霆、冰霜、源流伤害时，有%d%%概率提升1级状态等级(至多%d级)",
+"tooltip.mine_fargo.soul_of_iron_spell.aqua_sect_soul_stone":"源流学派——提升%d%%源流法强，在造成源流法术伤害时，会对目标施加%d秒的潮湿效果，造成雷霆、冰霜、源流伤害时，有%d%%概率提升1级状态等级",
+
+"item.mine_fargo.sound_sect_soul_stone":"律灵学派魂石",
+"tooltip.mine_fargo.sound_sect_soul_stone.text":"提升%d%%律灵法强，周围41x41的魔宠获得%d%%伤害减免与%d%%伤害增幅，且穿戴者的律灵法术伤害提升%d%%数额",
+"tooltip.mine_fargo.soul_of_iron_spell.sound_sect_soul_stone":"律灵学派——提升%d%%律灵法强，周围41x41的魔宠获得%d%%伤害减免与%d%%伤害增幅，且穿戴者的律灵法术伤害提升%d%%数额",
+
+"item.mine_fargo.earth_sect_soul_stone":"岩土学派魂石",
+"tooltip.mine_fargo.earth_sect_soul_stone.text":"提升%d%%岩土法强，在造成岩土法术伤害时，会对目标施加%d秒的侵蚀效果，且有%d%%概率使目标侵蚀等级提升1级(至多%d级)",
+"tooltip.mine_fargo.soul_of_iron_spell.earth_sect_soul_stone":"岩土学派——提升%d%%岩土法强，在造成岩土法术伤害时，会对目标施加%d秒的侵蚀效果，且有%d%%概率使目标侵蚀等级提升1级(至多%d级)",
+
+"item.mine_fargo.fantacy_sect_soul_stone":"梦幻学派魂石",
+"tooltip.mine_fargo.fantacy_sect_soul_stone.text":"提升%d%%法术强度、%d%%梦幻法术强度、%d梦影伤害、%d%%梦影伤害抗性、%d梦幻终焉伤害、%d%%梦幻终焉伤害抗性，造成的梦幻法术伤害提升20%%数额",
+"tooltip.mine_fargo.soul_of_iron_spell.fantacy_sect_soul_stone":"梦幻学派——提升%d%%法术强度、%d%%梦幻法术强度、%d梦影伤害、%d%%梦影伤害抗性、%d梦幻终焉伤害、%d%%梦幻终焉伤害抗性，造成的梦幻法术伤害提升20%%数额",
+
+"item.mine_fargo.soul_of_ars_nouveau":"魔艺之魂",
+"item.mine_fargo.ars_source_soul_stone":"魔源魂石",
+"tooltip.mine_fargo.ars_source_soul_stone.text":"提升%d魔源再生、%d最大魔源、%d魔艺法术伤害",
+"tooltip.mine_fargo.soul_of_ars_nouveau.ars_source_soul_stone":"魔源——提升%d魔源再生、%d最大魔源、%d魔艺法术伤害",
+
+"item.mine_fargo.drygmy_soul_stone":"德格米魂石",
+"tooltip.mine_fargo.drygmy_soul_stone.text":"提升%d魔艺法术伤害，击杀实体时额外获得%d份战利品",
+"tooltip.mine_fargo.soul_of_ars_nouveau.drygmy_soul_stone":"德格米——提升%d魔艺法术伤害，击杀实体时额外获得%d份战利品",
+
+"item.mine_fargo.whirlisprig_soul_stone":"风转草魂石",
+"tooltip.mine_fargo.whirlisprig_soul_stone.text":"提升%d魔符消耗减免，进食时额外回复%d%%饱和度与饥饿度",
+"tooltip.mine_fargo.soul_of_ars_nouveau.whirlisprig_soul_stone":"风转草——提升%d魔符消耗减免，进食时额外回复%d%%饱和度与饥饿度",
+
+"item.mine_fargo.starbuncle_soul_stone":"星宝石兽魂石",
+"tooltip.mine_fargo.starbuncle_soul_stone.text":"提升%d%%移动速度",
+"tooltip.mine_fargo.soul_of_ars_nouveau.starbuncle_soul_stone":"星宝石兽——提升%d%%移动速度",
+
+"item.mine_fargo.bookwyrm_soul_stone":"书龙魂石",
+"tooltip.mine_fargo.bookwyrm_soul_stone.text":"提升%d魔符消耗减免、%d魔艺法术伤害",
+"tooltip.mine_fargo.soul_of_ars_nouveau.bookwyrm_soul_stone":"书龙——提升%d魔符消耗减免、%d魔艺法术伤害",
+
+"item.mine_fargo.wixie_soul_stone":"薇克精魂石",
+"tooltip.mine_fargo.wixie_soul_stone.text":"获得的正面药水时长提升%d%%，所受到的负面状态时长降低%d%%",
+"tooltip.mine_fargo.soul_of_ars_nouveau.wixie_soul_stone":"薇克精——获得的正面药水时长提升%d%%，所受到的负面状态时长降低%d%%",
+
+"item.mine_fargo.amethyst_golem_soul_stone":"紫水晶傀儡魂石",
+"tooltip.mine_fargo.amethyst_golem_soul_stone.text":"提升%d%%击退抗性，持续获得%d级护盾效果(可与至高木魂石等级叠加)",
+"tooltip.mine_fargo.soul_of_ars_nouveau.amethyst_golem_soul_stone":"紫水晶傀儡——提升%d%%击退抗性，持续获得%d级护盾效果",
+
+"item.mine_fargo.archwood_soul_stone":"至高木魂石",
+"tooltip.mine_fargo.archwood_soul_stone.text":"持续获得%d级护盾效果与%d级康复效果，且攻击有%d%%概率附加%d秒的%d级爆炸效果和%d级冰冻效果",
+"tooltip.mine_fargo.soul_of_ars_nouveau.archwood_soul_stone":"至高木——持续获得%d级护盾效果与%d级康复效果，且攻击有%d%%概率附加%d秒的%d级爆炸效果和%d级冰冻效果",
+
+"item.mine_fargo.wilden_soul_stone":"荒野魂石",
+"tooltip.mine_fargo.wilden_soul_stone.text":"提升%d%%魔源再生、%d%%最大魔源、%d魔艺法术伤害",
+"tooltip.mine_fargo.soul_of_ars_nouveau.wilden_soul_stone":"荒野——提升%d%%魔源再生、%d%%最大魔源、%d魔艺法术伤害",
+
+"item.mine_fargo.siren_soul_stone":"塞壬魂石",
+"tooltip.mine_fargo.siren_soul_stone.text":"提升%d魔艺法术伤害，持续获得海豚的恩惠II效果",
+"tooltip.mine_fargo.soul_of_ars_nouveau.siren_soul_stone":"塞壬——提升%d%%魔源再生、%d%%最大魔源、%d魔艺法术伤害",
+
+"item.mine_fargo.firenando_soul_stone":"烈焰加农魂石",
+"tooltip.mine_fargo.firenando_soul_stone.text":"提升%d魔符消耗减免、%d魔艺法术伤害，持续获得抗火效果",
+"tooltip.mine_fargo.soul_of_ars_nouveau.firenando_soul_stone":"烈焰加农——提升%d魔符消耗减免、%d魔艺法术伤害，持续获得抗火效果",
 
 "effect.mine_fargo.enderference": "抑影",
 "curios.identifier.soul_stone": "魂石",

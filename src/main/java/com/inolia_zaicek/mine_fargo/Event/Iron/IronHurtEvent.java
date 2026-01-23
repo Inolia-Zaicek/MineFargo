@@ -62,8 +62,8 @@ public class IronHurtEvent {
                         addLevel+=1;
                     }
                     if(attacked.hasEffect(MobEffects.POISON)){
-                        int level = Objects.requireNonNull(attacker.getEffect(MobEffects.POISON)).getAmplifier();
-                        int time = Objects.requireNonNull(attacker.getEffect(MobEffects.POISON)).getDuration();
+                        int level = Objects.requireNonNull(attacked.getEffect(MobEffects.POISON)).getAmplifier();
+                        int time = Objects.requireNonNull(attacked.getEffect(MobEffects.POISON)).getDuration();
                         //最终的等级（不会超过上限
                         int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get(),level+addLevel);
                         attacked.addEffect(new MobEffectInstance(MobEffects.POISON, (int) ((MyGoConfig.nature_sect_soul_stone_time.get()+1)*time), finalLevel));
@@ -73,8 +73,8 @@ public class IronHurtEvent {
                         }
                     }
                     if(attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))){
-                        int level = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))).getAmplifier();
-                        int time = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))).getDuration();
+                        int level = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))).getAmplifier();
+                        int time = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))).getDuration();
                         //最终的等级（不会超过上限
                         int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get(),level+addLevel);
                         attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))), (int) ((MyGoConfig.nature_sect_soul_stone_time.get()+1)*time), finalLevel));
@@ -84,8 +84,8 @@ public class IronHurtEvent {
                         }
                     }
                     if(attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))){
-                        int level = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))).getAmplifier();
-                        int time = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))).getDuration();
+                        int level = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))).getAmplifier();
+                        int time = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))).getDuration();
                         //最终的等级（不会超过上限
                         int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get(),level+addLevel);
                         attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))), (int) ((MyGoConfig.nature_sect_soul_stone_time.get()+1)*time), finalLevel));
@@ -160,6 +160,9 @@ public class IronHurtEvent {
                                 (int) (MyGoConfig.ender_sect_soul_stone_time.get()*20), 0));
                     }
                     number += MyGoConfig.ender_sect_soul_stone_damage.get();
+                }
+                if (event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)&& MyGoUtil.hasIron(attacker, EvocationSectSoulStoneItem.class)){
+                    number += MyGoConfig.evocation_sect_soul_stone_owner_damage.get();
                 }
                 double damage = (event.getAmount() * number + fixedNumber) * overNumber;
                 if (event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC)&& MyGoUtil.hasIron(attacker, LightningSectSoulStoneItem.class)){

@@ -1,6 +1,9 @@
 package com.inolia_zaicek.mine_fargo.Event;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.Ars.AmethystGolemSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.Ars.ArchwoodSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.Ars.FirenandoSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.AquaticSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.ForestSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.LavaSoulStoneItem;
@@ -9,6 +12,7 @@ import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -21,8 +25,11 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
 import java.util.Random;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
@@ -38,6 +45,36 @@ public class TickEvent {
         if (livingEntity.level().getGameTime() % 10L == 0) {
             if (MyGoUtil.hasEntity(livingEntity, AquaticSoulStoneItem.class)){
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING,300,0,false,false,false));
+            }
+            //新生魔艺部分
+            if (ModList.get().isLoaded("ars_nouveau")) {
+                if (ModList.get().isLoaded("ars_elemental")) {
+                    if (MyGoUtil.hasSpecificItem(livingEntity, ArchwoodSoulStoneItem.class)) {
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 300, 1, false, false, false));
+                    }
+                    if (MyGoUtil.hasSpecificItem(livingEntity, FirenandoSoulStoneItem.class)) {
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300, 0, false, false, false));
+                    }
+                }
+                int shielding = 0;
+                //护盾等级分开计算
+                if(MyGoUtil.hasArs(livingEntity, AmethystGolemSoulStoneItem.class)){
+                    shielding+=(int)(MyGoConfig.amethyst_golem_soul_stone_level.get()*1);
+                }
+                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStoneItem.class)){
+                    shielding+=(int)(MyGoConfig.archwood_soul_stone_purple.get()*1);
+                }
+                if (shielding>0) {
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "shielding"))),
+                            300, shielding-1, false, false, false));
+                }
+                //康复
+                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStoneItem.class)){
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "recovery"))),
+                            300, (int)(MyGoConfig.archwood_soul_stone_green.get()*1-1), false, false, false));
+                }
             }
         }
         if (livingEntity.level().getGameTime() % 60L == 0) {

@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "AOA",
+    "EAE"
+  ],
+  "key": {
+    "A": {
+      "item": "ars_nouveau:wixie_charm"
+    },
+    "E": {
+      "tag": "forge:storage_blocks/source"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:wixie_soul_stone",
+    "count": 1
+  }
+}

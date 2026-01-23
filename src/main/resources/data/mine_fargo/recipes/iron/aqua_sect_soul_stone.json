@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "item": "traveloptics:deepling_mage_armor_helmet"
+    },
+    "B": {
+      "item": "traveloptics:deepling_mage_armor_robe"
+    },
+    "C": {
+      "item": "traveloptics:deepling_mage_armor_leggings"
+    },
+    "D": {
+      "item": "traveloptics:deepling_mage_armor_boots"
+    },
+    "E": {
+      "tag": "traveloptics:aqua_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:aqua_sect_soul_stone",
+    "count": 1
+  }
+}

@@ -38,6 +38,23 @@
     {"id":"mine_fargo:blood_sect_soul_stone","required":false},
     {"id":"mine_fargo:nature_sect_soul_stone","required":false},
     {"id":"mine_fargo:ender_sect_soul_stone","required":false},
-    {"id":"mine_fargo:eldritch_sect_soul_stone","required":false}
+    {"id":"mine_fargo:eldritch_sect_soul_stone","required":false},
+    {"id":"mine_fargo:aqua_sect_soul_stone","required":false},
+    {"id":"mine_fargo:sound_sect_soul_stone","required":false},
+    {"id":"mine_fargo:earth_sect_soul_stone","required":false},
+    {"id":"mine_fargo:fantacy_sect_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_ars_nouveau","required":false},
+    {"id":"mine_fargo:ars_source_soul_stone","required":false},
+    {"id":"mine_fargo:drygmy_soul_stone","required":false},
+    {"id":"mine_fargo:whirlisprig_soul_stone","required":false},
+    {"id":"mine_fargo:starbuncle_soul_stone","required":false},
+    {"id":"mine_fargo:bookwyrm_soul_stone","required":false},
+    {"id":"mine_fargo:wixie_soul_stone","required":false},
+    {"id":"mine_fargo:amethyst_golem_soul_stone","required":false},
+    {"id":"mine_fargo:archwood_soul_stone","required":false},
+    {"id":"mine_fargo:wilden_soul_stone","required":false},
+    {"id":"mine_fargo:siren_soul_stone","required":false},
+    {"id":"mine_fargo:firenando_soul_stone","required":false}
   ]
 }

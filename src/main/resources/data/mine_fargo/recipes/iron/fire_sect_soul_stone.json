@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:pyromancer_helmet"
+    },
+    "B": {
+      "item": "irons_spellbooks:pyromancer_chestplate"
+    },
+    "C": {
+      "item": "irons_spellbooks:pyromancer_leggings"
+    },
+    "D": {
+      "item": "irons_spellbooks:pyromancer_boots"
+    },
+    "E": {
+      "tag": "irons_spellbooks:fire_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:fire_sect_soul_stone",
+    "count": 1
+  }
+}

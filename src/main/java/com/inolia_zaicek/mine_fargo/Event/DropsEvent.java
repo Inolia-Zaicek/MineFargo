@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Event;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.Ars.DrygmySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.AnimalSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.server.MinecraftServer;
@@ -29,6 +30,9 @@ public class DropsEvent {
                 int number = 0;
                 if (MyGoUtil.hasEntity(livingEntity, AnimalSoulStoneItem.class)) {
                     number += (int)(MyGoConfig.animal_soul_stone.get()*1);
+                }
+                if (MyGoUtil.hasArs(livingEntity, DrygmySoulStoneItem.class)) {
+                    number += (int)(MyGoConfig.drygmy_soul_stone_drop.get()*1);
                 }
                 if (number > 0) {
                     for (int i = 0; i < number; i++) {

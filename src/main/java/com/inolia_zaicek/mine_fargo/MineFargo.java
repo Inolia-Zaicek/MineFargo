@@ -2,8 +2,12 @@ package com.inolia_zaicek.mine_fargo;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Event.*;
+import com.inolia_zaicek.mine_fargo.Event.Ars.ArsHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.BuffEvent;
+import com.inolia_zaicek.mine_fargo.Event.Iron.AFHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
@@ -60,6 +64,18 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(BuffEvent.class);
         if (ModList.get().isLoaded("irons_spellbooks")) {
             MinecraftForge.EVENT_BUS.register(IronHurtEvent.class);
+            if (ModList.get().isLoaded("traveloptics")) {
+                MinecraftForge.EVENT_BUS.register(TOHurtEvent.class);
+            }
+            if (ModList.get().isLoaded("alshanex_familiars")) {
+                MinecraftForge.EVENT_BUS.register(AFHurtEvent.class);
+            }
+            if (ModList.get().isLoaded("fantasy_ending")) {
+                MinecraftForge.EVENT_BUS.register(FEHurtEvent.class);
+            }
+        }
+        if (ModList.get().isLoaded("ars_nouveau")) {
+            MinecraftForge.EVENT_BUS.register(ArsHurtEvent.class);
         }
     }
 
