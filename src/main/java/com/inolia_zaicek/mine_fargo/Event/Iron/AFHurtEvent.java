@@ -70,6 +70,22 @@ public class AFHurtEvent {
                     if (event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
                     ) {
                         number += MyGoConfig.sound_sect_soul_stone_owner_damage.get();
+                    }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)
+                            ||event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC)||event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)
+                            ||event.getSource().is(ISSDamageTypes.BLOOD_MAGIC)||event.getSource().is(ISSDamageTypes.HOLY_MAGIC)
+                            ||event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC)||event.getSource().is(ISSDamageTypes.ENDER_MAGIC)
+                            ||event.getSource().is(ISSDamageTypes.NATURE_MAGIC)
+                            || (ModList.get().isLoaded("traveloptics")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
+                    ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("gtbcs_geomancy_plus", "geo_magic"))
+                    ) || (ModList.get().isLoaded("fantasy_ending")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("fantasy_ending", "ds_power"))
+                    ) || (ModList.get().isLoaded("fantasy_ending")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("fantasy_ending", "fe_power"))
+                    )
+                    ) {
+                        number += MyGoConfig.sound_sect_soul_stone_owner_damage.get()*MyGoConfig.sound_sect_soul_stone_other.get();
                     }
                 }
                 String killedEntityId = EntityType.getKey(attacker.getType()).toString();

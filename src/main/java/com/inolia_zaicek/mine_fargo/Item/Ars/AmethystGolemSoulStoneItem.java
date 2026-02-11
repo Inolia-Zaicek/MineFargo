@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class AmethystGolemSoulStoneItem extends Item implements ICurioItem {
+public class AmethystGolemSoulStoneItem extends Item implements ICurioItem,ArsST {
     public AmethystGolemSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -38,7 +38,7 @@ public class AmethystGolemSoulStoneItem extends Item implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        atts.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.amethyst_golem_soul_stone.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.amethyst_golem_soul_stone.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

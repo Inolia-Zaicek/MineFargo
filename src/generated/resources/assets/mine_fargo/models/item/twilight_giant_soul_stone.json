@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mine_fargo:item/twilight_giant_soul_stone"
+  }
+}

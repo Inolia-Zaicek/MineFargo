@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings({"all", "removal"})
-public class EmeraldSoulStoneItem extends Item implements ICurioItem, OresSoulStone  {
+public class EmeraldSoulStoneItem extends Item implements ICurioItem, OresST {
     public EmeraldSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:ironwood_helmet"
+    },
+    "B": {
+      "item": "twilightforest:ironwood_chestplate"
+    },
+    "C": {
+      "item": "twilightforest:ironwood_leggings"
+    },
+    "D": {
+      "item": "twilightforest:ironwood_boots"
+    },
+    "E": {
+      "item": "twilightforest:ironwood_sword"
+    },
+    "F": {
+      "item": "twilightforest:ironwood_pickaxe"
+    },
+    "G": {
+      "item": "twilightforest:ironwood_axe"
+    },
+    "H": {
+      "item": "twilightforest:ironwood_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ironwood_soul_stone",
+    "count": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tacz"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:p90\"}"
+    },
+    "B": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:vector45\"}"
+    },
+    "C": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:hk_mp5a5\"}"
+    },
+    "D": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:uzi\"}"
+    },
+    "E": {
+      "tag": "forge:gunpowder"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:submachine_gun_soul_stone",
+    "count": 1
+  }
+}

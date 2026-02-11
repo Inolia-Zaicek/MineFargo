@@ -27,7 +27,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class SoulOfArsNouveauItem extends DiscountRing implements ICurioItem {
+public class SoulOfArsNouveauItem extends DiscountRing implements ICurioItem  {
     public SoulOfArsNouveauItem() {super();}
     @Override
     public int getManaDiscount() {
@@ -93,11 +93,11 @@ public class SoulOfArsNouveauItem extends DiscountRing implements ICurioItem {
                 , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.wilden_soul_stone_damage.get()+
                         MyGoConfig.ars_source_soul_stone_damage.get()+MyGoConfig.drygmy_soul_stone_damage.get(), AttributeModifier.Operation.ADDITION));
         atts.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.starbuncle_soul_stone.get(), AttributeModifier.Operation.MULTIPLY_BASE));
-        atts.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.amethyst_golem_soul_stone.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.amethyst_golem_soul_stone.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasArs(slotContext.entity(), SoulOfArsNouveauItem.class);
+        return ! MyGoUtil.hasSoulArs(slotContext.entity(), ArsST.class);
     }
 }

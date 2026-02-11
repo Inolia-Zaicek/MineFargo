@@ -1,0 +1,31 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:cloud_golem_soul_stone"
+        },
+        {
+            "item": "mine_fargo:frostbitten_golem_soul_stone"
+        },
+        {
+            "item": "mine_fargo:ancient_guardian_soul_stone"
+        },
+        {
+            "item": "mine_fargo:posessed_paladin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:skeletosaurus_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_legendary_monsters",
+        "count": 1
+    }
+}

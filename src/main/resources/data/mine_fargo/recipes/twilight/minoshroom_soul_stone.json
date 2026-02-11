@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:minoshroom_trophy"
+    },
+    "B": {
+      "item": "twilightforest:meef_stroganoff"
+    },
+    "C": {
+      "item": "twilightforest:meef_stroganoff"
+    },
+    "D": {
+      "item": "twilightforest:diamond_minotaur_axe"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:minoshroom_soul_stone",
+    "count": 1
+  }
+}

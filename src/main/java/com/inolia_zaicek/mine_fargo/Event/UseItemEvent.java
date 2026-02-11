@@ -11,6 +11,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BowlFoodItem;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 
 import java.util.Random;
 
@@ -27,16 +28,18 @@ public class UseItemEvent {
                 event.setResultStack(event.getItem());
             }
         }
-        if (MyGoUtil.hasNature(event.getEntity(), WhirlisprigSoulStoneItem.class) &&
-                //可食用
-                (event.getItem().getItem().isEdible() &&event.getEntity() instanceof Player player)) {
-            int food = player.getFoodData().getFoodLevel();
-            float saturation = player.getFoodData().getSaturationLevel();
-            int itemFood = event.getItem().getItem().getFoodProperties().getNutrition();
-            float itemSaturation = event.getItem().getItem().getFoodProperties().getSaturationModifier();
-            //自己的食物数据+物品的额外食物数据
-            player.getFoodData().setFoodLevel((int) Math.min(food + MyGoConfig.whirlisprig_soul_stone_food.get()*itemFood, 20));
-            player.getFoodData().setSaturation((int) Math.min(saturation + MyGoConfig.whirlisprig_soul_stone_food.get()*itemSaturation, 20));
+        if (ModList.get().isLoaded("ars_nouveau")) {
+            if (MyGoUtil.hasNature(event.getEntity(), WhirlisprigSoulStoneItem.class) &&
+                    //可食用
+                    (event.getItem().getItem().isEdible() && event.getEntity() instanceof Player player)) {
+                int food = player.getFoodData().getFoodLevel();
+                float saturation = player.getFoodData().getSaturationLevel();
+                int itemFood = event.getItem().getItem().getFoodProperties().getNutrition();
+                float itemSaturation = event.getItem().getItem().getFoodProperties().getSaturationModifier();
+                //自己的食物数据+物品的额外食物数据
+                player.getFoodData().setFoodLevel((int) Math.min(food + MyGoConfig.whirlisprig_soul_stone_food.get() * itemFood, 20));
+                player.getFoodData().setSaturation((int) Math.min(saturation + MyGoConfig.whirlisprig_soul_stone_food.get() * itemSaturation, 20));
+            }
         }
     }
 }

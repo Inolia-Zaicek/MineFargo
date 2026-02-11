@@ -1,0 +1,41 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AFB",
+    "EOE",
+    "CFD"
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:yeti_helmet"
+    },
+    "B": {
+      "item": "twilightforest:yeti_chestplate"
+    },
+    "C": {
+      "item": "twilightforest:yeti_leggings"
+    },
+    "D": {
+      "item": "twilightforest:yeti_boots"
+    },
+    "E": {
+      "item": "twilightforest:ice_bomb"
+    },
+    "F": {
+      "item": "twilightforest:alpha_yeti_trophy"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:alpha_yeti_soul_stone",
+    "count": 1
+  }
+}

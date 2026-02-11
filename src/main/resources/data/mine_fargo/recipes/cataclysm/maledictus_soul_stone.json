@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "cataclysm:cursium_helmet"
+    },
+    "B": {
+      "item": "cataclysm:cursium_chestplate"
+    },
+    "C": {
+      "item": "cataclysm:cursium_leggings"
+    },
+    "D": {
+      "item": "cataclysm:cursium_boots"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:maledictus_soul_stone",
+    "count": 1
+  }
+}

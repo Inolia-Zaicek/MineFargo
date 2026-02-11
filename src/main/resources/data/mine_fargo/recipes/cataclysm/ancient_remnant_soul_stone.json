@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "cataclysm:ancient_metal_ingot"
+    },
+    "B": {
+      "item": "cataclysm:bone_reptile_helmet"
+    },
+    "C": {
+      "item": "cataclysm:bone_reptile_chestplate"
+    },
+    "D": {
+      "item": "cataclysm:remnant_skull"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ancient_remnant_soul_stone",
+    "count": 1
+  }
+}

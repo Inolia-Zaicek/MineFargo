@@ -36,7 +36,8 @@ public class FantacySectSoulStoneItem extends Item implements ICurioItem {
                 (float)(MyGoConfig.fantasy_sect_soul_stone_power.get()*100),(float)(MyGoConfig.fantasy_sect_soul_stone_fantacy_power.get()*100),
                 (int)(MyGoConfig.fantasy_sect_soul_stone_dream_shadow_damage.get()*1),(float)(MyGoConfig.fantasy_sect_soul_stone_dream_shadow_damage_resistance.get()*100),
                 (int)(MyGoConfig.fantasy_sect_soul_stone_fantasy_ending_damage.get()*1),(float)(MyGoConfig.fantasy_sect_soul_stone_fantasy_ending_damage_resistance.get()*100),
-                (float)(MyGoConfig.fantasy_sect_soul_stone_damage.get()*100)
+                (float)(MyGoConfig.fantasy_sect_soul_stone_damage.get()*100),
+                (float)(MyGoConfig.fantacy_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

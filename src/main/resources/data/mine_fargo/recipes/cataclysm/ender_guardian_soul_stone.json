@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "O",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "item": "cataclysm:gauntlet_of_guard"
+    },
+    "B": {
+      "item": "cataclysm:void_core"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ender_guardian_soul_stone",
+    "count": 1
+  }
+}

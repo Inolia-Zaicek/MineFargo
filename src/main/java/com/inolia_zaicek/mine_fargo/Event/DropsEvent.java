@@ -6,7 +6,9 @@ import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.AnimalSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,13 +28,13 @@ public class DropsEvent {
     @SubscribeEvent
     public static void entityKilled(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof Player)) {
-            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
                 int number = 0;
                 if (MyGoUtil.hasEntity(livingEntity, AnimalSoulStoneItem.class)) {
-                    number += (int)(MyGoConfig.animal_soul_stone.get()*1);
+                    number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
                 }
                 if (MyGoUtil.hasArs(livingEntity, DrygmySoulStoneItem.class)) {
-                    number += (int)(MyGoConfig.drygmy_soul_stone_drop.get()*1);
+                    number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
                 }
                 if (number > 0) {
                     for (int i = 0; i < number; i++) {
@@ -45,6 +47,33 @@ public class DropsEvent {
                             itementity.setDefaultPickUpDelay();
                             itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
                             level.addFreshEntity(itementity);
+                        }
+                    }
+                }
+            }
+            //如果攻击者是随从
+            else if (event.getSource().getEntity() instanceof LivingEntity livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
+                if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null) {
+                    LivingEntity owner = ownableEntity.getOwner();
+                    int number = 0;
+                    if (MyGoUtil.hasEntity(owner, AnimalSoulStoneItem.class)) {
+                        number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
+                    }
+                    if (MyGoUtil.hasArs(owner, DrygmySoulStoneItem.class)) {
+                        number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
+                    }
+                    if (number > 0) {
+                        for (int i = 0; i < number; i++) {
+                            Level level = owner.level();
+                            LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
+                            LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, livingEntity.damageSources().playerAttack((Player) owner)).create(LootContextParamSets.ENTITY);
+                            List<ItemStack> drops = loot.getRandomItems(context);
+                            for (ItemStack drop : drops) {
+                                ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
+                                itementity.setDefaultPickUpDelay();
+                                itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
+                                level.addFreshEntity(itementity);
+                            }
                         }
                     }
                 }

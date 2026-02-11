@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class EvocationSectSoulStoneItem extends Item implements ICurioItem {
+public class EvocationSectSoulStoneItem extends Item implements ICurioItem ,IronST {
     public EvocationSectSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -31,15 +31,16 @@ public class EvocationSectSoulStoneItem extends Item implements ICurioItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.nature_sect_soul_stone_power.get()*100),(float)(MyGoConfig.evocation_sect_soul_stone_damage.get()*100)
-                ,(float)(MyGoConfig.evocation_sect_soul_stone_armor.get()*100),(float)(MyGoConfig.evocation_sect_soul_stone_owner_damage.get()*100)
+                (float)(MyGoConfig.evocation_sect_soul_stone_power.get()*100),(float)(MyGoConfig.evocation_sect_soul_stone_damage.get()*100)
+                ,(float)(MyGoConfig.evocation_sect_soul_stone_armor.get()*100),(float)(MyGoConfig.evocation_sect_soul_stone_owner_damage.get()*100),
+                (float)(MyGoConfig.evocation_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        atts.put(AttributeRegistry.EVOCATION_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.nature_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(AttributeRegistry.EVOCATION_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.evocation_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         return atts;
     }
     @Override

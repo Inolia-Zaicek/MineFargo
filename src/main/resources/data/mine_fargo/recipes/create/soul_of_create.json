@@ -1,0 +1,37 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "create"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:zinc_soul_stone"
+        },
+        {
+            "item": "mine_fargo:andesite_alloy_soul_stone"
+        },
+        {
+            "item": "mine_fargo:brass_soul_stone"
+        },
+        {
+            "item": "mine_fargo:sturdy_sheet_soul_stone"
+        },
+        {
+            "item": "mine_fargo:cardboard_soul_stone"
+        },
+        {
+            "item": "mine_fargo:blaze_cake_soul_stone"
+        },
+        {
+            "item": "mine_fargo:rose_quartz_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_create",
+        "count": 1
+    }
+}

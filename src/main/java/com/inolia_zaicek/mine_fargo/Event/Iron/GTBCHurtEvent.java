@@ -31,52 +31,80 @@ public class GTBCHurtEvent {
                 double number = 1;
                 double overNumber = 1;
                 double fixedNumber = 0;
+                boolean earth = false;
                 var map = attacked.getActiveEffectsMap();
-                if (event.getSource().is(GGDamageTypes.GEO_MAGIC)&&MyGoUtil.hasSpecificItem(attacker, EarthSectSoulStoneItem.class)) {
-                    if (!attacked.hasEffect(
-                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
-                        attacked.addEffect(new MobEffectInstance(
-                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
-                                , (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20), 0));
-                        if (!attacked.hasEffect(
-                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
-                            map.put(
-                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
-                                    new MobEffectInstance(
-                                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
-                                            (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20), 0));
-                        }
-                    }else{
-                        int level = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))).getAmplifier();
-                        attacked.addEffect(new MobEffectInstance(
-                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
-                                , (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20), level));
-                        if (!attacked.hasEffect(
-                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
-                            map.put(
-                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
-                                    new MobEffectInstance(
-                                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
-                                            (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20), level));
-                        }
+                if (MyGoUtil.hasSpecificItem(attacker, EarthSectSoulStoneItem.class)) {
+                    double chance = MyGoConfig.earth_sect_soul_stone_chance.get() * 100;
+                    int time = (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20);
+                    if (event.getSource().is(GGDamageTypes.GEO_MAGIC)) {
+                        earth = true;
+                    } else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) || event.getSource().is(ISSDamageTypes.ICE_MAGIC)
+                            || event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) || event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)
+                            || event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) || event.getSource().is(ISSDamageTypes.HOLY_MAGIC)
+                            || event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC) || event.getSource().is(ISSDamageTypes.ENDER_MAGIC)
+                            || event.getSource().is(ISSDamageTypes.NATURE_MAGIC)
+                            || (ModList.get().isLoaded("alshanex_familiars")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                    ) || (ModList.get().isLoaded("traveloptics")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
+                    ) || (ModList.get().isLoaded("fantasy_ending")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("fantasy_ending", "ds_power"))
+                    ) || (ModList.get().isLoaded("fantasy_ending")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("fantasy_ending", "fe_power"))
+                    )
+                    ) {
+                        earth = true;
+                        chance *= MyGoConfig.earth_sect_soul_stone_other.get();
+                        time *= MyGoConfig.earth_sect_soul_stone_other.get();
                     }
-                    Random random = new Random();
-                    if (random.nextInt(100) <= MyGoConfig.earth_sect_soul_stone_chance.get() * 100) {
-                        if (attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                    if (earth) {
+                        if (!attacked.hasEffect(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                            attacked.addEffect(new MobEffectInstance(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
+                                    , time, 0));
+                            if (!attacked.hasEffect(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                                map.put(
+                                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
+                                        new MobEffectInstance(
+                                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
+                                                time, 0));
+                            }
+                        } else {
                             int level = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))).getAmplifier();
-                            int time = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))).getDuration();
-                            //最终的等级（不会超过上限
-                            int finalLevel = (int) Math.min(MyGoConfig.earth_sect_soul_stone_level.get(), level + 1);
-                            attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), time, finalLevel));
-                            if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
-                                map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
-                                        time, finalLevel));
+                            attacked.addEffect(new MobEffectInstance(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
+                                    , time, level));
+                            if (!attacked.hasEffect(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                                map.put(
+                                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
+                                        new MobEffectInstance(
+                                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
+                                                time, level));
                             }
                         }
+                        //升级部分
+                        Random random = new Random();
+                        if (random.nextInt(100) <= chance) {
+                            if (attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                                int level = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))).getAmplifier();
+                                int buffTime = Objects.requireNonNull(attacked.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))).getDuration();
+                                //最终的等级（不会超过上限
+                                int finalLevel = (int) Math.min(MyGoConfig.earth_sect_soul_stone_level.get(), level + 1);
+                                attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), buffTime, finalLevel));
+                                if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                                    map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
+                                            buffTime, finalLevel));
+                                }
+                            }
+                        }
+
+                        double damage = (event.getAmount() * number + fixedNumber) * overNumber;
+                        event.setAmount((float) damage);
                     }
                 }
-                double damage = (event.getAmount() * number + fixedNumber) * overNumber;
-                event.setAmount((float) damage);
             }
         }
     }

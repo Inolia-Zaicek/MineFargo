@@ -33,7 +33,7 @@ public class AquaSectSoulStoneItem extends Item implements ICurioItem {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
                 (float)(MyGoConfig.aqua_sect_soul_stone_power.get()*100),(int)(MyGoConfig.aqua_sect_soul_stone_time.get()*1),
-                (float)(MyGoConfig.aqua_sect_soul_stone_chance.get()*100),(int)(MyGoConfig.aqua_sect_soul_stone_level.get()*1)
+                (float)(MyGoConfig.aqua_sect_soul_stone_chance.get()*100),(int)(MyGoConfig.aqua_sect_soul_stone_level.get()*1),(float)(MyGoConfig.aqua_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

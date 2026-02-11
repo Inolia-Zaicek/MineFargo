@@ -7,6 +7,7 @@ import com.inolia_zaicek.mine_fargo.Item.Iron.FantacySectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.SoundSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import com.mega.uom.common.damagesource.ModDamageSources;
+import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,6 +33,20 @@ public class FEHurtEvent {
                         &&MyGoUtil.hasSpecificItem(attacker, FantacySectSoulStoneItem.class)
                 ) {
                     number += MyGoConfig.fantasy_sect_soul_stone_damage.get();
+                }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)
+                        ||event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC)||event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)
+                        ||event.getSource().is(ISSDamageTypes.BLOOD_MAGIC)||event.getSource().is(ISSDamageTypes.HOLY_MAGIC)
+                        ||event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC)||event.getSource().is(ISSDamageTypes.ENDER_MAGIC)
+                        ||event.getSource().is(ISSDamageTypes.NATURE_MAGIC)
+                        || (ModList.get().isLoaded("traveloptics")
+                        && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
+                ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
+                        && event.getSource().type().msgId().equals(new ResourceLocation("gtbcs_geomancy_plus", "geo_magic"))
+                ) || (ModList.get().isLoaded("alshanex_familiars")
+                                && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                )
+                ) {
+                    number += MyGoConfig.fantasy_sect_soul_stone_damage.get()*MyGoConfig.fantacy_sect_soul_stone_other.get();
                 }
                 double damage = (event.getAmount() * number + fixedNumber) * overNumber;
                 event.setAmount((float) damage);

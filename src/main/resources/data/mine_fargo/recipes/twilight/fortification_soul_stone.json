@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:fortification_scepter"
+    },
+    "B": {
+      "item": "twilightforest:lich_trophy"
+    },
+    "C": {
+      "item": "twilightforest:lich_trophy"
+    },
+    "D": {
+      "item": "twilightforest:fortification_scepter"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:fortification_soul_stone",
+    "count": 1
+  }
+}

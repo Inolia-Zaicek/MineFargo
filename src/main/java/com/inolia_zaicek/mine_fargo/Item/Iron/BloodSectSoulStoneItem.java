@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class BloodSectSoulStoneItem extends Item implements ICurioItem {
+public class BloodSectSoulStoneItem extends Item implements ICurioItem,IronST {
     public BloodSectSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -31,7 +31,8 @@ public class BloodSectSoulStoneItem extends Item implements ICurioItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.blood_sect_soul_stone_power.get()*100),(float)(MyGoConfig.blood_sect_soul_stone_heal.get()*100), (float)(MyGoConfig.blood_sect_soul_stone_owner.get()*100)
+                (float)(MyGoConfig.blood_sect_soul_stone_power.get()*100),(float)(MyGoConfig.blood_sect_soul_stone_heal.get()*100),
+                (float)(MyGoConfig.blood_sect_soul_stone_owner.get()*100),(float)(MyGoConfig.blood_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

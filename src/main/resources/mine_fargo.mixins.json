@@ -5,6 +5,13 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "mine_fargo.refmap.json",
   "mixins": [
+    "Goety.WandUtilMixin",
+    "Create.GogglesItemMixin",
+    "Create.DivingBootsItemMixin",
+    "Create.DivingHelmetItemMixin",
+    "Create.CardboardMixin",
+    "Create.BlazeBurnerMixin",
+
     "MyGoMixinEnchantmentContainer",
     "VillagerMixin"
   ],

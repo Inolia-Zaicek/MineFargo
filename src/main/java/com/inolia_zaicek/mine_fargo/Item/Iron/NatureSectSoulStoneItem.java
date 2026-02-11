@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class NatureSectSoulStoneItem extends Item implements ICurioItem {
+public class NatureSectSoulStoneItem extends Item implements ICurioItem,IronST {
     public NatureSectSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -32,7 +32,8 @@ public class NatureSectSoulStoneItem extends Item implements ICurioItem {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
                 (float)(MyGoConfig.nature_sect_soul_stone_power.get()*100),(float)(MyGoConfig.nature_sect_soul_stone_time.get()*100),
-                (float)(MyGoConfig.nature_sect_soul_stone_chance.get()*100),(int)(MyGoConfig.nature_sect_soul_stone_level.get()*1)
+                (float)(MyGoConfig.nature_sect_soul_stone_chance.get()*100),(int)(MyGoConfig.nature_sect_soul_stone_level.get()*1),
+                (float)(MyGoConfig.nature_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

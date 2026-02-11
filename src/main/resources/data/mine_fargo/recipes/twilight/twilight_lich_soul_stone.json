@@ -1,0 +1,25 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:zombie_scepter_soul_stone"
+        },
+        {
+            "item": "mine_fargo:lifedrain_soul_stone"
+        },
+        {
+            "item": "mine_fargo:fortification_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:twilight_lich_soul_stone",
+        "count": 1
+    }
+}

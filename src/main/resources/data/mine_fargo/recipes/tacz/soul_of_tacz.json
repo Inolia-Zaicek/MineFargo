@@ -1,0 +1,40 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "tacz"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ammo_soul_stone"
+        },
+        {
+            "item": "mine_fargo:handgun_soul_stone"
+        },
+        {
+            "item": "mine_fargo:rifle_soul_stone"
+        },
+        {
+            "item": "mine_fargo:sniper_rifle_soul_stone"
+        },
+        {
+            "item": "mine_fargo:shotgun_soul_stone"
+        },
+        {
+            "item": "mine_fargo:submachine_gun_soul_stone"
+        },
+        {
+            "item": "mine_fargo:heavy_machine_gun_soul_stone"
+        },
+        {
+            "item": "mine_fargo:machine_gun_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_tacz",
+        "count": 1
+    }
+}

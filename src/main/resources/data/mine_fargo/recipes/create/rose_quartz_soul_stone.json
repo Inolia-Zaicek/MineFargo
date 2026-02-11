@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "AOA",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "create:rose_quartz_tiles"
+    },
+    "B": {
+      "item": "create:copper_diving_helmet"
+    },
+    "C": {
+      "tag": "create:sandpaper"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:rose_quartz_soul_stone",
+    "count": 1
+  }
+}

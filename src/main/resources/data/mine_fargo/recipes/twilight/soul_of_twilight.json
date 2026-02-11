@@ -1,0 +1,40 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:naga_soul_stone"
+        },
+        {
+            "item": "mine_fargo:twilight_lich_soul_stone"
+        },
+        {
+            "item": "mine_fargo:minoshroom_soul_stone"
+        },
+        {
+            "item": "mine_fargo:twilight_hydra_soul_stone"
+        },
+        {
+            "item": "mine_fargo:knight_phantom_soul_stone"
+        },
+        {
+            "item": "mine_fargo:ur_ghast_soul_stone"
+        },
+        {
+            "item": "mine_fargo:alpha_yeti_soul_stone"
+        },
+        {
+            "item": "mine_fargo:snow_queen_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_twilight",
+        "count": 1
+    }
+}

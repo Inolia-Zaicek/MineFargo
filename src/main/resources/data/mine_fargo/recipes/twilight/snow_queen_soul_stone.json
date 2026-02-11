@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOB",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:snow_queen_trophy"
+    },
+    "B": {
+      "item": "twilightforest:aurora_block"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:snow_queen_soul_stone",
+    "count": 1
+  }
+}

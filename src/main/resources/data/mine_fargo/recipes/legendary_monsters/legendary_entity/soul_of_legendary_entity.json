@@ -1,0 +1,34 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "legendary_monsters"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:dune_sentinel_soul_stone"
+        },
+        {
+            "item": "mine_fargo:endersent_soul_stone"
+        },
+        {
+            "item": "mine_fargo:lava_eater_soul_stone"
+        },
+        {
+            "item": "mine_fargo:withered_abomination_soul_stone"
+        },
+        {
+            "item": "mine_fargo:shulker_mimic_soul_stone"
+        },
+        {
+            "item": "mine_fargo:overgrown_colossus_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_legendary_entity",
+        "count": 1
+    }
+}

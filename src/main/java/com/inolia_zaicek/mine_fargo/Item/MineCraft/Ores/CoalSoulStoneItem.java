@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class CoalSoulStoneItem extends Item implements ICurioItem, OresSoulStone {
+public class CoalSoulStoneItem extends Item implements ICurioItem, OresST {
     public CoalSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

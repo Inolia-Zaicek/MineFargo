@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAD",
+    "BOC",
+    "DAD"
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:fiery_tears"
+    },
+    "B": {
+      "item": "twilightforest:ur_ghast_trophy"
+    },
+    "C": {
+      "item": "twilightforest:ur_ghast_trophy"
+    },
+    "D": {
+      "item": "twilightforest:carminite"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ur_ghast_soul_stone",
+    "count": 1
+  }
+}

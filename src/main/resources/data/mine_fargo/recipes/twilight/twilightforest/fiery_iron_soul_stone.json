@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E F",
+    " O ",
+    "G H"
+  ],
+  "key": {
+    "E": {
+      "item": "twilightforest:fiery_sword"
+    },
+    "F": {
+      "item": "twilightforest:fiery_pickaxe"
+    },
+    "G": {
+      "item": "twilightforest:fiery_pickaxe"
+    },
+    "H": {
+      "item": "twilightforest:fiery_sword"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:fiery_iron_soul_stone",
+    "count": 1
+  }
+}

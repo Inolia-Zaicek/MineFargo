@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings({"all", "removal"})
-public class ArthropodSoulStoneItem extends Item implements ICurioItem {
+public class ArthropodSoulStoneItem extends Item implements ICurioItem ,EntityST{
     public ArthropodSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

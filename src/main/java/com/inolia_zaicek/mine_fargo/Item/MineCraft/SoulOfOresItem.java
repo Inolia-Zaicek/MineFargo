@@ -3,8 +3,7 @@ package com.inolia_zaicek.mine_fargo.Item.MineCraft;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.CoalSoulStoneItem;
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresSoulStone;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -23,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class SoulOfOresItem extends Item implements ICurioItem, OresSoulStone {
+public class SoulOfOresItem extends Item implements ICurioItem {
     public SoulOfOresItem() {super((new Item.Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -73,6 +72,6 @@ public class SoulOfOresItem extends Item implements ICurioItem, OresSoulStone {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasOre(slotContext.entity(), SoulOfOresItem.class);
+        return ! MyGoUtil.hasSoulOre(slotContext.entity(), OresST.class);
     }
 }

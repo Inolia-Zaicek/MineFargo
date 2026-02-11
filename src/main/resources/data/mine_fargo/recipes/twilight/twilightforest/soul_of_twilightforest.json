@@ -1,0 +1,34 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "twilightforest"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ironwood_soul_stone"
+        },
+        {
+            "item": "mine_fargo:steeleaf_soul_stone"
+        },
+        {
+            "item": "mine_fargo:fiery_iron_soul_stone"
+        },
+        {
+            "item": "mine_fargo:fluffy_cloud_soul_stone"
+        },
+        {
+            "item": "mine_fargo:twilight_giant_soul_stone"
+        },
+        {
+            "item": "mine_fargo:quest_ram_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_twilightforest",
+        "count": 1
+    }
+}

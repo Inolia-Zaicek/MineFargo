@@ -3,7 +3,6 @@ package com.inolia_zaicek.mine_fargo.Item.Iron;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
-import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresSoulStone;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.ChatFormatting;
@@ -11,7 +10,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -24,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class FireSectSoulStoneItem extends Item implements ICurioItem {
+public class FireSectSoulStoneItem extends Item implements ICurioItem ,IronST {
     public FireSectSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
@@ -33,7 +31,8 @@ public class FireSectSoulStoneItem extends Item implements ICurioItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.fire_sect_soul_stone_fire_power.get()*100),(float)(MyGoConfig.fire_sect_soul_stone_fire_min_damage.get()*100),(float)(MyGoConfig.fire_sect_soul_stone_fire_max_damage.get()*100)
+                (float)(MyGoConfig.fire_sect_soul_stone_fire_power.get()*100),(float)(MyGoConfig.fire_sect_soul_stone_fire_min_damage.get()*100),
+                (float)(MyGoConfig.fire_sect_soul_stone_fire_max_damage.get()*100), (float)(MyGoConfig.fire_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAD",
+    "BOC",
+    "DAD"
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:fiery_blood"
+    },
+    "B": {
+      "item": "twilightforest:hydra_trophy"
+    },
+    "C": {
+      "item": "twilightforest:hydra_trophy"
+    },
+    "D": {
+      "item": "twilightforest:hydra_chop"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:twilight_hydra_soul_stone",
+    "count": 1
+  }
+}

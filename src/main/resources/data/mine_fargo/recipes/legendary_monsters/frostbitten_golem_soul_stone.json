@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "legendary_monsters"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "legendary_monsters:primal_ice_shard"
+    },
+    "B": {
+      "item": "legendary_monsters:frozen_rune"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:frostbitten_golem_soul_stone",
+    "count": 1
+  }
+}

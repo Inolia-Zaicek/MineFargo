@@ -3,12 +3,25 @@ package com.inolia_zaicek.mine_fargo;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Event.*;
 import com.inolia_zaicek.mine_fargo.Event.Ars.ArsHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.Botania.ManaRepair;
+import com.inolia_zaicek.mine_fargo.Event.Botania.PixieSummon;
+import com.inolia_zaicek.mine_fargo.Event.Botania.TerraRay;
 import com.inolia_zaicek.mine_fargo.Event.BuffEvent;
+import com.inolia_zaicek.mine_fargo.Event.Create.*;
+import com.inolia_zaicek.mine_fargo.Event.Create.CreateTickEvent;
+import com.inolia_zaicek.mine_fargo.Event.Goety.*;
 import com.inolia_zaicek.mine_fargo.Event.Iron.AFHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtByGunEvent;
+import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
+import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczTickEvent;
+import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightEvent;
+import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightTickEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
+import com.inolia_zaicek.mine_fargo.Network.TerraRayChannel;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Register.Tab;
@@ -31,6 +44,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import java.util.*;
 
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
 @Mod(MineFargo.MODID)
 public class MineFargo {
 
@@ -62,6 +76,10 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(FluidCollisionEvent.class);
         MinecraftForge.EVENT_BUS.register(TeleportEvent.class);
         MinecraftForge.EVENT_BUS.register(BuffEvent.class);
+        MinecraftForge.EVENT_BUS.register(LivingDeathEvent.class);
+        MinecraftForge.EVENT_BUS.register(CriticalHitEvent.class);
+        MinecraftForge.EVENT_BUS.register(TickEvent.class);
+        MinecraftForge.EVENT_BUS.register(ShieldEvent.class);
         if (ModList.get().isLoaded("irons_spellbooks")) {
             MinecraftForge.EVENT_BUS.register(IronHurtEvent.class);
             if (ModList.get().isLoaded("traveloptics")) {
@@ -77,11 +95,37 @@ public class MineFargo {
         if (ModList.get().isLoaded("ars_nouveau")) {
             MinecraftForge.EVENT_BUS.register(ArsHurtEvent.class);
         }
+        if (ModList.get().isLoaded("tacz")) {
+            MinecraftForge.EVENT_BUS.register(TaczShootEvent.class);
+            MinecraftForge.EVENT_BUS.register(TaczTickEvent.class);
+            MinecraftForge.EVENT_BUS.register(TaczHurtByGunEvent.class);
+            MinecraftForge.EVENT_BUS.register(TaczHurtEvent.class);
+        }
+        if (ModList.get().isLoaded("botania")) {
+            MinecraftForge.EVENT_BUS.register(ManaRepair.class);
+            MinecraftForge.EVENT_BUS.register(PixieSummon.class);
+            MinecraftForge.EVENT_BUS.register(TerraRay.class);
+        }
+        if (ModList.get().isLoaded("create")) {
+            MinecraftForge.EVENT_BUS.register(CreateTickEvent.class);
+            MinecraftForge.EVENT_BUS.register(CreateRightBlockEvent.class);
+        }
+        if (ModList.get().isLoaded("twilightforest")) {
+            MinecraftForge.EVENT_BUS.register(TwilightEvent.class);
+            MinecraftForge.EVENT_BUS.register(TwilightTickEvent.class);
+        }
+        if (ModList.get().isLoaded("goety")) {
+            MinecraftForge.EVENT_BUS.register(GoetyUseEvent.class);
+            MinecraftForge.EVENT_BUS.register(GoetyKillEvent.class);
+        }
     }
 
     @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event){
         event.enqueueWork(() -> {
+            if(ModList.get().isLoaded("botania")) {
+                TerraRayChannel.init();
+            }
         });
     }
 

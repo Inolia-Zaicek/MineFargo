@@ -1,0 +1,46 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tacz"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAE",
+    "BOC",
+    "EDE"
+  ],
+  "key": {
+    "A": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:m249\"}"
+    },
+    "B": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:minigun\"}"
+    },
+    "C": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:rpk\"}"
+    },
+    "D": {
+      "type":"forge:partial_nbt",
+      "item": "tacz:modern_kinetic_gun",
+      "nbt": "{GunId:\"tacz:fn_evolys\"}"
+    },
+    "E": {
+      "tag": "forge:gunpowder"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:machine_gun_soul_stone",
+    "count": 1
+  }
+}

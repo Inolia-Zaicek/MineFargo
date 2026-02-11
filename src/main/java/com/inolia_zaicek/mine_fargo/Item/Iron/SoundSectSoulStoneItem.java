@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
@@ -35,16 +36,19 @@ public class SoundSectSoulStoneItem extends Item implements ICurioItem {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
                 (float)(MyGoConfig.sound_sect_soul_stone_power.get()*100),(float)(MyGoConfig.sound_sect_soul_stone_damage.get()*100),
-                (float)(MyGoConfig.sound_sect_soul_stone_armor.get()*100),(float)(MyGoConfig.sound_sect_soul_stone_owner_damage.get()*100)
+                (float)(MyGoConfig.sound_sect_soul_stone_armor.get()*100),(float)(MyGoConfig.sound_sect_soul_stone_owner_damage.get()*100),
+                (float)(MyGoConfig.sound_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
-                new ResourceLocation("alshanex_familiars", "sound_spell_power")))
-                , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.sound_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        if (ModList.get().isLoaded("alshanex_familiars")) {
+            atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
+                            new ResourceLocation("alshanex_familiars", "sound_spell_power")))
+                    , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.sound_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        }
         return atts;
     }
     @Override

@@ -125,6 +125,7 @@ repositories {
     flatDir {
         dir 'libs'
     }
+    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
 }
 
 dependencies {
@@ -160,33 +161,47 @@ dependencies {
     implementation fg.deobf("blank:citadel-1.20.1:1")
     implementation fg.deobf("blank:curios-1.20.1:1")
 
+    implementation fg.deobf("blank:avaritia-1.20.1:1")
+
+    implementation fg.deobf("blank:legendarymonsters-1.20.1:1.9.8")
+
     implementation fg.deobf("blank:ars_nouveau-1.20.1:1")
     implementation fg.deobf("blank:ars_elemental-1.20.1:1")
 
     implementation fg.deobf("blank:irons_spellbooks-1.20.1:1")
 
     implementation fg.deobf("blank:playeranimator-1.20.1:1")
-    implementation fg.deobf("blank:TerraCurio-1.20.1:1")
-    compileOnly fg.deobf("blank:touhoulittlemaid-1.20.1:1")
-    compileOnly fg.deobf("blank:tacz-1.20.1:1")
+    compileOnly fg.deobf("blank:TerraCurio-1.20.1:1")
+    implementation fg.deobf("blank:touhoulittlemaid-1.20.1:1")
+    implementation fg.deobf("blank:tacz-1.20.1:1")
 
     //compileOnly fg.deobf("eidolon-1.20.1:1")
 
-    compileOnly fg.deobf("blank:lodestone-1.20.1:1.6.4.1")
-    compileOnly fg.deobf("blank:malum-1.20.1:1.6.7")
-    compileOnly fg.deobf("blank:goety-2.5.36.1-1.20.1:1")
+    implementation fg.deobf("blank:lodestone-1.20.1:1.6.4.1")
+    implementation fg.deobf("blank:malum-1.20.1:1.6.7")
+
+    implementation fg.deobf("blank:goety-2.5.36.1-1.20.1:1")
 
     implementation fg.deobf("blank:traveloptics-1.20.1:1")
     implementation fg.deobf("blank:alexscaves-1.20.1:1")
     implementation fg.deobf("blank:cataclysm-1.20.1:1")
     implementation fg.deobf("blank:lionfishapi-1.20.1:1")
 
+    implementation fg.deobf("blank:botania-1.20.1:1")
+
+    implementation fg.deobf("blank:create-1.20.1:6.0.8")
+    implementation fg.deobf("blank:flywheel-forge-1.20.1:1.0.5")
+    implementation fg.deobf("blank:ponder-Forge-1.20.1:1.0.91")
+    //implementation fg.deobf("blank:registrate-1.20:1.3.3")
+
+    implementation fg.deobf("blank:twilightforest-1.20.1:1")
+
     compileOnly fg.deobf("blank:gtbcs_spell_lib-1.20.1:1")
     compileOnly fg.deobf("blank:mowziesmobs-1.20.1:1")
     compileOnly fg.deobf("blank:gtbcs_geomancy_plus-1.20.1:1")
+    implementation fg.deobf("blank:alshanex_familiars-1.20.1:1")
 
     compileOnly fg.deobf("blank:fantasy_ending-1.20.1:1")
-    implementation fg.deobf("blank:alshanex_familiars-1.20.1:1")
     compileOnly fg.deobf("blank:musketmod-1.20.1:1")
     compileOnly fg.deobf("blank:cgm-1.20.1:1")
     compileOnly fg.deobf("blank:framework-1.20.1:1")

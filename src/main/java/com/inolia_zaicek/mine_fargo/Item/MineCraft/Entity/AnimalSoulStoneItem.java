@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings({"all", "removal"})
-public class AnimalSoulStoneItem extends Item implements ICurioItem {
+public class AnimalSoulStoneItem extends Item implements ICurioItem ,EntityST{
     public AnimalSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

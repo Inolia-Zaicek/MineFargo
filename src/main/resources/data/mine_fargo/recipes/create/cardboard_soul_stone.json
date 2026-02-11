@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "create:cardboard_helmet"
+    },
+    "B": {
+      "item": "create:cardboard_chestplate"
+    },
+    "C": {
+      "item": "create:cardboard_leggings"
+    },
+    "D": {
+      "item": "create:cardboard_boots"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:cardboard_soul_stone",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "twilightforest:giant_sword"
+    },
+    "B": {
+      "item": "twilightforest:giant_pickaxe"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:twilight_giant_soul_stone",
+    "count": 1
+  }
+}

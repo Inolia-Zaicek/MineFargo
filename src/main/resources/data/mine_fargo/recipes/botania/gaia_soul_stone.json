@@ -1,0 +1,44 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "GOG",
+    "DEF"
+  ],
+  "key": {
+    "A": {
+      "item": "botania:ancient_will_ahrim"
+    },
+    "B": {
+      "item": "botania:ancient_will_dharok"
+    },
+    "C": {
+      "item": "botania:ancient_will_guthan"
+    },
+    "D": {
+      "item": "botania:ancient_will_torag"
+    },
+    "E": {
+      "item": "botania:ancient_will_verac"
+    },
+    "F": {
+      "item": "botania:ancient_will_karil"
+    },
+    "G": {
+      "item": "botania:gaia_ingot"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:gaia_soul_stone",
+    "count": 1
+  }
+}

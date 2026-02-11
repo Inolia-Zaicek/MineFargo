@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class WildenSoulStoneItem extends Item implements ICurioItem {
+public class WildenSoulStoneItem extends Item implements ICurioItem ,ArsST {
     public WildenSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

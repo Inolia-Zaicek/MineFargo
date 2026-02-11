@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class BookwyrmSoulStoneItem extends DiscountRing implements ICurioItem {
+public class BookwyrmSoulStoneItem extends DiscountRing implements ICurioItem,ArsST {
     public BookwyrmSoulStoneItem() {super();}
     @Override
     public int getManaDiscount() {

@@ -1,0 +1,28 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "botania"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:manasteel_soul_stone"
+        },
+        {
+            "item": "mine_fargo:elementium_soul_stone"
+        },
+        {
+            "item": "mine_fargo:terrasteel_soul_stone"
+        },
+        {
+            "item": "mine_fargo:gaia_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_botania",
+        "count": 1
+    }
+}

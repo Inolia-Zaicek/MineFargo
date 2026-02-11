@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class OceanSoulStoneItem extends Item implements ICurioItem {
+public class OceanSoulStoneItem extends Item implements ICurioItem  ,NatureST{
     public OceanSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();

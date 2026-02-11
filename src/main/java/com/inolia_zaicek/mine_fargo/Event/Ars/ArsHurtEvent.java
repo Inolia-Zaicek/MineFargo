@@ -1,7 +1,10 @@
 package com.inolia_zaicek.mine_fargo.Event.Ars;
 
+import com.hollingsworth.arsnouveau.setup.registry.DamageTypesRegistry;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Ars.ArchwoodSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.Goety.Item.EscortSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyDarkSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,6 +23,20 @@ public class ArsHurtEvent {
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("ars_nouveau")) {
             LivingEntity attacked = event.getEntity();
+            if (attacked != null) {
+                double number = 1;
+                double overNumber = 1;
+                double fixedNumber = 0;
+                if (ModList.get().isLoaded("goety")) {
+                    if (MyGoUtil.hasGoetyItem(attacked, GoetyDarkSoulStoneItem.class)&&(event.getSource().is(DamageTypesRegistry.GENERIC_SPELL_DAMAGE) || event.getSource().is(DamageTypesRegistry.COLD_SNAP)
+                            || event.getSource().is(DamageTypesRegistry.FLARE) || event.getSource().is(DamageTypesRegistry.WINDSHEAR) ||
+                            event.getSource().is(DamageTypesRegistry.CRUSH))) {
+                        number *= 1 - MyGoConfig.goety_dark_soul_stone_magic.get();
+                    }
+                }
+                double damage = (event.getAmount() * number + fixedNumber) * overNumber;
+                event.setAmount((float) damage);
+            }
             if (event.getSource().getEntity() instanceof LivingEntity attacker&&attacked!=null) {
                 var map = attacked.getActiveEffectsMap();
                 if(MyGoUtil.hasArs(attacker, ArchwoodSoulStoneItem.class)) {

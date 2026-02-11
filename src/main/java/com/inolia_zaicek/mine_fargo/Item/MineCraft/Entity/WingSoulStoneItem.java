@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
-public class WingSoulStoneItem extends Item implements ICurioItem {
+public class WingSoulStoneItem extends Item implements ICurioItem ,EntityST{
     public WingSoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
