@@ -58,12 +58,12 @@ public class GTBCHurtEvent {
                         time *= MyGoConfig.earth_sect_soul_stone_other.get();
                     }
                     if (earth) {
-                        if (!attacked.hasEffect(
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
                             attacked.addEffect(new MobEffectInstance(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
                                     , time, 0));
-                            if (!attacked.hasEffect(
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
                                 map.put(
                                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
@@ -76,7 +76,7 @@ public class GTBCHurtEvent {
                             attacked.addEffect(new MobEffectInstance(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode")))
                                     , time, level));
-                            if (!attacked.hasEffect(
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
                                 map.put(
                                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
@@ -94,7 +94,7 @@ public class GTBCHurtEvent {
                                 //最终的等级（不会超过上限
                                 int finalLevel = (int) Math.min(MyGoConfig.earth_sect_soul_stone_level.get(), level + 1);
                                 attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), buffTime, finalLevel));
-                                if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
+                                if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))))) {
                                     map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("gtbcs_geomancy_plus", "erode"))),
                                             buffTime, finalLevel));
                                 }

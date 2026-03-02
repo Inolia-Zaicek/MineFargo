@@ -1,0 +1,26 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ],
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " A ",
+        "AOA",
+        " A "
+    ],
+    "key": {
+        "A": {
+            "item": "iceandfire:troll_skull"
+        },
+        "O": {
+            "item": "mine_fargo:empty_soul_stone"
+        }
+    },
+    "result": {
+        "item": "mine_fargo:troll_soul_stone",
+        "count": 1
+    }
+}

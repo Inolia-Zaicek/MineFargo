@@ -8,17 +8,20 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
@@ -40,6 +43,8 @@ public class HolySectSoulStoneItem extends Item implements ICurioItem,IronST {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
         atts.put(AttributeRegistry.HOLY_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.holy_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
+                new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.iron_mana.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

@@ -1,0 +1,37 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "goety"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:ectoplasm_soul_stone"
+        },
+        {
+            "item": "mine_fargo:goety_focus_soul_stone"
+        },
+        {
+            "item": "mine_fargo:order_about_soul_stone"
+        },
+        {
+            "item": "mine_fargo:escort_soul_stone"
+        },
+        {
+            "item": "mine_fargo:brew_soul_stone"
+        },
+        {
+            "item": "mine_fargo:legion_soul_stone"
+        },
+        {
+            "item": "mine_fargo:goety_dark_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_goety_item",
+        "count": 1
+    }
+}

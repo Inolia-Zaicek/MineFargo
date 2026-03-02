@@ -43,8 +43,8 @@ public class MyGoDamageType {
     //不造成无敌帧or无视无敌帧（物理伤害
     public static final ResourceKey<DamageType> TICKAMAGE = create("tickdamage");
     //不造成无敌帧or无视无敌帧的法伤
-    public static final ResourceKey<DamageType> TICKMAMAGE = create("tickmdamage");
-    //不造成无敌帧or无视无敌帧的火-冰-雷-毒-凋零
+    public static final ResourceKey<DamageType> TickMagicDamage = create("tick_magic_damage");
+    //不造成无敌帧or无视无敌帧的火-冰-雷-毒-凋零【火-冰-雷是原版的】
     public static final ResourceKey<DamageType> TickFireDamage = create("tick_fire_damage");
     public static final ResourceKey<DamageType> TickFreezeDamage = create("tick_freeze_damage");
     public static final ResourceKey<DamageType> TickLightningDamage = create("tick_lightning_damage");

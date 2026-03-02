@@ -6,13 +6,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -541,6 +540,48 @@ public class MyGoUtil {
         }
         return hasItem.get();
     }
+    //锁定一定距离内最近的【非自身随从】目标
+    public static LivingEntity getNearestNonFollowerOnPath(LivingEntity livingEntity, double range) {
+        Vec3 srcVec = livingEntity.getEyePosition();
+        Vec3 lookVec = livingEntity.getViewVector(1.0F);
+        Vec3 destVec = srcVec.add(lookVec.x() * range, lookVec.y() * range, lookVec.z() * range);
+        float borderSize = 0.5F;
+        float expandAmount = 1.0F;
+        // 获取路径范围内所有实体
+        List<Entity> possibleList = livingEntity.level.getEntities(
+                livingEntity,
+                livingEntity.getBoundingBox()
+                        .expandTowards(lookVec.x() * range, lookVec.y() * range, lookVec.z() * range)
+                        .inflate(expandAmount, expandAmount, expandAmount)
+        );
+        LivingEntity nearestEntity = null;
+        double nearestDist = Double.MAX_VALUE;
+        for (Entity entity : possibleList) {
+            // 只锁定LivingEntity且排除玩家自己
+            if (!(entity instanceof LivingEntity)) continue;
+            if (entity == livingEntity) continue;
+            // 过滤玩家自己的随从
+            if (entity instanceof OwnableEntity ownable && ownable.getOwner() == livingEntity) {
+                continue;
+            }
+            AABB collisionBB = entity.getBoundingBox().inflate(borderSize, borderSize, borderSize);
+            Optional<Vec3> interceptPos = collisionBB.clip(srcVec, destVec);
+            boolean isOnPath = false;
+            if (collisionBB.contains(srcVec)) {
+                isOnPath = true;
+            } else if (interceptPos.isPresent()) {
+                isOnPath = true;
+            }
+            if (isOnPath) {
+                double dist = entity.distanceTo(livingEntity);
+                if (dist <= range && dist < nearestDist) {
+                    nearestDist = dist;
+                    nearestEntity = (LivingEntity) entity;
+                }
+            }
+        }
+        return nearestEntity; // 没找到会返回null
+    }
     public static boolean hasTwilight(LivingEntity living, Class<?> targetClass) {
         AtomicBoolean hasItem = new AtomicBoolean(false);
         if (ModList.get().isLoaded("twilightforest")) {
@@ -704,6 +745,150 @@ public class MyGoUtil {
             });
             //有集合，直接返回true
             if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyItem.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasGoetyEntity(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("goety")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyEntity.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasIAFDragon(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("iceandfire")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFDragon.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasIAFEntity(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("iceandfire")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFEntity.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasSonsOfSins(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("sons_of_sins")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSonsOfSins.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasL2Hostility(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("l2hostility")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Hostility.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasL2Curios(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("l2hostility")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Curios.get())) {
                 hasItem.set(true);
             }
         }else{

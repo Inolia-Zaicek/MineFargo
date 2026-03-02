@@ -26,27 +26,27 @@ public class SoulOfGoetyItemItem extends Item implements ICurioItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.ectoplasm_soul_stone",
                 (int)(MyGoConfig.ectoplasm_soul_stone.get()*1)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x42afd7))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.goety_focus_soul_stone",
                 (int)(MyGoConfig.goety_focus_soul_stone.get()*1)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x777777))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.order_about_soul_stone",
                 (float)(MyGoConfig.order_about_soul_stone_damage.get()*100)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x5762c9))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.escort_soul_stone",
                 (float)(MyGoConfig.escort_soul_stone.get()*100)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x608ba7))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.brew_soul_stone",
                 (float)(MyGoConfig.brew_soul_stone_chance_a.get()*100),(float)(MyGoConfig.brew_soul_stone_chance_b.get()*100)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0xc388de))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.legion_soul_stone",
                 (float)(MyGoConfig.legion_soul_stone_hp.get()*100),(float)(MyGoConfig.legion_soul_stone_atk.get()*100),
                 (float)(MyGoConfig.legion_soul_stone_speed.get()*100)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x743c33))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_goety_item.goety_dark_soul_stone",
                 (float)(MyGoConfig.goety_dark_soul_stone_fire.get()*100),
                 (float)(MyGoConfig.goety_dark_soul_stone_magic.get()*100)
-        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
+        ).withStyle(style -> style.withColor(TextColor.fromRgb(0x617d82))));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

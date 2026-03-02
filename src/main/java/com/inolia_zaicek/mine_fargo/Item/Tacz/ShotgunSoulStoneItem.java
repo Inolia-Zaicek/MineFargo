@@ -25,7 +25,7 @@ public class ShotgunSoulStoneItem extends Item implements ICurioItem, TaczST {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.sniper_rifle_soul_stone_damage.get()*100)
+                (float)(MyGoConfig.shotgun_soul_stone.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

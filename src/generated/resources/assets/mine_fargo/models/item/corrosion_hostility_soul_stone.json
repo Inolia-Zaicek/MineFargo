@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mine_fargo:item/corrosion_hostility_soul_stone"
+  }
+}

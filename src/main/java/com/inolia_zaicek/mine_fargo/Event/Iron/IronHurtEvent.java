@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
@@ -111,7 +112,7 @@ public class IronHurtEvent {
                             //最终的等级（不会超过上限
                             int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get() - 1, level + addLevel);
                             attacked.addEffect(new MobEffectInstance(MobEffects.POISON, (int) (upTime * time), finalLevel));
-                            if (!attacked.hasEffect(MobEffects.POISON)) {
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.POISON)) {
                                 map.put(MobEffects.POISON, new MobEffectInstance(MobEffects.POISON,
                                         (int) (upTime * time), finalLevel));
                             }
@@ -122,7 +123,7 @@ public class IronHurtEvent {
                             //最终的等级（不会超过上限
                             int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get() - 1, level + addLevel);
                             attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))), (int) (upTime * time), finalLevel));
-                            if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))) {
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))))) {
                                 map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "rend"))),
                                         (int) (upTime * time), finalLevel));
                             }
@@ -133,7 +134,7 @@ public class IronHurtEvent {
                             //最终的等级（不会超过上限
                             int finalLevel = (int) Math.min(MyGoConfig.nature_sect_soul_stone_level.get() - 1, level + addLevel);
                             attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))), (int) (upTime * time), finalLevel));
-                            if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))) {
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))))) {
                                 map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "blight"))),
                                         (int) (upTime * time), finalLevel));
                             }
@@ -210,7 +211,7 @@ public class IronHurtEvent {
                         attacked.addEffect(new MobEffectInstance(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "chilled")))
                                 , time, 0));
-                        if (!attacked.hasEffect(
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "chilled"))))) {
                             map.put(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "chilled"))),
@@ -257,7 +258,7 @@ public class IronHurtEvent {
                         attacked.addEffect(new MobEffectInstance(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "guided")))
                                 , time, 0));
-                        if (!attacked.hasEffect(
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "guided"))))) {
                             map.put(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "guided"))),
@@ -302,23 +303,23 @@ public class IronHurtEvent {
                     }
                     if(eldritch) {
                         attacked.addEffect(new MobEffectInstance(MobEffects.DARKNESS, time, 0));
-                        if (!attacked.hasEffect(MobEffects.DARKNESS)) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.DARKNESS)) {
                             map.put(MobEffects.DARKNESS, new MobEffectInstance(MobEffects.DARKNESS, time, 0));
                         }
                         attacked.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, time, 0));
-                        if (!attacked.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
                             map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, time, 0));
                         }
                         attacked.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, time, 0));
-                        if (!attacked.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
                             map.put(MobEffects.MOVEMENT_SLOWDOWN, new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, time, 0));
                         }
                         attacked.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, time, 0));
-                        if (!attacked.hasEffect(MobEffects.WEAKNESS)) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.WEAKNESS)) {
                             map.put(MobEffects.WEAKNESS, new MobEffectInstance(MobEffects.WEAKNESS, time, 0));
                         }
                         attacked.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, time, 0));
-                        if (!attacked.hasEffect(MobEffects.BLINDNESS)) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MobEffects.BLINDNESS)) {
                             map.put(MobEffects.BLINDNESS, new MobEffectInstance(MobEffects.BLINDNESS, time, 0));
                         }
                     }
@@ -358,7 +359,7 @@ public class IronHurtEvent {
                     }
                     if(ender) {
                         attacked.addEffect(new MobEffectInstance(MyGoEffectsRegister.Enderference.get(), time, 0));
-                        if (!attacked.hasEffect(MyGoEffectsRegister.Enderference.get())) {
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(MyGoEffectsRegister.Enderference.get())) {
                             map.put(MyGoEffectsRegister.Enderference.get(), new MobEffectInstance(MyGoEffectsRegister.Enderference.get(),
                                     time, 0));
                         }
@@ -402,7 +403,7 @@ public class IronHurtEvent {
                     if(event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC)){
                         attacker.addEffect(new MobEffectInstance(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged"))),
-                                time,0));
+                                time,(int)(MyGoConfig.lightning_sect_soul_stone_lvl.get()-1) ));
                     }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)
                             ||event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)
                             ||event.getSource().is(ISSDamageTypes.BLOOD_MAGIC)||event.getSource().is(ISSDamageTypes.HOLY_MAGIC)
@@ -412,7 +413,7 @@ public class IronHurtEvent {
                         time *= MyGoConfig.lightning_sect_soul_stone_other.get();
                         attacker.addEffect(new MobEffectInstance(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged"))),
-                                time,0));
+                                time,(int)(MyGoConfig.lightning_sect_soul_stone_lvl.get()-1) ));
                     } else if (
                             (ModList.get().isLoaded("alshanex_familiars")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
@@ -429,7 +430,7 @@ public class IronHurtEvent {
                         time *= MyGoConfig.lightning_sect_soul_stone_other.get();
                         attacker.addEffect(new MobEffectInstance(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged"))),
-                                time,0));
+                                time,(int)(MyGoConfig.lightning_sect_soul_stone_lvl.get()-1) ));
                     }
                 }
                 //血

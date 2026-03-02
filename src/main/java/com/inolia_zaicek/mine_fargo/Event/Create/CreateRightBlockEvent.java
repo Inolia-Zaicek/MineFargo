@@ -54,7 +54,7 @@ public class CreateRightBlockEvent {
                         ((BlazeBurnerMixin) burner).setActiveFuel(BlazeBurnerBlockEntity.FuelType.SPECIAL);
                         //当前燃烧时间小于最大燃烧时间
                         if(burner.getRemainingBurnTime()<(int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 1) ){
-                            ((BlazeBurnerMixin) burner).setRemainingBurnTime(Math.min(burner.getRemainingBurnTime() + (int) (MyGoConfig.blaze_cake_soul_stone_time.get() * 1), (int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 1)));
+                            ((BlazeBurnerMixin) burner).setRemainingBurnTime(Math.min(burner.getRemainingBurnTime() + (int) (MyGoConfig.blaze_cake_soul_stone_time.get() * 20), (int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 20)));
                         }
                     }
                 }else{
@@ -69,7 +69,7 @@ public class CreateRightBlockEvent {
                         ((BlazeBurnerMixin) burner).setActiveFuel(BlazeBurnerBlockEntity.FuelType.NORMAL);
                         //当前燃烧时间小于最大燃烧时间
                         if(burner.getRemainingBurnTime()<(int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 1) ){
-                            ((BlazeBurnerMixin) burner).setRemainingBurnTime(Math.min(burner.getRemainingBurnTime() + (int) (MyGoConfig.blaze_cake_soul_stone_time.get() * 1), (int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 1)));
+                            ((BlazeBurnerMixin) burner).setRemainingBurnTime(Math.min(burner.getRemainingBurnTime() + (int) (MyGoConfig.blaze_cake_soul_stone_time.get() * 20), (int) (MyGoConfig.blaze_cake_soul_stone_max_time.get() * 20)));
                         }
                     }
                 }

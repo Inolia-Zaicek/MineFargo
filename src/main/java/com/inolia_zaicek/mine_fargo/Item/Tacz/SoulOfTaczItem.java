@@ -43,7 +43,7 @@ public class SoulOfTaczItem extends Item implements ICurioItem {
                 (int)(MyGoConfig.sniper_rifle_soul_stone_time.get()*1),(float)(MyGoConfig.sniper_rifle_soul_stone_damage.get()*100)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0xbedcf4))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_tacz.shotgun_soul_stone",
-                (float)(MyGoConfig.sniper_rifle_soul_stone_damage.get()*100)
+                (float)(MyGoConfig.shotgun_soul_stone.get()*100)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0xd6ffb3))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_tacz.submachine_gun_soul_stone",
                 (float)(MyGoConfig.submachine_gun_soul_stone_speed.get()*100),(float)(MyGoConfig.submachine_gun_soul_stone_chance.get()*100)

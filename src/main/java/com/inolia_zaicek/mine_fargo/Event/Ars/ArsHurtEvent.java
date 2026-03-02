@@ -42,13 +42,15 @@ public class ArsHurtEvent {
                 if(MyGoUtil.hasArs(attacker, ArchwoodSoulStoneItem.class)) {
                     Random random = new Random();
                     if (random.nextInt(100) <= MyGoConfig.archwood_soul_stone_chance.get() * 100) {
-                        //爆炸
-                        if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))))) {
-                            attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))), (int) (MyGoConfig.archwood_soul_stone_time.get() * 20),
-                                    (int) (MyGoConfig.archwood_soul_stone_red.get() - 1)));
+                        //爆炸【有配置文件，
+                        if(MyGoConfig.archwood_soul_stone_can_red.get()) {
                             if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))))) {
-                                map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))),
-                                        (int) (MyGoConfig.archwood_soul_stone_time.get() * 20), (int) (MyGoConfig.archwood_soul_stone_red.get() - 1)));
+                                attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))), (int) (MyGoConfig.archwood_soul_stone_time.get() * 20),
+                                        (int) (MyGoConfig.archwood_soul_stone_red.get() - 1)));
+                                if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))))) {
+                                    map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "blasting"))),
+                                            (int) (MyGoConfig.archwood_soul_stone_time.get() * 20), (int) (MyGoConfig.archwood_soul_stone_red.get() - 1)));
+                                }
                             }
                         }
                         //冻结

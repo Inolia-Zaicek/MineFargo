@@ -45,6 +45,8 @@ public class EarthSectSoulStoneItem extends Item implements ICurioItem {
         atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
                 new ResourceLocation("gtbcs_geomancy_plus", "geo_spell_power")))
                 , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.earth_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
+                new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.iron_mana.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

@@ -33,7 +33,8 @@ public class SoulOfNatureItem extends Item implements ICurioItem {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_nature.snow_soul_stone"
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x6a9ce7))));
-        pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_nature.lava_soul_stone"
+        pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_nature.lava_soul_stone",
+                (float)(MyGoConfig.lava_soul_stone.get()*100)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0xcc4628))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_nature.mushroom_soul_stone",
                 (int)(MyGoConfig.mushroom_soul_stone.get()*100)

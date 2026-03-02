@@ -162,7 +162,7 @@
         {"id":"mutantmonsters:mutant_zombie","required":false},
         {"id":"mutantmonsters:spider_pig","required":false},
         {"id":"eeeabsmobs:nameless_guardian","required":false},
-        {"id":"eeeabsmobs:the_immortal","required":false},
+        {"id":"eeeabsmobs:immortal","required":false},
         {"id":"eeeabsmobs:guling_sentinel_heavy","required":false},
         {"id":"eeeabsmobs:corpse_warlock","required":false},
         {"id":"fantasy_ending:ultimate_order_manager","required":false},

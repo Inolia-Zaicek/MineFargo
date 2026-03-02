@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature;
 
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,7 +24,8 @@ public class LavaSoulStoneItem extends Item implements ICurioItem ,NatureST{
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
-        pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text")
+        pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
+                        (float)(MyGoConfig.lava_soul_stone.get()*100) )
                 .withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

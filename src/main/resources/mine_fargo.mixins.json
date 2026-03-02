@@ -12,6 +12,10 @@
     "Create.CardboardMixin",
     "Create.BlazeBurnerMixin",
 
+    "L2.RingOfOceanMixin",
+    "L2.RingOfReflectionMixin",
+    "L2.PlayerDifficultyMixin",
+
     "MyGoMixinEnchantmentContainer",
     "VillagerMixin"
   ],

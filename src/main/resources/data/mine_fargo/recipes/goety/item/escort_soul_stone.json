@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "goety:ominous_orb"
+    },
+    "B": {
+      "item": "goety:reaping_focus"
+    },
+    "C": {
+      "item": "goety:blackguard_focus"
+    },
+    "D": {
+      "item": "goety:osseous_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:escort_soul_stone",
+    "count": 1
+  }
+}

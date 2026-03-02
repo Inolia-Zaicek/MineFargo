@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "AOA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "goety:ectoplasm"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ectoplasm_soul_stone",
+    "count": 1
+  }
+}

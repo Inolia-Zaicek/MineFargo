@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Goety;
 
 import com.Polarice3.Goety.utils.WandUtil;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.VizierSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyFocusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,14 +28,14 @@ public class WandUtilMixin {
     )
     private static void getLevelsMixin(Enchantment enchantment, LivingEntity livingEntity, CallbackInfoReturnable<Integer> cir){
         // 获取原方法的返回值，即返回的等级
-        float number = cir.getReturnValue();
+        int number = cir.getReturnValue();
         /// 对词条进行判断
         if( MyGoUtil.hasGoetyItem(livingEntity, GoetyFocusSoulStoneItem.class) ){
-            int finish = (int) (number+(int)(MyGoConfig.ectoplasm_soul_stone.get()*1) );
-            // 设置新的返回值
-            cir.setReturnValue((int) finish);
-        }else{
-            cir.setReturnValue((int) number);
+            number += (int)(MyGoConfig.goety_focus_soul_stone.get()*1) ;
         }
+        if( MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStoneItem.class) ){
+            number += (int)(MyGoConfig.vizier_soul_stone_lvl.get()*1) ;
+        }
+        cir.setReturnValue(number);
     }
 }

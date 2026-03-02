@@ -49,6 +49,8 @@ public class SoundSectSoulStoneItem extends Item implements ICurioItem {
                             new ResourceLocation("alshanex_familiars", "sound_spell_power")))
                     , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.sound_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         }
+        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
+                new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.iron_mana.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

@@ -34,23 +34,17 @@ public class AFHurtEvent {
                 double overNumber = 1;
                 double fixedNumber = 0;
                 String killedEntityId = EntityType.getKey(attacked.getType()).toString();
-                if(killedEntityId.equals("alshanex_familiars:archmage_pet")||killedEntityId.equals("alshanex_familiars:bard_pet")
-                        ||killedEntityId.equals("alshanex_familiars:cleric_pet")||killedEntityId.equals("alshanex_familiars:druid_pet")
-                        ||killedEntityId.equals("alshanex_familiars:hunter_pet")||killedEntityId.equals("alshanex_familiars:illusionist_pet")
-                        ||killedEntityId.equals("alshanex_familiars:mage_pet")||killedEntityId.equals("alshanex_familiars:necromancer_pet")
-                        ||killedEntityId.equals("alshanex_familiars:plague_pet")||killedEntityId.equals("alshanex_familiars:scorcher_pet")
-                        ||killedEntityId.equals("alshanex_familiars:summoner_pet")
-                ) {
+                if(attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null) {
                     var playerList = MyGoUtil.PlayerList(22, attacked);
                     var mobList = MyGoUtil.mobList(22, attacked);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
@@ -88,24 +82,17 @@ public class AFHurtEvent {
                         number += MyGoConfig.sound_sect_soul_stone_owner_damage.get()*MyGoConfig.sound_sect_soul_stone_other.get();
                     }
                 }
-                String killedEntityId = EntityType.getKey(attacker.getType()).toString();
-                if(killedEntityId.equals("alshanex_familiars:archmage_pet")||killedEntityId.equals("alshanex_familiars:bard_pet")
-                        ||killedEntityId.equals("alshanex_familiars:cleric_pet")||killedEntityId.equals("alshanex_familiars:druid_pet")
-                        ||killedEntityId.equals("alshanex_familiars:hunter_pet")||killedEntityId.equals("alshanex_familiars:illusionist_pet")
-                        ||killedEntityId.equals("alshanex_familiars:mage_pet")||killedEntityId.equals("alshanex_familiars:necromancer_pet")
-                        ||killedEntityId.equals("alshanex_familiars:plague_pet")||killedEntityId.equals("alshanex_familiars:scorcher_pet")
-                        ||killedEntityId.equals("alshanex_familiars:summoner_pet")
-                ) {
+                if(attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null) {
                     var playerList = MyGoUtil.PlayerList(22, attacker);
                     var mobList = MyGoUtil.mobList(22, attacker);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }

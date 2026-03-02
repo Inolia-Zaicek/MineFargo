@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOB",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "goety:soul_ruby"
+    },
+    "B": {
+      "item": "goety:ominous_orb"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:legion_soul_stone",
+    "count": 1
+  }
+}

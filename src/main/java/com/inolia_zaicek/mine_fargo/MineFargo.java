@@ -10,6 +10,7 @@ import com.inolia_zaicek.mine_fargo.Event.BuffEvent;
 import com.inolia_zaicek.mine_fargo.Event.Create.*;
 import com.inolia_zaicek.mine_fargo.Event.Create.CreateTickEvent;
 import com.inolia_zaicek.mine_fargo.Event.Goety.*;
+import com.inolia_zaicek.mine_fargo.Event.IceAndFire.*;
 import com.inolia_zaicek.mine_fargo.Event.Iron.AFHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
@@ -19,6 +20,7 @@ import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczTickEvent;
 import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightEvent;
+import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightRepairEvent;
 import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightTickEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
 import com.inolia_zaicek.mine_fargo.Network.TerraRayChannel;
@@ -76,7 +78,7 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(FluidCollisionEvent.class);
         MinecraftForge.EVENT_BUS.register(TeleportEvent.class);
         MinecraftForge.EVENT_BUS.register(BuffEvent.class);
-        MinecraftForge.EVENT_BUS.register(LivingDeathEvent.class);
+        MinecraftForge.EVENT_BUS.register(DeathAndCloneEvent.class);
         MinecraftForge.EVENT_BUS.register(CriticalHitEvent.class);
         MinecraftForge.EVENT_BUS.register(TickEvent.class);
         MinecraftForge.EVENT_BUS.register(ShieldEvent.class);
@@ -94,6 +96,16 @@ public class MineFargo {
         }
         if (ModList.get().isLoaded("ars_nouveau")) {
             MinecraftForge.EVENT_BUS.register(ArsHurtEvent.class);
+        }
+        if (ModList.get().isLoaded("l2hostility")) {
+            MinecraftForge.EVENT_BUS.register(L2Hurt.class);
+        }
+        if (ModList.get().isLoaded("iceandfire")) {
+            if (!ModList.get().isLoaded("jupiter")&&!ModList.get().isLoaded("uranus")) {
+                MinecraftForge.EVENT_BUS.register(IAFHurtEvent.class);
+            }else{
+                MinecraftForge.EVENT_BUS.register(IAFCEHurtEvent.class);
+            }
         }
         if (ModList.get().isLoaded("tacz")) {
             MinecraftForge.EVENT_BUS.register(TaczShootEvent.class);
@@ -113,10 +125,16 @@ public class MineFargo {
         if (ModList.get().isLoaded("twilightforest")) {
             MinecraftForge.EVENT_BUS.register(TwilightEvent.class);
             MinecraftForge.EVENT_BUS.register(TwilightTickEvent.class);
+            MinecraftForge.EVENT_BUS.register(TwilightRepairEvent.class);
         }
         if (ModList.get().isLoaded("goety")) {
+            String versionString = ModList.get().getModFileById("goety").versionString();
             MinecraftForge.EVENT_BUS.register(GoetyUseEvent.class);
             MinecraftForge.EVENT_BUS.register(GoetyKillEvent.class);
+                MinecraftForge.EVENT_BUS.register(GoetyDeathEvent.class);
+        }
+        if (ModList.get().isLoaded("sons_of_sins")) {
+            MinecraftForge.EVENT_BUS.register(SonsOfSinsDropEvent.class);
         }
     }
 

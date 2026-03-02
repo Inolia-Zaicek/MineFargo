@@ -1,0 +1,22 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:empty_soul_stone"
+        },
+        {
+            "item": "iceandfire:hippocampus_slapper"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:hippocampus_soul_stone",
+        "count": 1
+    }
+}

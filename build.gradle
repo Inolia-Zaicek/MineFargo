@@ -144,10 +144,18 @@ dependencies {
     implementation fg.deobf(jarJar("blank:expandability-1.20.1:9.0.4") {
         jarJar.ranged(it, "[9.0.4,)")
     })
+    implementation fg.deobf(jarJar("blank:l2serial:1.2.2") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
+    implementation fg.deobf(jarJar("blank:l2damagetracker:0.3.7") {
+        jarJar.ranged(it, "[9.0.4,)")
+    })
     //implementation fg.deobf("blank:expandability-1.20.1:9.0.4")
     //implementation fg.deobf("blank:jei-1.20.1:forge-15.20.0.112")compileOnly
     implementation fg.deobf("blank:architectury-1.20.1:1")
     implementation fg.deobf("blank:jade-1.20.1:1")
+    implementation fg.deobf("blank:puzzleslib-1.20.1:1")
+    implementation fg.deobf("blank:overflowingbars-1.20.1:1")
     implementation fg.deobf("blank:jei-1.20.1:1")
     implementation fg.deobf("blank:kubejs-1.20.1:1")
     implementation fg.deobf("blank:moonlight-1.20.1:1")
@@ -160,6 +168,20 @@ dependencies {
     implementation fg.deobf("blank:placebo-1.20.1:1")
     implementation fg.deobf("blank:citadel-1.20.1:1")
     implementation fg.deobf("blank:curios-1.20.1:1")
+    //恶意
+    implementation fg.deobf("blank:l2library-1.20.1:2.5.3")
+    implementation fg.deobf("blank:l2complements-1.20.1:2.6.1")
+    implementation fg.deobf("blank:l2hostility-1.20.1:2.5.16")
+    //implementation fg.deobf("blank:")
+    //implementation fg.deobf("blank:")
+    //七罪之子
+    implementation fg.deobf("blank:sons_of_sins-1.20.1:2.1.11")
+    //冰火
+    implementation fg.deobf("blank:iceandfire-1.20.1:1")
+    //冰火社区版
+    compileOnly fg.deobf("blank:jupiter-1.20.1:2.3.5")
+    compileOnly fg.deobf("blank:uranus-1.20.1:2.2.6")
+    compileOnly fg.deobf("blank:iceandfire_ce-1.20.1:1.2.4")
 
     implementation fg.deobf("blank:avaritia-1.20.1:1")
 

@@ -62,6 +62,8 @@ public class FantacySectSoulStoneItem extends Item implements ICurioItem {
         atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
                         new ResourceLocation("fantasy_ending", "fantasy_ending_damage_resistance")))
                 , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.fantasy_sect_soul_stone_fantasy_ending_damage_resistance.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
+                new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.iron_mana.get(), AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

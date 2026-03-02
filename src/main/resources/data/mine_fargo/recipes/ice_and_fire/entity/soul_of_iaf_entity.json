@@ -1,0 +1,40 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "iceandfire"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:cyclops_soul_stone"
+        },
+        {
+            "item": "mine_fargo:gorgon_soul_stone"
+        },
+        {
+            "item": "mine_fargo:iaf_hydra_soul_stone"
+        },
+        {
+            "item": "mine_fargo:iaf_siren_soul_stone"
+        },
+        {
+            "item": "mine_fargo:sea_serpent_soul_stone"
+        },
+        {
+            "item": "mine_fargo:troll_soul_stone"
+        },
+        {
+            "item": "mine_fargo:hippocampus_soul_stone"
+        },
+        {
+            "item": "mine_fargo:death_worm_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_iaf_entity",
+        "count": 1
+    }
+}

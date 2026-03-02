@@ -9,6 +9,7 @@ import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
@@ -76,12 +77,12 @@ public class TOHurtEvent {
                         chance*=MyGoConfig.aqua_sect_soul_stone_other.get();
                     }
                     if(aqua){
-                        if (!attacked.hasEffect(
+                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))))) {
                             attacked.addEffect(new MobEffectInstance(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet")))
                                     , buffTime, 0));
-                            if (!attacked.hasEffect(
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))))) {
                                 map.put(
                                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))),
@@ -94,7 +95,7 @@ public class TOHurtEvent {
                             attacked.addEffect(new MobEffectInstance(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet")))
                                     , buffTime, level));
-                            if (!attacked.hasEffect(
+                            if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(
                                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))))) {
                                 map.put(
                                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))),
@@ -113,7 +114,7 @@ public class TOHurtEvent {
                                 //最终的等级（不会超过上限
                                 int finalLevel = (int) Math.min(MyGoConfig.aqua_sect_soul_stone_level.get()-1, level + 1);
                                 attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))), time, finalLevel));
-                                if (!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))))) {
+                                if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal")&&!attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))))) {
                                     map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))), new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("traveloptics", "wet"))),
                                             time, finalLevel));
                                 }

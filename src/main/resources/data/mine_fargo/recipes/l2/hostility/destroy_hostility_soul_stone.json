@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2hostility"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAC",
+    "BOB",
+    "CAD"
+  ],
+  "key": {
+    "A": {
+      "item": "l2hostility:corrosion"
+    },
+    "B": {
+      "item": "l2hostility:split"
+    },
+    "C": {
+      "item": "l2hostility:drain"
+    },
+    "D": {
+      "item": "l2hostility:erosion"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:destroy_hostility_soul_stone",
+    "count": 1
+  }
+}

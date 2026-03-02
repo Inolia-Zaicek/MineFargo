@@ -34,10 +34,10 @@ public class FluidCollisionEvent {
             if(MyGoUtil.hasNature(player, OceanSoulStoneItem.class)){
                 water = true;
             }
-            if (player.fallDistance < 6.0F && !player.isUsingItem() && !player.isCrouching() && event.getFluidState().is(FluidTags.LAVA)&&lava) {
+            if (!player.isInLava() && !player.isShiftKeyDown() && event.getFluidState().is(FluidTags.LAVA)&&lava) {
                 event.setResult(Event.Result.ALLOW);
             }
-            if (player.fallDistance < 6.0F && !player.isUsingItem() && !player.isCrouching() && event.getFluidState().is(FluidTags.WATER)&&water) {
+            if (!player.isUnderWater() && !player.isInWater() && !player.isShiftKeyDown() && event.getFluidState().is(FluidTags.WATER)&&water) {
                 event.setResult(Event.Result.ALLOW);
             }
         }

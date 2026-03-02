@@ -9,18 +9,21 @@ import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class SoulOfIronSpellItem extends Item implements ICurioItem {
@@ -41,7 +44,8 @@ public class SoulOfIronSpellItem extends Item implements ICurioItem {
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x56b8dc))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_iron_spell.lightning_sect_soul_stone",
                 (float)(MyGoConfig.lightning_sect_soul_stone_power.get()*100),(float)(MyGoConfig.lightning_sect_soul_stone_damage.get()*100),
-                (int)(MyGoConfig.lightning_sect_soul_stone_time.get()*1), (float)(MyGoConfig.lightning_sect_soul_stone_other.get()*100)
+                (int)(MyGoConfig.lightning_sect_soul_stone_lvl.get()*1),
+                (float)(MyGoConfig.lightning_sect_soul_stone_time.get()*1), (float)(MyGoConfig.lightning_sect_soul_stone_other.get()*100)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x205dc5))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_iron_spell.evocation_sect_soul_stone",
                 (float)(MyGoConfig.evocation_sect_soul_stone_power.get()*100),(float)(MyGoConfig.evocation_sect_soul_stone_damage.get()*100)
@@ -84,6 +88,8 @@ public class SoulOfIronSpellItem extends Item implements ICurioItem {
         atts.put(AttributeRegistry.NATURE_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.nature_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         atts.put(AttributeRegistry.ENDER_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.ender_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         atts.put(AttributeRegistry.ELDRITCH_SPELL_POWER.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.eldritch_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
+        atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
+                new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.iron_mana.get()*9, AttributeModifier.Operation.ADDITION));
         return atts;
     }
     @Override

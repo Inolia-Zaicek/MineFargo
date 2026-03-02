@@ -1,0 +1,37 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2hostility"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:body_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:corrosion_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:resistance_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:aqua_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:zone_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:destroy_hostility_soul_stone"
+        },
+        {
+            "item": "mine_fargo:ultra_hostility_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_l2hostility",
+        "count": 1
+    }
+}

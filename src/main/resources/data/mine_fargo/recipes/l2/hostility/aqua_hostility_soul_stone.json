@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2hostility"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAC",
+    "BOB",
+    "CAD"
+  ],
+  "key": {
+    "A": {
+      "item": "l2hostility:levitation"
+    },
+    "B": {
+      "item": "l2hostility:moonwalk"
+    },
+    "C": {
+      "item": "l2hostility:arena"
+    },
+    "D": {
+      "item": "l2hostility:master"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:aqua_hostility_soul_stone",
+    "count": 1
+  }
+}

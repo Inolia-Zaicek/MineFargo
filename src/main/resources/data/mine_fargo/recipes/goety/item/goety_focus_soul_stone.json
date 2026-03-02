@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABC",
+    "HOD",
+    "GFE"
+  ],
+  "key": {
+    "A": {
+      "item": "goety:shocking_focus"
+    },
+    "B": {
+      "item": "goety:steaming_focus"
+    },
+    "C": {
+      "item": "goety:fireball_focus"
+    },
+    "D": {
+      "item": "goety:launch_focus"
+    },
+    "E": {
+      "item": "goety:swarm_focus"
+    },
+    "F": {
+      "item": "goety:frost_breath_focus"
+    },
+    "G": {
+      "item": "goety:rotting_focus"
+    },
+    "H": {
+      "item": "goety:soul_light_focus"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:goety_focus_soul_stone",
+    "count": 1
+  }
+}

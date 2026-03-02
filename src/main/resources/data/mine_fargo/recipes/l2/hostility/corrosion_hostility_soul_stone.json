@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2hostility"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HAB",
+    "GOC",
+    "FED"
+  ],
+  "key": {
+    "A": {
+      "item": "l2hostility:weakness"
+    },
+    "B": {
+      "item": "l2hostility:slowness"
+    },
+    "C": {
+      "item": "l2hostility:poison"
+    },
+    "D": {
+      "item": "l2hostility:wither"
+    },
+    "E": {
+      "item": "l2hostility:soul_burner"
+    },
+    "F": {
+      "item": "l2hostility:freezing"
+    },
+    "G": {
+      "item": "l2hostility:gravity"
+    },
+    "H": {
+      "item": "l2hostility:cursed"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:corrosion_hostility_soul_stone",
+    "count": 1
+  }
+}

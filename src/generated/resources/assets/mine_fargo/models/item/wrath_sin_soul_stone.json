@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mine_fargo:item/wrath_sin_soul_stone"
+  }
+}

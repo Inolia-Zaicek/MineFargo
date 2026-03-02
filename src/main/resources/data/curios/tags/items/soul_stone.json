@@ -135,6 +135,51 @@
     {"id":"mine_fargo:escort_soul_stone","required":false},
     {"id":"mine_fargo:brew_soul_stone","required":false},
     {"id":"mine_fargo:legion_soul_stone","required":false},
-    {"id":"mine_fargo:goety_dark_soul_stone","required":false}
+    {"id":"mine_fargo:goety_dark_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_goety_entity","required":false},
+    {"id":"mine_fargo:redstone_monstrosity_soul_stone","required":false},
+    {"id":"mine_fargo:apostle_soul_stone","required":false},
+    {"id":"mine_fargo:nether_apostle_soul_stone","required":false},
+    {"id":"mine_fargo:vizier_soul_stone","required":false},
+    {"id":"mine_fargo:ender_keeper_soul_stone","required":false},
+    {"id":"mine_fargo:minister_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_iaf_dragon","required":false},
+    {"id":"mine_fargo:dragon_bone_soul_stone","required":false},
+    {"id":"mine_fargo:fire_dragon_blood_soul_stone","required":false},
+    {"id":"mine_fargo:ice_dragon_blood_soul_stone","required":false},
+    {"id":"mine_fargo:lightning_dragon_blood_soul_stone","required":false},
+    {"id":"mine_fargo:fire_dragon_steel_soul_stone","required":false},
+    {"id":"mine_fargo:ice_dragon_steel_soul_stone","required":false},
+    {"id":"mine_fargo:lightning_dragon_steel_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_iaf_entity","required":false},
+    {"id":"mine_fargo:cyclops_soul_stone","required":false},
+    {"id":"mine_fargo:gorgon_soul_stone","required":false},
+    {"id":"mine_fargo:iaf_hydra_soul_stone","required":false},
+    {"id":"mine_fargo:iaf_siren_soul_stone","required":false},
+    {"id":"mine_fargo:sea_serpent_soul_stone","required":false},
+    {"id":"mine_fargo:troll_soul_stone","required":false},
+    {"id":"mine_fargo:hippocampus_soul_stone","required":false},
+    {"id":"mine_fargo:death_worm_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_sons_of_sins","required":false},
+    {"id":"mine_fargo:envy_sin_soul_stone","required":false},
+    {"id":"mine_fargo:gluttony_sin_soul_stone","required":false},
+    {"id":"mine_fargo:greed_sin_soul_stone","required":false},
+    {"id":"mine_fargo:lust_sin_soul_stone","required":false},
+    {"id":"mine_fargo:pride_sin_soul_stone","required":false},
+    {"id":"mine_fargo:sloth_sin_soul_stone","required":false},
+    {"id":"mine_fargo:wrath_sin_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_l2hostility","required":false},
+    {"id":"mine_fargo:body_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:corrosion_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:resistance_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:aqua_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:zone_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:destroy_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:ultra_hostility_soul_stone","required":false}
   ]
 }

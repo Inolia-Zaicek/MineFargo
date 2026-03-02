@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "goety"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOB",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "goety:crone_hat"
+    },
+    "B": {
+      "item": "goety:witch_hat"
+    },
+    "D": {
+      "item": "goety:witch_hat_hedge"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:brew_soul_stone",
+    "count": 1
+  }
+}

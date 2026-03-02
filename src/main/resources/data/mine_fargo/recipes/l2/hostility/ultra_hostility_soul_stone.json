@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2hostility"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DAC",
+    "BOB",
+    "CAD"
+  ],
+  "key": {
+    "A": {
+      "item": "l2hostility:undying"
+    },
+    "B": {
+      "item": "l2hostility:killer_aura"
+    },
+    "C": {
+      "item": "l2hostility:ragnarok"
+    },
+    "D": {
+      "item": "l2hostility:reprint"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:ultra_hostility_soul_stone",
+    "count": 1
+  }
+}
