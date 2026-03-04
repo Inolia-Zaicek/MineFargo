@@ -11,9 +11,7 @@ import com.inolia_zaicek.mine_fargo.Item.Goety.Item.OrderAboutSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.HippocampusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.TrollSoulStoneItem;
-import com.inolia_zaicek.mine_fargo.Item.Iron.EvocationSectSoulStoneItem;
-import com.inolia_zaicek.mine_fargo.Item.L2.Curios.*;
-import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.*;
+import com.inolia_zaicek.mine_fargo.Item.L2.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.LavaEaterSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.*;
@@ -29,8 +27,6 @@ import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.FluffyCloudSoul
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.QuestRamSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -43,13 +39,11 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -128,13 +122,6 @@ public class HurtEvent {
                 if (attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null) {
                     if (MyGoUtil.hasL2Hostility(ownableEntity.getOwner(), AquaHostilitySoulStoneItem.class)) {
                         number *= 1 - MyGoConfig.aqua_hostility_soul_stone_own_armor.get();
-                    }
-                }
-                //咒护
-                if (MyGoUtil.hasL2Curios(attacked, GuardHostilitySoulStoneItem.class)) {
-                    //火
-                    if (event.getSource().is(IS_FIRE)) {
-                        number *= 1 - MyGoConfig.guard_hostility_soul_stone_fire.get();
                     }
                 }
                 //四相
@@ -618,38 +605,6 @@ public class HurtEvent {
                         }
                     }
                 }
-                //驭恶
-                if (MyGoUtil.hasL2Hostility(attacker, RiderHostilitySoulStoneItem.class) && attacked != null) {
-                    //魂火
-                    int effectCount = 0;
-                    for (MobEffectInstance effect : attacked.getActiveEffects()) {
-                        // 判断是否为NEUTRAL或Harmful【非正面——负面
-                        boolean isNEUTRAL = effect.getEffect().getCategory() == MobEffectCategory.NEUTRAL;
-                        boolean isHarmful = effect.getEffect().getCategory() == MobEffectCategory.HARMFUL;
-                        boolean isBENEFICIAL = effect.getEffect().getCategory() == MobEffectCategory.BENEFICIAL;
-                        // 统计非NEUTRAL且非Harmful的效果
-                        if (isNEUTRAL || isHarmful||isBENEFICIAL ) {
-                            //同时也不是魂火
-                            if(effect.getEffect() != Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                    new ResourceLocation("l2complements", "flame")))) {
-                                effectCount++;
-                            }
-                        }
-                    }
-                    if(effectCount>0) {
-                        attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                new ResourceLocation("l2complements", "flame"))),
-                                (int) (MyGoConfig.rider_hostility_soul_stone.get() * 20), effectCount-1, false, false, false));
-                        if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal") && !attacked.hasEffect(
-                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "flame")))
-                        )) {
-                            map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "flame"))),
-                                    new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                            new ResourceLocation("l2complements", "flame"))), (int) (MyGoConfig.rider_hostility_soul_stone.get() * 20),
-                                            effectCount-1, false, false, false));
-                        }
-                    }
-                }
                 if (MyGoUtil.hasL2Hostility(attacker, DestroyHostilitySoulStoneItem.class) && attacked != null) {
                     int neutralAndHarmfulCount = 0;
                     for (MobEffectInstance effect : attacked.getActiveEffects()) {
@@ -698,20 +653,6 @@ public class HurtEvent {
                 if (MyGoUtil.hasL2Hostility(attacker, ResistanceHostilitySoulStoneItem.class)) {
                     overArmorPenetration += MyGoConfig.resistance_hostility_soul_stone_armor_p.get();
                     fireTime += MyGoConfig.resistance_hostility_soul_stone_time.get() * 20;
-                }
-                //咒护
-                if (MyGoUtil.hasL2Curios(attacker, GuardHostilitySoulStoneItem.class)&&attacked!=null) {
-                    attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                            new ResourceLocation("l2complements", "stone_cage"))),
-                            (int) (MyGoConfig.guard_hostility_soul_stone_time.get()*20), 0, false, false, false));
-                    if (!EntityType.getKey(attacked.getType()).toString().equals("eeeabsmobs:immortal") && !attacked.hasEffect(
-                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "stone_cage")))
-                    )) {
-                        map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "stone_cage"))),
-                                new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                        new ResourceLocation("l2complements", "stone_cage"))),
-                                        (int) (MyGoConfig.guard_hostility_soul_stone_time.get()*20), 0, false, false, false));
-                    }
                 }
                 //腐蚀
                 if (MyGoUtil.hasL2Hostility(attacker, CorrosionHostilitySoulStoneItem.class)&&attacked!=null) {

@@ -1,4 +1,4 @@
-package com.inolia_zaicek.mine_fargo.Item.L2.Hostility;
+package com.inolia_zaicek.mine_fargo.Item.L2;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;

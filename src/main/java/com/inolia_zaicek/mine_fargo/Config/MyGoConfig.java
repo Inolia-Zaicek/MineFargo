@@ -447,6 +447,8 @@ public class MyGoConfig {
     public static final ForgeConfigSpec.DoubleValue destroy_hostility_soul_stone_buff;
 
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_heal;
+    public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_cooldown;
+
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_time;
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_range;
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_base_atk;
@@ -455,22 +457,10 @@ public class MyGoConfig {
     public static final ForgeConfigSpec.ConfigValue<Boolean> ultra_hostility_soul_stone;
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_number;
 
-    public static final ForgeConfigSpec.DoubleValue guard_hostility_soul_stone_fire;
-    public static final ForgeConfigSpec.DoubleValue guard_hostility_soul_stone_heal;
-    public static final ForgeConfigSpec.DoubleValue guard_hostility_soul_stone_range;
-    public static final ForgeConfigSpec.DoubleValue guard_hostility_soul_stone_time;
-
-    public static final ForgeConfigSpec.DoubleValue rider_hostility_soul_stone;
-
     static {
     //祝福
     BUILDER.push("base");
-        rider_hostility_soul_stone = BUILDER.comment("驭恶魂石魂火时间").defineInRange("rider_hostility_soul_stone",5.0,0,2147483647);
-
-        guard_hostility_soul_stone_time = BUILDER.comment("咒护魂石攻击禁锢时间").defineInRange("guard_hostility_soul_stone_time",0.5,0,2147483647);
-        guard_hostility_soul_stone_range = BUILDER.comment("咒护魂石范围").defineInRange("guard_hostility_soul_stone_range",15.0,0,2147483647);
-        guard_hostility_soul_stone_heal = BUILDER.comment("咒护魂石回血").defineInRange("guard_hostility_soul_stone_heal",0.05,0,2147483647);
-        guard_hostility_soul_stone_fire = BUILDER.comment("咒护魂石火伤减免").defineInRange("guard_hostility_soul_stone_fire",0.6,0,2147483647);
+        ultra_hostility_soul_stone_cooldown = BUILDER.comment("神躯魂石不死冷却").defineInRange("ultra_hostility_soul_stone_cooldown",0.05,0,2147483647);
 
         ultra_hostility_soul_stone_number = BUILDER.comment("神躯魂石封印数量与时间").defineInRange("ultra_hostility_soul_stone_number",2.0,0,2147483647);
         ultra_hostility_soul_stone = BUILDER.comment("神躯魂石封印能力").define("ultra_hostility_soul_stone",true);

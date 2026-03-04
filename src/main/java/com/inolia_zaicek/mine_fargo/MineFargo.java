@@ -15,6 +15,7 @@ import com.inolia_zaicek.mine_fargo.Event.Iron.AFHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
+import com.inolia_zaicek.mine_fargo.Event.L2.L2Hurt;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtByGunEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;

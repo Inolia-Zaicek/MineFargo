@@ -5,7 +5,6 @@ import com.inolia_zaicek.mine_fargo.Item.Cataclysm.MaledictusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
-import dev.xkmc.l2complements.init.registrate.LCEffects;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
@@ -26,6 +25,7 @@ import java.util.Objects;
 
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.*;
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.maledictus_soul_stone_cooldown_time;
+import static com.inolia_zaicek.mine_fargo.Event.TickEvent.ultra_hostility_soul_stone;
 
 public class DeathAndCloneEvent {
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -67,7 +67,9 @@ public class DeathAndCloneEvent {
         }
         //莱特兰 不死
         else if (ModList.get().isLoaded("l2hostility") && MyGoUtil.hasL2Hostility(livingEntity, MaledictusSoulStoneItem.class)
-        && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY) && this.validTarget(livingEntity)) {
+        && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY) && this.validTarget(livingEntity)
+                &&livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone) == 0 ) {
+            livingEntity.getPersistentData().putInt(ultra_hostility_soul_stone, (int) (MyGoConfig.ultra_hostility_soul_stone_cooldown.get() * 20 * 2));
             float health = ForgeEventFactory.onLivingHeal(livingEntity, (float) (livingEntity.getMaxHealth()*MyGoConfig.ultra_hostility_soul_stone_heal.get()));
             livingEntity.setHealth(health);
             if (livingEntity.isAlive()) {

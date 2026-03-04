@@ -1,4 +1,4 @@
-package com.inolia_zaicek.mine_fargo.Item.L2.Hostility;
+package com.inolia_zaicek.mine_fargo.Item.L2;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings({"all", "removal"})
-public class DestroyHostilitySoulStoneItem extends Item implements ICurioItem, L2HostilityST {
-    public DestroyHostilitySoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
+public class UltraHostilitySoulStoneItem extends Item implements ICurioItem, L2HostilityST {
+    public UltraHostilitySoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
     }
@@ -25,14 +25,15 @@ public class DestroyHostilitySoulStoneItem extends Item implements ICurioItem, L
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (int)(MyGoConfig.destroy_hostility_soul_stone_range.get()*1),(int)(MyGoConfig.destroy_hostility_soul_stone_range.get()*1),
-                (float)(MyGoConfig.destroy_hostility_soul_stone_damage.get()*100), (float)(MyGoConfig.destroy_hostility_soul_stone_armor.get()*100),
-                (float)(MyGoConfig.destroy_hostility_soul_stone_buff.get()*100)
+                (float)(MyGoConfig.ultra_hostility_soul_stone_heal.get()*100),(float)(MyGoConfig.ultra_hostility_soul_stone_cooldown.get()*1),(float)(MyGoConfig.ultra_hostility_soul_stone_time.get()*1),
+                (int)(MyGoConfig.ultra_hostility_soul_stone_range.get()*1),(int)(MyGoConfig.ultra_hostility_soul_stone_range.get()*1),
+                (float)(MyGoConfig.ultra_hostility_soul_stone_base_atk.get()*1), (float)(MyGoConfig.ultra_hostility_soul_stone_atk.get()*100),
+                (float)(MyGoConfig.ultra_hostility_soul_stone_damage.get()*100), (int)(MyGoConfig.ultra_hostility_soul_stone_number.get()*1)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), DestroyHostilitySoulStoneItem.class);
+        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), UltraHostilitySoulStoneItem.class);
     }
 }

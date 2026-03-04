@@ -6,13 +6,13 @@ import com.inolia_zaicek.mine_fargo.Item.Ars.AmethystGolemSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Ars.ArchwoodSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Ars.FirenandoSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Botania.GaiaSoulStoneItem;
-import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.*;
-import com.inolia_zaicek.mine_fargo.Item.Goety.Item.EscortSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.LegionSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.*;
-import com.inolia_zaicek.mine_fargo.Item.L2.Curios.*;
-import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.*;
+import com.inolia_zaicek.mine_fargo.Item.L2.AquaHostilitySoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.L2.BodyHostilitySoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.L2.UltraHostilitySoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.L2.ZoneHostilitySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.PosessedPaladinSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.AquaticSoulStoneItem;
@@ -25,7 +25,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -65,6 +64,7 @@ public class TickEvent {
     public static final String redstone_monstrosity_soul_stone_cooldown = MineFargo.MODID + ":redstone_monstrosity_soul_stone";
     public static final String iaf_siren_soul_stone = MineFargo.MODID + ":iaf_siren_soul_stone";
     public static final String destroy_hostility_soul_stone = MineFargo.MODID + ":destroy_hostility_soul_stone";
+    public static final String ultra_hostility_soul_stone = MineFargo.MODID + ":ultra_hostility_soul_stone";
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
         if (!event.getEntity().isAlive())
@@ -114,36 +114,14 @@ public class TickEvent {
                 livingEntity.getPersistentData().putInt(destroy_hostility_soul_stone,
                         livingEntity.getPersistentData().getInt(destroy_hostility_soul_stone)-1);
             }
+            if(livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone)>0){
+                livingEntity.getPersistentData().putInt(ultra_hostility_soul_stone,
+                        livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone)-1);
+            }
             if (MyGoUtil.hasL2Hostility(livingEntity, BodyHostilitySoulStoneItem.class)){
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,300,(int)(MyGoConfig.body_hostility_soul_stone_buff_lvl.get()-1) ));
                 if(livingEntity.level().getGameTime() % 20L == 0){
                     livingEntity.heal((float) (livingEntity.getMaxHealth()*MyGoConfig.body_hostility_soul_stone_heal_hp.get()));
-                }
-            }
-            if (MyGoUtil.hasL2Curios(livingEntity, GuardHostilitySoulStoneItem.class)&&livingEntity.level().getGameTime() % 20L == 0) {
-                livingEntity.heal((float) (livingEntity.getMaxHealth() * MyGoConfig.guard_hostility_soul_stone_heal.get()));
-                if (livingEntity.getRemainingFireTicks() > 0) {
-                    livingEntity.setRemainingFireTicks(0);
-                }
-                if (livingEntity.isShiftKeyDown()) {
-                    var mobList = MyGoUtil.mobList((int) ((MyGoConfig.guard_hostility_soul_stone_range.get() + 1) / 2), livingEntity);
-                    for (Mob mobs : mobList) {
-                        if (!(mobs instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null && ownableEntity.getOwner() == livingEntity)
-                                && mobs != livingEntity) {
-                            mobs.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                    new ResourceLocation("l2complements", "stone_cage"))),
-                                    20, 0, false, false, false));
-                            if (!EntityType.getKey(mobs.getType()).toString().equals("eeeabsmobs:immortal") && !mobs.hasEffect(
-                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "stone_cage")))
-                            )) {
-                                var map = mobs.getActiveEffectsMap();
-                                map.put(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("l2complements", "stone_cage"))),
-                                        new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
-                                                new ResourceLocation("l2complements", "stone_cage"))),
-                                                20, 0, false, false, false));
-                            }
-                        }
-                    }
                 }
             }
             if (MyGoUtil.hasL2Hostility(livingEntity, AquaHostilitySoulStoneItem.class)){

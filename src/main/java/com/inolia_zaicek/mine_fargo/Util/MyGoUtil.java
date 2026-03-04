@@ -872,28 +872,4 @@ public class MyGoUtil {
         }
         return hasItem.get();
     }
-    public static boolean hasL2Curios(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("l2hostility")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Curios.get())) {
-                hasItem.set(true);
-            }
-        }else{
-            hasItem.set(false);
-        }
-        return hasItem.get();
-    }
 }

@@ -9,7 +9,7 @@ import com.inolia_zaicek.mine_fargo.Item.Goety.Item.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.Iron.*;
-import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.*;
+import com.inolia_zaicek.mine_fargo.Item.L2.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.LavaEaterSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.*;
@@ -233,8 +233,6 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> DestroyHostilitySoulStone;
     public static RegistryObject<Item> UltraHostilitySoulStone;
 
-    public static RegistryObject<Item> SoulOfL2Curios;
-
     public static void register(IEventBus bus){
         ZeroingITEM.register(bus);
         if (ModList.get().isLoaded("l2hostility")) {
@@ -246,8 +244,6 @@ public class MyGoItemRegister {
             ZoneHostilitySoulStone = registerCommonMaterials(ZeroingITEM, "zone_hostility_soul_stone", ZoneHostilitySoulStoneItem::new);
             DestroyHostilitySoulStone = registerCommonMaterials(ZeroingITEM, "destroy_hostility_soul_stone", DestroyHostilitySoulStoneItem::new);
             UltraHostilitySoulStone = registerCommonMaterials(ZeroingITEM, "ultra_hostility_soul_stone", UltraHostilitySoulStoneItem::new);
-
-            SoulOfL2Curios = registerCommonMaterials(ZeroingITEM, "soul_of_l2_curios", SoulOfL2HostilityItem::new);
         }
         if (ModList.get().isLoaded("sons_of_sins")) {
             SoulOfSonsOfSins = registerCommonMaterials(ZeroingITEM, "soul_of_sons_of_sins", SoulOfSonsOfSinsItem::new);

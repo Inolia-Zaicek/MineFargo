@@ -1,4 +1,4 @@
-package com.inolia_zaicek.mine_fargo.Item.L2.Curios;
+package com.inolia_zaicek.mine_fargo.Item.L2;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
@@ -16,8 +16,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @SuppressWarnings({"all", "removal"})
-public class GuardHostilitySoulStoneItem extends Item implements ICurioItem, L2CuriosST {
-    public GuardHostilitySoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
+public class ZoneHostilitySoulStoneItem extends Item implements ICurioItem, L2HostilityST {
+    public ZoneHostilitySoulStoneItem() {super((new Properties()).stacksTo(1).fireResistant());}
     protected String getTooltipItemName() {
         return BuiltInRegistries.ITEM.getKey(this).getPath();
     }
@@ -25,14 +25,14 @@ public class GuardHostilitySoulStoneItem extends Item implements ICurioItem, L2C
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.guard_hostility_soul_stone_fire.get()*100), (float)(MyGoConfig.guard_hostility_soul_stone_heal.get()*100),
-                (int)(MyGoConfig.guard_hostility_soul_stone_range.get()*1),(int)(MyGoConfig.guard_hostility_soul_stone_range.get()*1),
-                (float)(MyGoConfig.guard_hostility_soul_stone_time.get()*1)
+        (float)(MyGoConfig.zone_hostility_soul_stone_damage.get()*100),
+                (int)(MyGoConfig.zone_hostility_soul_stone_range.get()*1),(int)(MyGoConfig.zone_hostility_soul_stone_range.get()*1),
+                (float)(MyGoConfig.zone_hostility_soul_stone_speed.get()*100)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Curios(slotContext.entity(), GuardHostilitySoulStoneItem.class);
+        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), ZoneHostilitySoulStoneItem.class);
     }
 }

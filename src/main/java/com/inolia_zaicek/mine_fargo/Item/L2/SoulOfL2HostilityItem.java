@@ -1,9 +1,8 @@
-package com.inolia_zaicek.mine_fargo.Item.L2.Hostility;
+package com.inolia_zaicek.mine_fargo.Item.L2;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
-import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.SonsOfSinsST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -73,7 +72,7 @@ public class SoulOfL2HostilityItem extends Item implements ICurioItem {
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x999999))));
 
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_l2hostility.ultra_hostility_soul_stone",
-                (float)(MyGoConfig.ultra_hostility_soul_stone_heal.get()*100),(float)(MyGoConfig.ultra_hostility_soul_stone_time.get()*1),
+                (float)(MyGoConfig.ultra_hostility_soul_stone_heal.get()*100),(float)(MyGoConfig.ultra_hostility_soul_stone_cooldown.get()*1),(float)(MyGoConfig.ultra_hostility_soul_stone_time.get()*1),
                 (int)(MyGoConfig.ultra_hostility_soul_stone_range.get()*1),(int)(MyGoConfig.ultra_hostility_soul_stone_range.get()*1),
                 (float)(MyGoConfig.ultra_hostility_soul_stone_base_atk.get()*1), (float)(MyGoConfig.ultra_hostility_soul_stone_atk.get()*100),
                 (float)(MyGoConfig.ultra_hostility_soul_stone_damage.get()*100), (int)(MyGoConfig.ultra_hostility_soul_stone_number.get()*1)

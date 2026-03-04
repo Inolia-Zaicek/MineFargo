@@ -180,6 +180,10 @@
     {"id":"mine_fargo:aqua_hostility_soul_stone","required":false},
     {"id":"mine_fargo:zone_hostility_soul_stone","required":false},
     {"id":"mine_fargo:destroy_hostility_soul_stone","required":false},
-    {"id":"mine_fargo:ultra_hostility_soul_stone","required":false}
+    {"id":"mine_fargo:ultra_hostility_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_l2_curios","required":false},
+    {"id":"mine_fargo:guard_hostility_soul_stone","required":false},
+    {"id":"mine_fargo:rider_hostility_soul_stone","required":false}
   ]
 }

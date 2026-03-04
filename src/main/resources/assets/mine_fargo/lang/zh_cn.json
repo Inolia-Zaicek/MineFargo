@@ -454,8 +454,8 @@
 "tooltip.mine_fargo.soul_of_goety_entity.ender_keeper_soul_stone":"末影守望者——攻击附带%d秒的%d级虚空之蚀状态，且对%dx%d以外的实体拥有额外的%d%%伤害减免，同时自身受击无敌时间提升%d%%",
 
 "item.mine_fargo.minister_soul_stone":"灾厄教父魂石",
-"tooltip.mine_fargo.minister_soul_stone.text":"令周围%dx%d的随从及玩家持续获得%d级抗性提升、%d级速度效果，同时令范围内的非随从实体获得%d级虚弱效果\n§8由灾厄教父掉落",
-"tooltip.mine_fargo.soul_of_goety_entity.minister_soul_stone":"灾厄教父——令周围%dx%d的随从及玩家持续获得%d级抗性提升、%d级速度效果，同时令范围内的非随从实体获得%d级虚弱效果",
+"tooltip.mine_fargo.minister_soul_stone.text":"令周围%dx%d的随从持续获得%d级抗性提升、%d级再生效果，同时令范围内的非随从实体获得%d级虚弱效果\n§8由灾厄教父掉落",
+"tooltip.mine_fargo.soul_of_goety_entity.minister_soul_stone":"灾厄教父——令周围%dx%d的随从持续获得%d级抗性提升、%d级再生效果，同时令范围内的非随从实体获得%d级虚弱效果",
 
 "item.mine_fargo.soul_of_iaf_dragon":"巨龙之魂",
 "item.mine_fargo.dragon_bone_soul_stone":"龙骨魂石",
@@ -575,18 +575,8 @@
 "tooltip.mine_fargo.soul_of_l2hostility.destroy_hostility_soul_stone":"毁坏——攻击将清除目标非[领域压制]的所有正面药水效果，并对周围%dx%d范围内所有同名实体造成原伤害数额%d%%的真实伤害(内置0.05s冷却)；同时，目标每缺少一件装备将提升%d%%伤害数额，目标每拥有一个非正面药水效果将提升%d%%伤害数额",
 
 "item.mine_fargo.ultra_hostility_soul_stone":"神躯魂石",
-"tooltip.mine_fargo.ultra_hostility_soul_stone.text":"触发死亡时回复%d%%生命值；每%d秒对%dx%d范围内的实体造成一次[%d+%d%%攻击力数额]的魔法伤害；造成伤害时自身每有1级附魔，造成伤害提升%d%%；击中目标随机封印目标%d个饰品与装备",
-"tooltip.mine_fargo.soul_of_l2hostility.ultra_hostility_soul_stone":"神躯——触发死亡时回复%d%%生命值；每%d秒对%dx%d范围内的实体造成一次[%d+%d%%攻击力数额]的魔法伤害；造成伤害时自身每有1级附魔，造成伤害提升%d%%；击中目标随机封印目标%d个饰品与装备",
-
-"item.mine_fargo.soul_of_l2_curios":"净恶之魂",
-"item.mine_fargo.guard_hostility_soul_stone":"咒护魂石",
-"tooltip.mine_fargo.guard_hostility_soul_stone.text":"视为穿戴者处于雨中，获得%d%%火焰伤害减免并自动熄灭火焰，并每秒回复总血量的%d%%；同时将词条敌人施加给穿戴者的负面状态返还至所有对你有敌意的生物上，且潜行可对周围%dx%d的非随从实体施加禁锢效果，攻击可额外附加0.5秒禁锢效果",
-"tooltip.mine_fargo.soul_of_l2_curios.guard_hostility_soul_stone":"咒护——视为穿戴者处于雨中，获得%d%%火焰伤害减免并自动熄灭火焰，并每秒回复总血量的%d%%；同时将词条敌人施加给穿戴者的负面状态返还至所有对你有敌意的生物上，且潜行可对周围%dx%d的非随从实体施加禁锢效果，攻击可额外附加0.5秒禁锢效果",
-
-"item.mine_fargo.rider_hostility_soul_stone":"驭恶魂石",
-"tooltip.mine_fargo.rider_hostility_soul_stone.text":"攻击会对目标附加[等级相当于目标身上药水种类数量]的魂火效果%d秒，攻击无视目标伤害冷却且穿透目标魔法防御，穿戴[恶咒魂石]或[嫉妒诅咒]时必定掉落目标词条",
-"tooltip.mine_fargo.soul_of_l2_curios.rider_hostility_soul_stone":"驭恶——攻击会对目标附加[等级相当于目标身上药水种类数量]的魂火效果%d秒，攻击无视目标伤害冷却且穿透目标魔法防御，穿戴[恶咒魂石]或[嫉妒诅咒]时必定掉落目标词条",
-
+"tooltip.mine_fargo.ultra_hostility_soul_stone.text":"触发死亡时回复%d%%生命值(内置%d秒冷却)；每%d秒对%dx%d范围内的实体造成一次[%d+%d%%攻击力数额]的魔法伤害；造成伤害时自身每有1级附魔，造成伤害提升%d%%；击中目标随机封印目标%d个饰品与装备",
+"tooltip.mine_fargo.soul_of_l2hostility.ultra_hostility_soul_stone":"神躯——触发死亡时回复%d%%生命值(内置%d秒冷却)；每%d秒对%dx%d范围内的实体造成一次[%d+%d%%攻击力数额]的魔法伤害；造成伤害时自身每有1级附魔，造成伤害提升%d%%；击中目标随机封印目标%d个饰品与装备",
 
 
 
