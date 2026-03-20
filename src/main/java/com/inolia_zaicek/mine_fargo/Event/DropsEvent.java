@@ -49,45 +49,63 @@ public class DropsEvent {
                 if (MyGoUtil.hasEntity(livingEntity, AnimalSoulStoneItem.class)) {
                     number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
                 }
-                if (MyGoUtil.hasArs(livingEntity, DrygmySoulStoneItem.class)) {
-                    number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
+                if (ModList.get().isLoaded("ars_nouveau")) {
+                    if (MyGoUtil.hasArs(livingEntity, DrygmySoulStoneItem.class)) {
+                        number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
+                    }
                 }
                 if (number > 0) {
                     for (int i = 0; i < number; i++) {
                         Level level = livingEntity.level();
-                        LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
-                        LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, livingEntity.damageSources().playerAttack(livingEntity)).create(LootContextParamSets.ENTITY);
-                        List<ItemStack> drops = loot.getRandomItems(context);
-                        for (ItemStack drop : drops) {
-                            ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
-                            itementity.setDefaultPickUpDelay();
-                            itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
-                            level.addFreshEntity(itementity);
-                        }
-                    }
-                }
-            }
-            //如果攻击者是随从
-            else if (event.getSource().getEntity() instanceof LivingEntity livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
-                if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() instanceof Player owner) {
-                    int number = 0;
-                    if (MyGoUtil.hasEntity(owner, AnimalSoulStoneItem.class)) {
-                        number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
-                    }
-                    if (MyGoUtil.hasArs(owner, DrygmySoulStoneItem.class)) {
-                        number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
-                    }
-                    if (number > 0) {
-                        for (int i = 0; i < number; i++) {
-                            Level level = owner.level();
+                        if (!level.isClientSide()&&level.getServer()!=null) {
                             LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
-                            LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, livingEntity.damageSources().playerAttack(owner)).create(LootContextParamSets.ENTITY);
+                            LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, livingEntity.damageSources().playerAttack(livingEntity)).create(LootContextParamSets.ENTITY);
                             List<ItemStack> drops = loot.getRandomItems(context);
                             for (ItemStack drop : drops) {
                                 ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
                                 itementity.setDefaultPickUpDelay();
                                 itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
                                 level.addFreshEntity(itementity);
+                            }
+                        }
+                    }
+                }
+            }
+            //如果攻击者是随从
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
+                if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() instanceof Player owner) {
+                    int number = 0;
+                    if (MyGoUtil.hasEntity(owner, AnimalSoulStoneItem.class)) {
+                        number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
+                    }
+                    if (ModList.get().isLoaded("ars_nouveau")) {
+                        if (MyGoUtil.hasArs(owner, DrygmySoulStoneItem.class)) {
+                            number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
+                        }
+                    }
+                    if (ModList.get().isLoaded("sons_of_sins")) {
+                        if (MyGoUtil.hasSonsOfSins(owner, GluttonySinsSoulStoneItem.class)) {
+                            int killNumber = owner.getPersistentData().getInt(gluttony_sin_soul_stone);
+                            livingEntity.getPersistentData().putInt(gluttony_sin_soul_stone,Math.min(killNumber+1,
+                                    (int)(MyGoConfig.gluttony_sin_soul_stone_max.get()/MyGoConfig.gluttony_sin_soul_stone_kill.get())) );
+                        }
+                        if (MyGoUtil.hasSonsOfSins(owner, GreedSinsSoulStoneItem.class)) {
+                            number += (int) (MyGoConfig.greed_sin_soul_stone_drop.get() * 1);
+                        }
+                    }
+                    if (number > 0) {
+                        for (int i = 0; i < number; i++) {
+                            Level level = owner.level();
+                            if (!level.isClientSide()&&level.getServer()!=null) {
+                                LootTable loot = ((MinecraftServer) Objects.requireNonNull(level.getServer())).getLootData().getLootTable(event.getEntity().getType().getDefaultLootTable());
+                                LootParams context = (new LootParams.Builder((ServerLevel) level)).withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition())).withParameter(LootContextParams.THIS_ENTITY, event.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, livingEntity.damageSources().playerAttack(owner)).create(LootContextParamSets.ENTITY);
+                                List<ItemStack> drops = loot.getRandomItems(context);
+                                for (ItemStack drop : drops) {
+                                    ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
+                                    itementity.setDefaultPickUpDelay();
+                                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
+                                    level.addFreshEntity(itementity);
+                                }
                             }
                         }
                     }

@@ -1,7 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Event.L2;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
-import com.inolia_zaicek.mine_fargo.Item.L2.UltraHostilitySoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.UltraHostilitySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +22,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@SerialClass
 public class L2Hurt {
     @SubscribeEvent
     public void hurt(LivingHurtEvent event) {

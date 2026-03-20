@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:anchor_soul_stone"
+        },
+        {
+            "item": "mine_fargo:magnet_soul_stone"
+        },
+        {
+            "item": "mine_fargo:hazard_soul_stone"
+        },
+        {
+            "item": "mine_fargo:undying_soul_stone"
+        },
+        {
+            "item": "mine_fargo:enchanted_golden_apple_soul_stone"
+        },
+        {
+            "item": "mine_fargo:the_sea_soul_stone"
+        },
+        {
+            "item": "mine_fargo:mending_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_supernatural",
+        "count": 1
+    }
+}

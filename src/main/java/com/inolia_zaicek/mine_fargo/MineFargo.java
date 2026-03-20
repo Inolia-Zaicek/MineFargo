@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Event.*;
+import com.inolia_zaicek.mine_fargo.Event.AlexsCaves.ACTickEvent;
 import com.inolia_zaicek.mine_fargo.Event.Ars.ArsHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Botania.ManaRepair;
 import com.inolia_zaicek.mine_fargo.Event.Botania.PixieSummon;
@@ -11,11 +12,13 @@ import com.inolia_zaicek.mine_fargo.Event.Create.*;
 import com.inolia_zaicek.mine_fargo.Event.Create.CreateTickEvent;
 import com.inolia_zaicek.mine_fargo.Event.Goety.*;
 import com.inolia_zaicek.mine_fargo.Event.IceAndFire.*;
+import com.inolia_zaicek.mine_fargo.Event.InoIntegrationPack.InoIntegrationPackEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.AFHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.L2.L2Hurt;
+import com.inolia_zaicek.mine_fargo.Event.L2.MyGoAttackListener;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtByGunEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
@@ -25,13 +28,16 @@ import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightRepairEvent;
 import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightTickEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
 import com.inolia_zaicek.mine_fargo.Network.TerraRayChannel;
+import com.inolia_zaicek.mine_fargo.Register.Key.MyClientHandler;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Register.Tab;
 import com.inolia_zaicek.mine_fargo.loot.ModLootModifiers;
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -43,6 +49,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.*;
 
@@ -54,6 +61,12 @@ public class MineFargo {
     public static final String MODID = "mine_fargo";
     public MineFargo() {
         init();
+        if(FMLEnvironment.dist == Dist.CLIENT) {
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(MyClientHandler::registerKeyMappings);
+        }
+        if (ModList.get().isLoaded("l2damagetracker")) {
+            AttackEventHandler.register(5000, new MyGoAttackListener());
+        }
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, MyGoConfig.SPEC);
     }
@@ -70,6 +83,9 @@ public class MineFargo {
         bus.addListener(this::clientSetup);
         MyGoEffectsRegister.INOEFFECT.register(bus);
 
+        MinecraftForge.EVENT_BUS.register(TickRepairEvent.class);
+        MinecraftForge.EVENT_BUS.register(TickRepairEvent2.class);
+        MinecraftForge.EVENT_BUS.register(TickSlotAddEvent.class);
         MinecraftForge.EVENT_BUS.register(HurtEvent.class);
         MinecraftForge.EVENT_BUS.register(HealEvent.class);
         MinecraftForge.EVENT_BUS.register(DropsEvent.class);
@@ -82,7 +98,11 @@ public class MineFargo {
         MinecraftForge.EVENT_BUS.register(DeathAndCloneEvent.class);
         MinecraftForge.EVENT_BUS.register(CriticalHitEvent.class);
         MinecraftForge.EVENT_BUS.register(TickEvent.class);
+        MinecraftForge.EVENT_BUS.register(EntityJoinLevelEvent.class);
         MinecraftForge.EVENT_BUS.register(ShieldEvent.class);
+
+        MinecraftForge.EVENT_BUS.register(InoIntegrationPackEvent.class);
+
         if (ModList.get().isLoaded("irons_spellbooks")) {
             MinecraftForge.EVENT_BUS.register(IronHurtEvent.class);
             if (ModList.get().isLoaded("traveloptics")) {
@@ -136,6 +156,9 @@ public class MineFargo {
         }
         if (ModList.get().isLoaded("sons_of_sins")) {
             MinecraftForge.EVENT_BUS.register(SonsOfSinsDropEvent.class);
+        }
+        if (ModList.get().isLoaded("alexscaves")) {
+            MinecraftForge.EVENT_BUS.register(ACTickEvent.class);
         }
     }
 

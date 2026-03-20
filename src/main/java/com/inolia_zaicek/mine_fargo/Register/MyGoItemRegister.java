@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Register;
 
+import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.*;
 import com.inolia_zaicek.mine_fargo.Item.Ars.*;
 import com.inolia_zaicek.mine_fargo.Item.Botania.*;
 import com.inolia_zaicek.mine_fargo.Item.Cataclysm.*;
@@ -9,7 +10,8 @@ import com.inolia_zaicek.mine_fargo.Item.Goety.Item.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.Iron.*;
-import com.inolia_zaicek.mine_fargo.Item.L2.*;
+import com.inolia_zaicek.mine_fargo.Item.L2.Complements.*;
+import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.LavaEaterSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.*;
@@ -18,6 +20,8 @@ import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.*;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.*;
+import com.inolia_zaicek.mine_fargo.Item.Solo.*;
 import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.*;
 import com.inolia_zaicek.mine_fargo.Item.Tacz.*;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.*;
@@ -40,42 +44,52 @@ public class MyGoItemRegister {
     public static final DeferredRegister<Item> IronItem = DeferredRegister.create(Registries.ITEM, MODID);
     public static List<RegistryObject<Item>> CommonItem = new ArrayList<>(List.of());
 
-    public static RegistryObject<Item> registerCommonMaterials(DeferredRegister<Item> register, String name, Supplier<? extends Item> sup){
-        RegistryObject<Item> object = register.register(name,sup);
+    public static RegistryObject<Item> registerCommonMaterials(DeferredRegister<Item> register, String name, Supplier<? extends Item> sup) {
+        RegistryObject<Item> object = register.register(name, sup);
         CommonItem.add(object);
         return object;
     }
+
     //合成素材
-    public static RegistryObject<Item> EmptySoulStone = registerCommonMaterials(ZeroingITEM,"empty_soul_stone", () -> new Item(new Item.Properties().stacksTo(64).fireResistant() ));
+    public static RegistryObject<Item> EmptySoulStone = registerCommonMaterials(ZeroingITEM, "empty_soul_stone", () -> new Item(new Item.Properties().stacksTo(64).fireResistant()));
 
-    public static RegistryObject<Item> SoulOfOres =registerCommonMaterials(ZeroingITEM,"soul_of_ores", SoulOfOresItem::new);
-    public static RegistryObject<Item> CoalSoulStone=registerCommonMaterials(ZeroingITEM,"coal_soul_stone", CoalSoulStoneItem::new);
-    public static RegistryObject<Item> CopperSoulStone=registerCommonMaterials(ZeroingITEM,"copper_soul_stone", CopperSoulStoneItem::new);
-    public static RegistryObject<Item> LapisLazuliSoulStone=registerCommonMaterials(ZeroingITEM,"lapis_lazuli_soul_stone", LapisLazuliSoulStoneItem::new);
-    public static RegistryObject<Item> IronSoulStone=registerCommonMaterials(ZeroingITEM,"iron_soul_stone", IronSoulStoneItem::new);
-    public static RegistryObject<Item> RedstoneSoulStone=registerCommonMaterials(ZeroingITEM,"redstone_soul_stone", RedstoneSoulStoneItem::new);
-    public static RegistryObject<Item> GoldSoulStone=registerCommonMaterials(ZeroingITEM,"gold_soul_stone", GoldSoulStoneItem::new);
-    public static RegistryObject<Item> EmeraldSoulStone=registerCommonMaterials(ZeroingITEM,"emerald_soul_stone", EmeraldSoulStoneItem::new);
-    public static RegistryObject<Item> DiamondSoulStone=registerCommonMaterials(ZeroingITEM,"diamond_soul_stone", DiamondSoulStoneItem::new);
-    public static RegistryObject<Item> NetheriteSoulStone=registerCommonMaterials(ZeroingITEM,"netherite_soul_stone", NetheriteSoulStoneItem::new);
+    public static RegistryObject<Item> SoulOfOres = registerCommonMaterials(ZeroingITEM, "soul_of_ores", SoulOfOresItem::new);
+    public static RegistryObject<Item> CoalSoulStone = registerCommonMaterials(ZeroingITEM, "coal_soul_stone", CoalSoulStoneItem::new);
+    public static RegistryObject<Item> CopperSoulStone = registerCommonMaterials(ZeroingITEM, "copper_soul_stone", CopperSoulStoneItem::new);
+    public static RegistryObject<Item> LapisLazuliSoulStone = registerCommonMaterials(ZeroingITEM, "lapis_lazuli_soul_stone", LapisLazuliSoulStoneItem::new);
+    public static RegistryObject<Item> IronSoulStone = registerCommonMaterials(ZeroingITEM, "iron_soul_stone", IronSoulStoneItem::new);
+    public static RegistryObject<Item> RedstoneSoulStone = registerCommonMaterials(ZeroingITEM, "redstone_soul_stone", RedstoneSoulStoneItem::new);
+    public static RegistryObject<Item> GoldSoulStone = registerCommonMaterials(ZeroingITEM, "gold_soul_stone", GoldSoulStoneItem::new);
+    public static RegistryObject<Item> EmeraldSoulStone = registerCommonMaterials(ZeroingITEM, "emerald_soul_stone", EmeraldSoulStoneItem::new);
+    public static RegistryObject<Item> DiamondSoulStone = registerCommonMaterials(ZeroingITEM, "diamond_soul_stone", DiamondSoulStoneItem::new);
+    public static RegistryObject<Item> NetheriteSoulStone = registerCommonMaterials(ZeroingITEM, "netherite_soul_stone", NetheriteSoulStoneItem::new);
 
-    public static RegistryObject<Item> SoulOfNature =registerCommonMaterials(ZeroingITEM,"soul_of_nature", SoulOfNatureItem::new);
-    public static RegistryObject<Item> SnowSoulStone=registerCommonMaterials(ZeroingITEM,"snow_soul_stone", SnowSoulStoneItem::new);
-    public static RegistryObject<Item> LavaSoulStone=registerCommonMaterials(ZeroingITEM,"lava_soul_stone", LavaSoulStoneItem::new);
-    public static RegistryObject<Item> MushroomSoulStone=registerCommonMaterials(ZeroingITEM,"mushroom_soul_stone", MushroomSoulStoneItem::new);
-    public static RegistryObject<Item> NetherSoulStone=registerCommonMaterials(ZeroingITEM,"nether_soul_stone", NetherSoulStoneItem::new);
-    public static RegistryObject<Item> EnderSoulStone=registerCommonMaterials(ZeroingITEM,"ender_soul_stone", EnderSoulStoneItem::new);
-    public static RegistryObject<Item> OceanSoulStone=registerCommonMaterials(ZeroingITEM,"ocean_soul_stone", OceanSoulStoneItem::new);
-    public static RegistryObject<Item> LushSoulStone=registerCommonMaterials(ZeroingITEM,"lush_soul_stone", LushSoulStoneItem::new);
-    public static RegistryObject<Item> ForestSoulStone=registerCommonMaterials(ZeroingITEM,"forest_soul_stone", ForestSoulStoneItem::new);
+    public static RegistryObject<Item> SoulOfNature = registerCommonMaterials(ZeroingITEM, "soul_of_nature", SoulOfNatureItem::new);
+    public static RegistryObject<Item> SnowSoulStone = registerCommonMaterials(ZeroingITEM, "snow_soul_stone", SnowSoulStoneItem::new);
+    public static RegistryObject<Item> LavaSoulStone = registerCommonMaterials(ZeroingITEM, "lava_soul_stone", LavaSoulStoneItem::new);
+    public static RegistryObject<Item> MushroomSoulStone = registerCommonMaterials(ZeroingITEM, "mushroom_soul_stone", MushroomSoulStoneItem::new);
+    public static RegistryObject<Item> NetherSoulStone = registerCommonMaterials(ZeroingITEM, "nether_soul_stone", NetherSoulStoneItem::new);
+    public static RegistryObject<Item> EnderSoulStone = registerCommonMaterials(ZeroingITEM, "ender_soul_stone", EnderSoulStoneItem::new);
+    public static RegistryObject<Item> OceanSoulStone = registerCommonMaterials(ZeroingITEM, "ocean_soul_stone", OceanSoulStoneItem::new);
+    public static RegistryObject<Item> LushSoulStone = registerCommonMaterials(ZeroingITEM, "lush_soul_stone", LushSoulStoneItem::new);
+    public static RegistryObject<Item> ForestSoulStone = registerCommonMaterials(ZeroingITEM, "forest_soul_stone", ForestSoulStoneItem::new);
 
-    public static RegistryObject<Item> SoulOfEntity =registerCommonMaterials(ZeroingITEM,"soul_of_entity", SoulOfEntityItem::new);
-    public static RegistryObject<Item> BlazeSoulStone=registerCommonMaterials(ZeroingITEM,"blaze_soul_stone", BlazeSoulStoneItem::new);
-    public static RegistryObject<Item> DeathSoulStone=registerCommonMaterials(ZeroingITEM,"death_soul_stone", DeathSoulStoneItem::new);
-    public static RegistryObject<Item> ArthropodSoulStone=registerCommonMaterials(ZeroingITEM,"arthropod_soul_stone", ArthropodSoulStoneItem::new);
-    public static RegistryObject<Item> AnimalSoulStone=registerCommonMaterials(ZeroingITEM,"animal_soul_stone", AnimalSoulStoneItem::new);
-    public static RegistryObject<Item> AquaticSoulStone=registerCommonMaterials(ZeroingITEM,"aquatic_soul_stone", AquaticSoulStoneItem::new);
-    public static RegistryObject<Item> WingSoulStone=registerCommonMaterials(ZeroingITEM,"wing_soul_stone", WingSoulStoneItem::new);
+    public static RegistryObject<Item> SoulOfEntity = registerCommonMaterials(ZeroingITEM, "soul_of_entity", SoulOfEntityItem::new);
+    public static RegistryObject<Item> BlazeSoulStone = registerCommonMaterials(ZeroingITEM, "blaze_soul_stone", BlazeSoulStoneItem::new);
+    public static RegistryObject<Item> DeathSoulStone = registerCommonMaterials(ZeroingITEM, "death_soul_stone", DeathSoulStoneItem::new);
+    public static RegistryObject<Item> ArthropodSoulStone = registerCommonMaterials(ZeroingITEM, "arthropod_soul_stone", ArthropodSoulStoneItem::new);
+    public static RegistryObject<Item> AnimalSoulStone = registerCommonMaterials(ZeroingITEM, "animal_soul_stone", AnimalSoulStoneItem::new);
+    public static RegistryObject<Item> AquaticSoulStone = registerCommonMaterials(ZeroingITEM, "aquatic_soul_stone", AquaticSoulStoneItem::new);
+    public static RegistryObject<Item> WingSoulStone = registerCommonMaterials(ZeroingITEM, "wing_soul_stone", WingSoulStoneItem::new);
+
+    public static RegistryObject<Item> SoulOfSupernatural = registerCommonMaterials(ZeroingITEM, "soul_of_supernatural", SoulOfSupernaturalItem::new);
+    public static RegistryObject<Item> AnchorSoulStone = registerCommonMaterials(ZeroingITEM, "anchor_soul_stone", AnchorSoulStoneItem::new);
+    public static RegistryObject<Item> MagnetSoulStone = registerCommonMaterials(ZeroingITEM, "magnet_soul_stone", MagnetSoulStoneItem::new);
+    public static RegistryObject<Item> HazardSoulStone = registerCommonMaterials(ZeroingITEM, "hazard_soul_stone", HazardSoulStoneItem::new);
+    public static RegistryObject<Item> UndyingSoulStone = registerCommonMaterials(ZeroingITEM, "undying_soul_stone", UndyingSoulStoneItem::new);
+    public static RegistryObject<Item> EnchantedGoldenAppleSoulStone = registerCommonMaterials(ZeroingITEM, "enchanted_golden_apple_soul_stone", EnchantedGoldenAppleSoulStoneItem::new);
+    public static RegistryObject<Item> TheSeaSoulStone = registerCommonMaterials(ZeroingITEM, "the_sea_soul_stone", TheSeaSoulStoneItem::new);
+    public static RegistryObject<Item> MendingSoulStone = registerCommonMaterials(ZeroingITEM, "mending_soul_stone", MendingSoulStoneItem::new);
 
     public static RegistryObject<Item> SoulOfIronSpell;
     public static RegistryObject<Item> FireSectSoulStone;
@@ -233,8 +247,51 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> DestroyHostilitySoulStone;
     public static RegistryObject<Item> UltraHostilitySoulStone;
 
-    public static void register(IEventBus bus){
+    public static RegistryObject<Item> FarmerDelightSoulStone;
+    public static RegistryObject<Item> NeptuniumSoulStone;
+
+    public static RegistryObject<Item> SoulOfL2Complements;
+    public static RegistryObject<Item> TotemicComplementsSoulStone;
+    public static RegistryObject<Item> PoseiditeComplementsSoulStone;
+    public static RegistryObject<Item> ShulkerateComplementsSoulStone;
+    public static RegistryObject<Item> SculkiumComplementsSoulStone;
+    public static RegistryObject<Item> EterniumComplementsSoulStone;
+
+
+    public static RegistryObject<Item> SoulOfAlexsCaves;
+    public static RegistryObject<Item> MagneticSoulStone;
+    public static RegistryObject<Item> PrimitiveSoulStone;
+    public static RegistryObject<Item> ToxicSoulStone;
+    public static RegistryObject<Item> AbyssalChasmSoulStone;
+    public static RegistryObject<Item> ForlornSoulStone;
+    public static RegistryObject<Item> CandyCavitySoulStone;
+
+    public static void register(IEventBus bus) {
         ZeroingITEM.register(bus);
+        if (ModList.get().isLoaded("alexscaves")) {
+            SoulOfAlexsCaves = registerCommonMaterials(ZeroingITEM, "soul_of_alexs_caves", SoulOfAlexsCavesItem::new);
+            MagneticSoulStone = registerCommonMaterials(ZeroingITEM, "magnetic_soul_stone", MagneticSoulStoneItem::new);
+            PrimitiveSoulStone = registerCommonMaterials(ZeroingITEM, "primitive_soul_stone", PrimitiveSoulStoneItem::new);
+            ToxicSoulStone = registerCommonMaterials(ZeroingITEM, "toxic_soul_stone", ToxicSoulStoneItem::new);
+            AbyssalChasmSoulStone = registerCommonMaterials(ZeroingITEM, "abyssal_chasm_soul_stone", AbyssalChasmSoulStoneItem::new);
+            ForlornSoulStone = registerCommonMaterials(ZeroingITEM, "forlorn_soul_stone", ForlornSoulStoneItem::new);
+            CandyCavitySoulStone = registerCommonMaterials(ZeroingITEM, "candy_cavity_soul_stone", CandyCavitySoulStoneItem::new);
+
+        }
+        if (ModList.get().isLoaded("l2complements")) {
+            SoulOfL2Complements = registerCommonMaterials(ZeroingITEM, "soul_of_l2_complements", SoulOfL2ComplementsItem::new);
+            TotemicComplementsSoulStone = registerCommonMaterials(ZeroingITEM, "totemic_complements_soul_stone", TotemicComplementsSoulStoneItem::new);
+            PoseiditeComplementsSoulStone = registerCommonMaterials(ZeroingITEM, "poseidite_complements_soul_stone", PoseiditeComplementsSoulStoneItem::new);
+            ShulkerateComplementsSoulStone = registerCommonMaterials(ZeroingITEM, "shulkerate_complements_soul_stone", ShulkerateComplementsSoulStoneItem::new);
+            SculkiumComplementsSoulStone = registerCommonMaterials(ZeroingITEM, "sculkium_complements_soul_stone", SculkiumComplementsSoulStoneItem::new);
+            EterniumComplementsSoulStone = registerCommonMaterials(ZeroingITEM, "eternium_complements_soul_stone", EterniumComplementsSoulStoneItem::new);
+        }
+        if (ModList.get().isLoaded("aquaculture")) {
+            NeptuniumSoulStone = registerCommonMaterials(ZeroingITEM, "neptunium_soul_stone", NeptuniumSoulStoneItem::new);
+        }
+        if (ModList.get().isLoaded("farmersdelight")) {
+            FarmerDelightSoulStone = registerCommonMaterials(ZeroingITEM, "farmers_delight_soul_stone", FarmerDelightSoulStoneItem::new);
+        }
         if (ModList.get().isLoaded("l2hostility")) {
             SoulOfL2Hostility = registerCommonMaterials(ZeroingITEM, "soul_of_l2hostility", SoulOfL2HostilityItem::new);
             BodyHostilitySoulStone = registerCommonMaterials(ZeroingITEM, "body_hostility_soul_stone", BodyHostilitySoulStoneItem::new);
@@ -355,46 +412,46 @@ public class MyGoItemRegister {
             MaledictusSoulStone = registerCommonMaterials(ZeroingITEM, "maledictus_soul_stone", MaledictusSoulStoneItem::new);
             EnderGuardianSoulStone = registerCommonMaterials(ZeroingITEM, "ender_guardian_soul_stone", EnderGuardianSoulStoneItem::new);
             AncientRemnantSoulStone = registerCommonMaterials(ZeroingITEM, "ancient_remnant_soul_stone", AncientRemnantSoulStoneItem::new);
-            TheHarbingerSoulStone    = registerCommonMaterials(ZeroingITEM, "the_harbinger_soul_stone", TheHarbingerSoulStoneItem::new);
+            TheHarbingerSoulStone = registerCommonMaterials(ZeroingITEM, "the_harbinger_soul_stone", TheHarbingerSoulStoneItem::new);
             NetheriteMonstrositySoulStone = registerCommonMaterials(ZeroingITEM, "netherite_monstrosity_soul_stone", NetheriteMonstrositySoulStoneItem::new);
             ScyllaSoulStone = registerCommonMaterials(ZeroingITEM, "scylla_soul_stone", ScyllaSoulStoneItem::new);
         }
         if (ModList.get().isLoaded("irons_spellbooks")) {
             IronItem.register(bus);
-            SoulOfIronSpell = registerCommonMaterials(ZeroingITEM,"soul_of_iron_spell", SoulOfIronSpellItem::new);
-            FireSectSoulStone = registerCommonMaterials(ZeroingITEM,"fire_sect_soul_stone", FireSectSoulStoneItem::new);
-            IceSectSoulStone = registerCommonMaterials(ZeroingITEM,"ice_sect_soul_stone", IceSectSoulStoneItem::new);
-            LightningSectSoulStone = registerCommonMaterials(ZeroingITEM,"lightning_sect_soul_stone", LightningSectSoulStoneItem::new);
-            EvocationSectSoulStone = registerCommonMaterials(ZeroingITEM,"evocation_sect_soul_stone", EvocationSectSoulStoneItem::new);
-            HolySectSoulStone = registerCommonMaterials(ZeroingITEM,"holy_sect_soul_stone", HolySectSoulStoneItem::new);
-            BloodSectSoulStone = registerCommonMaterials(ZeroingITEM,"blood_sect_soul_stone", BloodSectSoulStoneItem::new);
-            NatureSectSoulStone = registerCommonMaterials(ZeroingITEM,"nature_sect_soul_stone", NatureSectSoulStoneItem::new);
-            EnderSectSoulStone = registerCommonMaterials(ZeroingITEM,"ender_sect_soul_stone", EnderSectSoulStoneItem::new);
-            EldritchSectSoulStone = registerCommonMaterials(ZeroingITEM,"eldritch_sect_soul_stone", EldritchSectSoulStoneItem::new);
+            SoulOfIronSpell = registerCommonMaterials(ZeroingITEM, "soul_of_iron_spell", SoulOfIronSpellItem::new);
+            FireSectSoulStone = registerCommonMaterials(ZeroingITEM, "fire_sect_soul_stone", FireSectSoulStoneItem::new);
+            IceSectSoulStone = registerCommonMaterials(ZeroingITEM, "ice_sect_soul_stone", IceSectSoulStoneItem::new);
+            LightningSectSoulStone = registerCommonMaterials(ZeroingITEM, "lightning_sect_soul_stone", LightningSectSoulStoneItem::new);
+            EvocationSectSoulStone = registerCommonMaterials(ZeroingITEM, "evocation_sect_soul_stone", EvocationSectSoulStoneItem::new);
+            HolySectSoulStone = registerCommonMaterials(ZeroingITEM, "holy_sect_soul_stone", HolySectSoulStoneItem::new);
+            BloodSectSoulStone = registerCommonMaterials(ZeroingITEM, "blood_sect_soul_stone", BloodSectSoulStoneItem::new);
+            NatureSectSoulStone = registerCommonMaterials(ZeroingITEM, "nature_sect_soul_stone", NatureSectSoulStoneItem::new);
+            EnderSectSoulStone = registerCommonMaterials(ZeroingITEM, "ender_sect_soul_stone", EnderSectSoulStoneItem::new);
+            EldritchSectSoulStone = registerCommonMaterials(ZeroingITEM, "eldritch_sect_soul_stone", EldritchSectSoulStoneItem::new);
             if (ModList.get().isLoaded("traveloptics")) {
-                AquaSectSoulStone = registerCommonMaterials(ZeroingITEM,"aqua_sect_soul_stone", AquaSectSoulStoneItem::new);
+                AquaSectSoulStone = registerCommonMaterials(ZeroingITEM, "aqua_sect_soul_stone", AquaSectSoulStoneItem::new);
             }
             if (ModList.get().isLoaded("alshanex_familiars")) {
-                SoundSectSoulStone = registerCommonMaterials(ZeroingITEM,"sound_sect_soul_stone", SoundSectSoulStoneItem::new);
+                SoundSectSoulStone = registerCommonMaterials(ZeroingITEM, "sound_sect_soul_stone", SoundSectSoulStoneItem::new);
             }
             if (ModList.get().isLoaded("gtbcs_geomancy_plus")) {
-                EarthSectSoulStone = registerCommonMaterials(ZeroingITEM,"earth_sect_soul_stone", EarthSectSoulStoneItem::new);
+                EarthSectSoulStone = registerCommonMaterials(ZeroingITEM, "earth_sect_soul_stone", EarthSectSoulStoneItem::new);
             }
             if (ModList.get().isLoaded("fantasy_ending")) {
-                FantacySectSoulStone = registerCommonMaterials(ZeroingITEM,"fantacy_sect_soul_stone", FantacySectSoulStoneItem::new);
+                FantacySectSoulStone = registerCommonMaterials(ZeroingITEM, "fantacy_sect_soul_stone", FantacySectSoulStoneItem::new);
             }
         }
         if (ModList.get().isLoaded("ars_nouveau")) {
-            SoulOfArsNouveau = registerCommonMaterials(ZeroingITEM,"soul_of_ars_nouveau", SoulOfArsNouveauItem::new);
-            ArsSourceSoulStone = registerCommonMaterials(ZeroingITEM,"ars_source_soul_stone", ArsSourceSoulStoneItem::new);
-            DrygmySoulStone = registerCommonMaterials(ZeroingITEM,"drygmy_soul_stone", DrygmySoulStoneItem::new);
-            WhirlisprigSoulStone = registerCommonMaterials(ZeroingITEM,"whirlisprig_soul_stone", WhirlisprigSoulStoneItem::new);
-            StarbuncleSoulStone = registerCommonMaterials(ZeroingITEM,"starbuncle_soul_stone", StarbuncleSoulStoneItem::new);
-            BookwyrmSoulStone = registerCommonMaterials(ZeroingITEM,"bookwyrm_soul_stone", BookwyrmSoulStoneItem::new);
-            WixieSoulStone = registerCommonMaterials(ZeroingITEM,"wixie_soul_stone", WixieSoulStoneItem::new);
-            AmethystGolemSoulStone = registerCommonMaterials(ZeroingITEM,"amethyst_golem_soul_stone", AmethystGolemSoulStoneItem::new);
-            ArchwoodSoulStone = registerCommonMaterials(ZeroingITEM,"archwood_soul_stone", ArchwoodSoulStoneItem::new);
-            WildenSoulStone = registerCommonMaterials(ZeroingITEM,"wilden_soul_stone", WildenSoulStoneItem::new);
+            SoulOfArsNouveau = registerCommonMaterials(ZeroingITEM, "soul_of_ars_nouveau", SoulOfArsNouveauItem::new);
+            ArsSourceSoulStone = registerCommonMaterials(ZeroingITEM, "ars_source_soul_stone", ArsSourceSoulStoneItem::new);
+            DrygmySoulStone = registerCommonMaterials(ZeroingITEM, "drygmy_soul_stone", DrygmySoulStoneItem::new);
+            WhirlisprigSoulStone = registerCommonMaterials(ZeroingITEM, "whirlisprig_soul_stone", WhirlisprigSoulStoneItem::new);
+            StarbuncleSoulStone = registerCommonMaterials(ZeroingITEM, "starbuncle_soul_stone", StarbuncleSoulStoneItem::new);
+            BookwyrmSoulStone = registerCommonMaterials(ZeroingITEM, "bookwyrm_soul_stone", BookwyrmSoulStoneItem::new);
+            WixieSoulStone = registerCommonMaterials(ZeroingITEM, "wixie_soul_stone", WixieSoulStoneItem::new);
+            AmethystGolemSoulStone = registerCommonMaterials(ZeroingITEM, "amethyst_golem_soul_stone", AmethystGolemSoulStoneItem::new);
+            ArchwoodSoulStone = registerCommonMaterials(ZeroingITEM, "archwood_soul_stone", ArchwoodSoulStoneItem::new);
+            WildenSoulStone = registerCommonMaterials(ZeroingITEM, "wilden_soul_stone", WildenSoulStoneItem::new);
             if (ModList.get().isLoaded("ars_elemental")) {
                 SirenSoulStone = registerCommonMaterials(ZeroingITEM, "siren_soul_stone", SirenSoulStoneItem::new);
                 FirenandoSoulStone = registerCommonMaterials(ZeroingITEM, "firenando_soul_stone", FirenandoSoulStoneItem::new);
@@ -411,5 +468,14 @@ public class MyGoItemRegister {
             HeavyMachineGunSoulStone = registerCommonMaterials(ZeroingITEM, "heavy_machine_gun_soul_stone", HeavyMachineGunSoulStoneItem::new);
             MachineGunSoulStone = registerCommonMaterials(ZeroingITEM, "machine_gun_soul_stone", MachineGunSoulStoneItem::new);
         }
+    }
+    //判断这个物品是否属于你注册的所有物品
+    public static boolean isMyRegisteredItem(Item item) {
+        for (RegistryObject<Item> regObj : CommonItem) {
+            if (regObj.get() == item) {
+                return true;
+            }
+        }
+        return false;
     }
 }

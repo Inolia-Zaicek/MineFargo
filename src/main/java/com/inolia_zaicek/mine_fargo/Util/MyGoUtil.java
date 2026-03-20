@@ -1,5 +1,6 @@
 package com.inolia_zaicek.mine_fargo.Util;
 
+import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -7,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -67,6 +69,7 @@ public class MyGoUtil {
         // 只要满足其中一个 tag 即可
         return isMoreTetraBoss || isForgeBoss;
     }
+    //无饰品装备时返回 true——————————
     public static boolean noSameCurio(LivingEntity living, Item item) {
         return noSameCurio(living, (Predicate<ItemStack>) (itemStack) -> itemStack.getItem() == item);
     }
@@ -218,6 +221,26 @@ public class MyGoUtil {
         });
         //有矿石之力，直接返回true
         if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() )){
+            hasItem.set(true);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasSupernatural(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                    ItemStack stack = stackHandler.getStackInSlot(i);
+                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                        hasItem.set(true);
+                        return;
+                    }
+                }
+            }
+        });
+        //有矿石之力，直接返回true
+        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSupernatural.get() )){
             hasItem.set(true);
         }
         return hasItem.get();
@@ -871,5 +894,78 @@ public class MyGoUtil {
             hasItem.set(false);
         }
         return hasItem.get();
+    }
+    public static boolean hasL2Complements(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("l2complements")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Complements.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    public static boolean hasAlexsCaves(LivingEntity living, Class<?> targetClass) {
+        AtomicBoolean hasItem = new AtomicBoolean(false);
+        if (ModList.get().isLoaded("alexscaves")) {
+            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
+                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
+                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
+                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
+                            hasItem.set(true);
+                            return;
+                        }
+                    }
+                }
+            });
+            //有集合，直接返回true
+            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfAlexsCaves.get())) {
+                hasItem.set(true);
+            }
+        }else{
+            hasItem.set(false);
+        }
+        return hasItem.get();
+    }
+    //可不可以揍（判断是不是随从+非潜行时不攻击
+    public static boolean canAttack(LivingEntity attacked,LivingEntity attacker) {
+        boolean can = true;
+        //生物属于非敌对  同时  自身未蹲下——同时开启了功能
+        if(can&&!(attacked instanceof Enemy)&&!attacker.isCrouching() && MyGoConfig.can_attack.get() ){
+            can=false;
+        }
+        //攻击者与挨打者一致
+        if(can&&attacker==attacked){
+            can=false;
+        }
+        //有铁魔法的情况下，识别魔法随从
+        if (can&&ModList.get().isLoaded("irons_spellbooks")) {
+            can = IronUtil.canAttack(attacked,attacker);
+        }
+        //如果是假人，true
+        if(EntityType.getKey(attacked.getType()).toString().equals("dummmmmmy:target_dummy") ){
+            can=true;
+        }
+        //生物属于随从且主人是攻击者，强制不打
+        if(attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null && ownableEntity.getOwner() == attacker){
+            can=false;
+        }
+        return can;
     }
 }

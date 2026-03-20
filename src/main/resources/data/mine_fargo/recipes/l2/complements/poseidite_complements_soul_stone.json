@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2complements"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "l2complements:poseidite_helmet"
+    },
+    "B": {
+      "item": "l2complements:poseidite_chestplate"
+    },
+    "C": {
+      "item": "l2complements:poseidite_leggings"
+    },
+    "D": {
+      "item": "l2complements:poseidite_boots"
+    },
+    "E": {
+      "item": "l2complements:poseidite_sword"
+    },
+    "F": {
+      "item": "l2complements:poseidite_pickaxe"
+    },
+    "G": {
+      "item": "l2complements:poseidite_axe"
+    },
+    "H": {
+      "item": "l2complements:poseidite_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:poseidite_complements_soul_stone",
+    "count": 1
+  }
+}

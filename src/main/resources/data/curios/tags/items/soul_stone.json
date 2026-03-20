@@ -182,8 +182,32 @@
     {"id":"mine_fargo:destroy_hostility_soul_stone","required":false},
     {"id":"mine_fargo:ultra_hostility_soul_stone","required":false},
 
-    {"id":"mine_fargo:soul_of_l2_curios","required":false},
-    {"id":"mine_fargo:guard_hostility_soul_stone","required":false},
-    {"id":"mine_fargo:rider_hostility_soul_stone","required":false}
+    {"id":"mine_fargo:farmers_delight_soul_stone","required":false},
+
+    {"id":"mine_fargo:neptunium_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_l2_complements","required":false},
+    {"id":"mine_fargo:totemic_complements_soul_stone","required":false},
+    {"id":"mine_fargo:poseidite_complements_soul_stone","required":false},
+    {"id":"mine_fargo:shulkerate_complements_soul_stone","required":false},
+    {"id":"mine_fargo:sculkium_complements_soul_stone","required":false},
+    {"id":"mine_fargo:eternium_complements_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_alexs_caves","required":false},
+    {"id":"mine_fargo:magnetic_soul_stone","required":false},
+    {"id":"mine_fargo:primitive_soul_stone","required":false},
+    {"id":"mine_fargo:toxic_soul_stone","required":false},
+    {"id":"mine_fargo:abyssal_chasm_soul_stone","required":false},
+    {"id":"mine_fargo:forlorn_soul_stone","required":false},
+    {"id":"mine_fargo:candy_cavity_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_supernatural","required":false},
+    {"id":"mine_fargo:anchor_soul_stone","required":false},
+    {"id":"mine_fargo:magnet_soul_stone","required":false},
+    {"id":"mine_fargo:hazard_soul_stone","required":false},
+    {"id":"mine_fargo:undying_soul_stone","required":false},
+    {"id":"mine_fargo:enchanted_golden_apple_soul_stone","required":false},
+    {"id":"mine_fargo:the_sea_soul_stone","required":false},
+    {"id":"mine_fargo:mending_soul_stone","required":false}
   ]
 }

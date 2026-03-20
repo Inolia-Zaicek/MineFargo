@@ -1,11 +1,12 @@
-[22:34:24] [INIT] KubeJS 2001.6.5-build.16; MC 2001 forge
-[22:34:24] [INIT] Loaded plugins:
-[22:34:24] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
-[22:34:24] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
-[22:34:24] [INIT] - com.tacz.guns.compat.kubejs.TimelessKubeJSPlugin
-[22:34:24] [INIT] - committee.nova.mods.avaritia.init.compat.kubejs.KubeJSAvaritiaPlugin
-[22:34:24] [INIT] - com.github.tartaricacid.touhoulittlemaid.compat.kubejs.ModKubeJSPlugin
-[22:34:24] [INIT] - dev.xkmc.l2hostility.compat.kubejs.LHKJSPlugin
-[22:34:27] [INFO] example.js#5: Hello, World! (Loaded startup scripts)
-[22:34:27] [INFO] Loaded script startup_scripts:example.js in 0.151 s
-[22:34:27] [INFO] Loaded 1/1 KubeJS startup scripts in 2.945 s with 0 errors and 0 warnings
+[19:39:08] [INIT] KubeJS 2001.6.5-build.16; MC 2001 forge
+[19:39:08] [INIT] Loaded plugins:
+[19:39:08] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgePlugin
+[19:39:08] [INIT] - dev.latvian.mods.kubejs.forge.BuiltinKubeJSForgeClientPlugin
+[19:39:08] [INIT] - com.tacz.guns.compat.kubejs.TimelessKubeJSPlugin
+[19:39:08] [INIT] - committee.nova.mods.avaritia.init.compat.kubejs.KubeJSAvaritiaPlugin
+[19:39:08] [INIT] - com.github.tartaricacid.touhoulittlemaid.compat.kubejs.ModKubeJSPlugin
+[19:39:08] [INIT] - com.mega.revelationfix.common.compat.kjs.KubeJSPlugin
+[19:39:08] [INIT] - dev.xkmc.l2hostility.compat.kubejs.LHKJSPlugin
+[19:39:09] [INFO] example.js#5: Hello, World! (Loaded startup scripts)
+[19:39:09] [INFO] Loaded script startup_scripts:example.js in 0.119 s
+[19:39:09] [INFO] Loaded 1/1 KubeJS startup scripts in 1.018 s with 0 errors and 0 warnings

@@ -457,9 +457,350 @@ public class MyGoConfig {
     public static final ForgeConfigSpec.ConfigValue<Boolean> ultra_hostility_soul_stone;
     public static final ForgeConfigSpec.DoubleValue ultra_hostility_soul_stone_number;
 
+    public static final ForgeConfigSpec.DoubleValue farmers_delight_soul_stone_chance_1;
+    public static final ForgeConfigSpec.DoubleValue farmers_delight_soul_stone_time_1;
+    public static final ForgeConfigSpec.DoubleValue farmers_delight_soul_stone_chance_2;
+    public static final ForgeConfigSpec.DoubleValue farmers_delight_soul_stone_time_2;
+
+    public static final ForgeConfigSpec.DoubleValue neptunium_soul_stone_damage;
+    public static final ForgeConfigSpec.DoubleValue neptunium_soul_stone_swim;
+    public static final ForgeConfigSpec.DoubleValue neptunium_soul_stone_dig;
+
+    public static final ForgeConfigSpec.DoubleValue totemic_complements_soul_stone_damage;
+    public static final ForgeConfigSpec.DoubleValue totemic_complements_soul_stone_heal;
+
+    public static final ForgeConfigSpec.DoubleValue poseidite_complements_soul_stone_atk;
+    public static final ForgeConfigSpec.DoubleValue poseidite_complements_soul_stone_speed;
+    public static final ForgeConfigSpec.DoubleValue poseidite_complements_soul_stone_damage;
+
+    public static final ForgeConfigSpec.DoubleValue shulkerate_complements_soul_stone_entity;
+    public static final ForgeConfigSpec.DoubleValue shulkerate_complements_soul_stone_block;
+    public static final ForgeConfigSpec.DoubleValue shulkerate_complements_soul_stone_armor;
+
+    public static final ForgeConfigSpec.DoubleValue sculkium_complements_soul_stone_light;
+    public static final ForgeConfigSpec.DoubleValue sculkium_complements_soul_stone_high;
+    public static final ForgeConfigSpec.DoubleValue sculkium_complements_soul_stone_damage;
+    public static final ForgeConfigSpec.DoubleValue sculkium_complements_soul_stone_armor;
+
+    public static final ForgeConfigSpec.DoubleValue eternium_complements_soul_stone;
+
+    public static final ForgeConfigSpec.ConfigValue<Boolean> can_slot_add;
+    public static final ForgeConfigSpec.DoubleValue mod_slot_add;
+
+    public static final ForgeConfigSpec.DoubleValue magnetic_soul_stone_range;
+    public static final ForgeConfigSpec.DoubleValue magnetic_soul_stone_base_atk;
+    public static final ForgeConfigSpec.DoubleValue magnetic_soul_stone_atk;
+    public static final ForgeConfigSpec.DoubleValue magnetic_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue magnetic_soul_stone_chance;
+
+    public static final ForgeConfigSpec.DoubleValue primitive_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue primitive_soul_stone_cooldown;
+    public static final ForgeConfigSpec.DoubleValue primitive_soul_stone_damage;
+    public static final ForgeConfigSpec.DoubleValue primitive_soul_stone_damage_cooldown;
+    public static final ForgeConfigSpec.DoubleValue primitive_soul_stone_buff;
+
+    public static final ForgeConfigSpec.DoubleValue toxic_soul_stone_buff_time;
+    public static final ForgeConfigSpec.DoubleValue toxic_soul_stone_buff_lvl;
+    public static final ForgeConfigSpec.DoubleValue toxic_soul_stone_time;
+
+    public static final ForgeConfigSpec.DoubleValue forlorn_soul_stone_damage;
+    public static final ForgeConfigSpec.DoubleValue forlorn_soul_stone_cooldown;
+    public static final ForgeConfigSpec.DoubleValue forlorn_soul_stone_dig;
+    public static final ForgeConfigSpec.DoubleValue forlorn_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue forlorn_soul_stone_buff;
+
+    public static final ForgeConfigSpec.DoubleValue candy_cavity_soul_stone_base;
+    public static final ForgeConfigSpec.DoubleValue candy_cavity_soul_stone_speed;
+    public static final ForgeConfigSpec.DoubleValue elementium_soul_stone_cooldown;
+
+    public static final ForgeConfigSpec.ConfigValue<Boolean> over_revelation;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> can_attack;
+
+    public static final ForgeConfigSpec.DoubleValue anchor_soul_stone_range;
+    public static final ForgeConfigSpec.DoubleValue anchor_soul_stone_time;
+
+    public static final ForgeConfigSpec.DoubleValue magnet_soul_stone_range;
+
+    public static final ForgeConfigSpec.DoubleValue hazard_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue hazard_soul_stone_range;
+    public static final ForgeConfigSpec.DoubleValue hazard_soul_stone_damage;
+
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_hp;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_heal_time;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_heal_lvl;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_damage_time;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_damage_lvl;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_fire_time;
+    public static final ForgeConfigSpec.DoubleValue undying_soul_stone_cooldown;
+
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_hp;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_damage_time;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_damage_lvl;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_heal_time;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_heal_lvl;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_re_time;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_re_lvl;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_fire_time;
+    public static final ForgeConfigSpec.DoubleValue ega_soul_stoneoul_stone_cooldown;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> NetherApostleSoulStoneItemOpen;
+
+
+    public static final ForgeConfigSpec.DoubleValue mending_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue mending_soul_stone_number;
+    public static final ForgeConfigSpec.DoubleValue anchor_soul_stone_cooldown;
+
+    public static final ForgeConfigSpec.ConfigValue<Boolean> zombie_summon_can;
+
+    public static final ForgeConfigSpec.ConfigValue<Boolean> InoIntegrationPack;
+    public static final ForgeConfigSpec.DoubleValue level_1_hp;
+    public static final ForgeConfigSpec.DoubleValue level_2_hp;
+    public static final ForgeConfigSpec.DoubleValue level_3_hp;
+    public static final ForgeConfigSpec.DoubleValue level_4_hp;
+    public static final ForgeConfigSpec.DoubleValue level_5_hp;
+    public static final ForgeConfigSpec.DoubleValue level_6_hp;
+    public static final ForgeConfigSpec.DoubleValue level_7_hp;
+    public static final ForgeConfigSpec.DoubleValue level_8_hp;
+    public static final ForgeConfigSpec.DoubleValue level_9_hp;
+    public static final ForgeConfigSpec.DoubleValue level_10_hp;
+    public static final ForgeConfigSpec.DoubleValue level_11_hp;
+    public static final ForgeConfigSpec.DoubleValue level_12_hp;
+    public static final ForgeConfigSpec.DoubleValue level_13_hp;
+    public static final ForgeConfigSpec.DoubleValue level_14_hp;
+    public static final ForgeConfigSpec.DoubleValue level_15_hp;
+    public static final ForgeConfigSpec.DoubleValue level_16_hp;
+    public static final ForgeConfigSpec.DoubleValue level_17_hp;
+    public static final ForgeConfigSpec.DoubleValue level_18_hp;
+    public static final ForgeConfigSpec.DoubleValue level_19_hp;
+    public static final ForgeConfigSpec.DoubleValue level_20_hp;
+    public static final ForgeConfigSpec.DoubleValue coin_copper_drop_chance;
+    public static final ForgeConfigSpec.DoubleValue coin_copper_drop_number;
+    public static final ForgeConfigSpec.DoubleValue desire_etching;
+    public static final ForgeConfigSpec.DoubleValue chaotic_etching;
+    public static final ForgeConfigSpec.DoubleValue end_etching;
+
+    public static final ForgeConfigSpec.DoubleValue track_range;
+    public static final ForgeConfigSpec.DoubleValue feral_claws;
+    public static final ForgeConfigSpec.DoubleValue titan_glove;
+    public static final ForgeConfigSpec.DoubleValue warrior_emblem;
+    public static final ForgeConfigSpec.DoubleValue sorcerer_emblem;
+    public static final ForgeConfigSpec.DoubleValue ranger_emblem;
+    public static final ForgeConfigSpec.DoubleValue summoner_emblem;
+    public static final ForgeConfigSpec.DoubleValue magic_quiver;
+    public static final ForgeConfigSpec.DoubleValue eye_of_the_golem;
+    public static final ForgeConfigSpec.DoubleValue putrid_scent;
+    public static final ForgeConfigSpec.DoubleValue coin_iron_drop_number;
+    public static final ForgeConfigSpec.DoubleValue boss_time_heal;
+    public static final ForgeConfigSpec.DoubleValue common_material;
+    public static final ForgeConfigSpec.DoubleValue uncommon_material;
+    public static final ForgeConfigSpec.DoubleValue rare_material;
+    public static final ForgeConfigSpec.DoubleValue epic_material;
+    public static final ForgeConfigSpec.DoubleValue mythic_material;
+    public static final ForgeConfigSpec.DoubleValue ancient_material;
+    public static final ForgeConfigSpec.DoubleValue fragrant_ingenuity;
+    public static final ForgeConfigSpec.DoubleValue spring_ring;
+    public static final ForgeConfigSpec.DoubleValue flow_core;
+    public static final ForgeConfigSpec.DoubleValue soul_book;
+    public static final ForgeConfigSpec.DoubleValue quick_chant_ring;
+    public static final ForgeConfigSpec.DoubleValue spell_overlimit_core;
+    public static final ForgeConfigSpec.DoubleValue spell_enhancement_core;
+    public static final ForgeConfigSpec.DoubleValue chaos_book;
+    public static final ForgeConfigSpec.DoubleValue infinity_totem;
+    public static final ForgeConfigSpec.DoubleValue hairpin;
+    public static final ForgeConfigSpec.DoubleValue wound_rime_blade;
+    public static final ForgeConfigSpec.DoubleValue shield_of_cthulhu;
+    public static final ForgeConfigSpec.DoubleValue honey_comb;
+    public static final ForgeConfigSpec.DoubleValue brain_of_confusion;
+    public static final ForgeConfigSpec.DoubleValue worm_scarf;
+    public static final ForgeConfigSpec.DoubleValue treasure_magnet;
+    public static final ForgeConfigSpec.DoubleValue the_community;
+    public static final ForgeConfigSpec.DoubleValue guardian_eye;
+    public static final ForgeConfigSpec.DoubleValue pygmy_necklace;
+    public static final ForgeConfigSpec.DoubleValue spirit_arrow_bag;
+    public static final ForgeConfigSpec.DoubleValue spirit_necklace;
+    public static final ForgeConfigSpec.DoubleValue storm_core;
+    public static final ForgeConfigSpec.DoubleValue sun_membrane;
+    public static final ForgeConfigSpec.DoubleValue explosion_shard;
+    public static final ForgeConfigSpec.DoubleValue soaring_wings;
+    public static final ForgeConfigSpec.DoubleValue blackstone_core;
+    public static final ForgeConfigSpec.DoubleValue hard_ice;
+    public static final ForgeConfigSpec.DoubleValue force_field;
+    public static final ForgeConfigSpec.DoubleValue hercules_beetle;
+    public static final ForgeConfigSpec.DoubleValue necromantic_scroll;
+    public static final ForgeConfigSpec.DoubleValue flying_damage;
     static {
+        BUILDER.push("ino");
+        InoIntegrationPack = BUILDER.comment("伊诺莉娅整合包模式是否启动(作者自用)").define("inoIntegration_pack",false);
+        flying_damage = BUILDER.comment("飞行状态下玩家造成的伤害").defineInRange("flying_damage", 0.2, 0, 2147483647);
+        necromantic_scroll = BUILDER.comment("死灵卷轴掉落概率").defineInRange("necromantic_scroll", 0.5, 0, 2147483647);
+        hercules_beetle = BUILDER.comment("大力士甲虫掉落概率").defineInRange("hercules_beetle", 0.5, 0, 2147483647);
+        force_field = BUILDER.comment("守护力场掉落概率").defineInRange("force_field", 0.5, 0, 2147483647);
+        hard_ice = BUILDER.comment("告死细霜掉落概率").defineInRange("hard_ice", 0.5, 0, 2147483647);
+        blackstone_core = BUILDER.comment("黑石核心掉落概率").defineInRange("blackstone_core", 0.5, 0, 2147483647);
+        soaring_wings = BUILDER.comment("飞升之翼掉落概率").defineInRange("soaring_wings", 0.5, 0, 2147483647);
+        explosion_shard = BUILDER.comment("破灭残片掉落概率").defineInRange("explosion_shard", 0.5, 0, 2147483647);
+        sun_membrane = BUILDER.comment("逐日之翼掉落概率").defineInRange("sun_membrane", 0.5, 0, 2147483647);
+        storm_core = BUILDER.comment("裂空结晶掉落概率").defineInRange("storm_core", 0.5, 0, 2147483647);
+        spirit_necklace = BUILDER.comment("精灵项链掉落概率").defineInRange("spirit_necklace", 0.5, 0, 2147483647);
+        spirit_arrow_bag = BUILDER.comment("精灵箭袋掉落概率").defineInRange("spirit_arrow_bag", 0.5, 0, 2147483647);
+        pygmy_necklace = BUILDER.comment("矮人项链掉落概率").defineInRange("pygmy_necklace", 0.5, 0, 2147483647);
+        guardian_eye = BUILDER.comment("守卫者之眼掉落概率").defineInRange("guardian_eye", 0.5, 0, 2147483647);
+        the_community = BUILDER.comment("归一石掉落概率").defineInRange("the_community", 0.5, 0, 2147483647);
+        treasure_magnet = BUILDER.comment("宝藏磁石掉落概率").defineInRange("treasure_magnet", 0.5, 0, 2147483647);
+        worm_scarf = BUILDER.comment("蠕虫围巾掉落概率").defineInRange("worm_scarf", 0.5, 0, 2147483647);
+        brain_of_confusion = BUILDER.comment("混乱之脑掉落概率").defineInRange("brain_of_confusion", 0.5, 0, 2147483647);
+        honey_comb = BUILDER.comment("蜂窝掉落概率").defineInRange("honey_comb", 0.5, 0, 2147483647);
+        shield_of_cthulhu = BUILDER.comment("克盾掉落概率").defineInRange("shield_of_cthulhu", 0.5, 0, 2147483647);
+        wound_rime_blade = BUILDER.comment("咒愈锋刃掉落概率").defineInRange("wound_rime_blade", 0.5, 0, 2147483647);
+        hairpin = BUILDER.comment("发簪掉落概率").defineInRange("hairpin", 0.5, 0, 2147483647);
+        infinity_totem = BUILDER.comment("无尽图腾掉落概率").defineInRange("infinity_totem", 0.5, 0, 2147483647);
+        chaos_book = BUILDER.comment("混沌之书掉落概率").defineInRange("chaos_book", 0.5, 0, 2147483647);
+        spell_enhancement_core = BUILDER.comment("法术强化核心掉落概率").defineInRange("spell_enhancement_core", 0.5, 0, 2147483647);
+        spell_overlimit_core = BUILDER.comment("法术超限核心掉落概率").defineInRange("spell_overlimit_core", 0.5, 0, 2147483647);
+        quick_chant_ring = BUILDER.comment("时痕之戒掉落概率").defineInRange("quick_chant_ring", 0.5, 0, 2147483647);
+        soul_book = BUILDER.comment("魂之书掉落概率").defineInRange("soul_book", 0.5, 0, 2147483647);
+        flow_core = BUILDER.comment("流转核心掉落概率").defineInRange("flow_core", 0.5, 0, 2147483647);
+        spring_ring = BUILDER.comment("烬血之戒掉落概率").defineInRange("spring_ring", 0.5, 0, 2147483647);
+        fragrant_ingenuity = BUILDER.comment("馥郁巧思掉落概率").defineInRange("fragrant_ingenuity", 0.5, 0, 2147483647);
+        ancient_material = BUILDER.comment("金色材料数量").defineInRange("ancient_material", 2.0, 0, 2147483647);
+        mythic_material = BUILDER.comment("橙色材料数量").defineInRange("mythic_material", 2.0, 0, 2147483647);
+        epic_material = BUILDER.comment("紫色材料数量").defineInRange("epic_material", 2.0, 0, 2147483647);
+        rare_material = BUILDER.comment("蓝色材料数量").defineInRange("rare_material", 2.0, 0, 2147483647);
+        uncommon_material = BUILDER.comment("绿色材料数量").defineInRange("uncommon_material", 2.0, 0, 2147483647);
+        common_material = BUILDER.comment("白色材料数量").defineInRange("common_material", 2.0, 0, 2147483647);
+        boss_time_heal = BUILDER.comment("BOSS每秒回血").defineInRange("boss_time_heal", 0.01, 0, 2147483647);
+        coin_iron_drop_number = BUILDER.comment("铁币掉落数量").defineInRange("coin_iron_drop_number", 3.0, 0, 2147483647);
+        putrid_scent = BUILDER.comment("腐香囊掉落概率").defineInRange("putrid_scent", 0.75, 0, 2147483647);
+        eye_of_the_golem = BUILDER.comment("石巨人之眼掉落概率").defineInRange("eye_of_the_golem", 0.75, 0, 2147483647);
+        magic_quiver = BUILDER.comment("魔法箭袋掉落概率").defineInRange("magic_quiver", 0.5, 0, 2147483647);
+        summoner_emblem = BUILDER.comment("召唤师徽章掉落概率").defineInRange("summoner_emblem", 0.5, 0, 2147483647);
+        ranger_emblem = BUILDER.comment("游侠徽章掉落概率").defineInRange("ranger_emblem", 0.5, 0, 2147483647);
+        sorcerer_emblem = BUILDER.comment("巫师徽章掉落概率").defineInRange("sorcerer_emblem", 0.5, 0, 2147483647);
+        warrior_emblem = BUILDER.comment("战士徽章掉落概率").defineInRange("warrior_emblem", 0.5, 0, 2147483647);
+        titan_glove = BUILDER.comment("泰坦手套掉落概率").defineInRange("titan_glove", 0.5, 0, 2147483647);
+        feral_claws = BUILDER.comment("狂爪手套掉落概率").defineInRange("feral_claws", 0.5, 0, 2147483647);
+        end_etching = BUILDER.comment("终焉刻蚀板掉落概率").defineInRange("end_etching", 0.5, 0, 2147483647);
+        chaotic_etching = BUILDER.comment("混沌刻蚀板掉落概率").defineInRange("chaotic_etching", 0.5, 0, 2147483647);
+        desire_etching = BUILDER.comment("欲望刻蚀板掉落概率").defineInRange("desire_etching", 0.5, 0, 2147483647);
+        coin_copper_drop_chance = BUILDER.comment("铜币掉落概率").defineInRange("coin_copper_drop_chance", 0.25, 0, 2147483647);
+        coin_copper_drop_number = BUILDER.comment("铜币掉落数量").defineInRange("coin_copper_drop_number", 3.0, 0, 2147483647);
+        level_1_hp = BUILDER.comment("1星怪物生命值提升数额").defineInRange("level_1_hp", 4.0, 0, 2147483647);
+        level_2_hp = BUILDER.comment("2星怪物生命值提升数额").defineInRange("level_2_hp", 6.0, 0, 2147483647);
+        level_3_hp = BUILDER.comment("3星怪物生命值提升数额").defineInRange("level_3_hp", 8.0, 0, 2147483647);
+        level_4_hp = BUILDER.comment("4星怪物生命值提升数额").defineInRange("level_4_hp", 10.0, 0, 2147483647);
+        level_5_hp = BUILDER.comment("5星怪物生命值提升数额").defineInRange("level_5_hp", 14.0, 0, 2147483647);
+        level_6_hp = BUILDER.comment("6星怪物生命值提升数额").defineInRange("level_6_hp", 18.0, 0, 2147483647);
+        level_7_hp = BUILDER.comment("7星怪物生命值提升数额").defineInRange("level_7_hp", 22.0, 0, 2147483647);
+        level_8_hp = BUILDER.comment("8星怪物生命值提升数额").defineInRange("level_8_hp", 28.0, 0, 2147483647);
+        level_9_hp = BUILDER.comment("9星怪物生命值提升数额").defineInRange("level_9_hp", 34.0, 0, 2147483647);
+        level_10_hp = BUILDER.comment("10星怪物生命值提升数额").defineInRange("level_10_hp", 42.0, 0, 2147483647);
+        level_11_hp = BUILDER.comment("11星怪物生命值提升数额").defineInRange("level_11_hp", 54.0, 0, 2147483647);
+        level_12_hp = BUILDER.comment("12星怪物生命值提升数额").defineInRange("level_12_hp", 66.0, 0, 2147483647);
+        level_13_hp = BUILDER.comment("13星怪物生命值提升数额").defineInRange("level_13_hp", 78.0, 0, 2147483647);
+        level_14_hp = BUILDER.comment("14星怪物生命值提升数额").defineInRange("level_14_hp", 90.0, 0, 2147483647);
+        level_15_hp = BUILDER.comment("15星怪物生命值提升数额").defineInRange("level_15_hp", 100.0, 0, 2147483647);
+        level_16_hp = BUILDER.comment("16星怪物生命值提升数额").defineInRange("level_16_hp", 120.0, 0, 2147483647);
+        level_17_hp = BUILDER.comment("17星怪物生命值提升数额").defineInRange("level_17_hp", 140.0, 0, 2147483647);
+        level_18_hp = BUILDER.comment("18星怪物生命值提升数额").defineInRange("level_18_hp", 160.0, 0, 2147483647);
+        level_19_hp = BUILDER.comment("19星怪物生命值提升数额").defineInRange("level_19_hp", 180.0, 0, 2147483647);
+        level_20_hp = BUILDER.comment("20星怪物生命值提升数额").defineInRange("level_20_hp", 200.0, 0, 2147483647);
+
+        BUILDER.pop();
     //祝福
     BUILDER.push("base");
+        zombie_summon_can = BUILDER.comment("尸巫魂石是否可以召唤").define("zombie_summon_can",true);
+
+        track_range = BUILDER.comment("触发弹射物追踪时的追踪范围").defineInRange("track_range",32.0,0,2147483647);
+        anchor_soul_stone_cooldown = BUILDER.comment("锚定魂石冷却").defineInRange("anchor_soul_stone_cooldown",10.0,0.05,2147483647);
+        mending_soul_stone_number = BUILDER.comment("修复魂石修复数额").defineInRange("mending_soul_stone_number",1.0,0,2147483647);
+        mending_soul_stone_time = BUILDER.comment("修复魂石间隔").defineInRange("mending_soul_stone_time",2.0,0.05,2147483647);
+
+        ega_soul_stoneoul_stone_cooldown = BUILDER.comment("金果魂石冷却").defineInRange("ega_soul_stoneoul_stone_cooldown",180.0,0,2147483647);
+        ega_soul_stoneoul_stone_fire_time = BUILDER.comment("金果魂石抗火时长").defineInRange("ega_soul_stoneoul_stone_fire_time",120.0,0,2147483647);
+        ega_soul_stoneoul_stone_re_lvl = BUILDER.comment("金果魂石抗性提升等级").defineInRange("ega_soul_stoneoul_stone_re_lvl",2.0,0,2147483647);
+        ega_soul_stoneoul_stone_re_time = BUILDER.comment("金果魂石抗性提升时间").defineInRange("ega_soul_stoneoul_stone_re_time",120.0,0,2147483647);
+        ega_soul_stoneoul_stone_heal_lvl = BUILDER.comment("金果魂石生命恢复等级").defineInRange("ega_soul_stoneoul_stone_heal_lvl",2.0,0,2147483647);
+        ega_soul_stoneoul_stone_heal_time = BUILDER.comment("金果魂石生命恢复时间").defineInRange("ega_soul_stoneoul_stone_heal_time",20.0,0,2147483647);
+        ega_soul_stoneoul_stone_damage_lvl = BUILDER.comment("金果魂石伤害吸收等级").defineInRange("ega_soul_stoneoul_stone_damage_lvl",4.0,0,2147483647);
+        ega_soul_stoneoul_stone_damage_time = BUILDER.comment("金果魂石伤害吸收时长").defineInRange("ega_soul_stoneoul_stone_damage_time",60.0,0,2147483647);
+        ega_soul_stoneoul_stone_hp = BUILDER.comment("金果魂石触发血量阈值").defineInRange("ega_soul_stoneoul_stone_hp",0.25,0,2147483647);
+
+        undying_soul_stone_cooldown = BUILDER.comment("替死魂石冷却时长").defineInRange("undying_soul_stone_cooldown",180.0,0,2147483647);
+        undying_soul_stone_fire_time = BUILDER.comment("替死魂石抗火时长").defineInRange("undying_soul_stone_fire_time",40.0,0,2147483647);
+        undying_soul_stone_damage_lvl = BUILDER.comment("替死魂石伤害吸收等级").defineInRange("undying_soul_stone_damage_lvl",2.0,0,2147483647);
+        undying_soul_stone_damage_time = BUILDER.comment("替死魂石伤害吸收时长").defineInRange("undying_soul_stone_damage_time",5.0,0,2147483647);
+        undying_soul_stone_heal_lvl = BUILDER.comment("替死魂石生命恢复等级").defineInRange("undying_soul_stone_heal_lvl",2.0,0,2147483647);
+        undying_soul_stone_heal_time = BUILDER.comment("替死魂石生命恢复时间").defineInRange("undying_soul_stone_heal_time",45.0,0,2147483647);
+        undying_soul_stone_hp = BUILDER.comment("替死魂石保留生命值").defineInRange("undying_soul_stone_hp",1.0,1,2147483647);
+
+        hazard_soul_stone_time = BUILDER.comment("危险魂石间隔").defineInRange("hazard_soul_stone_time",1.0,0.05,2147483647);
+        hazard_soul_stone_range = BUILDER.comment("危险魂石范围").defineInRange("hazard_soul_stone_range",21.0,0,2147483647);
+        hazard_soul_stone_damage = BUILDER.comment("危险魂石伤害").defineInRange("hazard_soul_stone_damage",1.0,0,2147483647);
+
+        magnet_soul_stone_range = BUILDER.comment("磁铁魂石范围").defineInRange("magnet_soul_stone_range",25.0,0,2147483647);
+        anchor_soul_stone_time = BUILDER.comment("锚定魂石时长").defineInRange("anchor_soul_stone_time",10.0,0,2147483647);
+        anchor_soul_stone_range = BUILDER.comment("锚定魂石范围").defineInRange("anchor_soul_stone_range",32.0,1,2147483647);
+
+        mod_slot_add = BUILDER.comment("可以额外添加至最多多少魂石槽位(该数额-基础魂石槽=最终提升槽位)").defineInRange("mod_slot_add",20.0,0,2147483647);
+        can_slot_add = BUILDER.comment("是否可以根据mod数量额外添加魂石槽位").define("can_slot_add",true);
+
+        NetherApostleSoulStoneItemOpen = BUILDER.comment("下界使徒魂石是否开启非正面清除").define("nether_apostle_debuff_out_open",true);
+        over_revelation = BUILDER.comment("魂石是否无视下界亚波伦封印").define("over_revelation",true);
+        can_attack = BUILDER.comment("非随从判断中：潜行时[过滤中立及友善生物]功能是否开启").define("can_attack",true);
+
+        elementium_soul_stone_cooldown = BUILDER.comment("精灵钢魂石内置冷却").defineInRange("elementium_soul_stone_cooldown",0.25,0,6.0);
+
+        candy_cavity_soul_stone_speed = BUILDER.comment("糖果魂石疾跑加速").defineInRange("candy_cavity_soul_stone_speed",0.6,0,6.0);
+        candy_cavity_soul_stone_base = BUILDER.comment("糖果魂石基础加速").defineInRange("candy_cavity_soul_stone_base",0.4,0,6.0);
+
+        forlorn_soul_stone_buff = BUILDER.comment("异寂魂石buff冷却").defineInRange("forlorn_soul_stone_buff",60.0,0,6.0);
+        forlorn_soul_stone_time = BUILDER.comment("异寂魂石buff时间").defineInRange("forlorn_soul_stone_time",10.0,0,6.0);
+        forlorn_soul_stone_dig = BUILDER.comment("异寂魂石挖掘速度提升").defineInRange("forlorn_soul_stone_dig",0.25,0,6.0);
+        forlorn_soul_stone_cooldown = BUILDER.comment("异寂魂石附伤冷却").defineInRange("forlorn_soul_stone_cooldown",0.5,0,6.0);
+        forlorn_soul_stone_damage = BUILDER.comment("异寂魂石附伤数额").defineInRange("forlorn_soul_stone_damage",0.25,0,6.0);
+
+        toxic_soul_stone_time = BUILDER.comment("毒化魂石无敌削减").defineInRange("toxic_soul_stone_time",0.25,0,6.0);
+        toxic_soul_stone_buff_lvl = BUILDER.comment("毒化魂石辐照等级").defineInRange("toxic_soul_stone_buff_lvl",3.0,0,6.0);
+        toxic_soul_stone_buff_time = BUILDER.comment("毒化魂石辐照时长").defineInRange("toxic_soul_stone_buff_time",15.0,0,6.0);
+
+        primitive_soul_stone_buff = BUILDER.comment("原始魂石愤怒等级").defineInRange("primitive_soul_stone_buff",1.0,1.0,255.0);
+        primitive_soul_stone_damage_cooldown = BUILDER.comment("原始魂石附伤冷却").defineInRange("primitive_soul_stone_damage_cooldown",0.5,0,2147483647);
+        primitive_soul_stone_damage = BUILDER.comment("原始魂石火焰附伤").defineInRange("primitive_soul_stone_damage",0.15,0,2147483647);
+        primitive_soul_stone_cooldown = BUILDER.comment("原始魂石晕眩冷却").defineInRange("primitive_soul_stone_cooldown",10.0,0,2147483647);
+        primitive_soul_stone_time = BUILDER.comment("原始魂石晕眩时长").defineInRange("primitive_soul_stone_time",3.0,0,2147483647);
+
+        magnetic_soul_stone_chance = BUILDER.comment("磁化魂石范围").defineInRange("magnetic_soul_stone_chance",0.5,0,2147483647);
+        magnetic_soul_stone_time = BUILDER.comment("磁化魂石磁化时长").defineInRange("magnetic_soul_stone_time",10.0,0,2147483647);
+        magnetic_soul_stone_atk = BUILDER.comment("磁化魂石攻击力收益").defineInRange("magnetic_soul_stone_atk",0.025,0,2147483647);
+        magnetic_soul_stone_base_atk = BUILDER.comment("磁化魂石基础伤害").defineInRange("magnetic_soul_stone_base_atk",2.0,0,2147483647);
+        magnetic_soul_stone_range = BUILDER.comment("磁化魂石范围").defineInRange("magnetic_soul_stone_range",11.0,0,2147483647);
+
+        eternium_complements_soul_stone = BUILDER.comment("永恒魂石回复耐久").defineInRange("eternium_complements_soul_stone",0.25,0,2147483647);
+
+        sculkium_complements_soul_stone_armor = BUILDER.comment("幽匿魂石减伤").defineInRange("sculkium_complements_soul_stone_armor",0.1,0,2147483647);
+        sculkium_complements_soul_stone_damage = BUILDER.comment("幽匿魂石增伤").defineInRange("sculkium_complements_soul_stone_damage",0.1,0,2147483647);
+        sculkium_complements_soul_stone_high = BUILDER.comment("幽匿魂石高度").defineInRange("sculkium_complements_soul_stone_high",0.0,-200,2147483647);
+        sculkium_complements_soul_stone_light = BUILDER.comment("幽匿魂石强度").defineInRange("sculkium_complements_soul_stone_light",8.0,0,2147483647);
+
+        shulkerate_complements_soul_stone_armor = BUILDER.comment("潜影魂石潜行减伤").defineInRange("shulkerate_complements_soul_stone_armor",0.1,0,2147483647);
+        shulkerate_complements_soul_stone_block = BUILDER.comment("潜影魂石方块距离").defineInRange("shulkerate_complements_soul_stone_block",1.0,0,2147483647);
+        shulkerate_complements_soul_stone_entity = BUILDER.comment("潜影魂石实体距离").defineInRange("shulkerate_complements_soul_stone_entity",1.0,0,2147483647);
+
+        poseidite_complements_soul_stone_damage = BUILDER.comment("海神魂石伤害").defineInRange("poseidite_complements_soul_stone_damage",0.1,0,2147483647);
+        poseidite_complements_soul_stone_speed = BUILDER.comment("海神魂石攻速").defineInRange("poseidite_complements_soul_stone_speed",0.1,0,2147483647);
+        poseidite_complements_soul_stone_atk = BUILDER.comment("海神魂石攻击").defineInRange("poseidite_complements_soul_stone_atk",0.1,0,2147483647);
+
+        totemic_complements_soul_stone_heal = BUILDER.comment("生命魂石回血").defineInRange("totemic_complements_soul_stone_heal",1.0,0,2147483647);
+        totemic_complements_soul_stone_damage = BUILDER.comment("生命魂石伤害").defineInRange("totemic_complements_soul_stone_damage",0.15,0,2147483647);
+
+        neptunium_soul_stone_dig = BUILDER.comment("海王魂石挖掘").defineInRange("neptunium_soul_stone_dig",0.5,0,2147483647);
+        neptunium_soul_stone_swim = BUILDER.comment("海王魂石游泳").defineInRange("neptunium_soul_stone_swim",0.5,0,2147483647);
+        neptunium_soul_stone_damage = BUILDER.comment("海王魂石增伤").defineInRange("neptunium_soul_stone_damage",0.1,0,2147483647);
+
+        farmers_delight_soul_stone_time_2 = BUILDER.comment("乐事魂石舒适时间").defineInRange("farmers_delight_soul_stone_time_2",30.0,0,2147483647);
+        farmers_delight_soul_stone_chance_2 = BUILDER.comment("乐事魂石舒适概率").defineInRange("farmers_delight_soul_stone_chance_2",0.5,0,2147483647);
+        farmers_delight_soul_stone_time_1 = BUILDER.comment("乐事魂石滋养时间").defineInRange("farmers_delight_soul_stone_time_1",30.0,0,2147483647);
+        farmers_delight_soul_stone_chance_1 = BUILDER.comment("乐事魂石滋养概率").defineInRange("farmers_delight_soul_stone_chance_1",0.5,0,2147483647);
+
         ultra_hostility_soul_stone_cooldown = BUILDER.comment("神躯魂石不死冷却").defineInRange("ultra_hostility_soul_stone_cooldown",0.05,0,2147483647);
 
         ultra_hostility_soul_stone_number = BUILDER.comment("神躯魂石封印数量与时间").defineInRange("ultra_hostility_soul_stone_number",2.0,0,2147483647);
@@ -896,10 +1237,10 @@ public class MyGoConfig {
     ender_soul_stone_armor = BUILDER.comment("末地-末影人特防").defineInRange("ender_soul_stone_armor",0.4,0F,2147483647);
     mushroom_soul_stone = BUILDER.comment("蘑菇魂石概率").defineInRange("mushroom_soul_stone",0.5,0F,2147483647);
     nether_soul_stone = BUILDER.comment("下界魂石增伤").defineInRange("nether_soul_stone",0.15,0F,2147483647);
-    netherite_soul_stone = BUILDER.comment("下界合金魂石击退抗性").defineInRange("netherite_soul_stone",0.4,0F,2147483647);
-    netherite_soul_stone_armor = BUILDER.comment("下界合金魂石护甲韧性").defineInRange("netherite_soul_stone_armor",3,0F,2147483647);
+    netherite_soul_stone = BUILDER.comment("下界合金魂石击退抗性").defineInRange("netherite_soul_stone",1.0,0F,2147483647);
+    netherite_soul_stone_armor = BUILDER.comment("下界合金魂石护甲韧性").defineInRange("netherite_soul_stone_armor",4,0F,2147483647);
     coal_soul_stone = BUILDER.comment("煤炭魂石移速").defineInRange("coal_soul_stone",0.2,0F,2147483647);
-    copper_soul_stone = BUILDER.comment("铜魂石挖掘速度").defineInRange("copper_soul_stone",0.5,0F,2147483647);
+    copper_soul_stone = BUILDER.comment("铜魂石挖掘速度").defineInRange("copper_soul_stone",0.25,0F,2147483647);
     emerald_soul_stone = BUILDER.comment("绿宝石魂石声望").defineInRange("emerald_soul_stone",100,0F,2147483647);
     redstone_soul_stone = BUILDER.comment("红石攻击速度").defineInRange("redstone_soul_stone",0.25,0F,2147483647);
     iron_soul_stone = BUILDER.comment("铁魂石护甲值").defineInRange("iron_soul_stone",5,0F,2147483647);

@@ -36,7 +36,7 @@ public class SoulOfBotaniaItem extends Item implements ICurioItem {
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x0061ff))));
 
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_botania.elementium_soul_stone",
-                (float)(MyGoConfig.elementium_soul_stone_chance.get()*100),
+                (float)(MyGoConfig.elementium_soul_stone_chance.get()*100),(float)(MyGoConfig.elementium_soul_stone_cooldown.get()*1),
                 (float) (MyGoConfig.elementium_soul_stone_atk.get() * 100),(float)(MyGoConfig.elementium_soul_stone_time.get()*1)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0xff56d4))));
 

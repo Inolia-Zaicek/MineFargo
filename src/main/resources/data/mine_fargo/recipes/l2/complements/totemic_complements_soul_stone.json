@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2complements"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "l2complements:totemic_gold_helmet"
+    },
+    "B": {
+      "item": "l2complements:totemic_gold_chestplate"
+    },
+    "C": {
+      "item": "l2complements:totemic_gold_leggings"
+    },
+    "D": {
+      "item": "l2complements:totemic_gold_boots"
+    },
+    "E": {
+      "item": "l2complements:totemic_gold_sword"
+    },
+    "F": {
+      "item": "l2complements:totemic_gold_pickaxe"
+    },
+    "G": {
+      "item": "l2complements:totemic_gold_axe"
+    },
+    "H": {
+      "item": "l2complements:totemic_gold_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:totemic_complements_soul_stone",
+    "count": 1
+  }
+}

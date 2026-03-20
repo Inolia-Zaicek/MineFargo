@@ -25,7 +25,7 @@ public class ElementiumSoulStoneItem extends Item implements ICurioItem, Botania
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
-                (float)(MyGoConfig.elementium_soul_stone_chance.get()*100),
+                (float)(MyGoConfig.elementium_soul_stone_chance.get()*100),(float)(MyGoConfig.elementium_soul_stone_cooldown.get()*1),
                 (float) (MyGoConfig.elementium_soul_stone_atk.get() * 100),(float)(MyGoConfig.elementium_soul_stone_time.get()*1)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

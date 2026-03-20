@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "farmersdelight:shepherds_pie"
+    },
+    "B": {
+      "item": "farmersdelight:honey_glazed_ham"
+    },
+    "C": {
+      "item": "farmersdelight:stuffed_pumpkin"
+    },
+    "D": {
+      "item": "farmersdelight:roast_chicken"
+    },
+    "E": {
+      "item": "farmersdelight:beef_stew"
+    },
+    "F": {
+      "item": "farmersdelight:chicken_soup"
+    },
+    "G": {
+      "item": "farmersdelight:baked_cod_stew"
+    },
+    "H": {
+      "item": "farmersdelight:noodle_soup"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:farmers_delight_soul_stone",
+    "count": 1
+  }
+}

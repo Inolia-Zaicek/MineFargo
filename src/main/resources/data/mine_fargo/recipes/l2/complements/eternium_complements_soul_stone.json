@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "l2complements"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "l2complements:eternium_helmet"
+    },
+    "B": {
+      "item": "l2complements:eternium_chestplate"
+    },
+    "C": {
+      "item": "l2complements:eternium_leggings"
+    },
+    "D": {
+      "item": "l2complements:eternium_boots"
+    },
+    "E": {
+      "item": "l2complements:eternium_sword"
+    },
+    "F": {
+      "item": "l2complements:eternium_pickaxe"
+    },
+    "G": {
+      "item": "l2complements:eternium_axe"
+    },
+    "H": {
+      "item": "l2complements:eternium_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:eternium_complements_soul_stone",
+    "count": 1
+  }
+}

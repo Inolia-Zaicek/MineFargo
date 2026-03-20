@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "alexscaves:resistor_shield"
+    },
+    "B": {
+      "item": "alexscaves:scarlet_magnet"
+    },
+    "C": {
+      "item": "alexscaves:azure_magnet"
+    },
+    "D": {
+      "item": "alexscaves:telecore"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:magnetic_soul_stone",
+    "count": 1
+  }
+}

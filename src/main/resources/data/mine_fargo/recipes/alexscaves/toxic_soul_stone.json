@@ -1,0 +1,41 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "FDE"
+  ],
+  "key": {
+    "A": {
+      "item": "alexscaves:hazmat_mask"
+    },
+    "B": {
+      "item": "alexscaves:hazmat_chestplate"
+    },
+    "C": {
+      "item": "alexscaves:hazmat_leggings"
+    },
+    "D": {
+      "item": "alexscaves:hazmat_boots"
+    },
+    "E": {
+      "item": "alexscaves:fissile_core"
+    },
+    "F": {
+      "item": "alexscaves:uranium_rod"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:toxic_soul_stone",
+    "count": 1
+  }
+}

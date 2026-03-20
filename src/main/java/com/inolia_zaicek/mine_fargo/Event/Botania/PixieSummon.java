@@ -14,6 +14,8 @@ import vazkii.botania.common.entity.PixieEntity;
 
 import java.util.Random;
 
+import static com.inolia_zaicek.mine_fargo.Event.TickEvent.elementium_soul_stone;
+
 
 public class PixieSummon {
     @SubscribeEvent
@@ -26,7 +28,9 @@ public class PixieSummon {
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
                 if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStoneItem.class)
-                        && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100 ) {
+                        && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
+                && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
+                    livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));
                     float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     float number= (float) (atk*MyGoConfig.elementium_soul_stone_atk.get());
                     PixieEntity entity =new PixieEntity(livingEntity.level());
@@ -63,7 +67,9 @@ public class PixieSummon {
                 var livingEntity = attacked;
                 LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
                 if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStoneItem.class)
-                        && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100 ) {
+                        && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
+                        && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
+                    livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));
                     float atk = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE);
                     //伤害数额
                     float number= (float) (atk*MyGoConfig.elementium_soul_stone_atk.get());

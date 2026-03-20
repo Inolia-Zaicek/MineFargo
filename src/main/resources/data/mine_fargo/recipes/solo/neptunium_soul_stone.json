@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EAF",
+    "BOC",
+    "GDH"
+  ],
+  "key": {
+    "A": {
+      "item": "aquaculture:neptunium_helmet"
+    },
+    "B": {
+      "item": "aquaculture:neptunium_chestplate"
+    },
+    "C": {
+      "item": "aquaculture:neptunium_leggings"
+    },
+    "D": {
+      "item": "aquaculture:neptunium_boots"
+    },
+    "E": {
+      "item": "aquaculture:neptunium_sword"
+    },
+    "F": {
+      "item": "aquaculture:neptunium_pickaxe"
+    },
+    "G": {
+      "item": "aquaculture:neptunium_axe"
+    },
+    "H": {
+      "item": "aquaculture:neptunium_shovel"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:neptunium_soul_stone",
+    "count": 1
+  }
+}

@@ -5,7 +5,7 @@
 "item.mine_fargo.soul_of_ores":"矿物之魂",
 "tooltip.mine_fargo.soul_of_ores.coal_soul_stone":"煤炭——提升%d%%移动速度",
 "tooltip.mine_fargo.soul_of_ores.copper_soul_stone":"铜——提升%d%%挖掘速度",
-"tooltip.mine_fargo.soul_of_ores.lapis_lazuli_soul_stone":"青金石——获取经验时，提升%d%%经验获取数额",
+"tooltip.mine_fargo.soul_of_ores.lapis_lazuli_soul_stone":"青金石——击杀实体掉落的经验提升%d%%数额",
 "tooltip.mine_fargo.soul_of_ores.iron_soul_stone":"铁——提升%d护甲值",
 "tooltip.mine_fargo.soul_of_ores.redstone_soul_stone":"红石——提升%d%%攻击速度",
 "tooltip.mine_fargo.soul_of_ores.gold_soul_stone":"金——附魔时，提升%d级附魔等级",
@@ -18,7 +18,7 @@
 "item.mine_fargo.copper_soul_stone":"铜魂石",
 "tooltip.mine_fargo.copper_soul_stone.text":"提升%d%%挖掘速度",
 "item.mine_fargo.lapis_lazuli_soul_stone":"青金石魂石",
-"tooltip.mine_fargo.lapis_lazuli_soul_stone.text":"获取经验时，提升%d%%经验获取数额",
+"tooltip.mine_fargo.lapis_lazuli_soul_stone.text":"击杀实体掉落的经验提升%d%%数额",
 "item.mine_fargo.iron_soul_stone":"铁魂石",
 "tooltip.mine_fargo.iron_soul_stone.text":"提升%d护甲值",
 "item.mine_fargo.redstone_soul_stone":"红石魂石",
@@ -248,8 +248,8 @@
 "tooltip.mine_fargo.soul_of_botania.manasteel_soul_stone":"魔力钢——每%d秒消耗%d魔力，为穿戴者的主副手物品与盔甲回复%d点耐久",
 
 "item.mine_fargo.elementium_soul_stone":"精灵钢魂石",
-"tooltip.mine_fargo.elementium_soul_stone.text":"攻击或受击有%d%%概率召唤小精灵攻击目标，造成穿戴者%d%%攻击力的伤害，召唤小精灵时还会给予敌对目标%d秒的虚弱I、凋灵I、缓慢I、失明I效果",
-"tooltip.mine_fargo.soul_of_botania.elementium_soul_stone":"精灵钢——攻击或受击有%d%%概率召唤小精灵攻击目标，造成穿戴者%d%%攻击力的伤害，召唤小精灵时还会给予敌对目标%d秒的虚弱I、凋灵I、缓慢I、失明I效果",
+"tooltip.mine_fargo.elementium_soul_stone.text":"攻击或受击有%d%%概率召唤小精灵攻击目标(内置%d秒冷却)，造成穿戴者%d%%攻击力的伤害，召唤小精灵时还会给予敌对目标%d秒的虚弱I、凋灵I、缓慢I、失明I效果",
+"tooltip.mine_fargo.soul_of_botania.elementium_soul_stone":"精灵钢——攻击或受击有%d%%概率召唤小精灵攻击目标(内置%d秒冷却)，造成穿戴者%d%%攻击力的伤害，召唤小精灵时还会给予敌对目标%d秒的虚弱I、凋灵I、缓慢I、失明I效果",
 
 "item.mine_fargo.terrasteel_soul_stone":"泰拉钢魂石",
 "tooltip.mine_fargo.terrasteel_soul_stone.text":"每秒回复%d点魔力，手持非大地之刃武器左键也可释放一道8点伤害的魔力光束(可在配置文件开关)",
@@ -377,7 +377,7 @@
 
 "item.mine_fargo.soul_of_legendary_entity":"遗兽之魂",
 "item.mine_fargo.dune_sentinel_soul_stone":"沙丘哨兵魂石",
-"tooltip.mine_fargo.dune_sentinel_soul_stone.text":"穿戴者造成的弹射物伤害、爆炸伤害提升%d%%数额，受到爆炸伤害时获得%d%%伤害减免",
+"tooltip.mine_fargo.dune_sentinel_soul_stone.text":"穿戴者造成的弹射物伤害、爆炸伤害提升%d%%数额，受到爆炸伤害时获得%d%%伤害减免(该伤害增幅兼容TACZ)",
 "tooltip.mine_fargo.soul_of_legendary_entity.dune_sentinel_soul_stone":"沙丘哨兵——穿戴者造成的弹射物伤害、爆炸伤害提升%d%%数额，受到爆炸伤害时获得%d%%伤害减免",
 
 "item.mine_fargo.endersent_soul_stone":"末影遣使魂石",
@@ -579,9 +579,89 @@
 "tooltip.mine_fargo.soul_of_l2hostility.ultra_hostility_soul_stone":"神躯——触发死亡时回复%d%%生命值(内置%d秒冷却)；每%d秒对%dx%d范围内的实体造成一次[%d+%d%%攻击力数额]的魔法伤害；造成伤害时自身每有1级附魔，造成伤害提升%d%%；击中目标随机封印目标%d个饰品与装备",
 
 
+"item.mine_fargo.farmers_delight_soul_stone":"乐事魂石",
+"tooltip.mine_fargo.farmers_delight_soul_stone.text":"进食任意食物有%d%%几率获得%d秒的滋养效果，有%d%%几率获得%d秒的舒适效果",
+"item.mine_fargo.neptunium_soul_stone":"海王魂石",
+"tooltip.mine_fargo.neptunium_soul_stone.text":"提升%d%%游泳速度，在水下或雨中时额外提升%d%%攻击伤害+%d%%挖掘速度，持续获得夜视、水下呼吸效果；\n同时穿戴者不会在水中下沉，且在水下的垂直移动速度更快，并获得水面行走能力",
 
+"item.mine_fargo.soul_of_l2_complements":"恶锭之魂",
+"item.mine_fargo.totemic_complements_soul_stone":"生命魂石",
+"tooltip.mine_fargo.totemic_complements_soul_stone.text":"对亡灵生物造成的伤害提升%d%%，每秒恢复%d点生命值，持续清除饥饿、凋零、中毒效果",
+"tooltip.mine_fargo.soul_of_l2_complements.totemic_complements_soul_stone":"生命——对亡灵生物造成的伤害提升%d%%，持续清除饥饿、凋零、中毒效果",
 
+"item.mine_fargo.poseidite_complements_soul_stone":"海神魂石",
+"tooltip.mine_fargo.poseidite_complements_soul_stone.text":"在水中或雨中时提升%d%%攻击力并提供%d%%攻击速度加成，且对水生生物额外提升%d%%伤害，同时给予穿戴者潮涌核心与海豚恩惠效果",
+"tooltip.mine_fargo.soul_of_l2_complements.poseidite_complements_soul_stone":"海神——在水中或雨中时提升%d%%攻击力并提供%d%%攻击速度加成，且对水生生物额外提升%d%%伤害，同时给予穿戴者潮涌核心与海豚恩惠效果",
 
+"item.mine_fargo.shulkerate_complements_soul_stone":"潜影魂石",
+"tooltip.mine_fargo.shulkerate_complements_soul_stone.text":"+%d攻击距离、+%d触及距离，潜行时获得%d%%伤害减免",
+"tooltip.mine_fargo.soul_of_l2_complements.shulkerate_complements_soul_stone":"潜影——+%d攻击距离、+%d触及距离，潜行时获得%d%%伤害减免",
+
+"item.mine_fargo.sculkium_complements_soul_stone":"幽匿魂石",
+"tooltip.mine_fargo.sculkium_complements_soul_stone.text":"在亮度≤%d或高度≤%d的环境下，获得%d%%伤害增幅与%d%%伤害减免，持续清除失明、黑暗、挖掘疲劳、反胃、缓慢、虚弱效果",
+"tooltip.mine_fargo.soul_of_l2_complements.sculkium_complements_soul_stone":"幽匿——在亮度≤%d或高度≤%d的环境下，获得%d%%伤害增幅与%d%%伤害减免，持续清除失明、黑暗、挖掘疲劳、反胃、缓慢、虚弱效果",
+
+"item.mine_fargo.eternium_complements_soul_stone":"永恒魂石",
+"tooltip.mine_fargo.eternium_complements_soul_stone.text":"每秒回复主副手工具与护甲%d%%的耐久值",
+"tooltip.mine_fargo.soul_of_l2_complements.eternium_complements_soul_stone":"永恒——每秒回复主副手工具与护甲%d%%的耐久值",
+
+"item.mine_fargo.soul_of_alexs_caves":"洞穴之魂",
+"item.mine_fargo.magnetic_soul_stone":"磁化魂石",
+"tooltip.mine_fargo.magnetic_soul_stone.text":"每秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的真实伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
+"tooltip.mine_fargo.soul_of_alexs_caves.magnetic_soul_stone":"磁化——每秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的真实伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
+
+"item.mine_fargo.primitive_soul_stone":"原始魂石",
+"tooltip.mine_fargo.primitive_soul_stone.text":"攻击将会为目标施加%d秒的[晕眩]效果(内置%d秒冷却)，并附加%d%%原伤害数额的原版熔岩伤害(内置%d秒冷却)，并持续给予穿戴者%d级的[愤怒]效果",
+"tooltip.mine_fargo.soul_of_alexs_caves.primitive_soul_stone":"原始——攻击将会为目标施加%d秒的[晕眩]效果(内置%d秒冷却)，并附加%d%%原伤害数额的原版熔岩伤害(内置%d秒冷却)，并持续给予穿戴者%d级的[愤怒]效果",
+
+"item.mine_fargo.toxic_soul_stone":"毒化魂石",
+"tooltip.mine_fargo.toxic_soul_stone.text":"持续清除[辐照]效果；攻击对目标附加%d秒的%d级辐照效果，并减少目标%d%%无敌时间",
+"tooltip.mine_fargo.soul_of_alexs_caves.toxic_soul_stone":"毒化——持续清除[辐照]效果；攻击对目标附加%d秒的%d级辐照效果，并减少目标%d%%无敌时间",
+
+"item.mine_fargo.abyssal_chasm_soul_stone":"渊海魂石",
+"tooltip.mine_fargo.abyssal_chasm_soul_stone.text":"在水中不再下沉，且持续获得[水下呼吸、夜视、渊视]效果，并视为穿戴者处于雨中或水中",
+"tooltip.mine_fargo.soul_of_alexs_caves.abyssal_chasm_soul_stone":"渊海——在水中不再下沉，且持续获得[水下呼吸、夜视、渊视]效果，并视为穿戴者处于雨中",
+
+"item.mine_fargo.forlorn_soul_stone":"异寂魂石",
+"tooltip.mine_fargo.forlorn_soul_stone.text":"攻击附加%d%%原伤害数额的原版魔法伤害(内置%d秒冷却)，提升%d%%挖掘速度；同时按下[Alex洞穴的特殊能力]按键时，获得%d秒黑暗冲刺效果，冷却%d秒；并持续清除黑暗效果",
+"tooltip.mine_fargo.soul_of_alexs_caves.forlorn_soul_stone":"异寂——攻击附加%d%%原伤害数额的原版魔法伤害(内置%d秒冷却)，提升%d%%挖掘速度；同时按下[Alex洞穴的特殊能力]按键时，获得%d秒黑暗冲刺效果，冷却%d秒；并持续清除黑暗效果",
+
+"item.mine_fargo.candy_cavity_soul_stone":"糖果魂石",
+"tooltip.mine_fargo.candy_cavity_soul_stone.text":"提升%d%%移动速度，疾跑时额外提升%d%%移动速度",
+"tooltip.mine_fargo.soul_of_alexs_caves.candy_cavity_soul_stone":"糖果——提升%d%%移动速度，疾跑时额外提升%d%%移动速度",
+
+"item.mine_fargo.soul_of_supernatural":"超然之魂",
+"item.mine_fargo.anchor_soul_stone":"锚定魂石",
+"tooltip.mine_fargo.anchor_soul_stone.text":"按下[锚定魂石能力]按键后，会记录[周围%dx%d范围内非随从实体]的所在坐标，并在%d秒内将该实体持续传送至对应的记录坐标(内置%d秒冷却)\n部分飞行实体在连续按按键的情况下依然会移动(别连续按就行)",
+"tooltip.mine_fargo.soul_of_supernatural.anchor_soul_stone":"锚定——按下[锚定魂石能力]按键后，会记录[周围%dx%d范围内非随从实体]的所在坐标，并在%d秒内将该实体持续传送至对应的记录坐标(内置%d秒冷却)",
+
+"item.mine_fargo.magnet_soul_stone":"磁铁魂石",
+"tooltip.mine_fargo.magnet_soul_stone.text":"穿戴者会吸引周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
+"tooltip.mine_fargo.soul_of_supernatural.magnet_soul_stone":"磁铁——穿戴者会吸引周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
+
+"item.mine_fargo.hazard_soul_stone":"危险魂石",
+"tooltip.mine_fargo.hazard_soul_stone.text":"每间隔%d秒，对%dx%d范围内距离自己最近的非随从实体造成一次%d%%攻击力的物理伤害",
+"tooltip.mine_fargo.soul_of_supernatural.hazard_soul_stone":"危险——每间隔%d秒，对%dx%d范围内距离自己最近的非随从实体造成一次%d%%攻击力的物理伤害",
+
+"item.mine_fargo.undying_soul_stone":"替死魂石",
+"tooltip.mine_fargo.undying_soul_stone.text":"受到致命伤害时，保留%d点生命值，并给予穿戴者%d秒的%d级生命恢复+%d秒的%d级伤害吸收+%d秒的防火效果，冷却%d秒",
+"tooltip.mine_fargo.soul_of_supernatural.undying_soul_stone":"替死——受到致命伤害时，保留%d点生命值，并给予穿戴者%d秒的%d级生命恢复+%d秒的%d级伤害吸收+%d秒的防火效果，冷却%d秒",
+
+"item.mine_fargo.enchanted_golden_apple_soul_stone":"金果魂石",
+"tooltip.mine_fargo.enchanted_golden_apple_soul_stone.text":"血量降低至%d%%及以下时，获得%d秒的%d级伤害吸收+%d秒的%d级生命恢复+%d秒的%d级抗性提升+%d秒的抗火效果，冷却%d秒",
+"tooltip.mine_fargo.soul_of_supernatural.enchanted_golden_apple_soul_stone":"金果——血量降低至%d%%及以下时，获得%d秒的%d级伤害吸收+%d秒的%d级生命恢复+%d秒的%d级抗性提升+%d秒的抗火效果，冷却%d秒",
+
+"item.mine_fargo.the_sea_soul_stone":"潮水魂石",
+"tooltip.mine_fargo.the_sea_soul_stone.text":"于水中时不再下沉，并自动熄灭穿戴者身上的火焰",
+"tooltip.mine_fargo.soul_of_supernatural.the_sea_soul_stone":"潮水——于水中时不再下沉，并自动熄灭穿戴者身上的火焰",
+
+"item.mine_fargo.mending_soul_stone":"修复魂石",
+"tooltip.mine_fargo.mending_soul_stone.text":"每%d秒为穿戴者的主副手物品与盔甲回复%d点耐久",
+"tooltip.mine_fargo.soul_of_supernatural.mending_soul_stone":"修复——每%d秒为穿戴者的主副手物品与盔甲回复%d点耐久",
+
+"mine_fargo.key":"我的魂石",
+"mine_fargo.key.anchor_soul_stone_skill":"锚定魂石能力",
+"mine_fargo.key.magnet_soul_stone_skill":"磁铁魂石开关",
 "effect.mine_fargo.enderference": "抑影",
 "curios.identifier.soul_stone": "魂石",
 "curios.modifiers.soul_stone": "佩戴在魂石栏位时",

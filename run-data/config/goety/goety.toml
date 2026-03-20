@@ -1,20 +1,59 @@
 
 ["Mod Compatibility"]
+	#If L_Ender's Cataclysm is installed, pouring Lava onto Void Fluid source blocks will turn it into Void Stones. Default: true
+	cataclysmVoidStone = true
 	#If Iron's Spells and Spellbooks is installed, certain robes provides Spell resistances. Default: true
 	robesIronResist = true
 	#If Iron's Spells and Spellbooks is installed, certain curios provides Spell buffs. Default: true
 	ironBuff = true
 	#If enabled, Ender Dragon's Fireballs will leave clouds that damages even undead and will not hit itself. Default: false
 	betterDragonFireball = false
-	#If L_Ender Cataclysm is installed, certain loots are modified and change between this and the latter mod. Default: true
-	cataclysmLootCompat = true
 
 [Blocks]
-	#Whether Night Beacons are allowed to function, turning Daytime to Midnight so long as it's activated, Default: true
-	enableNightBeacon = true
+	#How many ticks until Void Frames returns back to Locked State after being used, Default: 24000
+	#Range: > 0
+	voidFrameCoolTime = 24000
 	#How big of a range Dark Altars can count blocks to make a ritual and detect sacrifices/conversion victims, Default: 8
 	#Range: > 1
 	ritualRange = 8
+	#How many blocks each Tall Skull increases the Shrieking Obelisk's area of effect, Default: 4
+	#Range: > 1
+	shriekObeliskIncrease = 4
+	#The amount of Soul Energy required to revive an Illager Servant, Default: 500
+	#Range: > 0
+	ominousIdolReviveCost = 500
+	#Whether Sculk Grower can accept Potency enchantment, which allows the Grower to grow plants faster, Default: true
+	sculkGrowerPotency = true
+	#Allow looted Pithos to regenerate Loot and spawn Skull Lord again when right-clicked with respawn_boss tagged item, Default: true
+	pithosRespawn = true
+	#Whether Sculk Grower continues to grow plants without Redstone if it still contains charges. Setting it to false will cause the Sculk Grower to slowly decay its charges, Default: true
+	sculkGrowerContinue = true
+	#Add mobs that Hook Bells don't work on. 
+	#To do so, enter the namespace ID of the mob, like "minecraft:zombie, minecraft:skeleton".
+	hookBellBlackList = []
+	#Whether enchanting through Rituals are enabled, Default: true
+	ritualEnchants = true
+	#How many seconds the Soul Menderer repairs 1 durability from an item, Default: 0.5
+	#Range: 0.0 ~ 1.7976931348623157E308
+	soulMenderSeconds = 0.5
+	#The amount of Soul Energy used to power the Animator per block distance, Default: 10
+	#Range: > 0
+	animatorCost = 10
+	#Whether Ominous Idols can revive Illager Servants, Default: true
+	ominousIdolRevive = true
+	#Maximum level of experience the Dark Anvil will stick to instead of capping if Cap is disabled, Default: 30
+	#Range: > 1
+	darkAnvilRepairCost = 30
+	#Add mobs that Forbidden Grass will not spawn. 
+	#To do so, enter the namespace ID of the mob, like "minecraft:zombie, minecraft:skeleton".
+	forbiddenGrassBlackList = []
+	#Whether Dark Anvils will take Experience Points instead of Levels, Default: false
+	darkAnvilTakePoints = false
+	#The amount of Soul Energy used up to repair Items per the configured amount of seconds, Default: 1
+	#Range: > 0
+	soulMenderCost = 1
+	#Whether Night Beacons are allowed to function, turning Daytime to Midnight so long as it's activated, Default: true
+	enableNightBeacon = true
 	#Allow used Crystal Balls to spawn Crones again when right-clicked with respawn_boss tagged item, Default: true
 	crystalBallRespawn = true
 	#Whether Shrieking Obelisk can prevent or stop Raids, Default: true
@@ -22,48 +61,26 @@
 	#How much Charges is given to the Sculk Grower whenever it absorbs Soul Energy, Default: 100
 	#Range: > 0
 	sculkGrowerCharge = 100
-	#Whether Sculk Grower can accept Potency enchantment, which allows the Grower to grow plants faster, Default: true
-	sculkGrowerPotency = true
+	#The amount of Illager Servants an Ominous Idol can register to revive, Default: 16
+	#Range: > 0
+	ominousIdolLimit = 16
 	#Whether creating items through Rituals will transfer enchantments from the original item, Default: true
 	ritualCraftEnchant = true
 	#The amount of Soul Energy used to power the Shrieking Obelisk, Default: 100
 	#Range: > 0
 	shriekObeliskCost = 100
-	#Allow looted Pithos to regenerate Loot and spawn Skull Lord again when right-clicked with respawn_boss tagged item, Default: true
-	pithosRespawn = true
-	#Whether Sculk Grower continues to grow plants without Redstone if it still contains charges. Setting it to false will cause the Sculk Grower to slowly decay its charges, Default: true
-	sculkGrowerContinue = true
 	#How much Soul Energy is required for the Dark Anvil to repair itself, Default: 1000
 	#Range: > 0
 	darkAnvilSoulCost = 1000
 	#The amount of Soul Energy used to give Charges to the Sculk Grower, Default: 20
 	#Range: > 0
 	sculkGrowerCost = 20
-	#Add mobs that Hook Bells don't work on. 
-	#To do so, enter the namespace ID of the mob, like "minecraft:zombie, minecraft:skeleton".
-	hookBellBlackList = []
-	#Whether enchanting through Rituals are enabled, Default: true
-	ritualEnchants = true
 	#Whether Dark Anvils ignores enchantment max levels when combining same enchantments, Default: true
 	darkAnvilIgnoreMaxLevels = true
 	#Whether Dark Anvils have a cap that prevents items from being repaired or enchanted if repair cost is exceeded, Default: false
 	darkAnvilCap = false
-	#How many seconds the Soul Menderer repairs 1 durability from an item, Default: 0.5
-	#Range: 0.0 ~ 1.7976931348623157E308
-	soulMenderSeconds = 0.5
 	#Whether creating items through Rituals will transfer damage from the original item, Default: false
 	ritualCraftDamage = false
-	#The amount of Soul Energy used to power the Animator per block distance, Default: 10
-	#Range: > 0
-	animatorCost = 10
-	#Maximum level of experience the Dark Anvil will stick to instead of capping if Cap is disabled, Default: 30
-	#Range: > 1
-	darkAnvilRepairCost = 30
-	#Whether Dark Anvils will take Experience Points instead of Levels, Default: false
-	darkAnvilTakePoints = false
-	#The amount of Soul Energy used up to repair Items per the configured amount of seconds, Default: 1
-	#Range: > 0
-	soulMenderCost = 1
 
 ["Soul Taken"]
 	#Animals Killed, Default: 5
@@ -142,6 +159,8 @@
 [General]
 	#Arca will save the Player if past Totem Maximum Soul Count, Default: true
 	arcaUndying = true
+	#Entities part of a Player's Grimoire of Goodwill will be protected by the Player's servants, Default: true
+	goodwillServantGuard = true
 	#Totem of Souls will save the Player if full of Soul Energy and its in Curio Slot, hotbar or off-hand, Default: true
 	totemUndying = true
 	#Move where the equipped Focus is located vertically from its original position (- = Up, + = Down), Default: 0
@@ -168,7 +187,7 @@
 	#Move where the equipped Focus is located horizontally from its original position (- = Left, + = Right), Default: 0
 	#Range: > -2147483647
 	focusGuiHorizontal = 0
-	#Entities part of a Player's Book of Goodwill will not take most damage from said Player rather than just spells, Default: false
+	#Entities part of a Player's Grimoire of Goodwill will not take most damage from said Player rather than just spells, Default: false
 	goodwillNoDamage = false
 	#Show currently equipped focus on Wand/Staff in Gui, Default: true
 	focusGuiShow = true
@@ -176,6 +195,8 @@
 	showNumber = false
 	#Using an item while holding a wand or staff on main/offhand will cause the wand or staff to be put on cooldown to prevent accidental spellcasting, Default: true
 	wandCoolItemUse = true
+	#Entities part of a Player's Grimoire of Goodwill will be considered as the Player's ally codewise, Default: false
+	goodwillFullAlly = false
 	#Gives Players the Witch's Brew when first entering World and Patchouli is loaded, Default: false
 	starterWitchBook = false
 	#Bosses from the Mod has custom looking Boss Bars. Default: true
@@ -183,6 +204,8 @@
 	#Totem Maximum Soul Count and Threshold to save the Player, Default: 10000
 	#Range: > 10
 	maxSouls = 10000
+	#Arca will save the Player if past Totem Maximum Soul Count but only if they're a Lich, Default: true
+	arcaLichUndying = true
 	#Arca Maximum Soul Count, Default: 100000
 	#Range: > 10
 	maxArcaSouls = 100000

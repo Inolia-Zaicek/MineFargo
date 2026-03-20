@@ -8,6 +8,8 @@
 		#Define the toughness for each armor piece, Default: 1.0
 		#Range: 0.0 ~ 1.7976931348623157E308
 		cursedPaladinToughness = 1.0
+		#Whether armor pieces don't break but no longer provide armor, Default: true
+		cursedPaladinPersist = true
 		#Define the Durability Multiplier for the armor, higher number the better, Default: 30
 		#Range: > 1
 		cursedPaladinDurability = 30
@@ -41,6 +43,8 @@
 		#Define how much knockback resistance each armor piece provides, Default: 0.3
 		#Range: 0.0 ~ 1.7976931348623157E308
 		darkArmorKnockResist = 0.3
+		#Whether armor pieces don't break but no longer provide armor, Default: true
+		darkArmorPersist = true
 		#Define the Enchantability for the armor, higher number the better, Default: 20
 		#Range: > 1
 		darkArmorEnchantability = 20
@@ -74,6 +78,8 @@
 		#Define how much knockback resistance each armor piece provides, Default: 0.0
 		#Range: 0.0 ~ 1.7976931348623157E308
 		cursedKnightKnockResist = 0.0
+		#Whether armor pieces don't break but no longer provide armor, Default: true
+		cursedKnightPersist = true
 
 		[Armor."Cursed Knight Armor"."Armor Points"]
 			#Define how much armor points wearing the Leggings provides, Default: 5
@@ -90,6 +96,8 @@
 			cursedKnightChest = 6
 
 	[Armor."Black Iron Armor"]
+		#Whether armor pieces don't break but no longer provide armor, Default: true
+		blackIronPersist = true
 		#Define the Durability Multiplier for the armor, higher number the better, Default: 15
 		#Range: > 1
 		blackIronDurability = 30
@@ -134,83 +142,137 @@
 	seaAmuletChargeConsume = 1
 
 	[Curios.Robes]
-		#If 'frostSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		frostSetMobNeutralHealth = 50.0
-		#Whether wearing both Witch Robe and Hat will cause Witches and Warlocks to be neutral, Default: true
-		witchSetWitchNeutral = true
-		#Whether wearing both Void Robe and Crown will cause certain mobs to be neutral, Default: true
-		voidSetMobNeutral = true
-		#How much magic resistance Witches Robes provides by percent, Default: 85
-		#Range: 0 ~ 100
-		witchRobeResistance = 85
 		#Whether wearing Necro Crown while not being a Lich gives Weakness when in sunlight, Default: true
 		necroCrownWeakness = true
-		#How much frost resistance Frost Robes provides by percent, Default: 85
-		#Range: 0 ~ 100
-		frostRobeResistance = 85
-		#How much shock resistance Storm Robes provides by percent, Default: 85
-		#Range: 0 ~ 100
-		stormRobeResistance = 85
-		#How much magic resistance Warlock Robes provides by percent, Default: 85
-		#Range: 0 ~ 100
-		warlockRobeResistance = 85
-		#If 'wildSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		wildSetMobNeutralHealth = 50.0
-		#How much Soul Energy is taken per second when wearer is falling slowly, Default: 1
-		#Range: > 1
-		windRobeSouls = 1
-		#Whether wearing both Necro Cape and Crown will cause Undead mobs to be neutral, Default: true
-		necroSetUndeadNeutral = true
 		#Render Capes on certain Robes, Default: true
 		windRobeCape = true
-		#Whether wearing both Nether Robe and Crown will cause certain mobs to be neutral, Default: true
-		netherSetMobNeutral = true
-		#Whether wearing a Nether Robe will cause Witches and Warlocks to be neutral, Default: true
-		netherRobeWitchNeutral = true
-		#If 'abyssSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		abyssSetMobNeutralHealth = 50.0
-		#If 'voidSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		voidSetMobNeutralHealth = 50.0
-		#Whether wearing both Frost Robe and Crown will cause certain mobs to be neutral, Default: true
-		frostSetMobNeutral = true
 		#Determines the chance of Void Robes wearers can teleport away from incoming attacks, set to 0 to disable, Default: 5
 		#Range: 0 ~ 100
 		voidRobeTeleportChance = 5
 		#Determines what level of Sapped is applied while wearing Void Robes in rain or water, set to 0 to disable, Default: 2
 		#Range: 0 ~ 10
 		voidRobeWaterSapped = 2
-		#If 'necroSetUndeadNeutral' is enabled, the highest max health an Undead mob has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		necroSetUndeadNeutralHealth = 50.0
-		#Whether wearing both Nameless Cape and Crown will cause Undead mobs to be neutral, Default: true
-		namelessSetUndeadNeutral = true
 		#Necro Crown and Cape change textures when wearing a specific robe, Default: true
 		necroCapeChangeTexture = true
-		#Whether wearing both Abyss Robe and Crown will cause certain mobs to be neutral, Default: true
-		abyssSetMobNeutral = true
-		#How much fire resistance Nether Robes provides by percent, Default: 85
-		#Range: 0 ~ 100
-		netherRobeResistance = 85
-		#If 'namelessSetUndeadNeutral' is enabled, the highest max health an Undead mob has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		namelessSetUndeadNeutralHealth = 50.0
-		#Whether wearing both Wild Robe and Crown will cause certain mobs to be neutral, Default: true
-		wildSetMobNeutral = true
+		#Determines how far Void Robes wearers can teleport away from original position, Default: 4
+		#Range: > 1
+		voidRobeTeleportDistance = 4
 		#Show Hoods when wearing certain robes ie, Illusive Robes, Default: true
 		showRobeHoods = true
 		#If 'voidRobeTeleport' is enabled, teleporting cancels incoming damage, Default: true
 		voidRobeTeleportDamageCancel = true
 		#Whether wearing Necro Cape while not being a Lich gives Hunger when in sunlight, Default: true
 		necroCapeHunger = true
-		#If 'netherSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
-		#Range: 1.0 ~ 1.7976931348623157E308
-		netherSetMobNeutralHealth = 50.0
-		#Whether wearing a Warlock Robe will cause Witches and Warlocks to be neutral, Default: true
-		warlockRobeWitchNeutral = true
+
+		[Curios.Robes.Neutral]
+			#If 'windSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			windSetMobNeutralHealth = 50.0
+			#If 'voidSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			voidSetMobNeutralHealth = 50.0
+			#If 'frostSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			frostSetMobNeutralHealth = 50.0
+			#If 'geoSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			geoSetMobNeutralHealth = 50.0
+			#Whether wearing both Geo Robe and Amethyst Necklace will cause certain mobs to be neutral, Default: true
+			geoSetMobNeutral = true
+			#Whether wearing both Witch Robe and Hat will cause Witches and Warlocks to be neutral, Default: true
+			witchSetWitchNeutral = true
+			#Whether wearing both Wind Robe and Crown will cause certain mobs to be neutral, Default: true
+			windSetMobNeutral = true
+			#Whether wearing both Frost Robe and Crown will cause certain mobs to be neutral, Default: true
+			frostSetMobNeutral = true
+			#Whether wearing both Void Robe and Crown will cause certain mobs to be neutral, Default: true
+			voidSetMobNeutral = true
+			#If 'necroSetUndeadNeutral' is enabled, the highest max health an Undead mob has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			necroSetUndeadNeutralHealth = 50.0
+			#Whether wearing both Nameless Cape and Crown will cause Undead mobs to be neutral, Default: true
+			namelessSetUndeadNeutral = true
+			#If 'stormSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			stormSetMobNeutralHealth = 50.0
+			#Whether wearing both Abyss Robe and Crown will cause certain mobs to be neutral, Default: true
+			abyssSetMobNeutral = true
+			#If 'wildSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			wildSetMobNeutralHealth = 50.0
+			#Whether wearing both Necro Cape and Crown will cause Undead mobs to be neutral, Default: true
+			necroSetUndeadNeutral = true
+			#If 'namelessSetUndeadNeutral' is enabled, the highest max health an Undead mob has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			namelessSetUndeadNeutralHealth = 50.0
+			#Whether wearing both Wild Robe and Crown will cause certain mobs to be neutral, Default: true
+			wildSetMobNeutral = true
+			#Whether wearing both Nether Robe and Crown will cause certain mobs to be neutral, Default: true
+			netherSetMobNeutral = true
+			#Whether wearing both Storm Robe and Crown will cause certain mobs to be neutral, Default: true
+			stormSetMobNeutral = true
+			#If 'netherSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			netherSetMobNeutralHealth = 50.0
+			#Whether wearing a Nether Robe will cause Witches and Warlocks to be neutral, Default: true
+			netherRobeWitchNeutral = true
+			#If 'abyssSetMobNeutral' is enabled, the highest max health affected mobs has to have to be neutral, Default: 50.0
+			#Range: 1.0 ~ 1.7976931348623157E308
+			abyssSetMobNeutralHealth = 50.0
+			#Whether wearing a Warlock Robe will cause Witches and Warlocks to be neutral, Default: true
+			warlockRobeWitchNeutral = true
+
+		[Curios.Robes.Resistances]
+			#How much magic resistance Warlock Robes provides by percent, Default: 85
+			#Range: 0 ~ 100
+			warlockRobeResistance = 85
+			#How much Soul Energy is taken per second when wearer is falling slowly, Default: 1
+			#Range: > 1
+			windRobeSouls = 1
+			#How much fire resistance Nether Robes provides by percent, Default: 85
+			#Range: 0 ~ 100
+			netherRobeResistance = 85
+			#How much damage is reduced when in the Nether the Unholy Hats provides by percent, Default: 50
+			#Range: 0 ~ 100
+			unholyHatNetherResistance = 50
+			#How much magic resistance Witches Robes provides by percent, Default: 85
+			#Range: 0 ~ 100
+			witchRobeResistance = 85
+			#How much frost resistance Frost Robes provides by percent, Default: 85
+			#Range: 0 ~ 100
+			frostRobeResistance = 85
+			#How much shock resistance Storm Robes provides by percent, Default: 85
+			#Range: 0 ~ 100
+			stormRobeResistance = 85
+
+		[Curios.Robes.Discounts]
+			#How much soul cost discount Nether/Unholy Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			netherRobeDiscount = 50
+			#How much soul cost discount Wind Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			windRobeDiscount = 50
+			#How much soul cost discount Dark/Grand Robes provides by percent, Default: 15
+			#Range: 0 ~ 100
+			darkRobeDiscount = 15
+			#How much soul cost discount Frost Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			frostRobeDiscount = 50
+			#How much soul cost discount Storm Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			stormRobeDiscount = 50
+			#How much soul cost discount Void Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			voidRobeDiscount = 50
+			#How much soul cost discount Wild Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			wildRobeDiscount = 50
+			#How much soul cost discount Geo Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			geoRobeDiscount = 50
+			#How much soul cost discount Abyss Robes provides by percent, Default: 50
+			#Range: 0 ~ 100
+			abyssRobeDiscount = 50
 
 [General]
 	#Fire Spawn Cage are enabled, Default: true
@@ -223,6 +285,12 @@
 	#How much Souls is consumed when crafting with Totem, Default: 1
 	#Range: > 0
 	craftSouls = 1
+	#How many servants an Esoteric Tesseract can contain, Default: 16
+	#Range: > 1
+	tesseractCapacity = 16
+	#How many uses before Tesseract is disabled, Default: 16
+	#Range: > 1
+	tesseractDurability = 16
 	#If soulRepair is enabled, the cost of Soul Energy multiplies per item's enchantments, Default: true
 	soulRepairEnchant = true
 
@@ -276,10 +344,12 @@
 		#Range: 1.0 ~ 1.7976931348623157E308
 		hammerBaseDamage = 5.0
 
-	["Tools & Weapons".Misc]
+	["Tools & Weapons"."Philosopher's Mace"]
 		#Define the Enchantability for Philosopher's Mace, higher number the better, Default: 20
 		#Range: > 1
 		philosophersMaceEnchantability = 20
+		#Whether tools don't break but no longer benefits, Default: true
+		philosophersMacePersist = true
 		#How much damage Philosopher's Mace deals, Default: 9.0
 		#Range: 1.0 ~ 1.7976931348623157E308
 		philosophersMaceDamage = 9.0
@@ -303,6 +373,8 @@
 		#How much damage Special Tools deals, the configured number is added to Tool Base Damage, Default: 3.0
 		#Range: 1.0 ~ 1.7976931348623157E308
 		specialToolsDamage = 3.0
+		#Whether Graverobber's Shovel only breaks two blocks if player is crouching, set to false to make it so that crouching breaks one block instead of two, Default: false
+		graverobberShovelCrouch = false
 		#How fast Special Tools mines, the higher the better, Default: 8.0
 		#Range: 1.0 ~ 1.7976931348623157E308
 		specialToolsBreakSpeed = 8.0
@@ -310,7 +382,25 @@
 		#Range: > 1
 		rampagingAxeDuration = 10
 
+	["Tools & Weapons"."Blade of Ender"]
+		#Define the Enchantability for Blade of Ender, higher number the better, Default: 20
+		#Range: > 1
+		bladeOfEnderEnchantability = 20
+		#How much damage Blade of Ender deals, Default: 9.0
+		#Range: 1.0 ~ 1.7976931348623157E308
+		bladeOfEnderDamage = 9.0
+		#How fast it takes to fully swing a Blade of Ender. The lower the number the slower it takes to recharge, Default: 1.2
+		#Range: 0.0 ~ 1.7976931348623157E308
+		bladeOfEnderAttackSpeed = 1.2
+		#How many uses before the Blade of Ender breaks, Default: 2031
+		#Range: > 1
+		bladeOfEnderDurability = 2031
+		#Whether tools don't break but no longer benefits, Default: true
+		bladeOfEnderPersist = true
+
 	["Tools & Weapons"."Dark Tools"]
+		#Whether tools don't break but no longer benefits, Default: true
+		darkToolsPersist = true
 		#How much damage Dark Tools deals, the configured number is added to Tool Base Damage, Default: 3.0
 		#Range: 1.0 ~ 1.7976931348623157E308
 		darkToolsDamage = 3.0
@@ -339,7 +429,12 @@
 		#How fast it takes to fully swing a Scythe with item offhand and not wearing Grave Gloves. The lower the number the slower it takes to recharge, Default: 0.6
 		#Range: 0.0 ~ 1.7976931348623157E308
 		scytheAttackSpeed = 0.6
-		#Amount of Soul Energy Dark Scythe gives when hitting mob(s), Default: 1
+		#The chance, by percentage, of Sapped being amplified after hitting affected with Death Scythe, Default: 20
+		#Range: > 0
+		deathScytheSappedDuration = 20
+		#Whether tools don't break but no longer benefits, Default: true
+		deathScythePersist = true
+		#Amount of Soul Energy Scythes gives when hitting mob(s), Default: 1
 		#Range: > 1
 		darkScytheSouls = 1
 		#How much base damage Scythes deals, the damage added depends on material the scythe is made off (ie. Iron = 2.0), Default: 4.5

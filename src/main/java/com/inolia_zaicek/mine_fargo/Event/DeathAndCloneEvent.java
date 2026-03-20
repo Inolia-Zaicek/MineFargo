@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Cataclysm.MaledictusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.UndyingSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.nbt.*;
@@ -15,10 +16,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
@@ -27,13 +30,27 @@ import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.*;
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.maledictus_soul_stone_cooldown_time;
 import static com.inolia_zaicek.mine_fargo.Event.TickEvent.ultra_hostility_soul_stone;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
 public class DeathAndCloneEvent {
-    @SubscribeEvent(priority = EventPriority.HIGH)
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     //全局事件死亡
-    public void LivingDeathVampire(net.minecraftforge.event.entity.living.LivingDeathEvent event) {
+    public static void LivingDeath(LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntity();
+        //替死
+        if (MyGoUtil.hasSupernatural(livingEntity, UndyingSoulStoneItem.class) && livingEntity.getPersistentData().getInt(undying_soul_stone) == 0 ) {
+            livingEntity.getPersistentData().putInt(undying_soul_stone, (int) (MyGoConfig.undying_soul_stone_cooldown.get() * 20 * 2));
+            livingEntity.setHealth((float) (1 * MyGoConfig.undying_soul_stone_hp.get()));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,(int)(MyGoConfig.undying_soul_stone_heal_time.get()*20),
+                    (int)(MyGoConfig.undying_soul_stone_heal_lvl.get()-1) ));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.ABSORPTION,(int)(MyGoConfig.undying_soul_stone_damage_time.get()*20),
+                    (int)(MyGoConfig.undying_soul_stone_damage_lvl.get()-1) ));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE,(int)(MyGoConfig.undying_soul_stone_fire_time.get()*20), 0));
+            livingEntity.deathTime = -2;
+            livingEntity.isAlive();
+            event.setCanceled(true);
+        }
         //灾变
-        if (ModList.get().isLoaded("cataclysm")&&livingEntity.getPersistentData().getInt(maledictus_soul_stone_cooldown_time) == 0
+        else if (ModList.get().isLoaded("cataclysm")&&livingEntity.getPersistentData().getInt(maledictus_soul_stone_cooldown_time) == 0
                     && MyGoUtil.hasCataclysm(livingEntity, MaledictusSoulStoneItem.class)) {
             livingEntity.getPersistentData().putInt(maledictus_soul_stone_cooldown_time, (int) (MyGoConfig.maledictus_soul_stone_cooldown_time.get() * 20 * 2));
             //设置玩家血量（不要滥用改写
@@ -67,7 +84,7 @@ public class DeathAndCloneEvent {
         }
         //莱特兰 不死
         else if (ModList.get().isLoaded("l2hostility") && MyGoUtil.hasL2Hostility(livingEntity, MaledictusSoulStoneItem.class)
-        && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY) && this.validTarget(livingEntity)
+        && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)
                 &&livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone) == 0 ) {
             livingEntity.getPersistentData().putInt(ultra_hostility_soul_stone, (int) (MyGoConfig.ultra_hostility_soul_stone_cooldown.get() * 20 * 2));
             float health = ForgeEventFactory.onLivingHeal(livingEntity, (float) (livingEntity.getMaxHealth()*MyGoConfig.ultra_hostility_soul_stone_heal.get()));
@@ -89,7 +106,12 @@ public class DeathAndCloneEvent {
         CompoundTag newData = newPlayer.getPersistentData();
 
         String[] keys = {
-                "gluttony_sin_soul_stone"
+                "gluttony_sin_soul_stone",
+                "magnet_soul_stone",
+                "mine_fargo:gluttony_sin_soul_stone",
+                "mine_fargo:magnet_soul_stone",
+                "magnet_soul_stone_open",
+                "mine_fargo:magnet_soul_stone_open"
         };
 
         for (String key : keys) {

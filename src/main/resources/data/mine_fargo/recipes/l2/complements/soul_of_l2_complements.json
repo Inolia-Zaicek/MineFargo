@@ -1,0 +1,31 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "l2complements"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:totemic_complements_soul_stone"
+        },
+        {
+            "item": "mine_fargo:poseidite_complements_soul_stone"
+        },
+        {
+            "item": "mine_fargo:shulkerate_complements_soul_stone"
+        },
+        {
+            "item": "mine_fargo:sculkium_complements_soul_stone"
+        },
+        {
+            "item": "mine_fargo:eternium_complements_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_l2_complements",
+        "count": 1
+    }
+}

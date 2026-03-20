@@ -6,12 +6,15 @@
   "refmap": "mine_fargo.refmap.json",
   "mixins": [
     "Goety.WandUtilMixin",
+    "Goety.CommonConfigMixin",
     "Create.GogglesItemMixin",
     "Create.DivingBootsItemMixin",
     "Create.DivingHelmetItemMixin",
     "Create.CardboardMixin",
     "Create.BlazeBurnerMixin",
+    "AlexsCaves.AlexsCavesEntityMixin",
 
+    "WTCProjectileMixin",
     "MyGoMixinEnchantmentContainer",
     "VillagerMixin"
   ],

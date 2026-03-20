@@ -1,6 +1,5 @@
 package com.inolia_zaicek.mine_fargo.Event.Goety;
 
-import com.Polarice3.Goety.common.entities.ally.illager.AllyIrk;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Damage.MyGoDamageType;
 import com.inolia_zaicek.mine_fargo.Item.Cataclysm.MaledictusSoulStoneItem;

@@ -25,7 +25,7 @@ public class CardboardMixin {
     private static void testForStealth(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (entity instanceof LivingEntity livingEntity) {
             if (MyGoUtil.hasCreate(livingEntity, CardboardSoulStoneItem.class)&& MyGoConfig.cardboard_soul_stone.get()
-            &&livingEntity.isShiftKeyDown() ) {
+            &&livingEntity.isCrouching() ) {
                 cir.setReturnValue(true);
             }
         }

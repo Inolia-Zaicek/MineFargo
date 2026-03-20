@@ -337,9 +337,11 @@
         {"id":"faded_conquest_2:vfx_maiasma","required":false},
         {"id":"faded_conquest_2:vfx_purple_aura","required":false},
         {"id":"faded_conquest_2:whirlwind","required":false},
+
         {"id":"mokels_boss_mantyd:boss_mantyd","required":false},
         {"id":"mokels_boss_mantyd:mantyd_bloom","required":false},
         {"id":"mokels_bossfight_saphyra:witchboss","required":false},
+
         {"id":"bobsoriginiumdream:evolutionnatureevolution","required":false},
         {"id":"bobsoriginiumdream:evolutionnaturenewborn","required":false},
         {"id":"bobsoriginiumdream:evolutionnatureperfect","required":false},
@@ -369,6 +371,7 @@
         {"id":"majruszsdifficulty:giant","required":false},
         {"id":"majruszsdifficulty:illusioner","required":false},
         {"id":"majruszsdifficulty:tank","required":false},
+
         {"id":"binah:binah_v_2","required":false},
         {"id":"binah:white_cube","required":false},
         {"id":"binah:yallow_cube","required":false},
@@ -519,6 +522,7 @@
         {"id":"terra_entity:eater_of_worlds_segment","required":false},
         {"id":"terra_entity:brain_of_cthulhu","required":false},
         {"id":"terra_entity:brain_fake","required":false},
+        {"id":"terra_entity:visual_neuron","required":false},
         {"id":"terra_entity:skeletron","required":false},
         {"id":"terra_entity:skeletron_hand","required":false},
         {"id":"terra_entity:queen_bee","required":false},
@@ -528,6 +532,10 @@
         {"id":"terra_entity:nymph","required":false},
         {"id":"terra_entity:wall_of_flesh","required":false},
         {"id":"terra_entity:wall_of_flesh_eye","required":false},
-        {"id":"terra_entity:wall_of_flesh_mouth","required":false}
+        {"id":"terra_entity:wall_of_flesh_mouth","required":false},
+
+        {"id":"arcalis_bosses:jack","required":false},
+        {"id":"arcalis_bosses:the_deathbringer","required":false},
+        {"id":"arcalis_bosses:captain_deadbone","required":false}
     ]
 }

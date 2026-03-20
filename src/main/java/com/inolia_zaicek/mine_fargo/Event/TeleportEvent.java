@@ -1,7 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Event;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
-import com.inolia_zaicek.mine_fargo.Item.L2.ZoneHostilitySoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.ZoneHostilitySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import net.minecraft.world.entity.LivingEntity;

@@ -35,9 +35,9 @@ public class TwilightEvent {
             if (event.getSource().getEntity() instanceof LivingEntity attacker && attacked != attacker) {
 
                 if (!attackedLevel.isClientSide()) {
-                    if (MyGoUtil.hasTwilightLich(attacker, ZombieScepterSoulStoneItem.class)
+                    if (MyGoUtil.hasTwilightLich(attacker, ZombieScepterSoulStoneItem.class) && MyGoConfig.zombie_summon_can.get()
                             && attacker.getPersistentData().getInt(zombie_scepter_soul_stone_cooldown_time) == 0) {
-                        attacker.getPersistentData().putInt(zombie_scepter_soul_stone_cooldown_time, (int) (MyGoConfig.zombie_scepter_soul_stone_time.get() * 20 * 2));
+                        attacker.getPersistentData().putInt(zombie_scepter_soul_stone_cooldown_time, (int) (MyGoConfig.zombie_scepter_soul_stone_cooldown.get() * 20 * 2));
                         LoyalZombie zombie = (LoyalZombie) ((EntityType<?>) TFEntities.LOYAL_ZOMBIE.get()).create(attackedLevel);
                         if (zombie != null) {
                             zombie.moveTo(attacked.getOnPos().getX(), attacked.getOnPos().getY() + 1, attacked.getOnPos().getZ());

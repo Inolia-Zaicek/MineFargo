@@ -7,6 +7,7 @@ import com.inolia_zaicek.mine_fargo.Item.Iron.*;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
+import io.redspace.ironsspellbooks.entity.mobs.MagicSummon;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -45,6 +46,12 @@ public class IronHurtEvent {
                         overNumber*=1-MyGoConfig.evocation_sect_soul_stone_armor.get();
                     }
                 }
+                if(attacked instanceof MagicSummon magicSummonMob&&magicSummonMob.getSummoner()!=null){
+                    LivingEntity owner = magicSummonMob.getSummoner();
+                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStoneItem.class)){
+                        overNumber*=1-MyGoConfig.evocation_sect_soul_stone_armor.get();
+                    }
+                }
                 //诡厄
                 if (ModList.get().isLoaded("goety")&&(event.getSource().is(ISSDamageTypes.FIRE_MAGIC) || event.getSource().is(ISSDamageTypes.ICE_MAGIC)
                         || event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) || event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)
@@ -67,6 +74,12 @@ public class IronHurtEvent {
                 //是随从
                 if (attacker instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null ) {
                     LivingEntity owner = ownableEntity.getOwner();
+                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStoneItem.class)){
+                        number+=MyGoConfig.evocation_sect_soul_stone_damage.get();
+                    }
+                }
+                if(attacker instanceof MagicSummon magicSummonMob&&magicSummonMob.getSummoner()!=null){
+                    LivingEntity owner = magicSummonMob.getSummoner();
                     if (MyGoUtil.hasIron(owner, EvocationSectSoulStoneItem.class)){
                         number+=MyGoConfig.evocation_sect_soul_stone_damage.get();
                     }
