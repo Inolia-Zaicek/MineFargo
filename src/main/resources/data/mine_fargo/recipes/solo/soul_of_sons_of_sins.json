@@ -1,0 +1,37 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "sons_of_sins"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:envy_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:gluttony_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:greed_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:lust_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:pride_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:sloth_sin_soul_stone"
+        },
+        {
+            "item": "mine_fargo:wrath_sin_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_sons_of_sins",
+        "count": 1
+    }
+}

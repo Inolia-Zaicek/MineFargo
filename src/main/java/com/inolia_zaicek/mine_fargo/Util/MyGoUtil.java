@@ -947,24 +947,27 @@ public class MyGoUtil {
     public static boolean canAttack(LivingEntity attacked,LivingEntity attacker) {
         boolean can = true;
         //生物属于非敌对  同时  自身未蹲下——同时开启了功能
-        if(can&&!(attacked instanceof Enemy)&&!attacker.isCrouching() && MyGoConfig.can_attack.get() ){
-            can=false;
+        if (can && !(attacked instanceof Enemy) && !attacker.isCrouching() && MyGoConfig.can_attack.get()) {
+            can = false;
         }
         //攻击者与挨打者一致
-        if(can&&attacker==attacked){
-            can=false;
-        }
-        //有铁魔法的情况下，识别魔法随从
-        if (can&&ModList.get().isLoaded("irons_spellbooks")) {
-            can = IronUtil.canAttack(attacked,attacker);
+        if (can && attacker == attacked) {
+            can = false;
         }
         //如果是假人，true
-        if(EntityType.getKey(attacked.getType()).toString().equals("dummmmmmy:target_dummy") ){
-            can=true;
+        if (EntityType.getKey(attacked.getType()).toString().equals("dummmmmmy:target_dummy")) {
+            can = true;
         }
-        //生物属于随从且主人是攻击者，强制不打
-        if(attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null && ownableEntity.getOwner() == attacker){
-            can=false;
+        //如果一开始就不会被打：false————的情况下，不进入随从判断
+        if (can) {
+            //生物属于随从且主人是攻击者，强制不打
+            if (attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwnerUUID() != null && ownableEntity.getOwner() == attacker) {
+                can = false;
+            }
+            //有铁魔法的情况下，识别魔法随从，强制不打
+            if (ModList.get().isLoaded("irons_spellbooks")) {
+                can = IronUtil.canAttack(attacked, attacker);
+            }
         }
         return can;
     }

@@ -627,9 +627,15 @@ public class MyGoConfig {
     public static final ForgeConfigSpec.DoubleValue hercules_beetle;
     public static final ForgeConfigSpec.DoubleValue necromantic_scroll;
     public static final ForgeConfigSpec.DoubleValue flying_damage;
+    public static final ForgeConfigSpec.DoubleValue charged_arrow;
+    public static final ForgeConfigSpec.DoubleValue charged_summon;
+    public static final ForgeConfigSpec.DoubleValue charged_terra_summon;
     static {
         BUILDER.push("ino");
         InoIntegrationPack = BUILDER.comment("伊诺莉娅整合包模式是否启动(作者自用)").define("inoIntegration_pack",false);
+        charged_arrow = BUILDER.comment("每级超负荷提升箭矢伤害").defineInRange("charged_arrow", 0.75, 0, 2147483647);
+        charged_summon = BUILDER.comment("每级超负荷提升随从召唤伤害").defineInRange("charged_summon", 0.5, 0, 2147483647);
+        charged_terra_summon = BUILDER.comment("每级超负荷提升泰拉召唤师伤害").defineInRange("charged_terra_summon", 0.75, 0, 2147483647);
         flying_damage = BUILDER.comment("飞行状态下玩家造成的伤害").defineInRange("flying_damage", 0.2, 0, 2147483647);
         necromantic_scroll = BUILDER.comment("死灵卷轴掉落概率").defineInRange("necromantic_scroll", 0.5, 0, 2147483647);
         hercules_beetle = BUILDER.comment("大力士甲虫掉落概率").defineInRange("hercules_beetle", 0.5, 0, 2147483647);

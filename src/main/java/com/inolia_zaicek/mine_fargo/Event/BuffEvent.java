@@ -21,8 +21,6 @@ public class BuffEvent {
         MobEffectInstance mobEffectInstance = event.getEffectInstance();
         MobEffect mobEffect = mobEffectInstance.getEffect();
         int baseTime = mobEffectInstance.getDuration();
-        if(event.getEffectSource() instanceof LivingEntity effectGiver){
-        }
         //正面时长
         float goodTime = 0;
         float bedTime = 0;

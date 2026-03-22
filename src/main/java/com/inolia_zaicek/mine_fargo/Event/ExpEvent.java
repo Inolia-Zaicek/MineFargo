@@ -18,10 +18,12 @@ public class ExpEvent {
     public static void even1t(LivingExperienceDropEvent event) {
         LivingEntity livingEntity = event.getEntity();
         Player player = event.getAttackingPlayer();
-        float number = 1;
-        if (MyGoUtil.hasOre(livingEntity, LapisLazuliSoulStoneItem.class)) {
-            number+=MyGoConfig.lapis_lazuli_soul_stone.get();
+        if(player!=null&&livingEntity!=null) {
+            float number = 1;
+            if (MyGoUtil.hasOre(player, LapisLazuliSoulStoneItem.class)) {
+                number += MyGoConfig.lapis_lazuli_soul_stone.get();
+            }
+            event.setDroppedExperience((int) (event.getDroppedExperience() * number));
         }
-        event.setDroppedExperience((int) (event.getDroppedExperience() * number));
     }
 }

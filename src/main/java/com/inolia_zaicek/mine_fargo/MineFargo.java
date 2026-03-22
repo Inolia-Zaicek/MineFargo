@@ -18,7 +18,6 @@ import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.L2.L2Hurt;
-import com.inolia_zaicek.mine_fargo.Event.L2.MyGoAttackListener;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtByGunEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
@@ -33,7 +32,6 @@ import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Register.Tab;
 import com.inolia_zaicek.mine_fargo.loot.ModLootModifiers;
-import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -63,9 +61,6 @@ public class MineFargo {
         init();
         if(FMLEnvironment.dist == Dist.CLIENT) {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(MyClientHandler::registerKeyMappings);
-        }
-        if (ModList.get().isLoaded("l2damagetracker")) {
-            AttackEventHandler.register(5000, new MyGoAttackListener());
         }
         ModLoadingContext modLoadingContext = ModLoadingContext.get();
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, MyGoConfig.SPEC);

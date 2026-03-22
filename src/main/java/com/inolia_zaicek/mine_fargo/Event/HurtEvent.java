@@ -898,7 +898,7 @@ public class HurtEvent {
                     }
                 }
                 //虚空
-                if (MyGoUtil.hasGoetyEntity(attacker, EnderKeeperSoulStoneItem.class)) {
+                if (MyGoUtil.hasGoetyEntity(attacker, EnderKeeperSoulStoneItem.class)&&attacked!=null) {
                     attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
                             new ResourceLocation("goety", "void_touched"))),
                             (int) (MyGoConfig.ender_keeper_soul_stone_time.get() * 20), (int) (MyGoConfig.ender_keeper_soul_stone_level.get() - 1), false, false, false));
