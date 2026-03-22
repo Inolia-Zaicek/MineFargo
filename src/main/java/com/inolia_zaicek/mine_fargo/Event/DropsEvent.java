@@ -7,6 +7,7 @@ import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.EnvySinsSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.GluttonySinsSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.GreedSinsSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
@@ -37,20 +38,20 @@ public class DropsEvent {
             if (event.getSource().getEntity() instanceof Player livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
                 int number = 0;
                 if (ModList.get().isLoaded("sons_of_sins")) {
-                    if (MyGoUtil.hasSonsOfSins(livingEntity, GluttonySinsSoulStoneItem.class)) {
+                    if (MyGoUtil.hasSonsOfSins(livingEntity, GluttonySinsSoulStone.get())) {
                         int killNumber = livingEntity.getPersistentData().getInt(gluttony_sin_soul_stone);
                         livingEntity.getPersistentData().putInt(gluttony_sin_soul_stone,Math.min(killNumber+1,
                                 (int)(MyGoConfig.gluttony_sin_soul_stone_max.get()/MyGoConfig.gluttony_sin_soul_stone_kill.get())) );
                     }
-                    if (MyGoUtil.hasSonsOfSins(livingEntity, GreedSinsSoulStoneItem.class)) {
+                    if (MyGoUtil.hasSonsOfSins(livingEntity, GreedSinsSoulStone.get())) {
                         number += (int) (MyGoConfig.greed_sin_soul_stone_drop.get() * 1);
                     }
                 }
-                if (MyGoUtil.hasEntity(livingEntity, AnimalSoulStoneItem.class)) {
+                if (MyGoUtil.hasEntity(livingEntity, AnimalSoulStone.get())) {
                     number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
                 }
                 if (ModList.get().isLoaded("ars_nouveau")) {
-                    if (MyGoUtil.hasArs(livingEntity, DrygmySoulStoneItem.class)) {
+                    if (MyGoUtil.hasArs(livingEntity, DrygmySoulStone.get())) {
                         number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
                     }
                 }
@@ -75,21 +76,21 @@ public class DropsEvent {
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
                 if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() instanceof Player owner) {
                     int number = 0;
-                    if (MyGoUtil.hasEntity(owner, AnimalSoulStoneItem.class)) {
+                    if (MyGoUtil.hasEntity(owner, AnimalSoulStone.get())) {
                         number += (int) (MyGoConfig.animal_soul_stone.get() * 1);
                     }
                     if (ModList.get().isLoaded("ars_nouveau")) {
-                        if (MyGoUtil.hasArs(owner, DrygmySoulStoneItem.class)) {
+                        if (MyGoUtil.hasArs(owner, DrygmySoulStone.get())) {
                             number += (int) (MyGoConfig.drygmy_soul_stone_drop.get() * 1);
                         }
                     }
                     if (ModList.get().isLoaded("sons_of_sins")) {
-                        if (MyGoUtil.hasSonsOfSins(owner, GluttonySinsSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSonsOfSins(owner, GluttonySinsSoulStone.get())) {
                             int killNumber = owner.getPersistentData().getInt(gluttony_sin_soul_stone);
                             livingEntity.getPersistentData().putInt(gluttony_sin_soul_stone,Math.min(killNumber+1,
                                     (int)(MyGoConfig.gluttony_sin_soul_stone_max.get()/MyGoConfig.gluttony_sin_soul_stone_kill.get())) );
                         }
-                        if (MyGoUtil.hasSonsOfSins(owner, GreedSinsSoulStoneItem.class)) {
+                        if (MyGoUtil.hasSonsOfSins(owner, GreedSinsSoulStone.get())) {
                             number += (int) (MyGoConfig.greed_sin_soul_stone_drop.get() * 1);
                         }
                     }

@@ -4,6 +4,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.GoldSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoEnchantmentUtil;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -45,7 +46,7 @@ public abstract class MyGoMixinEnchantmentContainer extends AbstractContainerMen
         } catch (Exception ignored) {}
         if(container == null) return;
         //检查是否有饰品
-        if (MyGoUtil.hasOre(player, GoldSoulStoneItem.class)) {
+        if (MyGoUtil.hasOre(player, GoldSoulStone.get())) {
             ItemStack inputItem = container.enchantSlots.getItem(0);
             int levelsRequired = clickedID + 1;
             if (container.costs[clickedID] > 0 && !inputItem.isEmpty() && (player.experienceLevel >= levelsRequired && player.experienceLevel >= container.costs[clickedID] || player.getAbilities().instabuild)) {
@@ -55,7 +56,7 @@ public abstract class MyGoMixinEnchantmentContainer extends AbstractContainerMen
                     List<EnchantmentInstance> rolledEnchantments = finalContainer.getEnchantmentList(inputItem, clickedID, finalContainer.costs[clickedID]);
                     if (!rolledEnchantments.isEmpty()) {
                         int number = 0;
-                        if( MyGoUtil.hasOre(player, GoldSoulStoneItem.class) ){
+                        if( MyGoUtil.hasOre(player, GoldSoulStone.get()) ){
                             number+=(int)(MyGoConfig.gold_soul_stone.get()*1);
                         }
                         //提升等级

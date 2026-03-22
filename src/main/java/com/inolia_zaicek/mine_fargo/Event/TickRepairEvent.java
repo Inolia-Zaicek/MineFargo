@@ -4,6 +4,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.L2.Complements.EterniumComplementsSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.SteeleafSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -14,7 +15,7 @@ public class TickRepairEvent {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStoneItem.class) &&
+        if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStone.get()) &&
                 player.level().getGameTime() % (20) == 0) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();

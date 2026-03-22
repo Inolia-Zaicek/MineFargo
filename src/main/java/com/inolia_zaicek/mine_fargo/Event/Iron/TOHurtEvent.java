@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Iron.*;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,6 +22,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Objects;
 import java.util.Random;
 
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.AquaSectSoulStone;
+
 public class TOHurtEvent {
 
     @SubscribeEvent
@@ -36,7 +39,7 @@ public class TOHurtEvent {
                 double chance = MyGoConfig.aqua_sect_soul_stone_chance.get() * 100;
                 int buffTime = (int) (MyGoConfig.aqua_sect_soul_stone_time.get() * 20);
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSpecificItem(attacker, AquaSectSoulStoneItem.class)) {
+                if (MyGoUtil.hasSupernatural(attacker, AquaSectSoulStone.get())) {
                     if (event.getSource().is(TravelopticsDamageTypes.AQUA_MAGIC)) {
                         aqua=true;
                     } else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) || event.getSource().is(ISSDamageTypes.ICE_MAGIC)

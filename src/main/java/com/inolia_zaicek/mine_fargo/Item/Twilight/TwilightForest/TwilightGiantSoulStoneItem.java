@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightLichST;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -47,6 +48,6 @@ public class TwilightGiantSoulStoneItem extends Item implements ICurioItem, Twil
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTwilightForest(slotContext.entity(), TwilightGiantSoulStoneItem.class);
+        return ! MyGoUtil.hasTwilightForest(slotContext.entity(), TwilightGiantSoulStone.get());
     }
 }

@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Iron.IronST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -68,6 +69,6 @@ public class SoulOfCreateItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasCreate(slotContext.entity(), CreateST.class);
+        return ! MyGoUtil.hasCreate(slotContext.entity(), SoulOfCreate.get());
     }
 }

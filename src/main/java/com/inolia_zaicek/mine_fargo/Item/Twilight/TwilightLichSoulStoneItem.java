@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Twilight;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -43,6 +44,10 @@ public class TwilightLichSoulStoneItem extends Item implements ICurioItem, Twili
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
         //有暮色魂、巫妖石、巫妖石附属，无法安装
-        return !MyGoUtil.hasTwilightLich(slotContext.entity(), TwilightLichST.class);
+        return !(MyGoUtil.hasTwilightLich(slotContext.entity(), ZombieScepterSoulStone.get())
+                ||MyGoUtil.hasTwilightLich(slotContext.entity(), LifedrainSoulStone.get())
+                ||MyGoUtil.hasTwilightLich(slotContext.entity(), FortificationSoulStone.get())
+                ||MyGoUtil.hasTwilightLich(slotContext.entity(), TwilightLichSoulStone.get())
+        );
     }
 }

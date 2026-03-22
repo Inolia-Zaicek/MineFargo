@@ -31,6 +31,7 @@ import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Register.Key.MyKeyMappingUtil;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
@@ -65,6 +66,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.*;
 
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.*;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 
 public class TickEvent {
     public static final String zombie_scepter_soul_stone_cooldown_time = MineFargo.MODID + ":zombie_scepter_soul_stone_cooldown";
@@ -102,7 +104,7 @@ public class TickEvent {
         boolean water = false;
         //锚定
         if(livingEntity.getPersistentData().getInt(anchor_soul_stone_time_cooldown)==0
-                &&MyGoUtil.hasSupernatural(livingEntity, AnchorSoulStoneItem.class) && MyKeyMappingUtil.KEYMAPPING.isDown()){
+                &&MyGoUtil.hasSupernatural(livingEntity, AnchorSoulStone.get()) && MyKeyMappingUtil.KEYMAPPING.isDown()){
             livingEntity.getPersistentData().putInt(anchor_soul_stone_time_cooldown,(int) (MyGoConfig.anchor_soul_stone_cooldown.get()*40));
             livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
                     SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS,0.6F, 1.0F);
@@ -156,7 +158,7 @@ public class TickEvent {
                     livingEntity.getPersistentData().getInt(magnet_soul_stone)-1);
         }
         //磁铁功能关闭
-        if(MyGoUtil.hasSupernatural(livingEntity, MagnetSoulStoneItem.class) && MyKeyMappingUtil.KEYMAPPING2.isDown()
+        if(MyGoUtil.hasSupernatural(livingEntity, MagnetSoulStone.get()) && MyKeyMappingUtil.KEYMAPPING2.isDown()
         && livingEntity.getPersistentData().getInt(magnet_soul_stone)==0 ){
             livingEntity.getPersistentData().putInt(magnet_soul_stone,20);
             livingEntity.level().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
@@ -171,7 +173,7 @@ public class TickEvent {
             }
         }
         //磁铁
-        if(livingEntity.getPersistentData().getInt(magnet_soul_stone_open)<=50 && MyGoUtil.hasSupernatural(livingEntity, MagnetSoulStoneItem.class) &&
+        if(livingEntity.getPersistentData().getInt(magnet_soul_stone_open)<=50 && MyGoUtil.hasSupernatural(livingEntity, MagnetSoulStone.get()) &&
                 livingEntity.level() instanceof ServerLevel level&&MyGoConfig.magnet_soul_stone_range.get()>0) {
             BlockPos target = livingEntity.getOnPos();
             Entity entity = livingEntity;
@@ -186,14 +188,14 @@ public class TickEvent {
                     Entity::isAlive).forEach(orb -> orb.moveTo(entity.getPosition(0)));
         }
         //潮水
-        if(MyGoUtil.hasSupernatural(livingEntity, TheSeaSoulStoneItem.class)){
+        if(MyGoUtil.hasSupernatural(livingEntity, TheSeaSoulStone.get())){
             water=true;
             if(livingEntity.getRemainingFireTicks()>0) {
                 livingEntity.setRemainingFireTicks(0);
             }
         }
         //危险
-        if(MyGoUtil.hasSupernatural(livingEntity, HazardSoulStoneItem.class)&&livingEntity.getAttributes().hasAttribute(Attributes.ATTACK_DAMAGE)){
+        if(MyGoUtil.hasSupernatural(livingEntity, HazardSoulStone.get())&&livingEntity.getAttributes().hasAttribute(Attributes.ATTACK_DAMAGE)){
             if (livingEntity.level().getGameTime() % (MyGoConfig.hazard_soul_stone_time.get()*20) == 0) {
                 var mobList = MyGoUtil.mobList((int) ((MyGoConfig.hazard_soul_stone_range.get() + 1) / 2), livingEntity);
                 Mob nearestMob = null;
@@ -220,7 +222,7 @@ public class TickEvent {
         }
         //海王
         if (ModList.get().isLoaded("l2complements")) {
-            if (MyGoUtil.hasL2Complements(livingEntity, TotemicComplementsSoulStoneItem.class) ) {
+            if (MyGoUtil.hasL2Complements(livingEntity, TotemicComplementsSoulStone.get()) ) {
                 if (livingEntity.level().getGameTime() % 20L == 0) {
                     livingEntity.heal((float) (MyGoConfig.totemic_complements_soul_stone_heal.get() * 1));
                 }
@@ -228,7 +230,7 @@ public class TickEvent {
                 livingEntity.removeEffect(MobEffects.HUNGER);
                 livingEntity.removeEffect(MobEffects.WITHER);
             }
-            if (MyGoUtil.hasL2Complements(livingEntity, SculkiumComplementsSoulStoneItem.class) ) {
+            if (MyGoUtil.hasL2Complements(livingEntity, SculkiumComplementsSoulStone.get()) ) {
                 livingEntity.removeEffect(MobEffects.BLINDNESS);
                 livingEntity.removeEffect(MobEffects.DARKNESS);
                 livingEntity.removeEffect(MobEffects.DIG_SLOWDOWN);
@@ -236,24 +238,24 @@ public class TickEvent {
                 livingEntity.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 livingEntity.removeEffect(MobEffects.WEAKNESS);
             }
-            if (MyGoUtil.hasL2Complements(livingEntity, PoseiditeComplementsSoulStoneItem.class) && livingEntity.level().getGameTime() % 10L == 0) {
+            if (MyGoUtil.hasL2Complements(livingEntity, PoseiditeComplementsSoulStone.get()) && livingEntity.level().getGameTime() % 10L == 0) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE,300,0,false,false,false));
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER,300,0,false,false,false));
             }
         }
         if (ModList.get().isLoaded("alexscaves")) {
-            if (MyGoUtil.hasAlexsCaves(livingEntity, AbyssalChasmSoulStoneItem.class)) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, AbyssalChasmSoulStone.get())) {
                 water = true;
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, false, false, false));
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 300, 0, false, false, false));
                 livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
                         new ResourceLocation("alexscaves", "deepsight"))), 300, 0));
             }
-            if (MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStoneItem.class)) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStone.get())) {
                 livingEntity.removeEffect(MobEffects.DARKNESS);
             }
             //磁化——杀戮光环
-            if (MyGoUtil.hasAlexsCaves(livingEntity, MagneticSoulStoneItem.class) && livingEntity.level().getGameTime() % 20L == 0) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, MagneticSoulStone.get()) && livingEntity.level().getGameTime() % 20L == 0) {
                 var mobList = MyGoUtil.mobList((int) ((MyGoConfig.magnetic_soul_stone_range.get() + 1) / 2), livingEntity);
                 for (Mob mobs : mobList) {
                     if ( MyGoUtil.canAttack(mobs,livingEntity)
@@ -303,7 +305,7 @@ public class TickEvent {
         //莱特兰
         if (ModList.get().isLoaded("l2hostility")) {
             //杀戮光环
-            if (MyGoUtil.hasL2Hostility(livingEntity, UltraHostilitySoulStoneItem.class)&&livingEntity.level().getGameTime() % 20L == 0) {
+            if (MyGoUtil.hasL2Hostility(livingEntity, UltraHostilitySoulStone.get())&&livingEntity.level().getGameTime() % 20L == 0) {
                 var mobList = MyGoUtil.mobList((int) ((MyGoConfig.ultra_hostility_soul_stone_range.get() + 1) / 2), livingEntity);
                 for (Mob mobs : mobList) {
                     if ( MyGoUtil.canAttack(mobs,livingEntity)
@@ -316,7 +318,7 @@ public class TickEvent {
                     }
                 }
             }
-            if (MyGoUtil.hasL2Hostility(livingEntity, ZoneHostilitySoulStoneItem.class)){
+            if (MyGoUtil.hasL2Hostility(livingEntity, ZoneHostilitySoulStone.get())){
                 var mobList = MyGoUtil.mobList((int) ((MyGoConfig.zone_hostility_soul_stone_range.get() + 1) / 2), livingEntity);
                 for (Mob mobs : mobList) {
                     if ( MyGoUtil.canAttack(mobs,livingEntity)){
@@ -347,13 +349,13 @@ public class TickEvent {
                 livingEntity.getPersistentData().putInt(ultra_hostility_soul_stone,
                         livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone)-1);
             }
-            if (MyGoUtil.hasL2Hostility(livingEntity, BodyHostilitySoulStoneItem.class)){
+            if (MyGoUtil.hasL2Hostility(livingEntity, BodyHostilitySoulStone.get())){
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,300,(int)(MyGoConfig.body_hostility_soul_stone_buff_lvl.get()-1) ));
                 if(livingEntity.level().getGameTime() % 20L == 0){
                     livingEntity.heal((float) (livingEntity.getMaxHealth()*MyGoConfig.body_hostility_soul_stone_heal_hp.get()));
                 }
             }
-            if (MyGoUtil.hasL2Hostility(livingEntity, AquaHostilitySoulStoneItem.class)){
+            if (MyGoUtil.hasL2Hostility(livingEntity, AquaHostilitySoulStone.get())){
                 if(livingEntity.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
                         new ResourceLocation("l2hostility", "moonwalk"))))){
                     livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
@@ -364,14 +366,14 @@ public class TickEvent {
         }
         //诡厄，军团
         if (ModList.get().isLoaded("goety")) {
-            if (MyGoUtil.hasGoetyItem(livingEntity, LegionSoulStoneItem.class)) {
+            if (MyGoUtil.hasGoetyItem(livingEntity, LegionSoulStone.get())) {
                 livingEntity.removeEffect(MobEffects.DARKNESS);
                 livingEntity.removeEffect(MobEffects.BLINDNESS);
             }
             //随从减伤
             if (livingEntity instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null) {
                 LivingEntity owner = ownableEntity.getOwner();
-                if (MyGoUtil.hasGoetyItem(owner, LegionSoulStoneItem.class)) {
+                if (MyGoUtil.hasGoetyItem(owner, LegionSoulStone.get())) {
                     //移速
                     if(owner.getAttributes().hasAttribute(Attributes.MOVEMENT_SPEED)) {
                         Optional.of(livingEntity)
@@ -443,7 +445,7 @@ public class TickEvent {
                         livingEntity.getPersistentData().getInt(shulker_mimic_soul_stone_time)-1);
             }
         }
-        if (MyGoUtil.hasNature(livingEntity, LavaSoulStoneItem.class)&&livingEntity.getRemainingFireTicks()>0){
+        if (MyGoUtil.hasNature(livingEntity, LavaSoulStone.get())&&livingEntity.getRemainingFireTicks()>0){
             livingEntity.setRemainingFireTicks(0);
         }
         if(livingEntity.getPersistentData().getInt(ender_guardian_soul_stone_cooldown_time)>0){
@@ -455,7 +457,7 @@ public class TickEvent {
                     livingEntity.getPersistentData().getInt(enchanted_golden_apple_soul_stone)-1);
         }else{
             //金果——阈值
-            if(MyGoUtil.hasSupernatural(livingEntity, EnchantedGoldenAppleSoulStoneItem.class)
+            if(MyGoUtil.hasSupernatural(livingEntity, EnchantedGoldenAppleSoulStone.get())
                     &&livingEntity.getHealth()/livingEntity.getMaxHealth()<=MyGoConfig.ega_soul_stoneoul_stone_hp.get()){
                 livingEntity.getPersistentData().putInt(enchanted_golden_apple_soul_stone,(int)(MyGoConfig.ega_soul_stoneoul_stone_cooldown.get()*20*2));
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,(int)(MyGoConfig.ega_soul_stoneoul_stone_heal_time.get()*20),
@@ -492,23 +494,23 @@ public class TickEvent {
                     livingEntity.getPersistentData().getInt(iaf_siren_soul_stone)-1);
         }
         if (ModList.get().isLoaded("botania")) {
-            if (MyGoUtil.hasBotania(livingEntity, GaiaSoulStoneItem.class)&&livingEntity.level().getGameTime() % (20*MyGoConfig.gaia_soul_stone_time.get()) == 0 ) {
+            if (MyGoUtil.hasBotania(livingEntity, GaiaSoulStone.get())&&livingEntity.level().getGameTime() % (20*MyGoConfig.gaia_soul_stone_time.get()) == 0 ) {
                 livingEntity.heal((float) (MyGoConfig.gaia_soul_stone_heal.get()*1));
             }
         }
         if (ModList.get().isLoaded("iceandfire")) {
-            if (MyGoUtil.hasIAFEntity(livingEntity, SeaSerpentSoulStoneItem.class)
+            if (MyGoUtil.hasIAFEntity(livingEntity, SeaSerpentSoulStone.get())
             && (livingEntity.isUnderWater() || livingEntity.isInWater() || livingEntity.isInWaterOrRain() || livingEntity.isInWaterRainOrBubble()) ) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 300, (int) (MyGoConfig.sea_serpent_soul_stone.get() - 1)));
             }
-            if (livingEntity.level().getGameTime() % 20L == 0&&MyGoUtil.hasIAFEntity(livingEntity, IAFHydraSoulStoneItem.class)) {
+            if (livingEntity.level().getGameTime() % 20L == 0&&MyGoUtil.hasIAFEntity(livingEntity, IAFHydraSoulStone.get())) {
                 //已损失生命值
                 double dhp = 1 - livingEntity.getHealth()/livingEntity.getMaxHealth();
                 //有几个阈值：已损失15——15/25<1——0、、、已损失51————51/25=2
                 int upNumber = (int)(dhp/MyGoConfig.iaf_hydra_soul_stone_hp.get());
                 livingEntity.heal((float) (livingEntity.getMaxHealth()*MyGoConfig.iaf_hydra_soul_stone_heal.get()*(1+upNumber*MyGoConfig.iaf_hydra_soul_stone_up.get())));
             }
-            if (MyGoUtil.hasIAFEntity(livingEntity, CyclopsSoulStoneItem.class)) {
+            if (MyGoUtil.hasIAFEntity(livingEntity, CyclopsSoulStone.get())) {
                 var mobList = MyGoUtil.mobList((int) ((MyGoConfig.cyclops_soul_stone_range.get() + 1) / 2), livingEntity);
                 for (Mob mobs : mobList) {
                     mobs.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100, (int) (MyGoConfig.cyclops_soul_stone_lvl.get() - 1)));
@@ -519,7 +521,7 @@ public class TickEvent {
                     }
                 }
             }
-            if (MyGoUtil.hasIAFEntity(livingEntity, GorgonSoulStoneItem.class)) {
+            if (MyGoUtil.hasIAFEntity(livingEntity, GorgonSoulStone.get())) {
                 if(MyGoUtil.getNearestNonFollowerOnPath(livingEntity, MyGoConfig.gorgon_soul_stone_range.get())!=null){
                     LivingEntity mob = MyGoUtil.getNearestNonFollowerOnPath(livingEntity, MyGoConfig.gorgon_soul_stone_range.get());
                     mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, (int) (MyGoConfig.gorgon_soul_stone_lvl.get() - 1)));
@@ -531,7 +533,7 @@ public class TickEvent {
             }
         }
         if (ModList.get().isLoaded("goety")) {
-            if (MyGoUtil.hasGoetyEntity(livingEntity, MinisterSoulStoneItem.class) ) {
+            if (MyGoUtil.hasGoetyEntity(livingEntity, MinisterSoulStone.get()) ) {
                 if (livingEntity.level().getGameTime() % (20) == 0) {
                     var mobList = MyGoUtil.mobList((int) ((MyGoConfig.minister_soul_stone_range.get() + 1) / 2), livingEntity);
                     for (Mob mobs : mobList) {
@@ -551,7 +553,7 @@ public class TickEvent {
                     }
                 }
             }
-            if (MyGoUtil.hasGoetyEntity(livingEntity, NetherApostleSoulStoneItem.class) ) {
+            if (MyGoUtil.hasGoetyEntity(livingEntity, NetherApostleSoulStone.get()) ) {
                 //下界使徒 遍历当前所有状态效果，移除所有非正面buff（即负面debuff）
                 //避免直接在遍历时修改集合
                 //先收集要移除的效果，再统一移除
@@ -595,18 +597,18 @@ public class TickEvent {
             }
         }
         if (ModList.get().isLoaded("legendary_monsters")) {
-            if (MyGoUtil.hasLegendaryEntity(livingEntity, WitheredAbominationSoulStoneItem.class)&&livingEntity.hasEffect(MobEffects.WITHER)) {
+            if (MyGoUtil.hasLegendaryEntity(livingEntity, WitheredAbominationSoulStone.get())&&livingEntity.hasEffect(MobEffects.WITHER)) {
                 livingEntity.removeEffect(MobEffects.WITHER);
             }
-            if (MyGoUtil.hasLegendaryEntity(livingEntity, ShulkerMimicSoulStoneItem.class)&&livingEntity.hasEffect(MobEffects.LEVITATION)) {
+            if (MyGoUtil.hasLegendaryEntity(livingEntity, ShulkerMimicSoulStone.get())&&livingEntity.hasEffect(MobEffects.LEVITATION)) {
                 livingEntity.removeEffect(MobEffects.LEVITATION);
             }
-            if (MyGoUtil.hasLegendaryEntity(livingEntity, EndersentSoulStoneItem.class)&&livingEntity.hasEffect(
+            if (MyGoUtil.hasLegendaryEntity(livingEntity, EndersentSoulStone.get())&&livingEntity.hasEffect(
                     Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "chorus_infection")))
             )) {
                 livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "chorus_infection"))));
             }
-            if (MyGoUtil.hasLegendaryEntity(livingEntity, LavaEaterSoulStoneItem.class)&&livingEntity.getRemainingFireTicks()>0) {
+            if (MyGoUtil.hasLegendaryEntity(livingEntity, LavaEaterSoulStone.get())&&livingEntity.getRemainingFireTicks()>0) {
                 livingEntity.setRemainingFireTicks(0);
             }
         }
@@ -642,7 +644,7 @@ public class TickEvent {
         }
         if (livingEntity.level().getGameTime() % 10L == 0) {
             if (ModList.get().isLoaded("legendary_monsters")) {
-                if (MyGoUtil.hasLegendaryEntity(livingEntity, PosessedPaladinSoulStoneItem.class)) {
+                if (MyGoUtil.hasLegendaryEntity(livingEntity, PosessedPaladinSoulStone.get())) {
                     var mobList = MyGoUtil.mobList((int)((MyGoConfig.posessed_paladin_soul_stone_range.get()+1)/2), livingEntity);
                     for (Mob mobs : mobList) {
                         //是自己的随从
@@ -662,25 +664,25 @@ public class TickEvent {
                     }
                 }
             }
-            if (MyGoUtil.hasEntity(livingEntity, AquaticSoulStoneItem.class)){
+            if (MyGoUtil.hasEntity(livingEntity, AquaticSoulStone.get())){
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING,300,0,false,false,false));
             }
             //新生魔艺部分
             if (ModList.get().isLoaded("ars_nouveau")) {
                 if (ModList.get().isLoaded("ars_elemental")) {
-                    if (MyGoUtil.hasSpecificItem(livingEntity, ArchwoodSoulStoneItem.class)) {
+                    if (MyGoUtil.hasSupernatural(livingEntity, ArchwoodSoulStone.get())) {
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 300, 1, false, false, false));
                     }
-                    if (MyGoUtil.hasSpecificItem(livingEntity, FirenandoSoulStoneItem.class)) {
+                    if (MyGoUtil.hasSupernatural(livingEntity, FirenandoSoulStone.get())) {
                         livingEntity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300, 0, false, false, false));
                     }
                 }
                 int shielding = 0;
                 //护盾等级分开计算
-                if(MyGoUtil.hasArs(livingEntity, AmethystGolemSoulStoneItem.class)){
+                if(MyGoUtil.hasArs(livingEntity, AmethystGolemSoulStone.get())){
                     shielding+=(int)(MyGoConfig.amethyst_golem_soul_stone_level.get()*1);
                 }
-                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStoneItem.class)){
+                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStone.get())){
                     shielding+=(int)(MyGoConfig.archwood_soul_stone_purple.get()*1);
                 }
                 if (shielding>0) {
@@ -689,7 +691,7 @@ public class TickEvent {
                             300, shielding-1, false, false, false));
                 }
                 //康复
-                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStoneItem.class)){
+                if(MyGoUtil.hasArs(livingEntity, ArchwoodSoulStone.get())){
                     livingEntity.addEffect(new MobEffectInstance(
                             Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("ars_nouveau", "recovery"))),
                             300, (int)(MyGoConfig.archwood_soul_stone_green.get()*1-1), false, false, false));
@@ -697,7 +699,7 @@ public class TickEvent {
             }
         }
         if (livingEntity.level().getGameTime() % 60L == 0) {
-            if(livingEntity instanceof Player player&& MyGoUtil.hasNature(player, LushSoulStoneItem.class)) {
+            if(livingEntity instanceof Player player&& MyGoUtil.hasNature(player, LushSoulStone.get())) {
                 float saturation = player.getFoodData().getSaturationLevel();
                 player.getFoodData().setSaturation((float) Math.min(saturation + MyGoConfig.lush_soul_stone_saturation.get(), 20));
                 int food = player.getFoodData().getFoodLevel();
@@ -707,7 +709,7 @@ public class TickEvent {
 
         //森林催熟
         if(livingEntity.level().getGameTime() % (20L*MyGoConfig.forest_soul_stone.get()) == 0
-               &&  MyGoUtil.hasNature(livingEntity, ForestSoulStoneItem.class)&&livingEntity.isCrouching()) {
+               &&  MyGoUtil.hasNature(livingEntity, ForestSoulStone.get())&&livingEntity.isCrouching()) {
             Level world = livingEntity.level();
             Random random = new Random();
             float rx = random.nextFloat() * 5.0F - 3.0F;
@@ -765,7 +767,7 @@ public class TickEvent {
         }
         if (ModList.get().isLoaded("legendary_monsters")) {
             if(livingEntity.level().getGameTime() % 20L == 0
-                    &&  MyGoUtil.hasLegendaryEntity(livingEntity, OvergrownColossusSoulStoneItem.class)&&livingEntity.isCrouching()) {
+                    &&  MyGoUtil.hasLegendaryEntity(livingEntity, OvergrownColossusSoulStone.get())&&livingEntity.isCrouching()) {
                 Level world = livingEntity.level();
                 Random random = new Random();
                 float rx = random.nextFloat() * 5.0F - 3.0F;

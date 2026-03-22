@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.IceDragonBloodSoulSto
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.IceDragonSteelSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Entity.IAFSirenSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,16 +22,16 @@ public class IAFCEHurtEvent {
             if (event.getSource().getEntity() instanceof LivingEntity attacker && attacked != null) {
                 IafEntityData data = IafEntityData.get(attacked);
                 double freezeTime = 0;
-                if (MyGoUtil.hasIAFDragon(attacker, IceDragonBloodSoulStoneItem.class)) {
+                if (MyGoUtil.hasIAFDragon(attacker, IceDragonBloodSoulStone.get())) {
                     freezeTime += MyGoConfig.ice_dragon_blood_soul_stone_freeze_time.get() * 20;
                 }
-                if (MyGoUtil.hasIAFDragon(attacker, IceDragonSteelSoulStoneItem.class)) {
+                if (MyGoUtil.hasIAFDragon(attacker, IceDragonSteelSoulStone.get())) {
                     freezeTime += MyGoConfig.ice_dragon_steel_soul_stone_time.get() * 20;
                 }
                 if (freezeTime > 0 && MyGoConfig.iaf_can_freeze.get()) {
                     data.frozenData.setFrozen(attacked, (int) (freezeTime));
                 }
-                if (MyGoUtil.hasIAFEntity(attacker, IAFSirenSoulStoneItem.class)&&attacker.getPersistentData().getInt(iaf_siren_soul_stone)==0) {
+                if (MyGoUtil.hasIAFEntity(attacker, IAFSirenSoulStone.get())&&attacker.getPersistentData().getInt(iaf_siren_soul_stone)==0) {
                     attacker.getPersistentData().putInt(iaf_siren_soul_stone,(int) (MyGoConfig.iaf_siren_soul_stone_cooldown.get()*20*2));
                     data.miscData.setLoveTicks( (int) (MyGoConfig.iaf_siren_soul_stone_time.get()*20) );
                 }

@@ -9,6 +9,7 @@ import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.CopperSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,17 +21,19 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
+
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
 public class BreakSpeedEvent {
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
         LivingEntity livingEntity =  event.getEntity();
         float number = 0;
-        if (MyGoUtil.hasOre(livingEntity, CopperSoulStoneItem.class)) {
+        if (MyGoUtil.hasOre(livingEntity, MyGoItemRegister.CopperSoulStone.get())) {
             number+=MyGoConfig.copper_soul_stone.get();
         }
         if (ModList.get().isLoaded("create")) {
-            if (MyGoUtil.hasCreate(livingEntity, ZincSoulStoneItem.class)) {
+            if (MyGoUtil.hasCreate(livingEntity, MyGoItemRegister.ZincSoulStone.get())) {
                 number += MyGoConfig.zinc_soul_stone_speed.get();
             }
         }
@@ -41,7 +44,7 @@ public class BreakSpeedEvent {
             }
         }
         if (ModList.get().isLoaded("alexscaves")) {
-            if (MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStoneItem.class)) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, MyGoItemRegister.ForlornSoulStone.get())) {
                 number += MyGoConfig.forlorn_soul_stone_dig.get();
             }
         }

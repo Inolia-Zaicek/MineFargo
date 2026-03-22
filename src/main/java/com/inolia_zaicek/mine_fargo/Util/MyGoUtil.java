@@ -1,6 +1,18 @@
 package com.inolia_zaicek.mine_fargo.Util;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
+import com.inolia_zaicek.mine_fargo.Item.Ars.ArsST;
+import com.inolia_zaicek.mine_fargo.Item.Botania.BotaniaST;
+import com.inolia_zaicek.mine_fargo.Item.Cataclysm.CataclysmST;
+import com.inolia_zaicek.mine_fargo.Item.Create.CreateST;
+import com.inolia_zaicek.mine_fargo.Item.Iron.IronST;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.EntityST;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.NatureST;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresST;
+import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.SupernaturalST;
+import com.inolia_zaicek.mine_fargo.Item.Tacz.TaczST;
+import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightLichST;
+import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightST;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -69,499 +81,104 @@ public class MyGoUtil {
         // 只要满足其中一个 tag 即可
         return isMoreTetraBoss || isForgeBoss;
     }
-    //无饰品装备时返回 true——————————
-    public static boolean noSameCurio(LivingEntity living, Item item) {
-        return noSameCurio(living, (Predicate<ItemStack>) (itemStack) -> itemStack.getItem() == item);
-    }
-
-    public static boolean noSameCurio(LivingEntity living, Predicate<ItemStack> predicate) {
-        AtomicBoolean isEmpty = new AtomicBoolean(true);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && predicate.test(stack)) {
-                        isEmpty.set(false);
-                        return;
-                    }
-                }
-            }
-        });
-        return isEmpty.get();
-    }
-    //获取玩家身上饰品xxNBT的最大数额
-    public static int getMaxCommunityNumber(LivingEntity livingEntity, ResourceLocation resourceLocation, Item item) {
-        int maxNumber = 0;
-        Optional<ICuriosItemHandler> curiosOpt = CuriosApi.getCuriosInventory(livingEntity).resolve();
-        if (!curiosOpt.isPresent()) {
-            return 0;
-        }
-
-        ICuriosItemHandler curiosHandler = curiosOpt.get();
-        IItemHandlerModifiable itemHandler = curiosHandler.getEquippedCurios();
-        if (itemHandler == null) {
-            return 0;
-        }
-
-        int slots = itemHandler.getSlots();
-        for (int i = 0; i < slots; i++) {
-            ItemStack stack = itemHandler.getStackInSlot(i);
-            if (!stack.isEmpty() && stack.getItem() == item) { // 只处理Item相等的
-                CompoundTag tag = stack.getTag();
-                if (tag != null && tag.contains(resourceLocation.toString())) {
-                    int value = tag.getInt(resourceLocation.toString());
-                    if (value > maxNumber) {
-                        maxNumber = value;
-                    }
-                }
-            }
-        }
-        return maxNumber;
-    }
-    //为玩家身上所有有的Item饰品的xxNBT设置数额
-    public static void setCommunityNumberForAllItems(LivingEntity livingEntity, ResourceLocation resourceLocation, int number, Item item) {
-        Optional<ICuriosItemHandler> curiosOpt = CuriosApi.getCuriosInventory(livingEntity).resolve();
-        if (!curiosOpt.isPresent()) {
-            return;
-        }
-
-        ICuriosItemHandler curiosHandler = curiosOpt.get();
-        IItemHandlerModifiable itemHandler = curiosHandler.getEquippedCurios();
-        if (itemHandler == null) {
-            return;
-        }
-
-        int slots = itemHandler.getSlots();
-        for (int i = 0; i < slots; i++) {
-            ItemStack stack = itemHandler.getStackInSlot(i);
-            if (!stack.isEmpty() && stack.getItem() == item) { // 只处理Item相等的
-                CompoundTag tag = stack.getOrCreateTag();
-                tag.putInt(resourceLocation.toString(), number);
-            }
-        }
-    }
     public static boolean isMeleeAttack(DamageSource source) {
         return !source.isIndirect() && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO));
     }
-    //获取饰品栏第一个Item的CompoundTag（persistentData）
-    public static CompoundTag getFirstCurioCompoundTag(LivingEntity livingEntity, Item item) {
-        Optional<ICuriosItemHandler> curiosOpt = CuriosApi.getCuriosInventory(livingEntity).resolve();
-        if (!curiosOpt.isPresent()) {
-            return null; // 装备栏为空或无法访问
-        }
-        ICuriosItemHandler curiosHandler = curiosOpt.get();
-        IItemHandlerModifiable itemHandler = curiosHandler.getEquippedCurios();
-        if (itemHandler == null) {
-            return null; // 没有装备
-        }
-
-        int slots = itemHandler.getSlots();
-        for (int i = 0; i < slots; i++) {
-            ItemStack stack = itemHandler.getStackInSlot(i);
-            if (!stack.isEmpty()) {
-                if (item == null || stack.getItem() == item) {
-                    // 返回此 ItemStack 的 CompoundTag
-                    return stack.getOrCreateTag();
-                }
-            }
-        }
-        return null; // 所有饰品都为空或没有匹配项
-    }
-    // 定义一个方法，用于判断Item是否实现IMagicQuiver
-    public static boolean hasIMagicQuiver(LivingEntity living) {
-        AtomicBoolean hasQuiver = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for(ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-
-                for(int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && stack.getItem() instanceof IMagicQuiver) {
-                        hasQuiver.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        return hasQuiver.get();
-    }
-    // 泛型参数，用于传入目标接口或类————用于判断Item是否实现targetClass————有无穿戴这类饰品
-    public static boolean hasSpecificItem(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        return hasItem.get();
-    }
     //矿石之力系列专用判断——【有矿石之力的情况下返回true
-    public static boolean hasOre(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() )){
-            hasItem.set(true);
+    public static boolean hasOre(LivingEntity living,Item item) {
+        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() ) ) {
+            return true;
+        }else{
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasSupernatural(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSupernatural.get() )){
-            hasItem.set(true);
+    public static boolean hasSupernatural(LivingEntity living,Item item) {
+        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSupernatural.get() ) ) {
+            return true;
+        }else{
+            return false;
         }
-        return hasItem.get();
-    }
-    public static boolean hasSoulOre(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() )){
-            hasItem.set(true);
-        }
-        return hasItem.get();
     }
     //自然之魂系列专用判断——【有集合的情况下返回true
-    public static boolean hasNature(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get() )){
-            hasItem.set(true);
-        }
-        return hasItem.get();
-    }
-    public static boolean hasSoulNature(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get() )){
-            hasItem.set(true);
-        }
-        return hasItem.get();
-    }
-    public static boolean hasEntity(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get() )){
-            hasItem.set(true);
-        }
-        return hasItem.get();
-    }
-    public static boolean hasSoulEntity(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-            for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                    ItemStack stack = stackHandler.getStackInSlot(i);
-                    if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                        hasItem.set(true);
-                        return;
-                    }
-                }
-            }
-        });
-        //有矿石之力，直接返回true
-        if(MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get() )){
-            hasItem.set(true);
-        }
-        return hasItem.get();
-    }
-    public static boolean hasIron(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("irons_spellbooks")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get())) {
-                hasItem.set(true);
-            }
+    public static boolean hasNature(LivingEntity living,Item item) {
+        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get() ) ) {
+            return true;
         }else{
-            hasItem.set(false);
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasSoulIron(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("irons_spellbooks")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get())) {
-                hasItem.set(true);
-            }
+    public static boolean hasEntity(LivingEntity living,Item item) {
+        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get() ) ) {
+            return true;
         }else{
-            hasItem.set(false);
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasArs(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("ars_nouveau")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get())) {
-                hasItem.set(true);
+    public static boolean hasIron(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("irons_spellbooks")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasSoulArs(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("ars_nouveau")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get())) {
-                hasItem.set(true);
+    public static boolean hasArs(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("ars_nouveau")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasTacz(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("tacz")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTacz.get())) {
-                hasItem.set(true);
+    public static boolean hasTacz(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("tacz")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTacz.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    //这里检测“魂”构成魂石都继承的类，避免按小后按大
-    public static boolean hasSoulTacz(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("tacz")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTacz.get())) {
-                hasItem.set(true);
+    public static boolean hasCataclysm(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("cataclysm")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCataclysm.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasCataclysm(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("cataclysm")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCataclysm.get())) {
-                hasItem.set(true);
+    public static boolean hasBotania(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("botania")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfBotania.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasBotania(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("botania")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfBotania.get())) {
-                hasItem.set(true);
+    public static boolean hasCreate(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("create")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCreate.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
-    }
-    public static boolean hasCreate(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("create")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCreate.get())) {
-                hasItem.set(true);
-            }
-        }else{
-            hasItem.set(false);
-        }
-        return hasItem.get();
     }
     //锁定一定距离内最近的【非自身随从】目标
     public static LivingEntity getNearestNonFollowerOnPath(LivingEntity livingEntity, double range) {
@@ -605,343 +222,161 @@ public class MyGoUtil {
         }
         return nearestEntity; // 没找到会返回null
     }
-    public static boolean hasTwilight(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("twilightforest")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get())) {
-                hasItem.set(true);
+    public static boolean hasTwilight(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("twilightforest")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    //巫妖魂石及其合成材料使用【有巫妖魂石或者暮色魂石都能触发
-    public static boolean hasTwilightLich(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("twilightforest")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get())||
-                    MyGoUtil.isCurioEquipped(living, MyGoItemRegister.TwilightLichSoulStone.get())) {
-                hasItem.set(true);
+    //巫妖魂石——装备自身or巫妖魂or暮色魂——√
+    public static boolean hasTwilightLich(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("twilightforest")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get())
+                    || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.TwilightLichSoulStone.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasTwilightForest(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("twilightforest")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilightForest.get())) {
-                hasItem.set(true);
+    public static boolean hasTwilightForest(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("twilightforest")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilightForest.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasLegendaryMonsters(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("legendary_monsters")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryMonsters.get())) {
-                hasItem.set(true);
+    public static boolean hasLegendaryMonsters(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("legendary_monsters")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryMonsters.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasLegendaryEntity(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("legendary_monsters")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryEntity.get())) {
-                hasItem.set(true);
+    public static boolean hasLegendaryEntity(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("legendary_monsters")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryEntity.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasMalum(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("malum")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfMalum.get())) {
-                hasItem.set(true);
+    public static boolean hasMalum(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("malum")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfMalum.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasGoetyItem(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("goety")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyItem.get())) {
-                hasItem.set(true);
+    public static boolean hasGoetyItem(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("goety")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyItem.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasGoetyEntity(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("goety")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyEntity.get())) {
-                hasItem.set(true);
+    public static boolean hasGoetyEntity(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("goety")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyEntity.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasIAFDragon(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("iceandfire")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFDragon.get())) {
-                hasItem.set(true);
+    public static boolean hasIAFDragon(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("iceandfire")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFDragon.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasIAFEntity(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("iceandfire")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFEntity.get())) {
-                hasItem.set(true);
+    public static boolean hasIAFEntity(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("iceandfire")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFEntity.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasSonsOfSins(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("sons_of_sins")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSonsOfSins.get())) {
-                hasItem.set(true);
+    public static boolean hasSonsOfSins(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("sons_of_sins")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSonsOfSins.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasL2Hostility(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("l2hostility")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Hostility.get())) {
-                hasItem.set(true);
+    public static boolean hasL2Hostility(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("l2hostility")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Hostility.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasL2Complements(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("l2complements")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Complements.get())) {
-                hasItem.set(true);
+    public static boolean hasL2Complements(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("l2complements")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Complements.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
-    public static boolean hasAlexsCaves(LivingEntity living, Class<?> targetClass) {
-        AtomicBoolean hasItem = new AtomicBoolean(false);
-        if (ModList.get().isLoaded("alexscaves")) {
-            CuriosApi.getCuriosInventory(living).ifPresent((handler) -> {
-                for (ICurioStacksHandler curioStacksHandler : handler.getCurios().values()) {
-                    IDynamicStackHandler stackHandler = curioStacksHandler.getStacks();
-                    for (int i = 0; i < stackHandler.getSlots(); ++i) {
-                        ItemStack stack = stackHandler.getStackInSlot(i);
-                        if (!stack.isEmpty() && targetClass.isAssignableFrom(stack.getItem().getClass())) {
-                            hasItem.set(true);
-                            return;
-                        }
-                    }
-                }
-            });
-            //有集合，直接返回true
-            if (MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfAlexsCaves.get())) {
-                hasItem.set(true);
+    public static boolean hasAlexsCaves(LivingEntity living,Item item) {
+        if(ModList.get().isLoaded("alexscaves")) {
+            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfAlexsCaves.get()) ) {
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            hasItem.set(false);
+        } else {
+            return false;
         }
-        return hasItem.get();
     }
     //可不可以揍（判断是不是随从+非潜行时不攻击
     public static boolean canAttack(LivingEntity attacked,LivingEntity attacker) {

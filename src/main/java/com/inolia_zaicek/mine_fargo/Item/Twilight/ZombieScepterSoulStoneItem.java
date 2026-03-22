@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Twilight;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -32,6 +33,8 @@ public class ZombieScepterSoulStoneItem extends Item implements ICurioItem, Twil
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTwilightLich(slotContext.entity(), ZombieScepterSoulStoneItem.class);
+        return !(MyGoUtil.hasTwilightLich(slotContext.entity(), ZombieScepterSoulStone.get())
+                ||MyGoUtil.hasTwilightLich(slotContext.entity(), TwilightLichSoulStone.get())
+        );
     }
 }

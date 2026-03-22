@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.VizierSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyFocusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import org.spongepowered.asm.mixin.Mixin;
@@ -30,10 +31,10 @@ public class WandUtilMixin {
         // 获取原方法的返回值，即返回的等级
         int number = cir.getReturnValue();
         /// 对词条进行判断
-        if( MyGoUtil.hasGoetyItem(livingEntity, GoetyFocusSoulStoneItem.class) ){
+        if( MyGoUtil.hasGoetyItem(livingEntity, GoetyFocusSoulStone.get()) ){
             number += (int)(MyGoConfig.goety_focus_soul_stone.get()*1) ;
         }
-        if( MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStoneItem.class) ){
+        if( MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStone.get()) ){
             number += (int)(MyGoConfig.vizier_soul_stone_lvl.get()*1) ;
         }
         cir.setReturnValue(number);

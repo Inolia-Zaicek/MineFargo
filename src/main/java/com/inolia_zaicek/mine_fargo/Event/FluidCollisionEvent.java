@@ -7,6 +7,7 @@ import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.LavaSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.OceanSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.eventbus.api.Event;
@@ -19,7 +20,7 @@ public class FluidCollisionEvent {
         if (event.getEntity() instanceof Player player) {
             boolean lava = false;
             boolean water = false;
-            if(MyGoUtil.hasNature(player, LavaSoulStoneItem.class)){
+            if(MyGoUtil.hasNature(player, LavaSoulStone.get())){
                 lava = true;
             }
             if (ModList.get().isLoaded("aquaculture")) {
@@ -28,16 +29,16 @@ public class FluidCollisionEvent {
                 }
             }
             if (ModList.get().isLoaded("cataclysm")) {
-                if (MyGoUtil.hasCataclysm(player, IgnisSoulStoneItem.class)) {
+                if (MyGoUtil.hasCataclysm(player, IgnisSoulStone.get())) {
                     lava = true;
                 }
             }
             if (ModList.get().isLoaded("legendary_monsters")) {
-                if (MyGoUtil.hasLegendaryEntity(player, LavaEaterSoulStoneItem.class) ) {
+                if (MyGoUtil.hasLegendaryEntity(player, LavaEaterSoulStone.get()) ) {
                     lava = true;
                 }
             }
-            if(MyGoUtil.hasNature(player, OceanSoulStoneItem.class)){
+            if(MyGoUtil.hasNature(player, OceanSoulStone.get())){
                 water = true;
             }
             if (!player.isInLava() && !player.isCrouching() && event.getFluidState().is(FluidTags.LAVA)&&lava) {

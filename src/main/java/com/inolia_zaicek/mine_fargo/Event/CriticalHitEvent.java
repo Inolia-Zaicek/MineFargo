@@ -3,6 +3,8 @@ package com.inolia_zaicek.mine_fargo.Event;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Botania.GaiaSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -29,7 +31,7 @@ public class CriticalHitEvent {
         double criChance = 0;
         float criDamage = event.getDamageModifier();
         if (ModList.get().isLoaded("botania")) {
-            if (MyGoUtil.hasBotania(attacker, GaiaSoulStoneItem.class)) {
+            if (MyGoUtil.hasBotania(attacker, GaiaSoulStone.get())) {
                 criChance += MyGoConfig.gaia_soul_stone_chance.get();
             }
         }

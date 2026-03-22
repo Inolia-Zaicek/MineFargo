@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.UndyingSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
@@ -37,7 +38,7 @@ public class DeathAndCloneEvent {
     public static void LivingDeath(LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntity();
         //替死
-        if (MyGoUtil.hasSupernatural(livingEntity, UndyingSoulStoneItem.class) && livingEntity.getPersistentData().getInt(undying_soul_stone) == 0 ) {
+        if (MyGoUtil.hasSupernatural(livingEntity, UndyingSoulStone.get()) && livingEntity.getPersistentData().getInt(undying_soul_stone) == 0 ) {
             livingEntity.getPersistentData().putInt(undying_soul_stone, (int) (MyGoConfig.undying_soul_stone_cooldown.get() * 20 * 2));
             livingEntity.setHealth((float) (1 * MyGoConfig.undying_soul_stone_hp.get()));
             livingEntity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,(int)(MyGoConfig.undying_soul_stone_heal_time.get()*20),
@@ -51,7 +52,7 @@ public class DeathAndCloneEvent {
         }
         //灾变
         else if (ModList.get().isLoaded("cataclysm")&&livingEntity.getPersistentData().getInt(maledictus_soul_stone_cooldown_time) == 0
-                    && MyGoUtil.hasCataclysm(livingEntity, MaledictusSoulStoneItem.class)) {
+                    && MyGoUtil.hasCataclysm(livingEntity, MaledictusSoulStone.get())) {
             livingEntity.getPersistentData().putInt(maledictus_soul_stone_cooldown_time, (int) (MyGoConfig.maledictus_soul_stone_cooldown_time.get() * 20 * 2));
             //设置玩家血量（不要滥用改写
             livingEntity.setHealth((float) (livingEntity.getMaxHealth() * MyGoConfig.maledictus_soul_stone_heal.get()));
@@ -71,7 +72,7 @@ public class DeathAndCloneEvent {
             event.setCanceled(true);
         }
         //使徒
-        else if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(livingEntity, ApostleSoulStoneItem.class)
+        else if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(livingEntity, ApostleSoulStone.get())
                 &&livingEntity.getPersistentData().getInt(apostle_soul_stone_cooldown) == 0 ) {
             livingEntity.getPersistentData().putInt(apostle_soul_stone_cooldown, (int) (MyGoConfig.apostle_soul_stone_cooldown.get() * 20 * 2));
             livingEntity.setHealth((float) (livingEntity.getMaxHealth() * MyGoConfig.apostle_soul_stone_dead_heal.get()));
@@ -83,7 +84,7 @@ public class DeathAndCloneEvent {
             event.setCanceled(true);
         }
         //莱特兰 不死
-        else if (ModList.get().isLoaded("l2hostility") && MyGoUtil.hasL2Hostility(livingEntity, MaledictusSoulStoneItem.class)
+        else if (ModList.get().isLoaded("l2hostility") && MyGoUtil.hasL2Hostility(livingEntity, MaledictusSoulStone.get())
         && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)
                 &&livingEntity.getPersistentData().getInt(ultra_hostility_soul_stone) == 0 ) {
             livingEntity.getPersistentData().putInt(ultra_hostility_soul_stone, (int) (MyGoConfig.ultra_hostility_soul_stone_cooldown.get() * 20 * 2));

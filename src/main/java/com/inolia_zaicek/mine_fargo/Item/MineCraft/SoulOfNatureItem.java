@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.NatureST;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -22,6 +23,8 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
+
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.SoulOfNature;
 
 public class SoulOfNatureItem extends Item implements ICurioItem {
     public SoulOfNatureItem() {super((new Properties()).stacksTo(1).fireResistant());}
@@ -65,6 +68,6 @@ public class SoulOfNatureItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSoulNature(slotContext.entity(), NatureST.class);
+        return ! MyGoUtil.hasNature(slotContext.entity(), SoulOfNature.get());
     }
 }

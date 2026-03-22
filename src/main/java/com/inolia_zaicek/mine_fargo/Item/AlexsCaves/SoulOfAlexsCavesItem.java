@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Botania.BotaniaST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -64,7 +65,7 @@ public class SoulOfAlexsCavesItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasAlexsCaves(slotContext.entity(), AlexsCavesST.class);
+        return ! MyGoUtil.hasAlexsCaves(slotContext.entity(), SoulOfAlexsCaves.get());
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {

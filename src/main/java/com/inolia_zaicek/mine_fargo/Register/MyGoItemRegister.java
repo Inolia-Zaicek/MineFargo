@@ -155,7 +155,7 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> RoseQuartzSoulStone;
 
     public static RegistryObject<Item> SoulOfTwilight;
-    public static RegistryObject<Item> NagaSoulStoneItem;
+    public static RegistryObject<Item> NagaSoulStone;
     public static RegistryObject<Item> ZombieScepterSoulStone;
     public static RegistryObject<Item> LifedrainSoulStone;
     public static RegistryObject<Item> FortificationSoulStone;
@@ -368,7 +368,7 @@ public class MyGoItemRegister {
         }
         if (ModList.get().isLoaded("twilightforest")) {
             SoulOfTwilight = registerCommonMaterials(ZeroingITEM, "soul_of_twilight", SoulOfTwilightItem::new);
-            NagaSoulStoneItem = registerCommonMaterials(ZeroingITEM, "naga_soul_stone", NagaSoulStoneItem::new);
+            NagaSoulStone = registerCommonMaterials(ZeroingITEM, "naga_soul_stone", NagaSoulStoneItem::new);
             ZombieScepterSoulStone = registerCommonMaterials(ZeroingITEM, "zombie_scepter_soul_stone", ZombieScepterSoulStoneItem::new);
             LifedrainSoulStone = registerCommonMaterials(ZeroingITEM, "lifedrain_soul_stone", LifedrainSoulStoneItem::new);
             FortificationSoulStone = registerCommonMaterials(ZeroingITEM, "fortification_soul_stone", FortificationSoulStoneItem::new);

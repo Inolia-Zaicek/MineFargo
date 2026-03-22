@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Create.BlazeCakeSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Create.ZincSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Mixins.Create.BlazeBurnerMixin;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.simibubi.create.content.kinetics.crank.HandCrankBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
 import net.minecraft.ChatFormatting;
@@ -29,7 +30,7 @@ public class CreateRightBlockEvent {
             Player player = event.getEntity();
             BlockPos blockPos = event.getPos();
             Level level = player.level();
-            if (MyGoUtil.hasCreate(player, ZincSoulStoneItem.class)&&level.getBlockEntity(blockPos) instanceof HandCrankBlockEntity
+            if (MyGoUtil.hasCreate(player, ZincSoulStone.get())&&level.getBlockEntity(blockPos) instanceof HandCrankBlockEntity
                     && MyGoConfig.zinc_soul_stone_use.get() && player.getPersistentData().getInt(zinc_soul_stone_time)==0) {
                 player.getPersistentData().putInt(zinc_soul_stone_time, 50);
                 int food = player.getFoodData().getFoodLevel();
@@ -40,7 +41,7 @@ public class CreateRightBlockEvent {
                     player.getFoodData().setSaturation((float) Math.min(saturation + 1, 20));
                 }
             }
-            if (MyGoUtil.hasCreate(player, BlazeCakeSoulStoneItem.class)) {
+            if (MyGoUtil.hasCreate(player, BlazeCakeSoulStone.get())) {
                 //【可进行完全燃烧
                 if (MyGoConfig.blaze_cake_soul_stone_super.get()) {
                     //未进入完全燃烧

@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event.Botania;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Botania.ElementiumSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,7 +28,7 @@ public class PixieSummon {
             //进攻
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStoneItem.class)
+                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStone.get())
                         && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
                 && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
                     livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));
@@ -66,7 +67,7 @@ public class PixieSummon {
             if (event.getSource().getEntity() instanceof LivingEntity) {
                 var livingEntity = attacked;
                 LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
-                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStoneItem.class)
+                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStone.get())
                         && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
                         && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
                     livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));

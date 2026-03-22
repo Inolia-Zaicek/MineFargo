@@ -4,6 +4,7 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -46,6 +47,6 @@ public class SkeletosaurusSoulStoneItem extends Item implements ICurioItem, Lege
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasLegendaryMonsters(slotContext.entity(), SkeletosaurusSoulStoneItem.class);
+        return ! MyGoUtil.hasLegendaryMonsters(slotContext.entity(), SkeletosaurusSoulStone.get());
     }
 }

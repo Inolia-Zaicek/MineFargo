@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Event.InoIntegrationPack;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.entity.mobs.MagicSummon;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -52,12 +53,6 @@ public class InoIntegrationPackEvent {
                 }
                 //史莱姆王比较特殊，自身血量需要x5先
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:king_slime")) {
-                    Optional.of(livingEntity).map(LivingEntity::getAttributes)
-                            .filter(manager -> manager.hasAttribute(Attributes.MAX_HEALTH))
-                            .map(manager -> manager.getInstance(Attributes.MAX_HEALTH))
-                            .filter(instance -> instance.getModifier(uuid1) == null)
-                            .ifPresent(instance -> instance.addTransientModifier(
-                                    new AttributeModifier(uuid2, "mygo_inolia_a", 4, AttributeModifier.Operation.MULTIPLY_BASE)));
                     level = MyGoConfig.level_1_hp.get();
                 }
                 //2x
@@ -587,7 +582,6 @@ public class InoIntegrationPackEvent {
 
         if (MyGoConfig.InoIntegrationPack.get() && livingEntity.level().getGameTime() % 20L == 0) {
             if (EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:frostmaw")
-                    || EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:ferrous_wroughtnaut")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:sculptor")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:umvuthi")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:aero_guardian")
@@ -690,7 +684,6 @@ public class InoIntegrationPackEvent {
                     || EntityType.getKey(livingEntity.getType()).toString().equals("goety:endersent")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("goety:hostile_redstone_monstrosity")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ender_golem")
-                    || EntityType.getKey(livingEntity.getType()).toString().equals("bosses_of_mass_destruction:obsidilith")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("traveloptics:enraged_dead_king")
             ||EntityType.getKey(livingEntity.getType()).toString().equals("sons_of_sins:butcher")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("sons_of_sins:blud")
@@ -727,7 +720,10 @@ public class InoIntegrationPackEvent {
             ||EntityType.getKey(livingEntity.getType()).toString().equals("goetyawaken:nameless_one")) {
                 livingEntity.heal((float) (livingEntity.getHealth()*MyGoConfig.boss_time_heal.get()));
             }
-            if( EntityType.getKey(livingEntity.getType()).toString().equals("minecraft:ender_dragon") ){
+            if( EntityType.getKey(livingEntity.getType()).toString().equals("minecraft:ender_dragon")
+                    || EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:ferrous_wroughtnaut")
+                    || EntityType.getKey(livingEntity.getType()).toString().equals("bosses_of_mass_destruction:obsidilith")
+            ){
                 livingEntity.heal((float) (livingEntity.getHealth()*MyGoConfig.boss_time_heal.get()*0.5));
             }
             if( EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ignis") ){

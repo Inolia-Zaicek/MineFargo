@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.EctoplasmSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -31,7 +32,7 @@ public class GoetyKillEvent {
         if (ModList.get().isLoaded("goety")) {
             if (!(event.getEntity() instanceof Player)) {
                 if (event.getSource().getEntity() instanceof Player player && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
-                    if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStoneItem.class)) {
+                    if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStone.get())) {
                         //判断是否有灵魂方舟
                         if (getSEActive(player)) {
                             sendSEUpdatePacket(player);
@@ -47,7 +48,7 @@ public class GoetyKillEvent {
                 //如果攻击者是随从
                 else if (event.getSource().getEntity() instanceof LivingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
                     if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() instanceof Player player) {
-                        if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStoneItem.class)) {
+                        if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStone.get())) {
                             //判断是否有灵魂方舟
                             if (getSEActive(player)) {
                                 sendSEUpdatePacket(player);

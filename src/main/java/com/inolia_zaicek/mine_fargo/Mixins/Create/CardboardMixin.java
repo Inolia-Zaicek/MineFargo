@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Create;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Create.CardboardSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.simibubi.create.content.equipment.armor.CardboardArmorHandler;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,7 +25,7 @@ public class CardboardMixin {
     )
     private static void testForStealth(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (entity instanceof LivingEntity livingEntity) {
-            if (MyGoUtil.hasCreate(livingEntity, CardboardSoulStoneItem.class)&& MyGoConfig.cardboard_soul_stone.get()
+            if (MyGoUtil.hasCreate(livingEntity, CardboardSoulStone.get())&& MyGoConfig.cardboard_soul_stone.get()
             &&livingEntity.isCrouching() ) {
                 cir.setReturnValue(true);
             }

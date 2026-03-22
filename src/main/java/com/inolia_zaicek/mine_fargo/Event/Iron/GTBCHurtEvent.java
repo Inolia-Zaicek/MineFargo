@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Iron.EarthSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.SoundSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -33,7 +34,7 @@ public class GTBCHurtEvent {
                 double fixedNumber = 0;
                 boolean earth = false;
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSpecificItem(attacker, EarthSectSoulStoneItem.class)) {
+                if (MyGoUtil.hasSupernatural(attacker, EarthSectSoulStone.get())) {
                     double chance = MyGoConfig.earth_sect_soul_stone_chance.get() * 100;
                     int time = (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(GGDamageTypes.GEO_MAGIC)) {

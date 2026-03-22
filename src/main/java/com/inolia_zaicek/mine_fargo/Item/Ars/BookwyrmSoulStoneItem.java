@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.hollingsworth.arsnouveau.common.items.curios.DiscountRing;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -51,6 +52,6 @@ public class BookwyrmSoulStoneItem extends DiscountRing implements ICurioItem,Ar
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasArs(slotContext.entity(), BookwyrmSoulStoneItem.class);
+        return ! MyGoUtil.hasArs(slotContext.entity(), BookwyrmSoulStone.get());
     }
 }

@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Create;
 import com.inolia_zaicek.mine_fargo.Item.Create.RoseQuartzSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.simibubi.create.content.equipment.armor.DivingBootsItem;
 import com.simibubi.create.content.equipment.armor.DivingHelmetItem;
 import net.minecraft.world.entity.Entity;
@@ -26,7 +27,7 @@ public class DivingHelmetItemMixin {
     )
     private static void alterIsWornBy(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (entity instanceof LivingEntity livingEntity) {
-            if (MyGoUtil.hasCreate(livingEntity, RoseQuartzSoulStoneItem.class)) {
+            if (MyGoUtil.hasCreate(livingEntity, RoseQuartzSoulStone.get())) {
                 cir.setReturnValue(true);
             }
         }

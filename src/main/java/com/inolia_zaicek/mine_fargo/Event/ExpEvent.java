@@ -4,6 +4,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.LapisLazuliSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
@@ -20,7 +21,7 @@ public class ExpEvent {
         Player player = event.getAttackingPlayer();
         if(player!=null&&livingEntity!=null) {
             float number = 1;
-            if (MyGoUtil.hasOre(player, LapisLazuliSoulStoneItem.class)) {
+            if (MyGoUtil.hasOre(player, LapisLazuliSoulStone.get())) {
                 number += MyGoConfig.lapis_lazuli_soul_stone.get();
             }
             event.setDroppedExperience((int) (event.getDroppedExperience() * number));

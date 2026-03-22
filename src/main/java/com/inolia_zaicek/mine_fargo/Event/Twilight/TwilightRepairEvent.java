@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Botania.ManasteelSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Botania.TerrasteelSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.SteeleafSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -15,7 +16,7 @@ public class TwilightRepairEvent {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (MyGoUtil.hasTwilightForest(player, SteeleafSoulStoneItem.class) &&
+        if (MyGoUtil.hasTwilightForest(player, SteeleafSoulStone.get()) &&
                 player.level().getGameTime() % (20 * MyGoConfig.steeleaf_soul_stone_time.get()) == 0) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();

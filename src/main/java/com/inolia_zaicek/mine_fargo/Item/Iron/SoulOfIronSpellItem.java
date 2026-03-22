@@ -4,7 +4,9 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.OresST;
+import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -94,7 +96,7 @@ public class SoulOfIronSpellItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSoulIron(slotContext.entity(), IronST.class);
+        return ! MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.SoulOfIronSpell.get() );
     }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {

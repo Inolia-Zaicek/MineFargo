@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature;
 
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -29,6 +30,6 @@ public class SnowSoulStoneItem extends Item implements ICurioItem  ,NatureST{
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasNature(slotContext.entity(), SnowSoulStoneItem.class);
+        return ! MyGoUtil.hasNature(slotContext.entity(), SnowSoulStone.get());
     }
 }

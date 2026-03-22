@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Twilight;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -32,6 +33,6 @@ public class UrGhastSoulStoneItem extends Item implements ICurioItem, TwilightST
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTwilight(slotContext.entity(), UrGhastSoulStoneItem.class);
+        return ! MyGoUtil.hasTwilight(slotContext.entity(), UrGhastSoulStone.get());
     }
 }

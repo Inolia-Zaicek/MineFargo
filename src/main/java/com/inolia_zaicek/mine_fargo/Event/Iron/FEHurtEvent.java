@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.Iron.EarthSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.FantacySectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.SoundSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.mega.uom.common.damagesource.ModDamageSources;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +31,7 @@ public class FEHurtEvent {
                 var map = attacked.getActiveEffectsMap();
                 if (
                         (event.getSource().is(ModDamageSources.DS_SOURCE)||event.getSource().is(ModDamageSources.FE_SOURCE))
-                        &&MyGoUtil.hasSpecificItem(attacker, FantacySectSoulStoneItem.class)
+                        &&MyGoUtil.hasSupernatural(attacker, FantacySectSoulStone.get())
                 ) {
                     number += MyGoConfig.fantasy_sect_soul_stone_damage.get();
                 }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)

@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.Cataclysm.MaledictusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.VizierSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -33,7 +34,7 @@ public class GoetyDeathEvent {
     //全局事件死亡
     public static void LivingDeathVampire(net.minecraftforge.event.entity.living.LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntity();
-        if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStoneItem.class)
+        if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStone.get())
                 &&livingEntity.getPersistentData().getInt(vizier_soul_stone_dead_cooldown) == 0 ) {
             //周围是否有自己的怒鬼
             var mobList = MyGoUtil.mobList(21, livingEntity);

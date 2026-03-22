@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Botania;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -32,6 +33,6 @@ public class ElementiumSoulStoneItem extends Item implements ICurioItem, Botania
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasBotania(slotContext.entity(), ElementiumSoulStoneItem.class);
+        return ! MyGoUtil.hasBotania(slotContext.entity(), ElementiumSoulStone.get());
     }
 }

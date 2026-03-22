@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event.Tacz;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Tacz.SubmachineGunSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.inolia_zaicek.mine_fargo.Util.Tacz.Tacz_WTC_Util;
 import com.tacz.guns.api.event.common.GunShootEvent;
 import net.minecraft.world.entity.LivingEntity;
@@ -31,7 +32,7 @@ public class TaczShootEvent {
             Random random = new Random();
             double ammoReductionChance = 100;
             //
-            if( MyGoUtil.hasTacz(shooter, SubmachineGunSoulStoneItem.class) ){
+            if( MyGoUtil.hasTacz(shooter, SubmachineGunSoulStone.get()) ){
                 ammoReductionChance *= 1+MyGoConfig.submachine_gun_soul_stone_chance.get();
             }
             if (ammoReductionChance > 100) {

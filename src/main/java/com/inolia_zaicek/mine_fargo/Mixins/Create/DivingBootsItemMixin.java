@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Create;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Create.AndesiteAlloySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import com.simibubi.create.content.equipment.armor.DivingBootsItem;
@@ -26,7 +27,7 @@ public class DivingBootsItemMixin {
     )
     private static void alterIsWornBy(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (entity instanceof LivingEntity livingEntity) {
-            if (MyGoUtil.hasCreate(livingEntity, AndesiteAlloySoulStoneItem.class)&& MyGoConfig.andesite_alloy_soul_stone_boot.get() ) {
+            if (MyGoUtil.hasCreate(livingEntity, AndesiteAlloySoulStone.get())&& MyGoConfig.andesite_alloy_soul_stone_boot.get() ) {
                 cir.setReturnValue(true);
             }
         }

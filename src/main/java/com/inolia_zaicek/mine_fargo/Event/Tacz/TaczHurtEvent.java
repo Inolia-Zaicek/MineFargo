@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.Tacz.RifleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Tacz.ShotgunSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Tacz.SniperRifleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.tacz.guns.init.ModDamageTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
@@ -39,7 +40,7 @@ public class TaczHurtEvent {
                 if (event.getSource().is(ModDamageTypes.BULLETS_TAG) || event.getSource().is(ModDamageTypes.BULLET)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID) || event.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
-                    if (MyGoUtil.hasLegendaryEntity(attacker, DuneSentinelSoulStoneItem.class) ) {
+                    if (MyGoUtil.hasLegendaryEntity(attacker, DuneSentinelSoulStone.get()) ) {
                         number += MyGoConfig.dune_sentinel_soul_stone_up.get();
                     }
                     if (ModList.get().isLoaded("l2damagetracker")||ModList.get().isLoaded("celestial_artifacts")) {
@@ -48,7 +49,7 @@ public class TaczHurtEvent {
                         }
                     }
                     //霰弹枪
-                    if (MyGoUtil.hasTacz(attacker, ShotgunSoulStoneItem.class)){
+                    if (MyGoUtil.hasTacz(attacker, ShotgunSoulStone.get())){
                         Optional.of(attacked)
                                 .map(LivingEntity::getAttributes)
                                 .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
@@ -59,7 +60,7 @@ public class TaczHurtEvent {
                                                 MyGoConfig.shotgun_soul_stone.get() * -1, AttributeModifier.Operation.MULTIPLY_TOTAL)));
                     }
                     //暗杀
-                    if (MyGoUtil.hasTacz(attacker, SniperRifleSoulStoneItem.class)
+                    if (MyGoUtil.hasTacz(attacker, SniperRifleSoulStone.get())
                     && attacker.getPersistentData().getInt(sniper_rifle_soul_stone) > 0) {
                         //最高多少秒
                         float max = (float) (MyGoConfig.sniper_rifle_soul_stone_time.get() * 2 * 20 );
@@ -70,7 +71,7 @@ public class TaczHurtEvent {
                         attacker.getPersistentData().putInt(sniper_rifle_soul_stone, 0);
                     }
                     //速射
-                    if (MyGoUtil.hasTacz(attacker, RifleSoulStoneItem.class)
+                    if (MyGoUtil.hasTacz(attacker, RifleSoulStone.get())
                             && attacker.getPersistentData().getInt(rifle_soul_stone_number) > 0) {
                         //最高多少次
                         float max = (float) (MyGoConfig.rifle_soul_stone_number.get()*1);
@@ -87,7 +88,7 @@ public class TaczHurtEvent {
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
         if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof LivingEntity attacker && MyGoUtil.hasTacz(attacker, ShotgunSoulStoneItem.class)) {
+            if (event.getSource().getEntity() instanceof LivingEntity attacker && MyGoUtil.hasTacz(attacker, ShotgunSoulStone.get())) {
                 Optional.of(event.getEntity())
                         .map(LivingEntity::getAttributes)
                         .filter(manager -> manager.hasAttribute(Attributes.ARMOR))

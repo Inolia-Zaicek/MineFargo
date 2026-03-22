@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Create;
 
 import com.inolia_zaicek.mine_fargo.Item.Create.ZincSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.simibubi.create.content.kinetics.crank.HandCrankBlock;
 import net.minecraft.world.entity.player.Player;
 
@@ -28,7 +29,7 @@ public class HandCrankBlockMixin {
     )
     private void redirectCauseFoodExhaustion(Player player, float exhaustion) {
         // 判断条件A>B
-        if (MyGoUtil.hasCreate(player, ZincSoulStoneItem.class)) {
+        if (MyGoUtil.hasCreate(player, ZincSoulStone.get())) {
             // 满足A>B，则不执行食物消耗
             return;
         }

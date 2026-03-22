@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Iron.SoundSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.EvocationSectSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -23,6 +24,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Objects;
 import java.util.Random;
 
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.SoundSectSoulStone;
+
 public class AFHurtEvent {
 
     @SubscribeEvent
@@ -39,12 +42,12 @@ public class AFHurtEvent {
                     var mobList = MyGoUtil.mobList(22, attacked);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)&&mobs==ownableEntity.getOwner()) {
+                        if (MyGoUtil.hasSupernatural(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)&&players==ownableEntity.getOwner()) {
+                        if (MyGoUtil.hasSupernatural(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
@@ -60,7 +63,7 @@ public class AFHurtEvent {
                 double overNumber = 1;
                 double fixedNumber = 0;
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSpecificItem(attacker, SoundSectSoulStoneItem.class)) {
+                if (MyGoUtil.hasSupernatural(attacker, SoundSectSoulStone.get())) {
                     if (event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
                     ) {
                         number += MyGoConfig.sound_sect_soul_stone_owner_damage.get();
@@ -87,12 +90,12 @@ public class AFHurtEvent {
                     var mobList = MyGoUtil.mobList(22, attacker);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSpecificItem(mobs, SoundSectSoulStoneItem.class)&&mobs==ownableEntity.getOwner()) {
+                        if (MyGoUtil.hasSupernatural(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSpecificItem(players, SoundSectSoulStoneItem.class)&&players==ownableEntity.getOwner()) {
+                        if (MyGoUtil.hasSupernatural(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }

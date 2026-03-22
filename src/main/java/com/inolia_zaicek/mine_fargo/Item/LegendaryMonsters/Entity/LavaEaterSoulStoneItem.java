@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -31,6 +32,6 @@ public class LavaEaterSoulStoneItem extends Item implements ICurioItem, Legendar
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasLegendaryEntity(slotContext.entity(), LavaEaterSoulStoneItem.class);
+        return ! MyGoUtil.hasLegendaryEntity(slotContext.entity(), LavaEaterSoulStone.get());
     }
 }

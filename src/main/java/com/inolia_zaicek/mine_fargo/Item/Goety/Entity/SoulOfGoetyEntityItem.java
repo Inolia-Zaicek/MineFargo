@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyItemST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -78,6 +79,6 @@ public class SoulOfGoetyEntityItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasGoetyEntity(slotContext.entity(), GoetyEntityST.class);
+        return ! MyGoUtil.hasGoetyEntity(slotContext.entity(), SoulOfGoetyEntity.get());
     }
 }

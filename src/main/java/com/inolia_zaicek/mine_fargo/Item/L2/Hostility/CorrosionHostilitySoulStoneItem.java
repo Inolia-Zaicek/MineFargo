@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.L2.Hostility;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -35,6 +36,6 @@ public class CorrosionHostilitySoulStoneItem extends Item implements ICurioItem,
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), CorrosionHostilitySoulStoneItem.class);
+        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), CorrosionHostilitySoulStone.get());
     }
 }

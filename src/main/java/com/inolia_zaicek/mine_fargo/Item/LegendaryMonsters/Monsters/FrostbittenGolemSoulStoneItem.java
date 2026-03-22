@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -33,6 +34,6 @@ public class FrostbittenGolemSoulStoneItem extends Item implements ICurioItem, L
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasLegendaryMonsters(slotContext.entity(), FrostbittenGolemSoulStoneItem.class);
+        return ! MyGoUtil.hasLegendaryMonsters(slotContext.entity(), FrostbittenGolemSoulStone.get());
     }
 }

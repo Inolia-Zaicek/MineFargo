@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event.L2;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.UltraHostilitySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -28,7 +29,7 @@ public class L2Hurt {
         LivingEntity attacked = event.getEntity();
         if (event.getSource().getEntity() instanceof LivingEntity attacker && attacked != null) {
             if (ModList.get().isLoaded("l2hostility")&& MyGoConfig.ultra_hostility_soul_stone.get()) {
-                if (MyGoUtil.hasL2Hostility(attacker, UltraHostilitySoulStoneItem.class)) {
+                if (MyGoUtil.hasL2Hostility(attacker, UltraHostilitySoulStone.get())) {
                     //—————————————————————————————————————————————————————数量与等级
                     GeneralEventHandler.schedule(() -> this.sealItems((int)(MyGoConfig.ultra_hostility_soul_stone_number.get()*1), attacked));
                 }

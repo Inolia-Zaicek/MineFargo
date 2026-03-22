@@ -10,6 +10,7 @@ import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.PrimitiveSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.ToxicSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -37,7 +38,7 @@ public class ACTickEvent {
                 return;
             LivingEntity livingEntity = event.getEntity();
             Level level = livingEntity.level();
-            if (MyGoUtil.hasAlexsCaves(livingEntity, ToxicSoulStoneItem.class)) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, ToxicSoulStone.get())) {
                 livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "irradiated"))));
             }
             if (livingEntity.getPersistentData().getInt(primitive_soul_stone_damage) > 0) {
@@ -52,7 +53,7 @@ public class ACTickEvent {
                 livingEntity.getPersistentData().putInt(primitive_soul_stone_buff,
                         livingEntity.getPersistentData().getInt(primitive_soul_stone_buff) - 1);
             }
-            if (MyGoUtil.hasAlexsCaves(livingEntity, PrimitiveSoulStoneItem.class)) {
+            if (MyGoUtil.hasAlexsCaves(livingEntity, PrimitiveSoulStone.get())) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "rage"))),
                         100, (int)(MyGoConfig.primitive_soul_stone_buff.get()-1) ));
@@ -62,7 +63,7 @@ public class ACTickEvent {
                 livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff,
                         livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) - 1);
             }
-            if(MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStoneItem.class)&&livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff)==0&&ACKeybindRegistry.KEY_SPECIAL_ABILITY.isDown()){
+            if(MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStone.get())&&livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff)==0&&ACKeybindRegistry.KEY_SPECIAL_ABILITY.isDown()){
                 livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff,(int) (MyGoConfig.forlorn_soul_stone_buff.get()*20*2) );
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "darkness_incarnate"))),

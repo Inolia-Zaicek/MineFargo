@@ -4,6 +4,7 @@ import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Botania.ManasteelSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Botania.TerrasteelSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
@@ -17,7 +18,7 @@ public class ManaRepair {
     public static void tick(TickEvent.PlayerTickEvent event) {
         if (ModList.get().isLoaded("botania")) {
             Player player = event.player;
-            if (MyGoUtil.hasBotania(player, ManasteelSoulStoneItem.class) &&
+            if (MyGoUtil.hasBotania(player, ManasteelSoulStone.get()) &&
                     player.level().getGameTime() % (20 * MyGoConfig.manasteel_soul_stone_time.get()) == 0) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offHandItem = player.getOffhandItem();
@@ -33,7 +34,7 @@ public class ManaRepair {
                 handleLeggings(player);
                 handleBoots(player);
             }
-            if (MyGoUtil.hasBotania(player, TerrasteelSoulStoneItem.class) &&
+            if (MyGoUtil.hasBotania(player, TerrasteelSoulStone.get()) &&
                     player.level().getGameTime() % 20 == 0) {
                 ItemStack itemStack = player.getInventory().getSelected();
                 ManaItemHandler.instance().dispatchManaExact(itemStack, player, (int) (MyGoConfig.terrasteel_soul_stone_mana.get() * 1), true);

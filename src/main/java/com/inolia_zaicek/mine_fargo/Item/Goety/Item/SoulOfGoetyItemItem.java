@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Item.Goety.Item;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Botania.BotaniaST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -52,6 +53,6 @@ public class SoulOfGoetyItemItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasGoetyItem(slotContext.entity(), GoetyItemST.class);
+        return ! MyGoUtil.hasGoetyItem(slotContext.entity(), SoulOfGoetyItem.get());
     }
 }

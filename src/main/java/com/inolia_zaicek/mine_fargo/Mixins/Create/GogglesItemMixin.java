@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.Create;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Create.AndesiteAlloySoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,7 +26,7 @@ public class GogglesItemMixin {
             remap = false
     )
     private static void modifyIsWearingGoggles(Player player, CallbackInfoReturnable<Boolean> cir) {
-        if (MyGoUtil.hasCreate(player, AndesiteAlloySoulStoneItem.class)&& MyGoConfig.andesite_alloy_soul_stone_eyes.get() ) {
+        if (MyGoUtil.hasCreate(player, AndesiteAlloySoulStone.get())&& MyGoConfig.andesite_alloy_soul_stone_eyes.get() ) {
             cir.setReturnValue(true);
         }
     }

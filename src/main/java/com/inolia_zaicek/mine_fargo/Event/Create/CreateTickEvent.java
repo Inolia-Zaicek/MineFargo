@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event.Create;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.Create.RoseQuartzSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -25,7 +26,7 @@ public class CreateTickEvent {
                 return;
             LivingEntity livingEntity = event.getEntity();
             if (livingEntity.level().getGameTime() % 20L == 0) {
-                if(MyGoUtil.hasCreate(livingEntity, RoseQuartzSoulStoneItem.class)) {
+                if(MyGoUtil.hasCreate(livingEntity, RoseQuartzSoulStone.get())) {
                     ItemStack mainHandItem = livingEntity.getMainHandItem();
                     ItemStack offHandItem = livingEntity.getOffhandItem();
                     hand(mainHandItem);

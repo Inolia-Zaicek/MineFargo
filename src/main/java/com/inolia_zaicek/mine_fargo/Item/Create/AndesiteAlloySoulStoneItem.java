@@ -1,6 +1,7 @@
 package com.inolia_zaicek.mine_fargo.Item.Create;
 
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -29,6 +30,6 @@ public class AndesiteAlloySoulStoneItem extends Item implements ICurioItem, Crea
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasCreate(slotContext.entity(), AndesiteAlloySoulStoneItem.class);
+        return ! MyGoUtil.hasCreate(slotContext.entity(), AndesiteAlloySoulStone.get());
     }
 }

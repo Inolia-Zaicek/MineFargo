@@ -3,6 +3,7 @@ package com.inolia_zaicek.mine_fargo.Event;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.MagneticSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.inolia_zaicek.mine_fargo.Util.WTCTargetMode;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,7 +26,7 @@ public class EntityJoinLevelEvent {
             if (owner instanceof LivingEntity shooter) {
                 double chance = 0;
                 if (ModList.get().isLoaded("alexscaves")) {
-                    if (MyGoUtil.hasAlexsCaves(shooter, MagneticSoulStoneItem.class)) {
+                    if (MyGoUtil.hasAlexsCaves(shooter, MagneticSoulStone.get())) {
                         chance += MyGoConfig.magnetic_soul_stone_chance.get();
                     }
                 }

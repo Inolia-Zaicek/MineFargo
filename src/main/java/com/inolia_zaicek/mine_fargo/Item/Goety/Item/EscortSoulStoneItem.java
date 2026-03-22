@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Goety.Item;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -31,6 +32,6 @@ public class EscortSoulStoneItem extends Item implements ICurioItem, GoetyItemST
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasGoetyItem(slotContext.entity(), EscortSoulStoneItem.class);
+        return ! MyGoUtil.hasGoetyItem(slotContext.entity(), EscortSoulStone.get());
     }
 }

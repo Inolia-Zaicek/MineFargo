@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.L2.Hostility.L2HostilityST;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
@@ -74,7 +75,7 @@ public class SoulOfL2ComplementsItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Complements(slotContext.entity(), L2ComplementsST.class);
+        return ! MyGoUtil.hasL2Complements(slotContext.entity(), SoulOfL2Complements.get());
     }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {

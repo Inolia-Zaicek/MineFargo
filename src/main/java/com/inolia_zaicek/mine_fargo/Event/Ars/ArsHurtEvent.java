@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Item.Ars.ArchwoodSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.EscortSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyDarkSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -28,7 +29,7 @@ public class ArsHurtEvent {
                 double overNumber = 1;
                 double fixedNumber = 0;
                 if (ModList.get().isLoaded("goety")) {
-                    if (MyGoUtil.hasGoetyItem(attacked, GoetyDarkSoulStoneItem.class)&&(event.getSource().is(DamageTypesRegistry.GENERIC_SPELL_DAMAGE) || event.getSource().is(DamageTypesRegistry.COLD_SNAP)
+                    if (MyGoUtil.hasGoetyItem(attacked, GoetyDarkSoulStone.get())&&(event.getSource().is(DamageTypesRegistry.GENERIC_SPELL_DAMAGE) || event.getSource().is(DamageTypesRegistry.COLD_SNAP)
                             || event.getSource().is(DamageTypesRegistry.FLARE) || event.getSource().is(DamageTypesRegistry.WINDSHEAR) ||
                             event.getSource().is(DamageTypesRegistry.CRUSH))) {
                         number *= 1 - MyGoConfig.goety_dark_soul_stone_magic.get();
@@ -39,7 +40,7 @@ public class ArsHurtEvent {
             }
             if (event.getSource().getEntity() instanceof LivingEntity attacker&&attacked!=null) {
                 var map = attacked.getActiveEffectsMap();
-                if(MyGoUtil.hasArs(attacker, ArchwoodSoulStoneItem.class)) {
+                if(MyGoUtil.hasArs(attacker, ArchwoodSoulStone.get())) {
                     Random random = new Random();
                     if (random.nextInt(100) <= MyGoConfig.archwood_soul_stone_chance.get() * 100) {
                         //爆炸【有配置文件，

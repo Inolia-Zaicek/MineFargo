@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Ars.WhirlisprigSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.MushroomSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,7 +24,7 @@ public class UseItemEvent {
     @SubscribeEvent
     public static void useItemEvent(LivingEntityUseItemEvent.Finish event) {
         //蘑菇煲
-        if (MyGoUtil.hasNature(event.getEntity(), MushroomSoulStoneItem.class) &&
+        if (MyGoUtil.hasNature(event.getEntity(), MushroomSoulStone.get()) &&
                 //碗装食物
                 (event.getItem().getItem() instanceof BowlFoodItem)) {
             event.getEntity().addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST,400,0));
@@ -33,7 +34,7 @@ public class UseItemEvent {
             }
         }
         if (ModList.get().isLoaded("ars_nouveau")) {
-            if (MyGoUtil.hasNature(event.getEntity(), WhirlisprigSoulStoneItem.class) &&
+            if (MyGoUtil.hasNature(event.getEntity(), WhirlisprigSoulStone.get()) &&
                     //可食用
                     (event.getItem().getItem().isEdible() && event.getEntity() instanceof Player player)) {
                 int food = player.getFoodData().getFoodLevel();

@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Ars.WixieSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Util.MyGoEntityHelper;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -24,7 +25,7 @@ public class BuffEvent {
         //正面时长
         float goodTime = 0;
         float bedTime = 0;
-        if(MyGoUtil.hasArs(livingEntity, WixieSoulStoneItem.class)){
+        if(MyGoUtil.hasArs(livingEntity, WixieSoulStone.get())){
             goodTime += MyGoConfig.wixie_soul_stone_up.get();
             bedTime -= MyGoConfig.wixie_soul_stone_down.get();
         }

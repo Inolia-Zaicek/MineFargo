@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Mixins.AlexsCaves;
 
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.AbyssalChasmSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import dev.xkmc.l2serial.util.Wrappers;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +23,7 @@ public class AlexsCavesEntityMixin {
         Entity self = (Entity) Wrappers.cast(this);
         if (self instanceof LivingEntity livingEntity) {
             if (ModList.get().isLoaded("alexscaves")) {
-                if (MyGoUtil.hasAlexsCaves(livingEntity, AbyssalChasmSoulStoneItem.class)) {
+                if (MyGoUtil.hasAlexsCaves(livingEntity, AbyssalChasmSoulStone.get())) {
                     cir.setReturnValue(true);
                 }
             }

@@ -2,6 +2,7 @@ package com.inolia_zaicek.mine_fargo.Item.Goety.Entity;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -40,6 +41,6 @@ public class NetherApostleSoulStoneItem extends Item implements ICurioItem, Goet
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasGoetyEntity(slotContext.entity(), NetherApostleSoulStoneItem.class);
+        return ! MyGoUtil.hasGoetyEntity(slotContext.entity(), NetherApostleSoulStone.get());
     }
 }
