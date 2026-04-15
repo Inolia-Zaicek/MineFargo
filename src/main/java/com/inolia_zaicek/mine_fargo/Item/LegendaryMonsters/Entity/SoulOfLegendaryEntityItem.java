@@ -67,6 +67,12 @@ public class SoulOfLegendaryEntityItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasLegendaryEntity(slotContext.entity(), SoulOfLegendaryEntity.get());
+        return ! (MyGoUtil.hasLegendaryEntity(slotContext.entity(), DuneSentinelSoulStone.get())
+                ||MyGoUtil.hasLegendaryEntity(slotContext.entity(), EndersentSoulStone.get())
+                ||MyGoUtil.hasLegendaryEntity(slotContext.entity(), LavaEaterSoulStone.get())
+                ||MyGoUtil.hasLegendaryEntity(slotContext.entity(), WitheredAbominationSoulStone.get())
+                ||MyGoUtil.hasLegendaryEntity(slotContext.entity(), ShulkerMimicSoulStone.get())
+                ||MyGoUtil.hasLegendaryEntity(slotContext.entity(), OvergrownColossusSoulStone.get())
+        );
     }
 }

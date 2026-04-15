@@ -66,6 +66,14 @@ public class SoulOfTaczItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.SoulOfTacz.get());
+        return ! (MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.AmmoSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.HandgunSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.RifleSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.SniperRifleSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.ShotgunSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.SubmachineGunSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.HeavyMachineGunSoulStone.get())
+                ||MyGoUtil.hasTacz(slotContext.entity(), MyGoItemRegister.MachineGunSoulStone.get())
+        );
     }
 }

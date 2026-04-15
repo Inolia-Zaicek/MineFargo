@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "O",
+    "D"
+  ],
+  "key": {
+    "A": {
+      "item": "malum:necklace_of_the_narrow_edge"
+    },
+    "D": {
+      "item": "malum:necklace_of_the_hidden_blade"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:scythe_soul_stone",
+    "count": 1
+  }
+}

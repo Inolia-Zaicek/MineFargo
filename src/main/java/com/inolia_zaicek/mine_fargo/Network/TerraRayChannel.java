@@ -1,8 +1,10 @@
 package com.inolia_zaicek.mine_fargo.Network;
 
 import com.inolia_zaicek.mine_fargo.MineFargo;
+import com.inolia_zaicek.mine_fargo.Network.Packet.ClientToServerPacket;
 import com.inolia_zaicek.mine_fargo.Network.Packet.TerraRayPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -19,13 +21,20 @@ public class TerraRayChannel {
     );
     public static void init(){
         int packetID=0;
-        CHANNEL.registerMessage(
-                packetID++,
-                TerraRayPacket.class,
-                TerraRayPacket::encode,
-                TerraRayPacket::decode,
-                TerraRayPacket::handle,
-                Optional.of(NetworkDirection.PLAY_TO_SERVER)
+        if(ModList.get().isLoaded("botania")) {
+            CHANNEL.registerMessage(
+                    packetID++,
+                    TerraRayPacket.class,
+                    TerraRayPacket::encode,
+                    TerraRayPacket::decode,
+                    TerraRayPacket::handle,
+                    Optional.of(NetworkDirection.PLAY_TO_SERVER)
+            );
+        }
+        CHANNEL.registerMessage(packetID++, ClientToServerPacket.class,
+                ClientToServerPacket::encode,
+                ClientToServerPacket::decode,
+                ClientToServerPacket::handle
         );
     }
 }

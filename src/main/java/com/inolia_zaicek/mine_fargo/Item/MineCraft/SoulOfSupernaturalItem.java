@@ -34,7 +34,7 @@ public class SoulOfSupernaturalItem extends Item implements ICurioItem {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_supernatural.anchor_soul_stone",
                 (int)(MyGoConfig.anchor_soul_stone_range.get()*1),(int)(MyGoConfig.anchor_soul_stone_range.get()*1),
-                (float)(MyGoConfig.anchor_soul_stone_time.get()*1)
+                (float)(MyGoConfig.anchor_soul_stone_time.get()*1),(float)(MyGoConfig.anchor_soul_stone_cooldown.get()*1)
         ).withStyle(style -> style.withColor(TextColor.fromRgb(0x333333))));
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_supernatural.magnet_soul_stone",
                 (int)(MyGoConfig.magnet_soul_stone_range.get()*1)
@@ -67,6 +67,13 @@ public class SoulOfSupernaturalItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), SoulOfSupernatural.get());
+        return ! (MyGoUtil.hasSupernatural(slotContext.entity(), AnchorSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), MagnetSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), HazardSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), UndyingSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), EnchantedGoldenAppleSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), TheSeaSoulStone.get())
+                ||MyGoUtil.hasSupernatural(slotContext.entity(), MendingSoulStone.get())
+        );
     }
 }

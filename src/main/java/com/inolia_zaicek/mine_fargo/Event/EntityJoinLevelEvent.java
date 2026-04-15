@@ -3,6 +3,8 @@ package com.inolia_zaicek.mine_fargo.Event;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.MagneticSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+
+import static com.inolia_zaicek.mine_fargo.Event.TickEvent.projectile_tracking_capability_open;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import com.inolia_zaicek.mine_fargo.Util.WTCTargetMode;
 import net.minecraft.world.entity.Entity;
@@ -22,8 +24,8 @@ public class EntityJoinLevelEvent {
         Entity entity = event.getEntity();
         if (entity instanceof Projectile projectile) {
             // 如果实体是投射物（如箭），尝试找到它的发射者
-            Entity owner = projectile.getOwner();
-            if (owner instanceof LivingEntity shooter) {
+            Entity owner = projectile.getOwner();//并且【projectile_tracking_capability_open小于50——默认为追踪
+            if (owner instanceof LivingEntity shooter&&shooter.getPersistentData().getInt(projectile_tracking_capability_open) <= 50) {
                 double chance = 0;
                 if (ModList.get().isLoaded("alexscaves")) {
                     if (MyGoUtil.hasAlexsCaves(shooter, MagneticSoulStone.get())) {

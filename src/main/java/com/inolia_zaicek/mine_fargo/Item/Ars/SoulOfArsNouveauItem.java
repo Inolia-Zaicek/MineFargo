@@ -100,6 +100,15 @@ public class SoulOfArsNouveauItem extends DiscountRing implements ICurioItem  {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.SoulOfArsNouveau.get());
+        return ! (MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.ArsSourceSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.DrygmySoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.WhirlisprigSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.StarbuncleSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.BookwyrmSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.WixieSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.AmethystGolemSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.ArchwoodSoulStone.get())
+                ||MyGoUtil.hasArs(slotContext.entity(), MyGoItemRegister.WildenSoulStone.get())
+        );
     }
 }

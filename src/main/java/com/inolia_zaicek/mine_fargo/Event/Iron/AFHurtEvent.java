@@ -30,7 +30,7 @@ public class AFHurtEvent {
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
-        if (ModList.get().isLoaded("alshanex_familiars")) {
+        if (ModList.get().isLoaded("familiarslib")) {
             LivingEntity attacked = event.getEntity();
             if (attacked != null) {
                 double number = 1;
@@ -64,7 +64,7 @@ public class AFHurtEvent {
                 double fixedNumber = 0;
                 var map = attacked.getActiveEffectsMap();
                 if (MyGoUtil.hasSupernatural(attacker, SoundSectSoulStone.get())) {
-                    if (event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                    if (event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                     ) {
                         number += MyGoConfig.sound_sect_soul_stone_owner_damage.get();
                     }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)

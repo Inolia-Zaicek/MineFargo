@@ -2,12 +2,15 @@ package com.inolia_zaicek.mine_fargo.Event.InoIntegrationPack;
 
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+
+import static com.inolia_zaicek.mine_fargo.Event.TickEvent.boss_heal;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.entity.mobs.MagicSummon;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -50,40 +53,48 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:aero_guardian")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:amethyst_crab")) {
                     level = MyGoConfig.level_1_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,0
+                    ));
                 }
                 //史莱姆王比较特殊，自身血量需要x5先
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:king_slime")) {
-                    level = MyGoConfig.level_1_hp.get();
+                    level = MyGoConfig.level_1_hp.get()*0.5F;
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,0
+                    ));
                 }
                 //2x
-                else if (EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:skeletosaurus")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:cyclops")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:frostbitten_golem")
+                else if (EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:cyclops")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:gorgon")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:ancient_guardian")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:hydra")
+                        || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:visual_neuron")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("call_of_drowner:tide_raiser")) {
                     level = MyGoConfig.level_2_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,1
+                    ));
                 }//3x
-                else if (EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:warped_fungussus")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("goety:brood_mother")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:dune_sentinel")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:overgrown_colossus")
+                else if (EntityType.getKey(livingEntity.getType()).toString().equals("goety:brood_mother")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("bosses_of_mass_destruction:gauntlet")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("goety:crone")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:the_plauge_bringer")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:the_plauge_bringerp_2")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:cthulhu_eye")
+                        || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:eye_of_cthulhu")
                 ) {
                     level = MyGoConfig.level_3_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,2
+                    ));
                 }
                 //4x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("call_of_drowner:drowner")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("call_of_drowner:deepwater_piranha")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:withered_abomination")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("goety:wight")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:posessed_paladin")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:lava_eater")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:terrible_ten")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:puny_juggernaut")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:blocknight_boot")
@@ -96,6 +107,10 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:blocknight_servant")
                 ) {
                     level = MyGoConfig.level_4_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,3
+                    ));
                 }
                 //5x——凋灵+幽灵+焦骸死灵法师、双领主、利刃、蜂王
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goety:wither_necromancer")
@@ -105,12 +120,15 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("goety:bone_lord")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("torchesbecomesunlight:pursuer")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:queen_bee")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:visual_neuron")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:eater_of_worlds_segment")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:brain_fake")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("arcalis_bosses:jack")
                 ) {
                     level = MyGoConfig.level_5_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,4
+                    ));
                 }
                 //6x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("minecraft:elder_guardian")
@@ -124,6 +142,10 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("arcalis_bosses:the_deathbringer")
                 ) {
                     level = MyGoConfig.level_6_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,5
+                    ));
                 }
                 //7x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ancient_remnant")
@@ -141,10 +163,13 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("traveloptics:aquamancer")
                 ) {
                     level = MyGoConfig.level_7_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,6
+                    ));
                 }
                 //8x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("ars_nouveau:wilden_boss")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:cloud_golem")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:fire_dragon")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:ice_dragon")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("iceandfire:lightning_dragon")
@@ -156,10 +181,15 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:deerclops")
                 ) {
                     level = MyGoConfig.level_8_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,7
+                    ));
                 }
                 //9x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goety:hostile_redstone_golem")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:lichspell")
+                        || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:doomharbor_lich")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:lich_phase_2")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("meetyourfight:swampjaw")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("meetyourfight:bellringer")
@@ -174,17 +204,23 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:flesh_slime")
                 ) {
                     level = MyGoConfig.level_9_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,8
+                    ));
                 }
                 //10x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("minecraft:ender_dragon")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:shulker_mimic")
-                        || EntityType.getKey(livingEntity.getType()).toString().equals("goety:endersent")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("goety:hostile_redstone_monstrosity")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ender_golem")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("bosses_of_mass_destruction:obsidilith")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("traveloptics:enraged_dead_king")
                 ) {
                     level = MyGoConfig.level_10_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,9
+                    ));
                 }
                 //11x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("sons_of_sins:butcher")
@@ -196,6 +232,10 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("sons_of_sins:wistiver")
                 ) {
                     level = MyGoConfig.level_11_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,10
+                    ));
                 }
                 //12x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ignis")
@@ -209,6 +249,10 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("torchesbecomesunlight:shield_guard")
                 ) {
                     level = MyGoConfig.level_12_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,11
+                    ));
                 }
                 //13x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("torchesbecomesunlight:patriot")
@@ -225,6 +269,10 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("irons_spellbooks:fire_boss")
                 ) {
                     level = MyGoConfig.level_13_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,12
+                    ));
                 }
                 //14x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("torchesbecomesunlight:gun_knight_patriot")
@@ -236,37 +284,66 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:radiance_guardian")
                 ) {
                     level = MyGoConfig.level_14_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,13
+                    ));
                 }
                 //15x
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("traveloptics:the_nightwarden")) {
                     level = MyGoConfig.level_15_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
                 //16
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goety:apostle")
                         && livingEntity.level().dimension().equals(livingEntity.level().NETHER)) {
                     level = MyGoConfig.level_16_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
                 //17
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goetyawaken:hostile_mushroom_monstrosity")) {
                     level = MyGoConfig.level_17_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
                 //18
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goetyawaken:nameless_one")) {
                     level = MyGoConfig.level_18_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
                 //19
                 else if (EntityType.getKey(livingEntity.getType()).toString().equals("goety_revelation:summon_apollyon")
                         && !livingEntity.level().dimension().equals(livingEntity.level().NETHER)) {
                     level = MyGoConfig.level_19_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
                 //20
                 else if ((EntityType.getKey(livingEntity.getType()).toString().equals("goety_revelation:summon_apollyon")
                         && livingEntity.level().dimension().equals(livingEntity.level().NETHER))
                         || EntityType.getKey(livingEntity.getType()).toString().equals("fantasy_ending:ultimate_order_manager")) {
                     level = MyGoConfig.level_20_hp.get();
+                    livingEntity.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("irons_spellbooks", "oakskin")))
+                            , (int) Float.MAX_VALUE,14
+                    ));
                 }
 
                 if (level > 1) {
+                    livingEntity.getPersistentData().putInt(boss_heal, 1);
                     double finalLevel = level;
                     Optional.of(livingEntity).map(LivingEntity::getAttributes)
                             .filter(manager -> manager.hasAttribute(Attributes.MAX_HEALTH))
@@ -316,6 +393,7 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(attacker.getType()).toString().equals("iceandfire:cyclops")
                         || EntityType.getKey(attacker.getType()).toString().equals("legendary_monsters:frostbitten_golem")
                         || EntityType.getKey(attacker.getType()).toString().equals("iceandfire:gorgon")
+                        || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:visual_neuron")
                         || EntityType.getKey(attacker.getType()).toString().equals("legendary_monsters:lava_eater")
                         || EntityType.getKey(attacker.getType()).toString().equals("legendary_monsters:ancient_guardian")
                         || EntityType.getKey(attacker.getType()).toString().equals("iceandfire:hydra")
@@ -330,7 +408,7 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(attacker.getType()).toString().equals("goety:crone")
                         || EntityType.getKey(attacker.getType()).toString().equals("faded_conquest_2:the_plauge_bringer")
                         || EntityType.getKey(attacker.getType()).toString().equals("faded_conquest_2:the_plauge_bringerp_2")
-                        || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:cthulhu_eye")
+                        || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:eye_of_cthulhu")
                 ) {
                     level = 0.25F;
                 }
@@ -361,7 +439,6 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(attacker.getType()).toString().equals("goety:bone_lord")
                         || EntityType.getKey(attacker.getType()).toString().equals("torchesbecomesunlight:pursuer")
                         || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:queen_bee")
-                        || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:visual_neuron")
                         || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:eater_of_worlds_segment")
                         || EntityType.getKey(attacker.getType()).toString().equals("terra_entity:brain_fake")
                         || EntityType.getKey(attacker.getType()).toString().equals("arcalis_bosses:jack")
@@ -416,6 +493,7 @@ public class InoIntegrationPackEvent {
                 //9x
                 else if (EntityType.getKey(attacker.getType()).toString().equals("goety:hostile_redstone_golem")
                         || EntityType.getKey(attacker.getType()).toString().equals("faded_conquest_2:lichspell")
+                        || EntityType.getKey(attacker.getType()).toString().equals("faded_conquest_2:doomharbor_lich")
                         || EntityType.getKey(attacker.getType()).toString().equals("faded_conquest_2:lich_phase_2")
                         || EntityType.getKey(attacker.getType()).toString().equals("meetyourfight:swampjaw")
                         || EntityType.getKey(attacker.getType()).toString().equals("meetyourfight:bellringer")
@@ -434,7 +512,7 @@ public class InoIntegrationPackEvent {
                 //10x
                 else if (EntityType.getKey(attacker.getType()).toString().equals("minecraft:ender_dragon")
                         || EntityType.getKey(attacker.getType()).toString().equals("legendary_monsters:shulker_mimic")
-                        || EntityType.getKey(attacker.getType()).toString().equals("goety:endersent")
+                        || EntityType.getKey(attacker.getType()).toString().equals("legendary_monsters:endersent")
                         || EntityType.getKey(attacker.getType()).toString().equals("goety:hostile_redstone_monstrosity")
                         || EntityType.getKey(attacker.getType()).toString().equals("cataclysm:ender_golem")
                         || EntityType.getKey(attacker.getType()).toString().equals("bosses_of_mass_destruction:obsidilith")
@@ -526,7 +604,8 @@ public class InoIntegrationPackEvent {
                     event.setAmount(event.getAmount() * (1 + level));
                 }
                 //飞行状态的玩家发起攻击
-                if (attacker instanceof Player player && player.getAbilities().flying) {
+                if (attacker instanceof Player player && player.getAbilities().flying
+                && ! MyGoUtil.isCurioEquipped(attacker, SoulOfInolia.get()) ) {
                     event.setAmount((float) (event.getAmount() * MyGoConfig.flying_damage.get()));
                 }
                 //超负荷状态下
@@ -549,10 +628,10 @@ public class InoIntegrationPackEvent {
                 if(attacker instanceof OwnableEntity ownableEntity&&ownableEntity.getOwner() instanceof LivingEntity){
                     LivingEntity owner = ownableEntity.getOwner();
                     //主人处于超负荷状态下
-                    if(owner.hasEffect(
+                    if(owner!=null&&owner.hasEffect(
                             Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged")))
                     )){
-                        int chargedLevel = 1 + Objects.requireNonNull(attacker.getEffect(
+                        int chargedLevel = 1 + Objects.requireNonNull(owner.getEffect(
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged")))
                         )).getAmplifier();
                         event.setAmount((float) (event.getAmount() * ( 1 + chargedLevel * MyGoConfig.charged_summon.get() * 0.1F ) ));
@@ -579,7 +658,11 @@ public class InoIntegrationPackEvent {
         if (!event.getEntity().isAlive())
             return;
         LivingEntity livingEntity = event.getEntity();
-
+        if( livingEntity.getPersistentData().getInt(boss_heal)>0) {
+            livingEntity.heal(livingEntity.getMaxHealth());
+            livingEntity.getPersistentData().putInt(boss_heal, 0);
+            livingEntity.heal(livingEntity.getMaxHealth());
+        }
         if (MyGoConfig.InoIntegrationPack.get() && livingEntity.level().getGameTime() % 20L == 0) {
             if (EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:frostmaw")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("mowziesmobs:sculptor")
@@ -601,7 +684,7 @@ public class InoIntegrationPackEvent {
                         || EntityType.getKey(livingEntity.getType()).toString().equals("goety:crone")
                         || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:the_plauge_bringer")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:the_plauge_bringerp_2")
-            ||EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:cthulhu_eye")
+            ||EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:eye_of_cthulhu")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("call_of_drowner:drowner")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("call_of_drowner:deepwater_piranha")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:withered_abomination")
@@ -625,7 +708,6 @@ public class InoIntegrationPackEvent {
                     || EntityType.getKey(livingEntity.getType()).toString().equals("goety:bone_lord")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("torchesbecomesunlight:pursuer")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:queen_bee")
-                    || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:visual_neuron")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:eater_of_worlds_segment")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:brain_fake")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("arcalis_bosses:jack")
@@ -663,6 +745,7 @@ public class InoIntegrationPackEvent {
                     || EntityType.getKey(livingEntity.getType()).toString().equals("goety:redstone_cube")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:deerclops")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:lichspell")
+                    || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:doomharbor_lich")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:lich_phase_2")
             ||EntityType.getKey(livingEntity.getType()).toString().equals("goety:hostile_redstone_golem")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("faded_conquest_2:faded_king")
@@ -681,7 +764,7 @@ public class InoIntegrationPackEvent {
                     || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:flesh_slime")
 
                     || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:shulker_mimic")
-                    || EntityType.getKey(livingEntity.getType()).toString().equals("goety:endersent")
+                    || EntityType.getKey(livingEntity.getType()).toString().equals("legendary_monsters:endersent")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("goety:hostile_redstone_monstrosity")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ender_golem")
                     || EntityType.getKey(livingEntity.getType()).toString().equals("traveloptics:enraged_dead_king")
@@ -726,7 +809,9 @@ public class InoIntegrationPackEvent {
             ){
                 livingEntity.heal((float) (livingEntity.getHealth()*MyGoConfig.boss_time_heal.get()*0.5));
             }
-            if( EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ignis") ){
+            if( EntityType.getKey(livingEntity.getType()).toString().equals("cataclysm:ignis")
+                    || EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:visual_neuron")
+            ){
                 livingEntity.heal((float) (livingEntity.getHealth()*MyGoConfig.boss_time_heal.get()*0.25));
             }
         }
@@ -1006,7 +1091,7 @@ public class InoIntegrationPackEvent {
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("bosses_of_mass_destruction:gauntlet")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("goety:crone")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("faded_conquest_2:the_plauge_bringerp_2")
-                            || EntityType.getKey(event.getEntity().getType()).toString().equals("terra_entity:cthulhu_eye")
+                            || EntityType.getKey(event.getEntity().getType()).toString().equals("terra_entity:eye_of_cthulhu")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("call_of_drowner:drowner")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("call_of_drowner:deepwater_piranha")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("legendary_monsters:withered_abomination")
@@ -1074,7 +1159,7 @@ public class InoIntegrationPackEvent {
                     //紫
                     if (EntityType.getKey(event.getEntity().getType()).toString().equals("minecraft:ender_dragon")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("legendary_monsters:shulker_mimic")
-                            || EntityType.getKey(event.getEntity().getType()).toString().equals("goety:endersent")
+                            || EntityType.getKey(event.getEntity().getType()).toString().equals("legendary_monsters:endersent")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("goety:hostile_redstone_monstrosity")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("cataclysm:ender_golem")
                             || EntityType.getKey(event.getEntity().getType()).toString().equals("bosses_of_mass_destruction:obsidilith")
@@ -1194,7 +1279,7 @@ public class InoIntegrationPackEvent {
                         }
                     }
                     if (
-                            EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:cthulhu_eye")
+                            EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:eye_of_cthulhu")
                     ) {
                         if (random.nextInt(100) <= MyGoConfig.flow_core.get() * 100) {
                             ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(
@@ -1357,6 +1442,27 @@ public class InoIntegrationPackEvent {
                                 "flame_chase_artifacts", "jade_feather"))).getDefaultInstance());
                         itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
                         level.addFreshEntity(itementity);
+                }
+                //骨头领主
+                if ((EntityType.getKey(livingEntity.getType()).toString().equals("goety:bone_lord"))) {
+                    ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(
+                            "goety", "frozen_blade"))).getDefaultInstance());
+                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
+                    level.addFreshEntity(itementity);
+                }
+                //孤魂尸鬼
+                if ((EntityType.getKey(livingEntity.getType()).toString().equals("goety:wight"))) {
+                    ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(
+                            "flame_chase_artifacts", "fruit_of_time"))).getDefaultInstance());
+                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
+                    level.addFreshEntity(itementity);
+                }
+                //独眼巨鹿
+                if ((EntityType.getKey(livingEntity.getType()).toString().equals("terra_entity:deerclops"))) {
+                    ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(
+                            "celestial_artifacts", "deer_inscribed_amulet"))).getDefaultInstance());
+                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F), (double) (level.random.nextFloat() * 0.05F), (double) ((level.random.nextFloat() - level.random.nextFloat()) * 0.1F)));
+                    level.addFreshEntity(itementity);
                 }
             }
         }

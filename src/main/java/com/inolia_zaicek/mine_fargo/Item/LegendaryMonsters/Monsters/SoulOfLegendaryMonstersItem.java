@@ -73,6 +73,11 @@ public class SoulOfLegendaryMonstersItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasLegendaryMonsters(slotContext.entity(), SoulOfLegendaryMonsters.get());
+        return ! (MyGoUtil.hasLegendaryMonsters(slotContext.entity(), CloudGolemSoulStone.get())
+                ||MyGoUtil.hasLegendaryMonsters(slotContext.entity(), FrostbittenGolemSoulStone.get())
+                ||MyGoUtil.hasLegendaryMonsters(slotContext.entity(), AncientGuardianSoulStone.get())
+                ||MyGoUtil.hasLegendaryMonsters(slotContext.entity(), PosessedPaladinSoulStone.get())
+                ||MyGoUtil.hasLegendaryMonsters(slotContext.entity(), SkeletosaurusSoulStone.get())
+        );
     }
 }

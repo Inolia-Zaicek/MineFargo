@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HAB",
+    "GOC",
+    "FED"
+  ],
+  "key": {
+    "A": {
+      "item": "malum:rune_of_bolstering"
+    },
+    "B": {
+      "item": "malum:rune_of_sacrificial_empowerment"
+    },
+    "C": {
+      "item": "malum:rune_of_spell_mastery"
+    },
+    "D": {
+      "item": "malum:rune_of_the_heretic"
+    },
+    "E": {
+      "item": "malum:rune_of_unnatural_stamina"
+    },
+    "F": {
+      "item": "malum:rune_of_twinned_duration"
+    },
+    "G": {
+      "item": "malum:rune_of_toughness"
+    },
+    "H": {
+      "item": "malum:rune_of_igneous_solace"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:void_tablet_soul_stone",
+    "count": 1
+  }
+}

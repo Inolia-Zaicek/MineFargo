@@ -27,7 +27,7 @@ public class AnchorSoulStoneItem extends Item implements ICurioItem, Supernatura
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
                 (int)(MyGoConfig.anchor_soul_stone_range.get()*1),(int)(MyGoConfig.anchor_soul_stone_range.get()*1),
-                (float)(MyGoConfig.anchor_soul_stone_time.get()*1)
+                (float)(MyGoConfig.anchor_soul_stone_time.get()*1),(float)(MyGoConfig.anchor_soul_stone_cooldown.get()*1)
         ).withStyle(style -> style.withColor(ChatFormatting.GRAY)));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

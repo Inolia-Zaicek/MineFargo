@@ -52,6 +52,6 @@ public class EarthSectSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), EarthSectSoulStone.get());
+        return ! MyGoUtil.isCurioEquipped(slotContext.entity(), EarthSectSoulStone.get());
     }
 }

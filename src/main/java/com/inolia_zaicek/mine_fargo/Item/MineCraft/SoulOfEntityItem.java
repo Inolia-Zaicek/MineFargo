@@ -63,6 +63,12 @@ public class SoulOfEntityItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.SoulOfEntity.get() );
+        return ! (MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.BlazeSoulStone.get())
+                ||MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.DeathSoulStone.get())
+                ||MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.ArthropodSoulStone.get())
+                ||MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.AnimalSoulStone.get())
+                ||MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.AquaticSoulStone.get())
+                ||MyGoUtil.hasEntity(slotContext.entity(), MyGoItemRegister.WingSoulStone.get())
+        );
     }
 }

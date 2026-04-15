@@ -9,24 +9,27 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 
 
 public class TickRepairEvent {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStone.get()) &&
-                player.level().getGameTime() % (20) == 0) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offHandItem = player.getOffhandItem();
+        if(ModList.get().isLoaded("l2complements")) {
+            if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStone.get()) &&
+                    player.level().getGameTime() % (20) == 0) {
+                ItemStack mainHandItem = player.getMainHandItem();
+                ItemStack offHandItem = player.getOffhandItem();
 
-            handleModularItem(player, mainHandItem);
-            handleModularItem(player, offHandItem);
-            // 处理盔甲部位
-            handleHeadgear(player);
-            handleChestplate(player);
-            handleLeggings(player);
-            handleBoots(player);
+                handleModularItem(player, mainHandItem);
+                handleModularItem(player, offHandItem);
+                // 处理盔甲部位
+                handleHeadgear(player);
+                handleChestplate(player);
+                handleLeggings(player);
+                handleBoots(player);
+            }
         }
     }
 

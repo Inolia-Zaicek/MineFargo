@@ -630,6 +630,82 @@ public class MyGoConfig {
     public static final ForgeConfigSpec.DoubleValue charged_arrow;
     public static final ForgeConfigSpec.DoubleValue charged_summon;
     public static final ForgeConfigSpec.DoubleValue charged_terra_summon;
+    public static final ForgeConfigSpec.DoubleValue starved_soul_stone_hp;
+    public static final ForgeConfigSpec.DoubleValue starved_soul_stone_lvl;
+    public static final ForgeConfigSpec.DoubleValue starved_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue starved_soul_stone_max_lvl;
+    public static final ForgeConfigSpec.DoubleValue starved_soul_stone_max_time;
+
+    public static final ForgeConfigSpec.DoubleValue zephyrs_courage;
+    public static final ForgeConfigSpec.DoubleValue poseidons_grasp;
+    public static final ForgeConfigSpec.DoubleValue gaias_bulwark;
+    public static final ForgeConfigSpec.DoubleValue miners_rage;
+    public static final ForgeConfigSpec.DoubleValue aethers_charm;
+    public static final ForgeConfigSpec.DoubleValue anglers_lure;
+    public static final ForgeConfigSpec.DoubleValue earthen_might;
+    public static final ForgeConfigSpec.DoubleValue ifrits_embrace;
+
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_heal;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_min_damage;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_max_damage;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_damage_up_chance;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_damage_up_number;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_dig;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_buff_chance;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_buff_time;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_buff_lvl;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_buff_speed;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_magic;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_soul_shield_a;
+    public static final ForgeConfigSpec.DoubleValue tainted_soul_stone_soul_shield_b;
+
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_kill_lvl;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_kill_time;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_kill_lvl_max;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_kill_time_max;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_hit_lvl;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_hit_time;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_hit_lvl_max;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_hit_time_max;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_hit;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_att_hp;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_att_magic;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_att_staff;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_att_speed;
+    public static final ForgeConfigSpec.DoubleValue void_tablet_soul_stone_att_armor;
+
+    public static final ForgeConfigSpec.DoubleValue arcana_soul_stone_hp;
+    public static final ForgeConfigSpec.DoubleValue arcana_soul_stone_lvl;
+    public static final ForgeConfigSpec.DoubleValue arcana_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue arcana_soul_stone_lvl_max;
+    public static final ForgeConfigSpec.DoubleValue arcana_soul_stone_time_max;
+
+    public static final ForgeConfigSpec.DoubleValue spirit_soul_stone;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> spirit_soul_stone_can;
+
+    public static final ForgeConfigSpec.DoubleValue scythe_soul_stone_lvl;
+    public static final ForgeConfigSpec.DoubleValue scythe_soul_stone_time;
+    public static final ForgeConfigSpec.DoubleValue scythe_soul_stone_max_lvl;
+    public static final ForgeConfigSpec.DoubleValue scythe_soul_stone_att;
+
+    public static final ForgeConfigSpec.DoubleValue soul_ward_capacity;
+    public static final ForgeConfigSpec.DoubleValue soul_ward_integrity;
+    public static final ForgeConfigSpec.DoubleValue soul_ward_recovery_rate;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> water;
+    public static final ForgeConfigSpec.DoubleValue curses_soul_stone;
+    public static final ForgeConfigSpec.DoubleValue etherium_soul_stone_hp;
+    public static final ForgeConfigSpec.DoubleValue etherium_soul_stone_damage;
+
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_atk;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_heal;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_slow;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_weakness;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_atk_up;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_armor_up;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_atk_max;
+    public static final ForgeConfigSpec.DoubleValue abyss_soul_stone_armor_max;
     static {
         BUILDER.push("ino");
         InoIntegrationPack = BUILDER.comment("伊诺莉娅整合包模式是否启动(作者自用)").define("inoIntegration_pack",false);
@@ -658,7 +734,7 @@ public class MyGoConfig {
         shield_of_cthulhu = BUILDER.comment("克盾掉落概率").defineInRange("shield_of_cthulhu", 0.5, 0, 2147483647);
         wound_rime_blade = BUILDER.comment("咒愈锋刃掉落概率").defineInRange("wound_rime_blade", 0.5, 0, 2147483647);
         hairpin = BUILDER.comment("发簪掉落概率").defineInRange("hairpin", 0.5, 0, 2147483647);
-        infinity_totem = BUILDER.comment("无尽图腾掉落概率").defineInRange("infinity_totem", 0.5, 0, 2147483647);
+        infinity_totem = BUILDER.comment("无尽图腾掉落概率").defineInRange("infinity_totem", 1.0, 0, 2147483647);
         chaos_book = BUILDER.comment("混沌之书掉落概率").defineInRange("chaos_book", 0.5, 0, 2147483647);
         spell_enhancement_core = BUILDER.comment("法术强化核心掉落概率").defineInRange("spell_enhancement_core", 0.5, 0, 2147483647);
         spell_overlimit_core = BUILDER.comment("法术超限核心掉落概率").defineInRange("spell_overlimit_core", 0.5, 0, 2147483647);
@@ -711,8 +787,89 @@ public class MyGoConfig {
         level_20_hp = BUILDER.comment("20星怪物生命值提升数额").defineInRange("level_20_hp", 200.0, 0, 2147483647);
 
         BUILDER.pop();
-    //祝福
+
     BUILDER.push("base");
+        abyss_soul_stone_atk = BUILDER.comment("深渊魂石基础攻击").defineInRange("abyss_soul_stone_atk",3.0,0,2147483647);
+        abyss_soul_stone_heal = BUILDER.comment("深渊魂石吸血").defineInRange("abyss_soul_stone_heal",0.05,0,2147483647);
+        abyss_soul_stone_slow = BUILDER.comment("深渊魂石缓慢等级").defineInRange("abyss_soul_stone_slow",1.0,0,2147483647);
+        abyss_soul_stone_weakness = BUILDER.comment("深渊魂石虚弱等级").defineInRange("abyss_soul_stone_weakness",1.0,0,2147483647);
+        abyss_soul_stone_atk_up = BUILDER.comment("深渊魂石首杀攻击提升").defineInRange("abyss_soul_stone_atk_up",0.3,0,2147483647);
+        abyss_soul_stone_armor_up = BUILDER.comment("深渊魂石首杀护甲提升").defineInRange("abyss_soul_stone_armor_up",0.25,0,2147483647);
+        abyss_soul_stone_atk_max = BUILDER.comment("深渊魂石最高攻击").defineInRange("abyss_soul_stone_atk_max",30.0,0,2147483647);
+        abyss_soul_stone_armor_max = BUILDER.comment("深渊魂石最高护甲").defineInRange("abyss_soul_stone_armor_max",25.0,0,2147483647);
+
+        etherium_soul_stone_hp = BUILDER.comment("以太魂石生命值阈值").defineInRange("etherium_soul_stone_hp",0.4,0,2147483647);
+        etherium_soul_stone_damage = BUILDER.comment("以太魂石减伤").defineInRange("etherium_soul_stone_damage",0.3,0,2147483647);
+        curses_soul_stone = BUILDER.comment("千咒魂石诅咒倍率").defineInRange("curses_soul_stone",1.2,0,2147483647);
+        water = BUILDER.comment("是否启用水中不下沉能力").define("water",true);
+
+        soul_ward_capacity = BUILDER.comment("灵护魂石灵魂护盾容量").defineInRange("soul_ward_capacity",16.0,0,2147483647);
+        soul_ward_integrity = BUILDER.comment("灵护魂石灵魂护盾容量").defineInRange("soul_ward_integrity",1.0,0,2147483647);
+        soul_ward_recovery_rate = BUILDER.comment("灵护魂石灵魂护盾恢复速率").defineInRange("soul_ward_recovery_rate",1.0,0,2147483647);
+
+        scythe_soul_stone_lvl = BUILDER.comment("镰锋魂石等级").defineInRange("scythe_soul_stone_lvl",1.0,0,2147483647);
+        scythe_soul_stone_time = BUILDER.comment("镰锋魂石时长").defineInRange("scythe_soul_stone_time",10.0,0,2147483647);
+        scythe_soul_stone_max_lvl = BUILDER.comment("镰锋魂石最高等级").defineInRange("scythe_soul_stone_max_lvl",11.0,0,2147483647);
+        scythe_soul_stone_att = BUILDER.comment("镰锋魂石熟练度").defineInRange("scythe_soul_stone_att",0.5,0,2147483647);
+
+        spirit_soul_stone_can = BUILDER.comment("精魂魂石是否可以击碎灵魂").define("spirit_soul_stone_can",true);
+        spirit_soul_stone = BUILDER.comment("精魂魂石精魂掠夺数额").defineInRange("spirit_soul_stone",1.0,0,2147483647);
+
+        arcana_soul_stone_time_max = BUILDER.comment("奥能魂石最高时长").defineInRange("arcana_soul_stone_max_time",3600.0,0,2147483647);
+        arcana_soul_stone_lvl_max = BUILDER.comment("奥能魂石最大等级").defineInRange("arcana_soul_stone_max_lvl",20.0,0,255);
+        arcana_soul_stone_time = BUILDER.comment("奥能魂石提升时长").defineInRange("arcana_soul_stone_time",30.0,0,2147483647);
+        arcana_soul_stone_lvl = BUILDER.comment("奥能魂石提升等级").defineInRange("arcana_soul_stone_lvl",1.0,0,255);
+        arcana_soul_stone_hp = BUILDER.comment("奥能魂石生命值阈值").defineInRange("arcana_soul_stone_hp",0.95,0,2147483647);
+
+        void_tablet_soul_stone_att_hp = BUILDER.comment("虚符魂石生命值").defineInRange("void_tablet_soul_stone_att_hp",0.2,0,2147483647);
+        void_tablet_soul_stone_att_magic = BUILDER.comment("虚符魂石法强").defineInRange("void_tablet_soul_stone_att_magic",0.1,0,2147483647);
+        void_tablet_soul_stone_att_staff = BUILDER.comment("虚符魂石法杖").defineInRange("void_tablet_soul_stone_att_staff",2.0,0,2147483647);
+        void_tablet_soul_stone_att_speed = BUILDER.comment("虚符魂石移速").defineInRange("void_tablet_soul_stone_att_speed",0.2,0,2147483647);
+        void_tablet_soul_stone_att_armor = BUILDER.comment("虚符魂石护甲韧性").defineInRange("void_tablet_soul_stone_att_armor",0.2,0,2147483647);
+
+        void_tablet_soul_stone_hit = BUILDER.comment("虚符魂石着火减伤").defineInRange("void_tablet_soul_stone_hit",0.15,0,2147483647);
+        void_tablet_soul_stone_time = BUILDER.comment("虚符魂石正面buff时长提升").defineInRange("void_tablet_soul_stone_time",1.0,0,2147483647);
+
+        void_tablet_soul_stone_hit_time_max = BUILDER.comment("虚符魂石静默最大时长").defineInRange("void_tablet_soul_stone_hit_time_max",60.0,0,2147483647);
+        void_tablet_soul_stone_hit_lvl_max = BUILDER.comment("虚符魂石静默最大等级").defineInRange("void_tablet_soul_stone_hit_lvl_max",10.0,0,2147483647);
+        void_tablet_soul_stone_hit_time = BUILDER.comment("虚符魂石静默提升时长").defineInRange("void_tablet_soul_stone_hit_time",15.0,0,2147483647);
+        void_tablet_soul_stone_hit_lvl = BUILDER.comment("虚符魂石静默提升等级").defineInRange("void_tablet_soul_stone_hit_lvl",1.0,0,2147483647);
+
+        void_tablet_soul_stone_kill_time_max = BUILDER.comment("虚符魂石献祭权能最大时长").defineInRange("void_tablet_soul_stone_kill_time_max",10.0,0,2147483647);
+        void_tablet_soul_stone_kill_lvl_max = BUILDER.comment("虚符魂石献祭权能最大等级").defineInRange("void_tablet_soul_stone_kill_lvl_max",4.0,0,2147483647);
+        void_tablet_soul_stone_kill_time = BUILDER.comment("虚符魂石献祭权能提升时长").defineInRange("void_tablet_soul_stone_kill_time",10.0,0,2147483647);
+        void_tablet_soul_stone_kill_lvl = BUILDER.comment("虚符魂石献祭权能提升等级").defineInRange("void_tablet_soul_stone_kill_lvl",1.0,0,2147483647);
+
+        tainted_soul_stone_soul_shield_b = BUILDER.comment("污秽魂石灵魂护盾稳固度").defineInRange("tainted_soul_stone_soul_shield_b",0.25,0,2147483647);
+        tainted_soul_stone_soul_shield_a = BUILDER.comment("污秽魂石灵魂护盾容量").defineInRange("tainted_soul_stone_soul_shield_a",6.0,0,2147483647);
+        tainted_soul_stone_magic = BUILDER.comment("污秽魂石法强").defineInRange("tainted_soul_stone_magic",0.2,0,2147483647);
+        tainted_soul_stone_buff_speed = BUILDER.comment("污秽魂石移动速度").defineInRange("tainted_soul_stone_buff_speed",0.2,0,2147483647);
+        tainted_soul_stone_buff_lvl = BUILDER.comment("污秽魂石反应护盾等级").defineInRange("tainted_soul_stone_buff_lvl",1.0,0,255);
+        tainted_soul_stone_buff_time = BUILDER.comment("污秽魂石反应护盾时长").defineInRange("tainted_soul_stone_buff_time",4.0,0,2147483647);
+        tainted_soul_stone_buff_chance = BUILDER.comment("污秽魂石反应护盾概率").defineInRange("tainted_soul_stone_buff_chance",0.3,0,2147483647);
+        tainted_soul_stone_time = BUILDER.comment("污秽魂石非正面状态时长降低").defineInRange("tainted_soul_stone_time",0.25,0,2147483647);
+        tainted_soul_stone_dig = BUILDER.comment("污秽魂石挖掘速度").defineInRange("tainted_soul_stone_dig",0.25,0,2147483647);
+        tainted_soul_stone_damage_up_number = BUILDER.comment("污秽魂石额外伤害提升数额").defineInRange("tainted_soul_stone_damage_up_number",1.00,0,2147483647);
+        tainted_soul_stone_damage_up_chance = BUILDER.comment("污秽魂石伤害额外提升概率").defineInRange("tainted_soul_stone_damage_up_chance",0.1,0,2147483647);
+        tainted_soul_stone_max_damage = BUILDER.comment("污秽魂石最大伤害").defineInRange("tainted_soul_stone_max_damage",1.2,0,2147483647);
+        tainted_soul_stone_min_damage = BUILDER.comment("污秽魂石最小伤害").defineInRange("tainted_soul_stone_min_damage",0.9,0,2147483647);
+        tainted_soul_stone_heal = BUILDER.comment("污秽魂石2s回血数额").defineInRange("tainted_soul_stone_heal",0.01,0,2147483647);
+
+        ifrits_embrace = BUILDER.comment("图腾魂石等级-火灵之拥").defineInRange("ifrits_embrace",1.0,0,255);
+        earthen_might = BUILDER.comment("图腾魂石等级-大地之威").defineInRange("earthen_might",1.0,0,255);
+        anglers_lure = BUILDER.comment("图腾魂石等级-渔夫之诱").defineInRange("anglers_lure",1.0,0,255);
+        aethers_charm = BUILDER.comment("图腾魂石等级-澄空之召").defineInRange("aethers_charm",1.0,0,255);
+        miners_rage = BUILDER.comment("图腾魂石等级-矿工之怒").defineInRange("miners_rage",1.0,0,255);
+        gaias_bulwark = BUILDER.comment("图腾魂石等级-盖亚之护").defineInRange("gaias_bulwark",1.0,0,255);
+        poseidons_grasp = BUILDER.comment("图腾魂石等级-海神之握").defineInRange("poseidons_grasp",1.0,0,255);
+        zephyrs_courage = BUILDER.comment("图腾魂石等级-西风之勇").defineInRange("zephyrs_courage",1.0,0,255);
+
+        starved_soul_stone_max_time = BUILDER.comment("饥馁魂石最高时长").defineInRange("starved_soul_stone_max_time",180.0,0,2147483647);
+        starved_soul_stone_max_lvl = BUILDER.comment("饥馁魂石最大等级").defineInRange("starved_soul_stone_max_lvl",10.0,0,255);
+        starved_soul_stone_time = BUILDER.comment("饥馁魂石提升时长").defineInRange("starved_soul_stone_time",30.0,0,2147483647);
+        starved_soul_stone_lvl = BUILDER.comment("饥馁魂石提升等级").defineInRange("starved_soul_stone_lvl",1.0,0,255);
+        starved_soul_stone_hp = BUILDER.comment("饥馁魂石生命值阈值").defineInRange("starved_soul_stone_hp",0.95,0,2147483647);
+
         zombie_summon_can = BUILDER.comment("尸巫魂石是否可以召唤").define("zombie_summon_can",true);
 
         track_range = BUILDER.comment("触发弹射物追踪时的追踪范围").defineInRange("track_range",32.0,0,2147483647);
@@ -977,7 +1134,7 @@ public class MyGoConfig {
     nether_apostle_soul_stone_damage_down = BUILDER.comment("诡使魂石减伤").defineInRange("nether_apostle_soul_stone_damage_down",0.25,0,2147483647);
     nether_apostle_soul_stone_range = BUILDER.comment("诡使魂石范围").defineInRange("nether_apostle_soul_stone_range",41.0,0,2147483647);
     nether_apostle_soul_stone_heal_time_fast = BUILDER.comment("诡使魂石回血间隔缩短").defineInRange("nether_apostle_soul_stone_heal_time_fast",0.5,0,2147483647);
-    nether_apostle_soul_stone_heal_number = BUILDER.comment("诡使魂石回血数额").defineInRange("nether_apostle_soul_stone_heal_number",0.3,0,2147483647);
+    nether_apostle_soul_stone_heal_number = BUILDER.comment("诡使魂石回血数额").defineInRange("nether_apostle_soul_stone_heal_number",0.1,0,2147483647);
     nether_apostle_soul_stone_heal_time = BUILDER.comment("诡使魂石回血间隔").defineInRange("nether_apostle_soul_stone_heal_time",2.0,0,2147483647);
 
     apostle_soul_stone_up = BUILDER.comment("使徒魂石半血额外回血倍率").defineInRange("apostle_soul_stone_up",1.5,0,2147483647);

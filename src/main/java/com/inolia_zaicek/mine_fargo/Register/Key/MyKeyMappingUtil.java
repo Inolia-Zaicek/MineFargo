@@ -9,6 +9,7 @@ public class MyKeyMappingUtil {
     public static KeyMapping KEYMAPPING;
     public static KeyMapping KEYMAPPING2;
     public static KeyMapping KEYMAPPING3;
+    public static KeyMapping KEYMAPPING4;
 
     //使用方法——FCAKeyMappingUtil.KEYMAPPING.isDown()
 

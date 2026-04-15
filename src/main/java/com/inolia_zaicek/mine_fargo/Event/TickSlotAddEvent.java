@@ -76,6 +76,9 @@ public class TickSlotAddEvent {
         if (MyGoConfig.can_slot_add.get() ) {
             if (livingEntity.level().getGameTime() % 20L == 0) {
                 int addNumber = 0;
+                if (ModList.get().isLoaded("malum")) {
+                    addNumber += 1;
+                }
                 if (ModList.get().isLoaded("alexscaves")) {
                     addNumber += 1;
                 }
@@ -121,7 +124,7 @@ public class TickSlotAddEvent {
                 if (ModList.get().isLoaded("traveloptics")) {
                     addNumber += 1;
                 }
-                if (ModList.get().isLoaded("alshanex_familiars")) {
+                if (ModList.get().isLoaded("familiarslib")) {
                     addNumber += 1;
                 }
                 if (ModList.get().isLoaded("gtbcs_geomancy_plus")) {

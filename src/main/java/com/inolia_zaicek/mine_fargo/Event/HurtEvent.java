@@ -31,11 +31,14 @@ import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.FluffyCloudSoul
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.QuestRamSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
 import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
+import com.inolia_zaicek.mine_fargo.Util.MyGoEntityHelper;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -187,8 +190,8 @@ public class HurtEvent {
                     //魔法
                     else if (event.getSource().is(WITCH_RESISTANT_TO)) {
                         number *= 1 - MyGoConfig.resistance_hostility_soul_stone_magic.get();
-                    } else if ((ModList.get().isLoaded("alshanex_familiars")
-                            && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                    } else if ((ModList.get().isLoaded("familiarslib")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                     ) || (ModList.get().isLoaded("traveloptics")
                             && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                     ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -272,8 +275,8 @@ public class HurtEvent {
                     xianShang = Math.min(1, MyGoConfig.apostle_soul_stone_damage_restriction.get());
                     if (event.getSource().is(WITCH_RESISTANT_TO)) {
                         number *= 1 - MyGoConfig.apostle_soul_stone_damage_down.get();
-                    } else if ((ModList.get().isLoaded("alshanex_familiars")
-                            && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                    } else if ((ModList.get().isLoaded("familiarslib")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                     ) || (ModList.get().isLoaded("traveloptics")
                             && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                     ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -345,8 +348,8 @@ public class HurtEvent {
                 if (MyGoUtil.hasTwilightForest(attacked, QuestRamSoulStone.get())) {
                     if (event.getSource().is(WITCH_RESISTANT_TO)) {
                         number *= 1 - MyGoConfig.quest_ram_soul_stone.get();
-                    } else if ((ModList.get().isLoaded("alshanex_familiars")
-                            && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                    } else if ((ModList.get().isLoaded("familiarslib")
+                            && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                     ) || (ModList.get().isLoaded("traveloptics")
                             && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                     ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -430,6 +433,67 @@ public class HurtEvent {
                     number *= 1 - MyGoConfig.endersent_soul_stone.get();
                 }
             }
+            //灵灾
+            if (ModList.get().isLoaded("malum")) {
+                //镰锋
+                if(MyGoUtil.hasMalum(attacked, ScytheSoulStone.get()) ) {
+                    if (attacked.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "wicked_intent"))))) {
+                        //邪恶意图
+                        MobEffectInstance effect1 = attacked.getEffect(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "wicked_intent")))
+                        );
+                        if (effect1 != null) {
+                            MyGoEntityHelper.amplifyEffect(effect1, attacked, (int) (MyGoConfig.scythe_soul_stone_lvl.get() * 1), (int) (MyGoConfig.scythe_soul_stone_max_lvl.get() - 1));
+                            MyGoEntityHelper.extendEffect(effect1, attacked, (int) (MyGoConfig.scythe_soul_stone_time.get() * 20), (int) (MyGoConfig.scythe_soul_stone_time.get() * 20));
+                        }
+                    }else{
+                        attacked.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "wicked_intent")))
+                                ,(int)(MyGoConfig.scythe_soul_stone_time.get()*20),(int)(MyGoConfig.scythe_soul_stone_lvl.get()-1)
+                        ));
+                    }
+                }
+                //污秽魂石buff
+                if (MyGoUtil.hasMalum(attacked, TaintedSoulStone.get())&&random.nextInt(100)<MyGoConfig.tainted_soul_stone_buff_chance.get()*100) {
+                    attacked.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "reactive_shielding")))
+                            ,(int)(MyGoConfig.tainted_soul_stone_buff_time.get()*20),(int)(MyGoConfig.tainted_soul_stone_buff_lvl.get()-1)
+                    ));
+                }
+                if (MyGoUtil.hasMalum(attacked, TaintedSoulStone.get())){
+                    //静默
+                    if(event.getSource().getEntity() instanceof LivingEntity attacker) {
+                        attacker.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                new ResourceLocation("malum", "silenced")))
+                                , (int) (MyGoConfig.void_tablet_soul_stone_hit_time.get() * 20), (int)(MyGoConfig.void_tablet_soul_stone_hit_lvl.get()-1) ));
+                        if (!EntityType.getKey(attacker.getType()).toString().equals("eeeabsmobs:immortal") && !attacker.hasEffect(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(
+                                        "malum", "silenced")))
+                        )) {
+                            //没buff强上
+                            var map = attacker.getActiveEffectsMap();
+                            map.put(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(
+                                            "malum", "silenced")))
+                                    , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                            new ResourceLocation("malum", "silenced")))
+                                            , (int) (MyGoConfig.void_tablet_soul_stone_hit_time.get() * 20), (int)(MyGoConfig.void_tablet_soul_stone_hit_lvl.get()-1) ));
+                        }
+                        //有buff
+                        if(attacker.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "silenced"))))){
+                            MobEffectInstance effect = attacker.getEffect(
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "silenced")))
+                            );
+                            if (effect != null) {
+                            MyGoEntityHelper.amplifyEffect(effect,attacker,(int)(MyGoConfig.void_tablet_soul_stone_hit_lvl.get()*1),(int)(MyGoConfig.void_tablet_soul_stone_hit_lvl_max.get()-1));
+                            MyGoEntityHelper.extendEffect(effect,attacker,(int) (MyGoConfig.void_tablet_soul_stone_hit_time.get() * 20),(int)(MyGoConfig.void_tablet_soul_stone_hit_time_max.get()*20));
+                            }
+                        }
+                    }
+                    if(event.getSource().is(IS_FIRE) || attacked.getRemainingFireTicks()>0 ){
+                        number *= 1-MyGoConfig.void_tablet_soul_stone_hit.get();
+                    }
+                }
+            }
             //诡厄
             if (ModList.get().isLoaded("goety")) {
                 //随从减伤
@@ -511,6 +575,11 @@ public class HurtEvent {
                 }
             }
 
+            if (ModList.get().isLoaded("enigmaticlegacy")) {
+                if (MyGoUtil.hasEnigmaticLegacy(attacked, EtheriumSoulStone.get())) {
+                    number *= 1 - MyGoConfig.etherium_soul_stone_damage.get();
+                }
+            }
             if (ModList.get().isLoaded("sons_of_sins")) {
                 if (MyGoUtil.hasSonsOfSins(attacked, GreedSinsSoulStone.get()) && event.getSource().is(DamageTypes.IN_WALL)) {
                     number *= 1 - MyGoConfig.greed_sin_soul_stone_down.get();
@@ -605,6 +674,70 @@ public class HurtEvent {
             }
             //随从锁定
             boolean orderOwnable = false;
+            //灵灾
+            if (ModList.get().isLoaded("malum")) {
+                //污秽魂石增伤
+                if(MyGoUtil.hasMalum(attacker, StarvedSoulStone.get())){
+                    final RandomSource randomSource = attacker.getRandom();
+                    number += Mth.nextDouble(randomSource,
+                            MyGoConfig.tainted_soul_stone_min_damage.get(), MyGoConfig.tainted_soul_stone_max_damage.get());
+                    if (random.nextFloat() < MyGoConfig.tainted_soul_stone_damage_up_chance.get()) {
+                        number += MyGoConfig.tainted_soul_stone_damage_up_number.get();
+                    }
+                }
+                //饥馁魂石【暴食
+                if(MyGoUtil.hasMalum(attacker, StarvedSoulStone.get()) && (attacked.getHealth()/attacked.getMaxHealth()>=MyGoConfig.starved_soul_stone_hp.get()) ){
+                    if(attacker.hasEffect(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "gluttony")))
+                    )){
+                        int buffLevel = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                new ResourceLocation("malum", "gluttony"))))).getAmplifier();
+                        int buffTime = Objects.requireNonNull(attacker.getEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                                new ResourceLocation("malum", "gluttony"))))).getDuration();
+                        attacker.addEffect(new MobEffectInstance(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "gluttony")))
+                                ,(int)(Math.min((MyGoConfig.starved_soul_stone_max_time.get()*20),(MyGoConfig.starved_soul_stone_time.get()*20+buffTime))),
+                                (int)(Math.min((MyGoConfig.starved_soul_stone_max_lvl.get()-1),(MyGoConfig.starved_soul_stone_lvl.get()+buffLevel) ))
+                        ));
+                    }else{
+                        attacker.addEffect(new MobEffectInstance(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "gluttony")))
+                                ,(int)(MyGoConfig.starved_soul_stone_time.get()*20),(int)(MyGoConfig.starved_soul_stone_lvl.get()-1)
+                        ));
+                    }
+                }
+                //奥能
+                if(MyGoUtil.hasMalum(attacker, ArcanaSoulStone.get()) && (attacked.getHealth()/attacked.getMaxHealth()>=MyGoConfig.arcana_soul_stone_hp.get()) ) {
+                    //奥术回响
+                    if (attacker.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "echoing_arcana"))))) {
+                        MobEffectInstance effect1 = attacker.getEffect(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "echoing_arcana")))
+                        );
+                        if (effect1 != null) {
+                            MyGoEntityHelper.amplifyEffect(effect1, attacker, (int) (MyGoConfig.arcana_soul_stone_lvl.get() * 1), (int) (MyGoConfig.arcana_soul_stone_lvl_max.get() - 1));
+                            MyGoEntityHelper.extendEffect(effect1, attacker, (int) (MyGoConfig.arcana_soul_stone_time.get() * 20), (int) (MyGoConfig.arcana_soul_stone_time_max.get() * 20));
+                        }
+                    }else{
+                        attacker.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "echoing_arcana")))
+                                ,(int)(MyGoConfig.arcana_soul_stone_time.get()*20),(int)(MyGoConfig.arcana_soul_stone_lvl.get()-1)
+                        ));
+                    }
+                    //瘤态增生
+                    if (attacker.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "cancerous_growth"))))) {
+                        MobEffectInstance effect2 = attacker.getEffect(
+                                Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "cancerous_growth")))
+                        );
+                        if (effect2 != null) {
+                            MyGoEntityHelper.amplifyEffect(effect2, attacker, (int) (MyGoConfig.arcana_soul_stone_lvl.get() * 1), (int) (MyGoConfig.arcana_soul_stone_lvl_max.get() - 1));
+                            MyGoEntityHelper.extendEffect(effect2, attacker, (int) (MyGoConfig.arcana_soul_stone_time.get() * 20), (int) (MyGoConfig.arcana_soul_stone_time_max.get() * 20));
+                        }
+                    }else{
+                        attacker.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "cancerous_growth")))
+                                ,(int)(MyGoConfig.arcana_soul_stone_time.get()*20),(int)(MyGoConfig.arcana_soul_stone_lvl.get()-1)
+                        ));
+                    }
+                }
+            }
             //莱特兰
             if (ModList.get().isLoaded("l2hostility")) {
                 if (MyGoUtil.hasL2Hostility(attacker, UltraHostilitySoulStone.get())) {
@@ -1116,8 +1249,14 @@ public class HurtEvent {
             }
             //结算部分
             float damage = (float) ((event.getAmount() * number + fixedNumber) * overNumber);
-            //吸血
+            //吸血【最终数值
             double heal = 0;
+            //神秘遗物
+            if (ModList.get().isLoaded("enigmaticlegacy")) {
+                if (MyGoUtil.hasEnigmaticLegacy(attacked, EtheriumSoulStone.get())) {
+                    heal += MyGoConfig.abyss_soul_stone_heal.get()*damage;
+                }
+            }
             //诡厄
             if (ModList.get().isLoaded("goety")) {
                 if (MyGoUtil.hasGoetyEntity(attacker, ApostleSoulStone.get())) {
@@ -1183,14 +1322,15 @@ public class HurtEvent {
                             mobs.invulnerableTime = 0;
                             mobs.hurt(DamageType, (float) (damage * MyGoConfig.frostbitten_golem_soul_stone_damage.get()));
                             mobs.addEffect(new MobEffectInstance(
-                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "freeze")))
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("minecraft", "slowness")))
                                     , (int) (MyGoConfig.frostbitten_golem_soul_stone_time.get() * 20), (int) (MyGoConfig.frostbitten_golem_soul_stone_level.get() - 1)));
                             if (!EntityType.getKey(mobs.getType()).toString().equals("eeeabsmobs:immortal") && !mobs.hasEffect(
-                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "freeze")))
+                                    Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("minecraft", "slowness")))
                             )) {
-                                map.put(
-                                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "freeze")))
-                                        , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "freeze"))), (int) (MyGoConfig.frostbitten_golem_soul_stone_time.get() * 20), (int) (MyGoConfig.frostbitten_golem_soul_stone_level.get() - 1)));
+                                var maps = mobs.getActiveEffectsMap();
+                                maps.put(
+                                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("minecraft", "slowness")))
+                                        , new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("minecraft", "slowness"))), (int) (MyGoConfig.frostbitten_golem_soul_stone_time.get() * 20), (int) (MyGoConfig.frostbitten_golem_soul_stone_level.get() - 1)));
                             }
                         }
                     }

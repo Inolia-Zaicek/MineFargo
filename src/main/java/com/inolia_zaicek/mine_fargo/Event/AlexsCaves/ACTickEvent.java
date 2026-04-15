@@ -9,7 +9,11 @@ import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.ForlornSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.PrimitiveSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.AlexsCaves.ToxicSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
+import com.inolia_zaicek.mine_fargo.Network.Packet.ClientToServerPacket;
+import com.inolia_zaicek.mine_fargo.Network.TerraRayChannel;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
+
+import static com.inolia_zaicek.mine_fargo.Event.TickEvent.forlorn_soul_stone_c_to_s;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -56,37 +60,32 @@ public class ACTickEvent {
             if (MyGoUtil.hasAlexsCaves(livingEntity, PrimitiveSoulStone.get())) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "rage"))),
-                        100, (int)(MyGoConfig.primitive_soul_stone_buff.get()-1) ));
+                        100, (int) (MyGoConfig.primitive_soul_stone_buff.get() - 1)));
             }
-            if (livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) > 0) {
-                int aaa = livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff);
-                livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff,
-                        livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) - 1);
-            }
-            if(MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStone.get())&&livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff)==0&&ACKeybindRegistry.KEY_SPECIAL_ABILITY.isDown()){
-                livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff,(int) (MyGoConfig.forlorn_soul_stone_buff.get()*20*2) );
-                livingEntity.addEffect(new MobEffectInstance(
-                        Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "darkness_incarnate"))),
-                        (int) (MyGoConfig.forlorn_soul_stone_time.get()*20), 0 ));
-            }
-        }
-    }
-    public static void killGrottoGhostsFor(LivingEntity livingEntity, boolean justTheClosest) {
-        DinosaurSpiritEntity closest = null;
-
-        for(DinosaurSpiritEntity spirit : livingEntity.level().getEntitiesOfClass(DinosaurSpiritEntity.class, livingEntity.getBoundingBox().inflate((double)30.0F, (double)30.0F, (double)30.0F))) {
-            if (spirit.getPlayerUUID().equals(livingEntity.getUUID()) && spirit.getDinosaurType() == DinosaurSpiritEntity.DinosaurType.GROTTOCERATOPS && !spirit.isFading()) {
-                if (!justTheClosest) {
-                    spirit.setFading(true);
-                } else if (closest == null || closest.distanceTo(livingEntity) > spirit.distanceTo(closest)) {
-                    closest = spirit;
+            //异寂——客户端or服务端
+            if (livingEntity.level().isClientSide()) {
+                if (MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStone.get()) && livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) == 0 &&
+                        ACKeybindRegistry.KEY_SPECIAL_ABILITY.isDown()) {
+                    //客户端冷却
+                    livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff, (int) (MyGoConfig.forlorn_soul_stone_buff.get() * 20 * 2));
+                    //发包
+                    TerraRayChannel.CHANNEL.sendToServer(new ClientToServerPacket(5));
+                }
+                //异寂——冷却
+                if (livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) > 0) {
+                    livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff,
+                            livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) - 1);
+                }
+            } else {
+                //收到信息，归零
+                if (livingEntity.getPersistentData().getInt(forlorn_soul_stone_c_to_s) > 0) {
+                    livingEntity.getPersistentData().putInt(forlorn_soul_stone_c_to_s, 0);
+                    //服务端，上buff，冷却处理位于客户端
+                    livingEntity.addEffect(new MobEffectInstance(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "darkness_incarnate"))),
+                            (int) (MyGoConfig.forlorn_soul_stone_time.get() * 20), 0));
                 }
             }
-        }
-
-        if (justTheClosest && closest != null) {
-            closest.setFading(true);
-        } else {
         }
     }
 }

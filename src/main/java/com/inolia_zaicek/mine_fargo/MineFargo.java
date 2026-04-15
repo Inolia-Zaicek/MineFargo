@@ -18,6 +18,7 @@ import com.inolia_zaicek.mine_fargo.Event.Iron.FEHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.IronHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Iron.TOHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.L2.L2Hurt;
+import com.inolia_zaicek.mine_fargo.Event.Malum.MalumHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtByGunEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczHurtEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
@@ -98,12 +99,15 @@ public class MineFargo {
 
         MinecraftForge.EVENT_BUS.register(InoIntegrationPackEvent.class);
 
+        if (ModList.get().isLoaded("malum")) {
+            MinecraftForge.EVENT_BUS.register(MalumHurtEvent.class);
+        }
         if (ModList.get().isLoaded("irons_spellbooks")) {
             MinecraftForge.EVENT_BUS.register(IronHurtEvent.class);
             if (ModList.get().isLoaded("traveloptics")) {
                 MinecraftForge.EVENT_BUS.register(TOHurtEvent.class);
             }
-            if (ModList.get().isLoaded("alshanex_familiars")) {
+            if (ModList.get().isLoaded("familiarslib")) {
                 MinecraftForge.EVENT_BUS.register(AFHurtEvent.class);
             }
             if (ModList.get().isLoaded("fantasy_ending")) {
@@ -159,11 +163,7 @@ public class MineFargo {
 
     @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event){
-        event.enqueueWork(() -> {
-            if(ModList.get().isLoaded("botania")) {
-                TerraRayChannel.init();
-            }
-        });
+        event.enqueueWork(TerraRayChannel::init);
     }
 
     // 客户端设置事件，用于注册渲染器和GUI屏幕

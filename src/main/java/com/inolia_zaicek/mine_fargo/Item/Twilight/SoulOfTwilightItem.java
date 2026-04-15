@@ -80,7 +80,18 @@ public class SoulOfTwilightItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTwilight(slotContext.entity(), SoulOfTwilight.get());
+        return ! (MyGoUtil.hasTwilight(slotContext.entity(), NagaSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), ZombieScepterSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), LifedrainSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), FortificationSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), TwilightLichSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), MinoshroomSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), TwilightHydraSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), KnightPhantomSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), UrGhastSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), AlphaYetiSoulStone.get())
+                ||MyGoUtil.hasTwilight(slotContext.entity(), SnowQueenSoulStone.get())
+        );
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {

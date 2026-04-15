@@ -53,6 +53,13 @@ public class SoulOfGoetyItemItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasGoetyItem(slotContext.entity(), SoulOfGoetyItem.get());
+        return ! (MyGoUtil.hasGoetyItem(slotContext.entity(), EctoplasmSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), GoetyFocusSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), OrderAboutSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), EscortSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), BrewSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), LegionSoulStone.get())
+                ||MyGoUtil.hasGoetyItem(slotContext.entity(), GoetyDarkSoulStone.get())
+        );
     }
 }

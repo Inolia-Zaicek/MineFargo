@@ -45,9 +45,9 @@ public class SoundSectSoulStoneItem extends Item implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        if (ModList.get().isLoaded("alshanex_familiars")) {
+        if (ModList.get().isLoaded("familiarslib")) {
             atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(
-                            new ResourceLocation("alshanex_familiars", "sound_spell_power")))
+                            new ResourceLocation("familiarslib", "sound_spell_power")))
                     , new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.sound_sect_soul_stone_power.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         }
         atts.put(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("irons_spellbooks", "max_mana"))),
@@ -56,6 +56,6 @@ public class SoundSectSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), SoundSectSoulStone.get());
+        return ! MyGoUtil.isCurioEquipped(slotContext.entity(), SoundSectSoulStone.get());
     }
 }

@@ -75,6 +75,15 @@ public class SoulOfOresItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasOre(slotContext.entity(), SoulOfOres.get());
+        return ! (MyGoUtil.hasOre(slotContext.entity(), CoalSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), CopperSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), LapisLazuliSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), IronSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), RedstoneSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), GoldSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), EmeraldSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), DiamondSoulStone.get())
+                ||MyGoUtil.hasOre(slotContext.entity(), NetheriteSoulStone.get())
+        );
     }
 }

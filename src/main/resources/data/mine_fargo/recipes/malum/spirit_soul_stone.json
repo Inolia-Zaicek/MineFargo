@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HAB",
+    "GOC",
+    "FED"
+  ],
+  "key": {
+    "A": {
+      "item": "malum:sacred_spirit"
+    },
+    "B": {
+      "item": "malum:wicked_spirit"
+    },
+    "C": {
+      "item": "malum:arcane_spirit"
+    },
+    "D": {
+      "item": "malum:eldritch_spirit"
+    },
+    "E": {
+      "item": "malum:earthen_spirit"
+    },
+    "F": {
+      "item": "malum:infernal_spirit"
+    },
+    "G": {
+      "item": "malum:aerial_spirit"
+    },
+    "H": {
+      "item": "malum:aqueous_spirit"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:spirit_soul_stone",
+    "count": 1
+  }
+}

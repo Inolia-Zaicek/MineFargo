@@ -29,6 +29,11 @@ public class BreakSpeedEvent {
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
         LivingEntity livingEntity =  event.getEntity();
         float number = 0;
+        if (ModList.get().isLoaded("malum")) {
+            if (MyGoUtil.hasMalum(livingEntity, TaintedSoulStone.get()) ) {
+                number+=MyGoConfig.tainted_soul_stone_dig.get();
+            }
+        }
         if (MyGoUtil.hasOre(livingEntity, MyGoItemRegister.CopperSoulStone.get())) {
             number+=MyGoConfig.copper_soul_stone.get();
         }

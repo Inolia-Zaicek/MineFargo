@@ -74,6 +74,13 @@ public class SoulOfSonsOfSinsItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSonsOfSins(slotContext.entity(), SoulOfSonsOfSins.get());
+        return ! (MyGoUtil.hasSonsOfSins(slotContext.entity(), EnvySinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), GluttonySinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), GreedSinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), LustSinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), PrideSinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), SlothSinsSoulStone.get())
+                ||MyGoUtil.hasSonsOfSins(slotContext.entity(), WrathSinsSoulStone.get())
+        );
     }
 }

@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HAB",
+    "GOC",
+    "FED"
+  ],
+  "key": {
+    "A": {
+      "item": "malum:rune_of_motion"
+    },
+    "B": {
+      "item": "malum:rune_of_loyalty"
+    },
+    "C": {
+      "item": "malum:rune_of_warding"
+    },
+    "D": {
+      "item": "malum:rune_of_haste"
+    },
+    "E": {
+      "item": "malum:rune_of_the_aether"
+    },
+    "F": {
+      "item": "malum:rune_of_the_seas"
+    },
+    "G": {
+      "item": "malum:rune_of_the_arena"
+    },
+    "H": {
+      "item": "malum:rune_of_the_hells"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:totemic_soul_stone",
+    "count": 1
+  }
+}

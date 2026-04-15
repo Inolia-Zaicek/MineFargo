@@ -48,6 +48,6 @@ public class SirenSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), SirenSoulStone.get());
+        return ! MyGoUtil.isCurioEquipped(slotContext.entity(), SirenSoulStone.get());
     }
 }

@@ -14,7 +14,7 @@ public class TickRepairEvent2 {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStone.get()) &&
+        if (MyGoUtil.hasSupernatural(player, MendingSoulStone.get()) &&
                 player.level().getGameTime() % (20*MyGoConfig.mending_soul_stone_time.get()) == 0) {
             ItemStack mainHandItem = player.getMainHandItem();
             ItemStack offHandItem = player.getOffhandItem();

@@ -54,6 +54,10 @@ public class SoulOfBotaniaItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasBotania(slotContext.entity(), SoulOfBotania.get());
+        return ! (MyGoUtil.hasBotania(slotContext.entity(), ManasteelSoulStone.get())
+                ||MyGoUtil.hasBotania(slotContext.entity(), ElementiumSoulStone.get())
+                ||MyGoUtil.hasBotania(slotContext.entity(), TerrasteelSoulStone.get())
+                ||MyGoUtil.hasBotania(slotContext.entity(), GaiaSoulStone.get())
+        );
     }
 }

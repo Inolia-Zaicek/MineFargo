@@ -8,6 +8,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.ArrayList;
 
 public class MyGoEntityHelper {
+    //————————————————————————————————————————buffID————————————————————实体————————————————————提升多少级——————不超过多少级
     public static void amplifyEffect(MobEffectInstance instance, LivingEntity target, int addedAmplifier, int cap) {
         instance.amplifier = Math.max(Math.min(cap, instance.getAmplifier() + addedAmplifier), instance.getAmplifier());
         syncEffect(instance, target);
@@ -18,6 +19,7 @@ public class MyGoEntityHelper {
         syncEffect(instance, target);
     }
 
+    //————————————————————————————————————————buffID————————————————————实体————————————————————提升多少时间——————不超过多少时间
     public static void extendEffect(MobEffectInstance instance, LivingEntity target, int addedDuration, int cap) {
         instance.duration = Math.max(Math.min(cap, instance.getDuration() + addedDuration), instance.getDuration());
         syncEffect(instance, target);

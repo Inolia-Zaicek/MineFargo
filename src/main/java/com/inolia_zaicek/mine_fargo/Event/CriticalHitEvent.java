@@ -8,6 +8,7 @@ import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.Event;
@@ -54,7 +55,7 @@ public class CriticalHitEvent {
                     livingEntity.addEffect(new MobEffectInstance(
                             Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "bleeding")))
                             , (int) (MyGoConfig.posessed_paladin_soul_stone_time.get() * 20), 0));
-                    if (!livingEntity.hasEffect(
+                    if (!EntityType.getKey(livingEntity.getType()).toString().equals("eeeabsmobs:immortal") &&  !livingEntity.hasEffect(
                             Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("legendary_monsters", "bleeding")))
                     )) {
                         var map = livingEntity.getActiveEffectsMap();

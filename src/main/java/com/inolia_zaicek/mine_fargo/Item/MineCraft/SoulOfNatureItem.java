@@ -68,6 +68,14 @@ public class SoulOfNatureItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasNature(slotContext.entity(), SoulOfNature.get());
+        return ! (MyGoUtil.hasNature(slotContext.entity(), SnowSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), LavaSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), MushroomSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), NetherSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), EnderSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), OceanSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), LushSoulStone.get())
+                ||MyGoUtil.hasNature(slotContext.entity(), ForestSoulStone.get())
+        );
     }
 }

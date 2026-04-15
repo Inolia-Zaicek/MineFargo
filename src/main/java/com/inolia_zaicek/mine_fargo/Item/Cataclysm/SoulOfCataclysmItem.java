@@ -82,6 +82,14 @@ public class SoulOfCataclysmItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.SoulOfCataclysm.get());
+        return ! (MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.IgnisSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.TheLeviathanSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.MaledictusSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.EnderGuardianSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.AncientRemnantSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.TheHarbingerSoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.NetheriteMonstrositySoulStone.get())
+                ||MyGoUtil.hasCataclysm(slotContext.entity(), MyGoItemRegister.ScyllaSoulStone.get())
+        );
     }
 }

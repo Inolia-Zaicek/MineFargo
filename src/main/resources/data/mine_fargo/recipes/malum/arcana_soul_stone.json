@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "malum:ring_of_echoing_arcana"
+    },
+    "B": {
+      "item": "malum:ring_of_growing_flesh"
+    },
+    "C": {
+      "item": "malum:ring_of_the_endless_well"
+    },
+    "D": {
+      "item": "malum:necklace_of_the_watcher"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:arcana_soul_stone",
+    "count": 1
+  }
+}

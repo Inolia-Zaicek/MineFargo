@@ -43,8 +43,8 @@ public class FEHurtEvent {
                         && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                 ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
                         && event.getSource().type().msgId().equals(new ResourceLocation("gtbcs_geomancy_plus", "geo_magic"))
-                ) || (ModList.get().isLoaded("alshanex_familiars")
-                                && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                ) || (ModList.get().isLoaded("familiarslib")
+                                && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                 )
                 ) {
                     number += MyGoConfig.fantasy_sect_soul_stone_damage.get()*MyGoConfig.fantacy_sect_soul_stone_other.get();

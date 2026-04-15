@@ -1,0 +1,47 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HAB",
+    "GOC",
+    "FED"
+  ],
+  "key": {
+    "A": {
+      "item": "malum:rune_of_idle_restoration"
+    },
+    "B": {
+      "item": "malum:rune_of_culling"
+    },
+    "C": {
+      "item": "malum:rune_of_reinforcement"
+    },
+    "D": {
+      "item": "malum:rune_of_volatile_distortion"
+    },
+    "E": {
+      "item": "malum:rune_of_dexterity"
+    },
+    "F": {
+      "item": "malum:rune_of_aliment_cleansing"
+    },
+    "G": {
+      "item": "malum:rune_of_reactive_shielding"
+    },
+    "H": {
+      "item": "malum:rune_of_fervor"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:tainted_soul_stone",
+    "count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "enigmaticlegacy"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "COC",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "enigmaticlegacy:eldritch_pan"
+    },
+    "B": {
+      "item": "enigmaticlegacy:eldritch_amulet"
+    },
+    "C": {
+      "item": "enigmaticlegacy:astral_dust"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:abyss_soul_stone",
+    "count": 1
+  }
+}

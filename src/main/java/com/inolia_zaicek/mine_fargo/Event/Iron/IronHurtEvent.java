@@ -104,8 +104,8 @@ public class IronHurtEvent {
                         nature = true;
                         upTime *= MyGoConfig.nature_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -173,8 +173,8 @@ public class IronHurtEvent {
                         number += MyGoConfig.fire_sect_soul_stone_fire_min_damage.get() + fire * fireTime * MyGoConfig.fire_sect_soul_stone_other.get();
                         //源流
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -205,8 +205,8 @@ public class IronHurtEvent {
                         time *= MyGoConfig.ice_sect_soul_stone_other.get();
                         number += MyGoConfig.ice_sect_soul_stone_ice_damage.get() * MyGoConfig.ice_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -252,8 +252,8 @@ public class IronHurtEvent {
                         time *= MyGoConfig.holy_sect_soul_stone_other.get();
                         number += MyGoConfig.holy_sect_soul_stone_damage.get()*MyGoConfig.holy_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -299,8 +299,8 @@ public class IronHurtEvent {
                         time*=MyGoConfig.eldritch_sect_soul_stone_other.get();
                         number += MyGoConfig.eldritch_sect_soul_stone_damage.get()*MyGoConfig.eldritch_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -355,8 +355,8 @@ public class IronHurtEvent {
                         time *= MyGoConfig.ender_sect_soul_stone_other.get();
                         number += MyGoConfig.ender_sect_soul_stone_damage.get() * MyGoConfig.ender_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -392,8 +392,8 @@ public class IronHurtEvent {
                     ) {
                         number += MyGoConfig.evocation_sect_soul_stone_owner_damage.get() * MyGoConfig.evocation_sect_soul_stone_other.get();
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -429,8 +429,8 @@ public class IronHurtEvent {
                                 Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("irons_spellbooks", "charged"))),
                                 time,(int)(MyGoConfig.lightning_sect_soul_stone_lvl.get()-1) ));
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")
@@ -473,8 +473,8 @@ public class IronHurtEvent {
                             }
                         }
                     } else if (
-                            (ModList.get().isLoaded("alshanex_familiars")
-                                    && event.getSource().type().msgId().equals(new ResourceLocation("alshanex_familiars", "sound_magic"))
+                            (ModList.get().isLoaded("familiarslib")
+                                    && event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                             ) || (ModList.get().isLoaded("traveloptics")
                                     && event.getSource().type().msgId().equals(new ResourceLocation("traveloptics", "aqua_magic"))
                             ) || (ModList.get().isLoaded("gtbcs_geomancy_plus")

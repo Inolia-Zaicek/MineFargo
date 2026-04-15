@@ -1,0 +1,40 @@
+{
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "malum"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "mine_fargo:starved_soul_stone"
+        },
+        {
+            "item": "mine_fargo:totemic_soul_stone"
+        },
+        {
+            "item": "mine_fargo:tainted_soul_stone"
+        },
+        {
+            "item": "mine_fargo:void_tablet_soul_stone"
+        },
+        {
+            "item": "mine_fargo:arcana_soul_stone"
+        },
+        {
+            "item": "mine_fargo:spirit_soul_stone"
+        },
+        {
+            "item": "mine_fargo:scythe_soul_stone"
+        },
+        {
+            "item": "mine_fargo:soul_ward_soul_stone"
+        }
+    ],
+    "result": {
+        "item": "mine_fargo:soul_of_malum",
+        "count": 1
+    }
+}

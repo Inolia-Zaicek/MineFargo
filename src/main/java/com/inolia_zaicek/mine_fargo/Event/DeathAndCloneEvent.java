@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Cataclysm.MaledictusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.ApostleSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.UndyingSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.MineFargo;
+import com.inolia_zaicek.mine_fargo.Util.MyGoEntityHelper;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.nbt.*;
@@ -37,6 +38,25 @@ public class DeathAndCloneEvent {
     //全局事件死亡
     public static void LivingDeath(LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntity();
+        //灵灾击杀
+        if (ModList.get().isLoaded("malum")) {
+            if(event.getSource().getEntity() instanceof LivingEntity attacker&&MyGoUtil.hasMalum(attacker, TaintedSoulStone.get())){
+
+                if(attacker.hasEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "sacrificial_empowerment"))))){
+                    MobEffectInstance effect = attacker.getEffect(
+                            Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("malum", "sacrificial_empowerment")))
+                    );
+                    if (effect != null) {
+                        MyGoEntityHelper.amplifyEffect(effect,attacker,(int)(MyGoConfig.void_tablet_soul_stone_kill_lvl.get()*1),(int)(MyGoConfig.void_tablet_soul_stone_kill_lvl_max.get()*1));
+                        MyGoEntityHelper.extendEffect(effect,attacker,(int) (MyGoConfig.void_tablet_soul_stone_kill_time.get() * 20),(int)(MyGoConfig.void_tablet_soul_stone_kill_time_max.get()*20));
+                    }
+                }else{
+                    attacker.addEffect(new MobEffectInstance(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(
+                            new ResourceLocation("malum", "sacrificial_empowerment")))
+                            , (int) (MyGoConfig.void_tablet_soul_stone_kill_time.get() * 20), (int)(MyGoConfig.void_tablet_soul_stone_kill_lvl.get()-1) ));
+                }
+            }
+        }
         //替死
         if (MyGoUtil.hasSupernatural(livingEntity, UndyingSoulStone.get()) && livingEntity.getPersistentData().getInt(undying_soul_stone) == 0 ) {
             livingEntity.getPersistentData().putInt(undying_soul_stone, (int) (MyGoConfig.undying_soul_stone_cooldown.get() * 20 * 2));
@@ -112,7 +132,10 @@ public class DeathAndCloneEvent {
                 "mine_fargo:gluttony_sin_soul_stone",
                 "mine_fargo:magnet_soul_stone",
                 "magnet_soul_stone_open",
-                "mine_fargo:magnet_soul_stone_open"
+                "mine_fargo:magnet_soul_stone_open",
+                "mine_fargo:projectile_tracking_capability",
+                "projectile_tracking_capability_open",
+                "mine_fargo:projectile_tracking_capability_open"
         };
 
         for (String key : keys) {

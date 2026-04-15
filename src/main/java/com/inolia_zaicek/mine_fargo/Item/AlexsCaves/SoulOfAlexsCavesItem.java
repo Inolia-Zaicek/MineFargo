@@ -65,7 +65,13 @@ public class SoulOfAlexsCavesItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasAlexsCaves(slotContext.entity(), SoulOfAlexsCaves.get());
+        return ! (MyGoUtil.hasAlexsCaves(slotContext.entity(), MagneticSoulStone.get())
+                ||MyGoUtil.hasAlexsCaves(slotContext.entity(), PrimitiveSoulStone.get())
+                ||MyGoUtil.hasAlexsCaves(slotContext.entity(), ToxicSoulStone.get())
+                ||MyGoUtil.hasAlexsCaves(slotContext.entity(), AbyssalChasmSoulStone.get())
+                ||MyGoUtil.hasAlexsCaves(slotContext.entity(), ForlornSoulStone.get())
+                ||MyGoUtil.hasAlexsCaves(slotContext.entity(), CandyCavitySoulStone.get())
+        );
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {

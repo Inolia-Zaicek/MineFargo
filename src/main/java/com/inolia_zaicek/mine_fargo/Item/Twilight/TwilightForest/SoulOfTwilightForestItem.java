@@ -55,11 +55,18 @@ public class SoulOfTwilightForestItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasTwilightForest(slotContext.entity(), SoulOfTwilightForest.get());
+        return ! (MyGoUtil.hasTwilightForest(slotContext.entity(), IronwoodSoulStone.get())
+                ||MyGoUtil.hasTwilightForest(slotContext.entity(), SteeleafSoulStone.get())
+                ||MyGoUtil.hasTwilightForest(slotContext.entity(), FieryIronSoulStone.get())
+                ||MyGoUtil.hasTwilightForest(slotContext.entity(), FluffyCloudSoulStone.get())
+                ||MyGoUtil.hasTwilightForest(slotContext.entity(), TwilightGiantSoulStone.get())
+                ||MyGoUtil.hasTwilightForest(slotContext.entity(), QuestRamSoulStone.get())
+        );
     }
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
+        atts.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.alpha_yeti_soul_stone_hp.get(), AttributeModifier.Operation.MULTIPLY_BASE));
         atts.put(Attributes.ARMOR, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.ironwood_soul_stone_armor.get(), AttributeModifier.Operation.ADDITION));
         atts.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.ironwood_soul_stone_armor_toughness.get(), AttributeModifier.Operation.ADDITION));
         atts.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.twilight_giant_soul_stone_entity.get(), AttributeModifier.Operation.ADDITION));

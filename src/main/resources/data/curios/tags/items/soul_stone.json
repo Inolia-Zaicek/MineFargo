@@ -1,5 +1,7 @@
 {
   "values": [
+    {"id":"mine_fargo:soul_of_inolia","required":false},
+
     {"id":"mine_fargo:soul_of_ores","required":false},
     {"id":"mine_fargo:iron_soul_stone","required":false},
     {"id":"mine_fargo:gold_soul_stone","required":false},
@@ -208,6 +210,21 @@
     {"id":"mine_fargo:undying_soul_stone","required":false},
     {"id":"mine_fargo:enchanted_golden_apple_soul_stone","required":false},
     {"id":"mine_fargo:the_sea_soul_stone","required":false},
-    {"id":"mine_fargo:mending_soul_stone","required":false}
+    {"id":"mine_fargo:mending_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_malum","required":false},
+    {"id":"mine_fargo:totemic_soul_stone","required":false},
+    {"id":"mine_fargo:starved_soul_stone","required":false},
+    {"id":"mine_fargo:tainted_soul_stone","required":false},
+    {"id":"mine_fargo:void_tablet_soul_stone","required":false},
+    {"id":"mine_fargo:arcana_soul_stone","required":false},
+    {"id":"mine_fargo:spirit_soul_stone","required":false},
+    {"id":"mine_fargo:scythe_soul_stone","required":false},
+    {"id":"mine_fargo:soul_ward_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_enigmatic_legacy","required":false},
+    {"id":"mine_fargo:curses_soul_stone","required":false},
+    {"id":"mine_fargo:abyss_soul_stone","required":false},
+    {"id":"mine_fargo:etherium_soul_stone","required":false}
   ]
 }

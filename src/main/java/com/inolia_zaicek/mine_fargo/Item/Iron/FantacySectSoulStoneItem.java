@@ -69,6 +69,6 @@ public class FantacySectSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), FantacySectSoulStone.get());
+        return ! MyGoUtil.isCurioEquipped(slotContext.entity(), FantacySectSoulStone.get());
     }
 }

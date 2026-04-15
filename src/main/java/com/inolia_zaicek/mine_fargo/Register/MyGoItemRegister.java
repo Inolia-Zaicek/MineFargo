@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Ars.*;
 import com.inolia_zaicek.mine_fargo.Item.Botania.*;
 import com.inolia_zaicek.mine_fargo.Item.Cataclysm.*;
 import com.inolia_zaicek.mine_fargo.Item.Create.*;
+import com.inolia_zaicek.mine_fargo.Item.EnigmaticLegacy.*;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.*;
 import com.inolia_zaicek.mine_fargo.Item.IceAndFire.Dragon.*;
@@ -16,6 +17,7 @@ import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.LavaEaterSoulS
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.SkeletosaurusSoulStoneItem;
+import com.inolia_zaicek.mine_fargo.Item.Malum.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.*;
@@ -23,6 +25,7 @@ import com.inolia_zaicek.mine_fargo.Item.MineCraft.Ores.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Supernatural.*;
 import com.inolia_zaicek.mine_fargo.Item.Solo.*;
 import com.inolia_zaicek.mine_fargo.Item.SonsOfSins.*;
+import com.inolia_zaicek.mine_fargo.Item.SoulOfInoliaItem;
 import com.inolia_zaicek.mine_fargo.Item.Tacz.*;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.*;
 import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.*;
@@ -49,6 +52,7 @@ public class MyGoItemRegister {
         CommonItem.add(object);
         return object;
     }
+    public static RegistryObject<Item> SoulOfInolia = registerCommonMaterials(ZeroingITEM, "soul_of_inolia", SoulOfInoliaItem::new);
 
     //合成素材
     public static RegistryObject<Item> EmptySoulStone = registerCommonMaterials(ZeroingITEM, "empty_soul_stone", () -> new Item(new Item.Properties().stacksTo(64).fireResistant()));
@@ -116,6 +120,7 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> AmethystGolemSoulStone;
     public static RegistryObject<Item> ArchwoodSoulStone;
     public static RegistryObject<Item> WildenSoulStone;
+
     public static RegistryObject<Item> SirenSoulStone;
     public static RegistryObject<Item> FirenandoSoulStone;
 
@@ -191,8 +196,6 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> ShulkerMimicSoulStone;
     public static RegistryObject<Item> OvergrownColossusSoulStone;
 
-    public static RegistryObject<Item> SoulOfMalum;
-
     public static RegistryObject<Item> SoulOfGoetyItem;
     public static RegistryObject<Item> EctoplasmSoulStone;
     public static RegistryObject<Item> GoetyFocusSoulStone;
@@ -266,8 +269,40 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> ForlornSoulStone;
     public static RegistryObject<Item> CandyCavitySoulStone;
 
+    public static RegistryObject<Item> SoulOfMalum;
+    public static RegistryObject<Item> StarvedSoulStone;
+    public static RegistryObject<Item> TotemicSoulStone;
+    public static RegistryObject<Item> TaintedSoulStone;
+    public static RegistryObject<Item> VoidTabletSoulStone;
+    public static RegistryObject<Item> ArcanaSoulStone;
+    public static RegistryObject<Item> SpiritSoulStone;
+    public static RegistryObject<Item> ScytheSoulStone;
+    public static RegistryObject<Item> SoulWardSoulStone;
+
+    public static RegistryObject<Item> SoulOfEnigmaticLegacy;
+    public static RegistryObject<Item> CursesSoulStone;
+    public static RegistryObject<Item> AbyssSoulStone;
+    public static RegistryObject<Item> EtheriumSoulStone;
+
     public static void register(IEventBus bus) {
         ZeroingITEM.register(bus);
+        if (ModList.get().isLoaded("enigmaticlegacy")) {
+            SoulOfEnigmaticLegacy = registerCommonMaterials(ZeroingITEM, "soul_of_enigmatic_legacy", SoulOfEnigmaticLegacyItem::new);
+            CursesSoulStone = registerCommonMaterials(ZeroingITEM, "curses_soul_stone", CursesSoulStoneItem::new);
+            AbyssSoulStone = registerCommonMaterials(ZeroingITEM, "abyss_soul_stone", AbyssSoulStoneItem::new);
+            EtheriumSoulStone = registerCommonMaterials(ZeroingITEM, "etherium_soul_stone", EtheriumSoulStoneItem::new);
+        }
+        if (ModList.get().isLoaded("malum")) {
+            SoulOfMalum = registerCommonMaterials(ZeroingITEM, "soul_of_malum", SoulOfMalumItem::new);
+            StarvedSoulStone = registerCommonMaterials(ZeroingITEM, "starved_soul_stone", StarvedSoulStoneItem::new);
+            TotemicSoulStone = registerCommonMaterials(ZeroingITEM, "totemic_soul_stone", TotemicSoulStoneItem::new);
+            TaintedSoulStone = registerCommonMaterials(ZeroingITEM, "tainted_soul_stone", TaintedSoulStoneItem::new);
+            VoidTabletSoulStone = registerCommonMaterials(ZeroingITEM, "void_tablet_soul_stone", VoidTabletSoulStoneItem::new);
+            ArcanaSoulStone = registerCommonMaterials(ZeroingITEM, "arcana_soul_stone", ArcanaSoulStoneItem::new);
+            SpiritSoulStone = registerCommonMaterials(ZeroingITEM, "spirit_soul_stone", SpiritSoulStoneItem::new);
+            ScytheSoulStone = registerCommonMaterials(ZeroingITEM, "scythe_soul_stone", ScytheSoulStoneItem::new);
+            SoulWardSoulStone = registerCommonMaterials(ZeroingITEM, "soul_ward_soul_stone", SoulWardSoulStoneItem::new);
+        }
         if (ModList.get().isLoaded("alexscaves")) {
             SoulOfAlexsCaves = registerCommonMaterials(ZeroingITEM, "soul_of_alexs_caves", SoulOfAlexsCavesItem::new);
             MagneticSoulStone = registerCommonMaterials(ZeroingITEM, "magnetic_soul_stone", MagneticSoulStoneItem::new);
@@ -431,7 +466,7 @@ public class MyGoItemRegister {
             if (ModList.get().isLoaded("traveloptics")) {
                 AquaSectSoulStone = registerCommonMaterials(ZeroingITEM, "aqua_sect_soul_stone", AquaSectSoulStoneItem::new);
             }
-            if (ModList.get().isLoaded("alshanex_familiars")) {
+            if (ModList.get().isLoaded("familiarslib")) {
                 SoundSectSoulStone = registerCommonMaterials(ZeroingITEM, "sound_sect_soul_stone", SoundSectSoulStoneItem::new);
             }
             if (ModList.get().isLoaded("gtbcs_geomancy_plus")) {

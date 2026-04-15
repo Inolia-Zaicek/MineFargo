@@ -40,8 +40,10 @@ public class TaczHurtEvent {
                 if (event.getSource().is(ModDamageTypes.BULLETS_TAG) || event.getSource().is(ModDamageTypes.BULLET)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID) || event.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
-                    if (MyGoUtil.hasLegendaryEntity(attacker, DuneSentinelSoulStone.get()) ) {
-                        number += MyGoConfig.dune_sentinel_soul_stone_up.get();
+                    if(ModList.get().isLoaded("legendary_monsters")) {
+                        if (MyGoUtil.hasLegendaryEntity(attacker, DuneSentinelSoulStone.get())) {
+                            number += MyGoConfig.dune_sentinel_soul_stone_up.get();
+                        }
                     }
                     if (ModList.get().isLoaded("l2damagetracker")||ModList.get().isLoaded("celestial_artifacts")) {
                         if (attacker.getAttributes().hasAttribute(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("l2damagetracker", "bow_strength"))))) {

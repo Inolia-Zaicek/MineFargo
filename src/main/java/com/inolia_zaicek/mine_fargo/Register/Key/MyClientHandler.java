@@ -21,5 +21,15 @@ public class MyClientHandler {
                 GLFW.GLFW_KEY_I,  // -1表示默认不绑定任何键，GLFW.GLFW_KEY_C则是C键
                 "mine_fargo.key" // 按键归类于"XXX"
         ));
+        event.register(MyKeyMappingUtil.KEYMAPPING3 = new KeyMapping(
+                "mine_fargo.key.boolean_kill_range_skill",
+                GLFW.GLFW_KEY_O,  // -1表示默认不绑定任何键，GLFW.GLFW_KEY_C则是C键
+                "mine_fargo.key" // 按键归类于"XXX"
+        ));
+        event.register(MyKeyMappingUtil.KEYMAPPING4 = new KeyMapping(
+                "mine_fargo.key.projectile_tracking_capability",
+                GLFW.GLFW_KEY_P,  // -1表示默认不绑定任何键，GLFW.GLFW_KEY_C则是C键
+                "mine_fargo.key" // 按键归类于"XXX"
+        ));
     }
 }

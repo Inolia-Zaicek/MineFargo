@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "enigmaticlegacy"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "enigmaticlegacy:etherium_helmet"
+    },
+    "B": {
+      "item": "enigmaticlegacy:etherium_chestplate"
+    },
+    "C": {
+      "item": "enigmaticlegacy:etherium_leggings"
+    },
+    "D": {
+      "item": "enigmaticlegacy:etherium_boots"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:etherium_soul_stone",
+    "count": 1
+  }
+}

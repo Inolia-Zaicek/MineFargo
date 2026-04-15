@@ -40,7 +40,8 @@ public class SlothSinsSoulStoneItem extends Item implements ICurioItem, SonsOfSi
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        atts.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid, this.getTooltipItemName(), MyGoConfig.sloth_sin_soul_stone_hp.get(), AttributeModifier.Operation.MULTIPLY_TOTAL));
+        atts.put(Attributes.MAX_HEALTH, new AttributeModifier(uuid, this.getTooltipItemName(),
+                MyGoConfig.sloth_sin_soul_stone_hp.get(), AttributeModifier.Operation.MULTIPLY_TOTAL));
         return atts;
     }
     @Override

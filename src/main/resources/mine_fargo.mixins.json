@@ -13,6 +13,8 @@
     "Create.CardboardMixin",
     "Create.BlazeBurnerMixin",
     "AlexsCaves.AlexsCavesEntityMixin",
+    "EnigmaticLegacy.SuperpositionHandlerMixin",
+    "EnigmaticLegacy.EtheriumArmorMixin",
 
     "WTCProjectileMixin",
     "MyGoMixinEnchantmentContainer",

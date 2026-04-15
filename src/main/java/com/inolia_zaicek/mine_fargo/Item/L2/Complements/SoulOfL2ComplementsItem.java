@@ -75,7 +75,12 @@ public class SoulOfL2ComplementsItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Complements(slotContext.entity(), SoulOfL2Complements.get());
+        return ! (MyGoUtil.hasL2Complements(slotContext.entity(), TotemicComplementsSoulStone.get())
+                ||MyGoUtil.hasL2Complements(slotContext.entity(), PoseiditeComplementsSoulStone.get())
+                ||MyGoUtil.hasL2Complements(slotContext.entity(), ShulkerateComplementsSoulStone.get())
+                ||MyGoUtil.hasL2Complements(slotContext.entity(), SculkiumComplementsSoulStone.get())
+                ||MyGoUtil.hasL2Complements(slotContext.entity(), EterniumComplementsSoulStone.get())
+        );
     }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {

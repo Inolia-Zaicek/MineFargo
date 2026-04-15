@@ -579,8 +579,93 @@
   "tooltip.mine_fargo.soul_of_l2hostility.ultra_hostility_soul_stone":"Godly Body - Upon triggering death, restores %d%% health (has a %d-second internal cooldown). Every %d seconds, deals [%d + %d%% of attack damage] as magic damage to entities within %dx%d range. For every enchantment level on self when dealing damage, damage dealt increases by %d%%. Hitting the target randomly seals %d of the target's curios and equipment.",
 
 
-  "effect.mine_fargo.enderference": "Suppress Shadow",
-  "curios.identifier.soul_stone": "Soul Stone",
-  "curios.modifiers.soul_stone": "When equipped in Soul Stone slot",
-  "item_group.mine_fargo.tab":"Mine Fargo"
+"item.mine_fargo.farmers_delight_soul_stone":"Joyful Soul Stone",
+"tooltip.mine_fargo.farmers_delight_soul_stone.text":"Eating any food has a %d%% chance to gain %d seconds of nourishment effect, and a %d%% chance to gain %d seconds of comfort effect",
+"item.mine_fargo.neptunium_soul_stone":"Neptunium Soul Stone",
+"tooltip.mine_fargo.neptunium_soul_stone.text":"Increases swimming speed by %d%%, and underwater or in the rain increases attack damage by %d%% + %d%% mining speed, continuously grants night vision and underwater breathing effects;\nthe wearer will not sink in water, can move faster vertically underwater, and gains water-walking ability.",
+
+"item.mine_fargo.soul_of_l2_complements":"Evil Ingot Soul",
+"item.mine_fargo.totemic_complements_soul_stone":"Totem Soul Stone",
+"tooltip.mine_fargo.totemic_complements_soul_stone.text":"Increases damage to undead creatures by %d%%, restores %d health points per second, and continuously clears hunger, withering, and poisoning effects",
+"tooltip.mine_fargo.soul_of_l2_complements.totemic_complements_soul_stone":"Health — Increases damage to undead creatures by %d%%, continuously clears hunger, withering and poison effects",
+
+"item.mine_fargo.poseidite_complements_soul_stone":"Poseidon’s Soul Stone",
+"tooltip.mine_fargo.poseidite_complements_soul_stone.text":"In water or rain increases attack power by %d%% and attack speed by %d%%, and deals extra %d%% damage to aquatic creatures, while granting the wearer tidal core and dolphin’s grace effects",
+"tooltip.mine_fargo.soul_of_l2_complements.poseidite_complements_soul_stone":"Poseidon — In water or rain increases attack power by %d%% and attack speed by %d%%, and deals extra %d%% damage to aquatic creatures, while granting the wearer tidal core and dolphin’s grace effects",
+
+"item.mine_fargo.shulkerate_complements_soul_stone":"Shulker Soul Stone",
+"tooltip.mine_fargo.shulkerate_complements_soul_stone.text":"+%d attack range, +%d reach distance, sneaking grants %d%% damage reduction",
+"tooltip.mine_fargo.soul_of_l2_complements.shulkerate_complements_soul_stone":"Shulker — +%d attack range, +%d reach distance, sneaking grants %d%% damage reduction",
+
+"item.mine_fargo.sculkium_complements_soul_stone":"Sculkium Soul Stone",
+"tooltip.mine_fargo.sculkium_complements_soul_stone.text":"In environments with light level ≤%d or height ≤%d, gain %d%% damage increase and %d%% damage reduction, continuously removing blindness, darkness, mining fatigue, nausea, slow, and weak effects",
+"tooltip.mine_fargo.soul_of_l2_complements.sculkium_complements_soul_stone":"Sculkium — In environments with light level ≤%d or height ≤%d, gain %d%% damage increase and %d%% damage reduction, continuously removing blindness, darkness, mining fatigue, nausea, slow, and weak effects",
+
+"item.mine_fargo.eternium_complements_soul_stone":"Eternium Soul Stone",
+"tooltip.mine_fargo.eternium_complements_soul_stone.text":"Recovers %d%% durability per second for main and off-hand tools and armor",
+"tooltip.mine_fargo.soul_of_l2_complements.eternium_complements_soul_stone":"Eternium — Recovers %d%% durability per second for main and off-hand tools and armor",
+
+"item.mine_fargo.soul_of_alexs_caves":"Cave Soul",
+"item.mine_fargo.magnetic_soul_stone":"Magnetic Soul Stone",
+"tooltip.mine_fargo.magnetic_soul_stone.text":"Deals [%d+%d%% attack power] true damage per second to non-summoned entities within %dx%d around you, with a magnetic effect lasting %d seconds; projectiles released by the wearer have a %d%% chance to track the nearest non-summoned entity",
+"tooltip.mine_fargo.soul_of_alexs_caves.magnetic_soul_stone":"Magnetic — Deals [%d+%d%% attack power] true damage per second to non-summoned entities within %dx%d around you, with a magnetic effect lasting %d seconds; projectiles released by the wearer have a %d%% chance to track the nearest non-summoned entity",
+
+"item.mine_fargo.primitive_soul_stone":"Primitive Soul Stone",
+"tooltip.mine_fargo.primitive_soul_stone.text":"Attacks will apply %d seconds of [Stun] (cooldown %d seconds), and deal %d%% base lava damage (cooldown %d seconds), while continuously granting %d levels of [Fury] to the wearer",
+"tooltip.mine_fargo.soul_of_alexs_caves.primitive_soul_stone":"Primitive — Attacks will apply %d seconds of [Stun] (cooldown %d seconds), and deal %d%% base lava damage (cooldown %d seconds), while continuously granting %d levels of [Fury] to the wearer",
+
+"item.mine_fargo.toxic_soul_stone":"Toxic Soul Stone",
+"tooltip.mine_fargo.toxic_soul_stone.text":"Continuously clears [Radiation] effects; attacks deal %d seconds of %d-level radiation effect, and reduce target’s invincibility time by %d%%",
+"tooltip.mine_fargo.soul_of_alexs_caves.toxic_soul_stone":"Toxic — Continuously clears [Radiation] effects; attacks deal %d seconds of %d-level radiation effect, and reduce target’s invincibility time by %d%%",
+
+"item.mine_fargo.abyssal_chasm_soul_stone":"Abyssal Chasm Soul Stone",
+"tooltip.mine_fargo.abyssal_chasm_soul_stone.text":"No longer sink in water, continuously grants [Underwater Breathing, Night Vision, Abyss Vision], and is considered to be in rain or water",
+"tooltip.mine_fargo.soul_of_alexs_caves.abyssal_chasm_soul_stone":"Abyssal — No longer sink in water, continuously grants [Underwater Breathing, Night Vision, Abyss Vision], and is considered to be in rain",
+
+"item.mine_fargo.forlorn_soul_stone":"Lonely Soul Stone",
+"tooltip.mine_fargo.forlorn_soul_stone.text":"Attacks add %d%% of base damage as magic damage (cooldown %d seconds), and increase mining speed by %d%%; pressing the [Alex Cave’s Special Ability] button grants %d seconds of Darkness Sprint effect, cooldown %d seconds; continuously clears darkness effects",
+"tooltip.mine_fargo.soul_of_alexs_caves.forlorn_soul_stone":"Lonely — Attacks add %d%% of base damage as magic damage (cooldown %d seconds), and increase mining speed by %d%%; pressing the [Alex Cave’s Special Ability] button grants %d seconds of Darkness Sprint effect, cooldown %d seconds; continuously clears darkness effects",
+
+"item.mine_fargo.candy_cavity_soul_stone":"Candy Cavity Soul Stone",
+"tooltip.mine_fargo.candy_cavity_soul_stone.text":"Increases movement speed by %d%%, and an additional %d%% when sprinting",
+"tooltip.mine_fargo.soul_of_alexs_caves.candy_cavity_soul_stone":"Candy — Increases movement speed by %d%%, and an additional %d%% when sprinting",
+
+"item.mine_fargo.soul_of_supernatural":"Supernatural Soul",
+"item.mine_fargo.anchor_soul_stone":"Anchor Soul Stone",
+"tooltip.mine_fargo.anchor_soul_stone.text":"After pressing the [Anchor Soul Stone Ability] key, records the coordinates of [non-summoned entities within %dx%d radius], and teleports them to the recorded location within %d seconds (internal cooldown %d seconds)\nSome flying entities may still move if the button is pressed repeatedly (avoid doing so continuously)",
+"tooltip.mine_fargo.soul_of_supernatural.anchor_soul_stone":"Anchor — After pressing the [Anchor Soul Stone Ability] key, records the coordinates of [non-summoned entities within %dx%d radius], and teleports them to the recorded location within %d seconds (internal cooldown %d seconds)",
+
+"item.mine_fargo.magnet_soul_stone":"Magnet Soul Stone",
+"tooltip.mine_fargo.magnet_soul_stone.text":"The wearer attracts items and experience orbs within %d squares (can be toggled off with a shortcut key)",
+"tooltip.mine_fargo.soul_of_supernatural.magnet_soul_stone":"Magnet — The wearer attracts items and experience orbs within %d squares (can be toggled off with a shortcut key)",
+
+"item.mine_fargo.hazard_soul_stone":"Hazard Soul Stone",
+"tooltip.mine_fargo.hazard_soul_stone.text":"Every %d seconds, deals physical damage (%d%% attack power) to the nearest non-summoned entity within %d by %d range",
+"tooltip.mine_fargo.soul_of_supernatural.hazard_soul_stone":"Hazard — Every %d seconds, deals physical damage (%d%% attack power) to the nearest non-summoned entity within %d by %d range",
+
+"item.mine_fargo.undying_soul_stone":"Undying Soul Stone",
+"tooltip.mine_fargo.undying_soul_stone.text":"When taking lethal damage, retains %d health and grants the wearer %d seconds of %d-level health regeneration + %d seconds of %d-level damage absorption + %d seconds of fire resistance (cooldown %d seconds)",
+"tooltip.mine_fargo.soul_of_supernatural.undying_soul_stone":"Undying — When taking lethal damage, retains %d health and grants the wearer %d seconds of %d-level health regeneration + %d seconds of %d-level damage absorption + %d seconds of fire resistance (cooldown %d seconds)",
+
+"item.mine_fargo.enchanted_golden_apple_soul_stone":"Golden Apple Soul Stone",
+"tooltip.mine_fargo.enchanted_golden_apple_soul_stone.text":"When health drops to %d%% or below, grants %d seconds of %d-level damage absorption, %d seconds of %d-level health regeneration, %d seconds of %d-level resistance boost, and %d seconds of fire resistance (cooldown %d seconds)",
+"tooltip.mine_fargo.soul_of_supernatural.enchanted_golden_apple_soul_stone":"Golden Apple — When health drops to %d%% or below, grants %d seconds of %d-level damage absorption, %d seconds of %d-level health regeneration, %d seconds of %d-level resistance boost, and %d seconds of fire resistance (cooldown %d seconds)",
+
+"item.mine_fargo.the_sea_soul_stone":"Tide’s Soul Stone",
+"tooltip.mine_fargo.the_sea_soul_stone.text":"No longer sinks in water, automatically extinguishes flames on the wearer",
+"tooltip.mine_fargo.soul_of_supernatural.the_sea_soul_stone":"Tide — No longer sinks in water, automatically extinguishes flames on the wearer",
+
+"item.mine_fargo.mending_soul_stone":"Mending Soul Stone",
+"tooltip.mine_fargo.mending_soul_stone.text":"Recovers %d durability points every %d seconds for the wearer’s main/off-hand items and armor",
+"tooltip.mine_fargo.soul_of_supernatural.mending_soul_stone":"Mending — Recovers %d durability points every %d seconds for the wearer’s main/off-hand items and armor",
+
+"mine_fargo.key":"My Soul Stone",
+"mine_fargo.key.anchor_soul_stone_skill":"Anchor Soul Stone Ability",
+"mine_fargo.key.magnet_soul_stone_skill":"Magnet Soul Stone Switch",
+"mine_fargo.key.boolean_kill_range_skill":"Continuous Area Damage Soul Stone Ability Switch (dangerous, magnet, divine body, etc.)",
+"effect.mine_fargo.enderference": "Shadow Suppression",
+"curios.identifier.soul_stone": "Soul Stone",
+"curios.modifiers.soul_stone": "When equipped in the Soul Stone slot",
+"item_group.mine_fargo.tab":"My Soul Stones"
+
 }

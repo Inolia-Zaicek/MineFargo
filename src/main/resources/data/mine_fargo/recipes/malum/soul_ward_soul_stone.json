@@ -1,0 +1,35 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BOC",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "malum:soul_stained_steel_helmet"
+    },
+    "B": {
+      "item": "malum:soul_stained_steel_chestplate"
+    },
+    "C": {
+      "item": "malum:soul_stained_steel_leggings"
+    },
+    "D": {
+      "item": "malum:soul_stained_steel_boots"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:soul_ward_soul_stone",
+    "count": 1
+  }
+}

@@ -53,6 +53,6 @@ public class AquaSectSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasSupernatural(slotContext.entity(), AquaSectSoulStone.get());
+        return ! MyGoUtil.isCurioEquipped(slotContext.entity(), AquaSectSoulStone.get());
     }
 }

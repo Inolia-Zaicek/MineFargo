@@ -94,7 +94,14 @@ public class SoulOfL2HostilityItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasL2Hostility(slotContext.entity(), SoulOfL2Hostility.get());
+        return ! (MyGoUtil.hasL2Hostility(slotContext.entity(), BodyHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), CorrosionHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), ResistanceHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), AquaHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), ZoneHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), DestroyHostilitySoulStone.get())
+                ||MyGoUtil.hasL2Hostility(slotContext.entity(), UltraHostilitySoulStone.get())
+        );
     }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {

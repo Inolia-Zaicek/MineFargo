@@ -96,7 +96,16 @@ public class SoulOfIronSpellItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.SoulOfIronSpell.get() );
+        return ! (MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.FireSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.IceSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.LightningSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.EvocationSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.HolySectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.BloodSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.NatureSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.EnderSectSoulStone.get())
+                ||MyGoUtil.hasIron(slotContext.entity(), MyGoItemRegister.EldritchSectSoulStone.get())
+        );
     }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {

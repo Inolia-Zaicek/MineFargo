@@ -69,6 +69,13 @@ public class SoulOfCreateItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return ! MyGoUtil.hasCreate(slotContext.entity(), SoulOfCreate.get());
+        return ! (MyGoUtil.hasCreate(slotContext.entity(), ZincSoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), AndesiteAlloySoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), BrassSoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), SturdySheetSoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), CardboardSoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), BlazeCakeSoulStone.get())
+                ||MyGoUtil.hasCreate(slotContext.entity(), RoseQuartzSoulStone.get())
+        );
     }
 }
