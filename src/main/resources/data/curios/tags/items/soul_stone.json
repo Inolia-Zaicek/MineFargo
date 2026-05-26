@@ -225,6 +225,12 @@
     {"id":"mine_fargo:soul_of_enigmatic_legacy","required":false},
     {"id":"mine_fargo:curses_soul_stone","required":false},
     {"id":"mine_fargo:abyss_soul_stone","required":false},
-    {"id":"mine_fargo:etherium_soul_stone","required":false}
+    {"id":"mine_fargo:etherium_soul_stone","required":false},
+
+    {"id":"mine_fargo:soul_of_meet_fight","required":false},
+    {"id":"mine_fargo:fossil_soul_stone","required":false},
+    {"id":"mine_fargo:phantoplasm_soul_stone","required":false},
+    {"id":"mine_fargo:ante_soul_stone","required":false},
+    {"id":"mine_fargo:violet_soul_stone","required":false}
   ]
 }

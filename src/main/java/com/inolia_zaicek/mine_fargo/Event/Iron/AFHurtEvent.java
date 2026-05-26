@@ -16,6 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -23,6 +24,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.SoundSectSoulStone;
 
@@ -42,12 +44,12 @@ public class AFHurtEvent {
                     var mobList = MyGoUtil.mobList(22, attacked);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSupernatural(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
+                        if (MyGoUtil.isCurioEquipped(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSupernatural(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
+                        if (MyGoUtil.isCurioEquipped(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
@@ -63,7 +65,8 @@ public class AFHurtEvent {
                 double overNumber = 1;
                 double fixedNumber = 0;
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSupernatural(attacker, SoundSectSoulStone.get())) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
+                if (curios.contains( SoundSectSoulStone.get())) {
                     if (event.getSource().type().msgId().equals(new ResourceLocation("familiarslib", "sound_magic"))
                     ) {
                         number += MyGoConfig.sound_sect_soul_stone_owner_damage.get();
@@ -90,12 +93,12 @@ public class AFHurtEvent {
                     var mobList = MyGoUtil.mobList(22, attacker);
                     boolean up = false;
                     for (Mob mobs : mobList) {
-                        if (MyGoUtil.hasSupernatural(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
+                        if (MyGoUtil.isCurioEquipped(mobs, SoundSectSoulStone.get())&&mobs==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }
                     for (Player players : playerList) {
-                        if (MyGoUtil.hasSupernatural(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
+                        if (MyGoUtil.isCurioEquipped(players, SoundSectSoulStone.get())&&players==ownableEntity.getOwner()) {
                             up = true;
                         }
                     }

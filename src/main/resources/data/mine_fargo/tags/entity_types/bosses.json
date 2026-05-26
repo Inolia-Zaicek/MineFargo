@@ -161,10 +161,15 @@
         {"id":"mutantmonsters:mutant_snow_golem","required":false},
         {"id":"mutantmonsters:mutant_zombie","required":false},
         {"id":"mutantmonsters:spider_pig","required":false},
+
         {"id":"eeeabsmobs:nameless_guardian","required":false},
         {"id":"eeeabsmobs:immortal","required":false},
         {"id":"eeeabsmobs:guling_sentinel_heavy","required":false},
         {"id":"eeeabsmobs:corpse_warlock","required":false},
+        {"id":"eeeabsmobs:realm_warden","required":false},
+        {"id":"eeeabsmobs:relic_annihilator","required":false},
+        {"id":"eeeabsmobs:relic_earthshaker","required":false},
+
         {"id":"fantasy_ending:ultimate_order_manager","required":false},
 
         {"id":"bossominium:skelenado","required":false},
@@ -536,6 +541,34 @@
 
         {"id":"arcalis_bosses:jack","required":false},
         {"id":"arcalis_bosses:the_deathbringer","required":false},
-        {"id":"arcalis_bosses:captain_deadbone","required":false}
+        {"id":"arcalis_bosses:captain_deadbone","required":false},
+
+        {"id":"labyrinth:apostolus","required":false},
+        {"id":"labyrinth:furious","required":false},
+        {"id":"labyrinth:jesterknight","required":false},
+        {"id":"labyrinth:researcher","required":false},
+
+        {"id":"legendary_monsters:annihilation_pursuer","required":false},
+        {"id":"legendary_monsters:the_obliterator","required":false},
+
+        {"id":"mechmonstrosity:mech_monstrosity","required":false},
+
+        {"id":"hadean_breathe:flame_guardian","required":false},
+        {"id":"hadean_breathe:hadean_enforcer","required":false},
+
+        {"id":"irons_spellbooks:fire_boss","required":false},
+
+        {"id":"goetyawaken:nameless_one","required":false},
+        {"id":"goetyawaken:hostile_mushroom_monstrosity","required":false},
+        {"id":"goetyawaken:parched_necromancer","required":false},
+        {"id":"goetyawaken:wraith_necromancer","required":false},
+        {"id":"goetyawaken:hostile_drowned_necromancer","required":false},
+        {"id":"goetyawaken:arch_illusioner","required":false},
+        {"id":"goetyawaken:hostile_wildfire","required":false},
+
+        {"id":"block_factorys_bosses:yeti","required":false},
+        {"id":"block_factorys_bosses:infernal_dragon","required":false},
+        {"id":"block_factorys_bosses:underworld_knight","required":false},
+        {"id":"block_factorys_bosses:sandworm","required":false}
     ]
 }

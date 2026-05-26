@@ -26,6 +26,7 @@ public class MagneticSoulStoneItem extends Item implements ICurioItem, AlexsCave
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         String itemName = getTooltipItemName();
         pTooltipComponents.add(Component.translatable("tooltip." + "mine_fargo" + "." + itemName + ".text",
+                (float) (MyGoConfig.magnetic_soul_stone_cooldown.get() * 1),
                 (int)(MyGoConfig.magnetic_soul_stone_range.get()*1),(int)(MyGoConfig.magnetic_soul_stone_range.get()*1),
                 (float) (MyGoConfig.magnetic_soul_stone_base_atk.get() * 1),(float)(MyGoConfig.magnetic_soul_stone_atk.get()*100),
                 (float) (MyGoConfig.magnetic_soul_stone_time.get() * 1),(float)(MyGoConfig.magnetic_soul_stone_chance.get()*100)

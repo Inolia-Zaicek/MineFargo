@@ -18,12 +18,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
+import java.util.Set;
 
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.*;
 import static com.inolia_zaicek.mine_fargo.Event.HurtEvent.maledictus_soul_stone_cooldown_time;
@@ -34,7 +36,8 @@ public class GoetyDeathEvent {
     //全局事件死亡
     public static void LivingDeathVampire(net.minecraftforge.event.entity.living.LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntity();
-        if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(livingEntity, VizierSoulStone.get())
+        Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
+        if (ModList.get().isLoaded("goety")&&MyGoUtil.hasGoetyEntity(curios,livingEntity, VizierSoulStone.get())
                 &&livingEntity.getPersistentData().getInt(vizier_soul_stone_dead_cooldown) == 0 ) {
             //周围是否有自己的怒鬼
             var mobList = MyGoUtil.mobList(21, livingEntity);

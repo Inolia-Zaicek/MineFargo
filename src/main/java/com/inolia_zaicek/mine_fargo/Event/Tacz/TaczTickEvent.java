@@ -12,10 +12,13 @@ import com.tacz.guns.api.item.IGun;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 
 public class TaczTickEvent {
@@ -29,15 +32,16 @@ public class TaczTickEvent {
             return;
         LivingEntity livingEntity = event.getEntity();
         if (ModList.get().isLoaded("tacz")&&livingEntity.level().getGameTime() % 1 == 0) {
+            Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
             //没有狙击枪
-            if ( ! MyGoUtil.hasTacz(livingEntity, SniperRifleSoulStone.get()) ) {
+            if ( ! MyGoUtil.hasTacz(curios,livingEntity, SniperRifleSoulStone.get()) ) {
                 livingEntity.getPersistentData().putInt(sniper_rifle_soul_stone, 0);
             } else {
                 //最长续
                 livingEntity.getPersistentData().putInt(sniper_rifle_soul_stone, (int) Math.min(MyGoConfig.sniper_rifle_soul_stone_time.get() * 2*20, livingEntity.getPersistentData().getInt(sniper_rifle_soul_stone) + 1));
             }
             //没有步枪
-            if (! MyGoUtil.hasTacz(livingEntity, RifleSoulStone.get())) {
+            if (! MyGoUtil.hasTacz(curios,livingEntity, RifleSoulStone.get())) {
                 //射击次数与计时器都归零
                 livingEntity.getPersistentData().putInt(rifle_soul_stone_number, 0);
                 livingEntity.getPersistentData().putInt(rifle_soul_stone_time, 0);
@@ -49,7 +53,7 @@ public class TaczTickEvent {
             if (livingEntity.getPersistentData().getInt(rifle_soul_stone_time) >= MyGoConfig.rifle_soul_stone_time.get() * 2 * 20) {
                 livingEntity.getPersistentData().putInt(rifle_soul_stone_number, 0);
             }
-            if (livingEntity.level().getGameTime() % (20*MyGoConfig.ammo_soul_stone_time.get()) == 0 && MyGoUtil.hasTacz(livingEntity, AmmoSoulStone.get())) {
+            if (livingEntity.level().getGameTime() % (20*MyGoConfig.ammo_soul_stone_time.get()) == 0 && MyGoUtil.hasTacz(curios,livingEntity, AmmoSoulStone.get())) {
                 // 1. 判断玩家主手武器（枪）是否为枪械（模式内的Gun对象）
                 ItemStack mainHand = livingEntity.getMainHandItem();
                 if (IGun.getIGunOrNull(mainHand) != null) {

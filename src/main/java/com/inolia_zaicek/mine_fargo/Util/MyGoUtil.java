@@ -19,6 +19,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
@@ -69,6 +71,12 @@ public class MyGoUtil {
         Optional<SlotResult> slotResult = CuriosApi.getCuriosHelper().findFirstCurio(entity,itemStackSupplier);
         return slotResult.isPresent();
     }
+    /*
+    public static boolean isCurioEquipped(LivingEntity entity, Item itemStackSupplier) {
+        Optional<SlotResult> slotResult = CuriosApi.getCuriosHelper().findFirstCurio(entity,itemStackSupplier);
+        return slotResult.isPresent();
+    }
+     */
     public static boolean isBossEntity(EntityType<?> entity) {
         // 检查 "flame_chase_artifacts:bosses" tag
         boolean isMoreTetraBoss = Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.tags()).getTag(
@@ -84,102 +92,7 @@ public class MyGoUtil {
     public static boolean isMeleeAttack(DamageSource source) {
         return !source.isIndirect() && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO));
     }
-    //矿石之力系列专用判断——【有矿石之力的情况下返回true
-    public static boolean hasOre(LivingEntity living,Item item) {
-        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get() ) ) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public static boolean hasSupernatural(LivingEntity living,Item item) {
-        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSupernatural.get() ) ) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    //自然之魂系列专用判断——【有集合的情况下返回true
-    public static boolean hasNature(LivingEntity living,Item item) {
-        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get() ) ) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public static boolean hasEntity(LivingEntity living,Item item) {
-        if(MyGoUtil.isCurioEquipped(living, item ) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get() ) ) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public static boolean hasIron(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("irons_spellbooks")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasArs(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("ars_nouveau")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasTacz(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("tacz")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTacz.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasCataclysm(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("cataclysm")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCataclysm.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasBotania(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("botania")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfBotania.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasCreate(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("create")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCreate.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+
     //锁定一定距离内最近的【非自身随从】目标
     public static LivingEntity getNearestNonFollowerOnPath(LivingEntity livingEntity, double range) {
         Vec3 srcVec = livingEntity.getEyePosition();
@@ -222,151 +135,7 @@ public class MyGoUtil {
         }
         return nearestEntity; // 没找到会返回null
     }
-    public static boolean hasTwilight(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("twilightforest")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    //巫妖魂石——装备自身or巫妖魂or暮色魂——√
-    public static boolean hasTwilightLich(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("twilightforest")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get())
-                    || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.TwilightLichSoulStone.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasTwilightForest(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("twilightforest")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilightForest.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasLegendaryMonsters(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("legendary_monsters")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryMonsters.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasLegendaryEntity(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("legendary_monsters")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryEntity.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasGoetyItem(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("goety")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyItem.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasGoetyEntity(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("goety")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyEntity.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasIAFDragon(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("iceandfire")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFDragon.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasIAFEntity(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("iceandfire")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFEntity.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasSonsOfSins(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("sons_of_sins")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSonsOfSins.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasL2Hostility(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("l2hostility")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Hostility.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasL2Complements(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("l2complements")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Complements.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasAlexsCaves(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("alexscaves")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get()) || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfAlexsCaves.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
+
     //可不可以揍（判断是不是随从+非潜行时不攻击
     public static boolean canAttack(LivingEntity attacked,LivingEntity attacker) {
         boolean can = true;
@@ -401,30 +170,6 @@ public class MyGoUtil {
             }
         }
         return can;
-    }
-    public static boolean hasMalum(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("malum")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
-                    || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfMalum.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    public static boolean hasEnigmaticLegacy(LivingEntity living,Item item) {
-        if(ModList.get().isLoaded("enigmaticlegacy")) {
-            if (MyGoUtil.isCurioEquipped(living, item) || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
-                    || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEnigmaticLegacy.get()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
     }
     //获取饰品栏第一个Item的CompoundTag（persistentData）
     public static CompoundTag getFirstCurioCompoundTag(LivingEntity livingEntity, Item item) {
@@ -490,5 +235,369 @@ public class MyGoUtil {
         });
         CURIOS_CACHE.put(entity, new CuriosCachedData(items, counts, now));
         return items;
+    }
+
+    //修改后的判断方法
+    public static boolean hasOre(Set<Item> curios, LivingEntity living, Item item) {
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfOres.get());
+    }
+
+    public static boolean hasSupernatural(Set<Item> curios, LivingEntity living, Item item) {
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfSupernatural.get());
+    }
+
+    public static boolean hasNature(Set<Item> curios, LivingEntity living, Item item) {
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfNature.get());
+    }
+
+    public static boolean hasEntity(Set<Item> curios, LivingEntity living, Item item) {
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfEntity.get());
+    }
+
+    public static boolean hasIron(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("irons_spellbooks")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfIronSpell.get());
+    }
+
+    public static boolean hasArs(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("ars_nouveau")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfArsNouveau.get());
+    }
+
+    public static boolean hasTacz(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("tacz")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfTacz.get());
+    }
+
+    public static boolean hasCataclysm(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("cataclysm")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfCataclysm.get());
+    }
+
+    public static boolean hasBotania(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("botania")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfBotania.get());
+    }
+
+    public static boolean hasCreate(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("create")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfCreate.get());
+    }
+
+    public static boolean hasTwilight(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("twilightforest")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfTwilight.get());
+    }
+
+    public static boolean hasTwilightLich(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("twilightforest")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfTwilight.get())
+                || curios.contains(MyGoItemRegister.TwilightLichSoulStone.get());
+    }
+
+    public static boolean hasTwilightForest(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("twilightforest")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfTwilightForest.get());
+    }
+
+    public static boolean hasLegendaryMonsters(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("legendary_monsters")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfLegendaryMonsters.get());
+    }
+
+    public static boolean hasLegendaryEntity(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("legendary_monsters")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfLegendaryEntity.get());
+    }
+
+    public static boolean hasGoetyItem(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("goety")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfGoetyItem.get());
+    }
+
+    public static boolean hasGoetyEntity(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("goety")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfGoetyEntity.get());
+    }
+
+    public static boolean hasIAFDragon(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("iceandfire")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfIAFDragon.get());
+    }
+
+    public static boolean hasIAFEntity(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("iceandfire")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfIAFEntity.get());
+    }
+
+    public static boolean hasSonsOfSins(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("sons_of_sins")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfSonsOfSins.get());
+    }
+
+    public static boolean hasL2Hostility(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("l2hostility")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfL2Hostility.get());
+    }
+
+    public static boolean hasL2Complements(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("l2complements")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfL2Complements.get());
+    }
+
+    public static boolean hasAlexsCaves(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("alexscaves")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfAlexsCaves.get());
+    }
+
+    public static boolean hasMalum(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("malum")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfMalum.get());
+    }
+
+    //以下是两个参数的类型，专门用于判断物品（三参数用于事件
+    public static boolean hasOre(LivingEntity living, Item item) {
+        return MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfOres.get());
+    }
+
+    public static boolean hasSupernatural(LivingEntity living, Item item) {
+        return MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSupernatural.get());
+    }
+
+    public static boolean hasNature(LivingEntity living, Item item) {
+        return MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfNature.get());
+    }
+
+    public static boolean hasEntity(LivingEntity living, Item item) {
+        return MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEntity.get());
+    }
+    public static boolean hasIron(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("irons_spellbooks")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIronSpell.get()));
+    }
+
+    public static boolean hasArs(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("ars_nouveau")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfArsNouveau.get()));
+    }
+
+    public static boolean hasTacz(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("tacz")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTacz.get()));
+    }
+
+    public static boolean hasCataclysm(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("cataclysm")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCataclysm.get()));
+    }
+
+    public static boolean hasBotania(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("botania")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfBotania.get()));
+    }
+
+    public static boolean hasCreate(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("create")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfCreate.get()));
+    }
+
+    public static boolean hasTwilight(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("twilightforest")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get()));
+    }
+
+    public static boolean hasTwilightLich(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("twilightforest")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilight.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.TwilightLichSoulStone.get()));
+    }
+
+    public static boolean hasTwilightForest(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("twilightforest")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfTwilightForest.get()));
+    }
+
+    public static boolean hasLegendaryMonsters(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("legendary_monsters")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryMonsters.get()));
+    }
+
+    public static boolean hasLegendaryEntity(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("legendary_monsters")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfLegendaryEntity.get()));
+    }
+
+    public static boolean hasGoetyItem(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("goety")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyItem.get()));
+    }
+
+    public static boolean hasGoetyEntity(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("goety")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfGoetyEntity.get()));
+    }
+
+    public static boolean hasIAFDragon(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("iceandfire")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFDragon.get()));
+    }
+
+    public static boolean hasIAFEntity(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("iceandfire")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfIAFEntity.get()));
+    }
+
+    public static boolean hasSonsOfSins(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("sons_of_sins")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfSonsOfSins.get()));
+    }
+
+    public static boolean hasL2Hostility(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("l2hostility")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Hostility.get()));
+    }
+
+    public static boolean hasL2Complements(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("l2complements")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfL2Complements.get()));
+    }
+
+    public static boolean hasAlexsCaves(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("alexscaves")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfAlexsCaves.get()));
+    }
+    public static boolean hasMalum(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("malum")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfMalum.get()));
+    }
+    //神秘遗物的
+    public static boolean hasEnigmaticLegacy(Set<Item> curios, LivingEntity living, Item item) {
+        if (!ModList.get().isLoaded("enigmaticlegacy")) return false;
+        return curios.contains(item)
+                || curios.contains(SoulOfInolia.get())
+                || curios.contains(MyGoItemRegister.SoulOfEnigmaticLegacy.get());
+    }
+    public static boolean hasEnigmaticLegacy(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("enigmaticlegacy")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfEnigmaticLegacy.get()));
+    }
+    //施加药水方法总结
+    public static void addEffect(LivingEntity entity, MobEffect effect, int time, int level) {
+        // 构造效果实例
+        MobEffectInstance instance = new MobEffectInstance(effect, time, level);
+        // 常规添加（会自动合并同类效果或更新等级/时长）
+        entity.addEffect(instance);
+
+        // 排除指定实体，并确保效果强制存在于 ActiveEffectsMap 中
+        if (!EntityType.getKey(entity.getType()).toString().equals("eeeabsmobs:immortal")
+                && !entity.hasEffect(effect)) {
+            // 直接操作底层映射，绕过某些检查
+            entity.getActiveEffectsMap().put(effect, instance);
+        }
+    }
+    //迎战
+    public static boolean hasMeetFight(LivingEntity living, Item item) {
+        return ModList.get().isLoaded("meetyourfight")
+                && (MyGoUtil.isCurioEquipped(living, item)
+                || MyGoUtil.isCurioEquipped(living, SoulOfInolia.get())
+                || MyGoUtil.isCurioEquipped(living, MyGoItemRegister.SoulOfMeetFight.get()));
     }
 }

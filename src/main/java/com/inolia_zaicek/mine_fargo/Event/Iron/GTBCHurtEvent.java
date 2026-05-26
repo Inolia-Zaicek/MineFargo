@@ -14,6 +14,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -21,6 +22,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 public class GTBCHurtEvent {
 
@@ -34,7 +36,8 @@ public class GTBCHurtEvent {
                 double fixedNumber = 0;
                 boolean earth = false;
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSupernatural(attacker, EarthSectSoulStone.get())) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
+                if (curios.contains( EarthSectSoulStone.get())) {
                     double chance = MyGoConfig.earth_sect_soul_stone_chance.get() * 100;
                     int time = (int) (MyGoConfig.earth_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(GGDamageTypes.GEO_MAGIC)) {

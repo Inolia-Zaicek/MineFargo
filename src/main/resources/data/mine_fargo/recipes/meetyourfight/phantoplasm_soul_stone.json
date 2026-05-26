@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "meetyourfight"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AOA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "meetyourfight:phantoplasm"
+    },
+    "O": {
+      "item": "mine_fargo:empty_soul_stone"
+    }
+  },
+  "result": {
+    "item": "mine_fargo:phantoplasm_soul_stone",
+    "count": 1
+  }
+}

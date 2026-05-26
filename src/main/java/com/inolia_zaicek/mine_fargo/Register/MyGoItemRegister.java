@@ -18,6 +18,7 @@ import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.*;
 import com.inolia_zaicek.mine_fargo.Item.LegendaryMonsters.Monsters.SkeletosaurusSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Malum.*;
+import com.inolia_zaicek.mine_fargo.Item.MeetFight.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Entity.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.*;
 import com.inolia_zaicek.mine_fargo.Item.MineCraft.Nature.*;
@@ -284,8 +285,21 @@ public class MyGoItemRegister {
     public static RegistryObject<Item> AbyssSoulStone;
     public static RegistryObject<Item> EtheriumSoulStone;
 
+    public static RegistryObject<Item> SoulOfMeetFight;
+    public static RegistryObject<Item> FossilSoulStone;
+    public static RegistryObject<Item> PhantoplasmSoulStone;
+    public static RegistryObject<Item> AnteSoulStone;
+    public static RegistryObject<Item> VioletSoulStone;
+
     public static void register(IEventBus bus) {
         ZeroingITEM.register(bus);
+        if (ModList.get().isLoaded("meetyourfight")) {
+            SoulOfMeetFight = registerCommonMaterials(ZeroingITEM, "soul_of_meet_fight", SoulOfMeetFightItem::new);
+            FossilSoulStone = registerCommonMaterials(ZeroingITEM, "fossil_soul_stone", FossilSoulStoneItem::new);
+            PhantoplasmSoulStone = registerCommonMaterials(ZeroingITEM, "phantoplasm_soul_stone", PhantoplasmSoulStoneItem::new);
+            AnteSoulStone = registerCommonMaterials(ZeroingITEM, "ante_soul_stone", AnteSoulStoneItem::new);
+            VioletSoulStone = registerCommonMaterials(ZeroingITEM, "violet_soul_stone", VioletSoulStoneItem::new);
+        }
         if (ModList.get().isLoaded("enigmaticlegacy")) {
             SoulOfEnigmaticLegacy = registerCommonMaterials(ZeroingITEM, "soul_of_enigmatic_legacy", SoulOfEnigmaticLegacyItem::new);
             CursesSoulStone = registerCommonMaterials(ZeroingITEM, "curses_soul_stone", CursesSoulStoneItem::new);

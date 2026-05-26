@@ -25,7 +25,6 @@ import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczShootEvent;
 import com.inolia_zaicek.mine_fargo.Event.Tacz.TaczTickEvent;
 import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightEvent;
 import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightRepairEvent;
-import com.inolia_zaicek.mine_fargo.Event.Twilight.TwilightTickEvent;
 import com.inolia_zaicek.mine_fargo.ModelProvider.ZeroingModRecipesGen;
 import com.inolia_zaicek.mine_fargo.Network.TerraRayChannel;
 import com.inolia_zaicek.mine_fargo.Register.Key.MyClientHandler;
@@ -144,7 +143,6 @@ public class MineFargo {
         }
         if (ModList.get().isLoaded("twilightforest")) {
             MinecraftForge.EVENT_BUS.register(TwilightEvent.class);
-            MinecraftForge.EVENT_BUS.register(TwilightTickEvent.class);
             MinecraftForge.EVENT_BUS.register(TwilightRepairEvent.class);
         }
         if (ModList.get().isLoaded("goety")) {

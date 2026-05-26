@@ -341,10 +341,16 @@ public class SoulOfInoliaItem extends Item implements ICurioItem {
         }
         //神秘遗物
         if(ModList.get().isLoaded("enigmaticlegacy")) {
-            atts.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, getTooltipItemName(), MyGoConfig.abyss_soul_stone_atk.get()+
+            atts.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("F8D19F27-ECFE-564B-80D5-E98EB37B1AFA"), getTooltipItemName(), MyGoConfig.abyss_soul_stone_atk.get()+
                     MyGoConfig.abyss_soul_stone_atk_max.get(),AttributeModifier.Operation.ADDITION));
-            atts.put(Attributes.ARMOR, new AttributeModifier(uuid, getTooltipItemName(),
+            atts.put(Attributes.ARMOR, new AttributeModifier(UUID.fromString("0CC4786C-EECD-E65C-CA4B-8DB1EFE6FA02"), getTooltipItemName(),
                     MyGoConfig.abyss_soul_stone_armor_max.get(), AttributeModifier.Operation.ADDITION));
+        }
+        //迎战
+        if(ModList.get().isLoaded("meetyourfight")) {
+            atts.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("0A37331F-052C-3589-4562-9F90AAC80C02"), this.getTooltipItemName(), MyGoConfig.fossil_soul_stone_atk.get(), AttributeModifier.Operation.ADDITION));
+            atts.put(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("CF0B998A-EFE4-B8CE-B6B6-62EB6C902F4C"), this.getTooltipItemName(), -MyGoConfig.violet_soul_stone_down_hp.get(), AttributeModifier.Operation.MULTIPLY_TOTAL));
+            atts.put(ForgeMod.BLOCK_REACH.get(), new AttributeModifier(UUID.fromString("1FAF3351-BF0B-52F7-3237-48EB41DB4D2F"), this.getTooltipItemName(), 2, AttributeModifier.Operation.ADDITION));
         }
         return atts;
     }

@@ -10,10 +10,13 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Set;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
 public class BuffEvent {
@@ -26,17 +29,18 @@ public class BuffEvent {
         //正面时长
         float goodTime = 0;
         float bedTime = 0;
+        Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
         if (ModList.get().isLoaded("ars_nouveau")) {
-            if (MyGoUtil.hasArs(livingEntity, WixieSoulStone.get())) {
+            if (MyGoUtil.hasArs(curios,livingEntity, WixieSoulStone.get())) {
                 goodTime += MyGoConfig.wixie_soul_stone_up.get();
                 bedTime -= MyGoConfig.wixie_soul_stone_down.get();
             }
         }
         if (ModList.get().isLoaded("malum")) {
-            if (MyGoUtil.hasMalum(livingEntity, TaintedSoulStone.get()) ) {
+            if (MyGoUtil.hasMalum(curios,livingEntity, TaintedSoulStone.get()) ) {
                 bedTime-=MyGoConfig.tainted_soul_stone_time.get();
             }
-            if (MyGoUtil.hasMalum(livingEntity, VoidTabletSoulStone.get()) ) {
+            if (MyGoUtil.hasMalum(curios,livingEntity, VoidTabletSoulStone.get()) ) {
                 goodTime+=MyGoConfig.void_tablet_soul_stone_time.get();
             }
         }

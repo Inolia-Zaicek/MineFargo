@@ -5,30 +5,34 @@ import com.inolia_zaicek.mine_fargo.Item.L2.Complements.EterniumComplementsSoulS
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Set;
 
 
 public class TickRepairEvent2 {
     @SubscribeEvent
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if (MyGoUtil.hasSupernatural(player, MendingSoulStone.get()) &&
-                player.level().getGameTime() % (20*MyGoConfig.mending_soul_stone_time.get()) == 0) {
-            ItemStack mainHandItem = player.getMainHandItem();
-            ItemStack offHandItem = player.getOffhandItem();
-            
-            handleModularItem(player, mainHandItem);
-            handleModularItem(player, offHandItem);
-            // 处理盔甲部位
-            handleHeadgear(player);
-            handleChestplate(player);
-            handleLeggings(player);
-            handleBoots(player);
+        if (player.level().getGameTime() % (20 * MyGoConfig.mending_soul_stone_time.get()) == 0) {
+            Set<Item> curios = MyGoUtil.getCuriosItems(player);
+            if (MyGoUtil.hasSupernatural(curios, player, MendingSoulStone.get())) {
+                ItemStack mainHandItem = player.getMainHandItem();
+                ItemStack offHandItem = player.getOffhandItem();
+
+                handleModularItem(player, mainHandItem);
+                handleModularItem(player, offHandItem);
+                // 处理盔甲部位
+                handleHeadgear(player);
+                handleChestplate(player);
+                handleLeggings(player);
+                handleBoots(player);
+            }
         }
     }
-
     // 处理单个工具或装备的魔力修复
     private static void handleModularItem(Player player, ItemStack stack) {
         int currentDamage = stack.getDamageValue();

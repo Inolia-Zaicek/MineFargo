@@ -41,6 +41,7 @@ public class FarmerDelightSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return !MyGoUtil.isCurioEquipped(slotContext.entity(), MyGoItemRegister.FarmerDelightSoulStone.get() );
+        return !MyGoUtil.isCurioEquipped(slotContext.entity(), MyGoItemRegister.FarmerDelightSoulStone.get() )&&
+                !MyGoUtil.isCurioEquipped(slotContext.entity(), SoulOfInolia.get() );
     }
 }

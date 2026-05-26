@@ -12,10 +12,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Predicate;
 
 public class EntityJoinLevelEvent {
@@ -28,7 +30,8 @@ public class EntityJoinLevelEvent {
             if (owner instanceof LivingEntity shooter&&shooter.getPersistentData().getInt(projectile_tracking_capability_open) <= 50) {
                 double chance = 0;
                 if (ModList.get().isLoaded("alexscaves")) {
-                    if (MyGoUtil.hasAlexsCaves(shooter, MagneticSoulStone.get())) {
+                    Set<Item> curios = MyGoUtil.getCuriosItems(shooter);
+                    if (MyGoUtil.hasAlexsCaves(curios,shooter, MagneticSoulStone.get())) {
                         chance += MyGoConfig.magnetic_soul_stone_chance.get();
                     }
                 }

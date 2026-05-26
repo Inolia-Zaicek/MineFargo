@@ -555,7 +555,7 @@
 "tooltip.mine_fargo.soul_of_l2hostility.body_hostility_soul_stone":"锻体——提升%d%%最大生命值、%d护甲值、%d护甲韧性；持续获得%d级抗性提升效果，并每秒回复总血量的%d%%；同时记忆受到的前%d种伤害类型，每次受到记忆中的伤害类型时叠加%d%%的减伤(上限%d%%)",
 
 "item.mine_fargo.corrosion_hostility_soul_stone":"腐蚀魂石",
-"tooltip.mine_fargo.corrosion_hostility_soul_stone.text":"攻击将对目标附加%d秒的%d级虚弱、%d级缓慢、%d级中毒、%d级凋零、%d级魂火、%d级寒流、%d级重力、%d级诅咒效果",
+"tooltip.mine_fargo.corrosion_hostility_soul_stone.text":"攻击将对目标附加%d秒的%d级虚弱、%d级缓慢、%d级中毒、%d级凋零、%d级魂火、%d级寒流、%d级重力(默认关闭，在有Alex洞穴情况下不建议开启)、%d级诅咒效果",
 "tooltip.mine_fargo.soul_of_l2hostility.corrosion_hostility_soul_stone":"腐蚀——攻击将对目标附加%d秒的%d级虚弱、%d级缓慢、%d级中毒、%d级凋零、%d级魂火、%d级寒流、%d级重力、%d级诅咒效果",
 
 "item.mine_fargo.resistance_hostility_soul_stone":"四相魂石",
@@ -607,8 +607,8 @@
 
 "item.mine_fargo.soul_of_alexs_caves":"洞穴之魂",
 "item.mine_fargo.magnetic_soul_stone":"磁化魂石",
-"tooltip.mine_fargo.magnetic_soul_stone.text":"每秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的真实伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
-"tooltip.mine_fargo.soul_of_alexs_caves.magnetic_soul_stone":"磁化——每秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的真实伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
+"tooltip.mine_fargo.magnetic_soul_stone.text":"每%d秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的魔法伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
+"tooltip.mine_fargo.soul_of_alexs_caves.magnetic_soul_stone":"磁化——每%d秒对周围%dx%d的非随从实体造成[%d+%d%%攻击力]的魔法伤害，并附加%d秒的磁化效果；穿戴者释放的弹射物有%d%%概率追踪最近的非随从实体",
 
 "item.mine_fargo.primitive_soul_stone":"原始魂石",
 "tooltip.mine_fargo.primitive_soul_stone.text":"攻击将会为目标施加%d秒的[晕眩]效果(内置%d秒冷却)，并附加%d%%原伤害数额的原版熔岩伤害(内置%d秒冷却)，并持续给予穿戴者%d级的[愤怒]效果",
@@ -636,8 +636,8 @@
 "tooltip.mine_fargo.soul_of_supernatural.anchor_soul_stone":"锚定——按下[锚定魂石能力]按键后，会记录[周围%dx%d范围内非随从实体]的所在坐标，并在%d秒内将该实体持续传送至对应的记录坐标(内置%d秒冷却)",
 
 "item.mine_fargo.magnet_soul_stone":"磁铁魂石",
-"tooltip.mine_fargo.magnet_soul_stone.text":"穿戴者会吸引周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
-"tooltip.mine_fargo.soul_of_supernatural.magnet_soul_stone":"磁铁——穿戴者会吸引周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
+"tooltip.mine_fargo.magnet_soul_stone.text":"穿戴者会每秒吸引一次周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
+"tooltip.mine_fargo.soul_of_supernatural.magnet_soul_stone":"磁铁——穿戴者会每秒吸引一次周围%d格范围内的物品和经验球(可通过按下快捷键关闭功能)",
 
 "item.mine_fargo.hazard_soul_stone":"危险魂石",
 "tooltip.mine_fargo.hazard_soul_stone.text":"每间隔%d秒，对%dx%d范围内距离自己最近的非随从实体造成一次%d%%攻击力的物理伤害",
@@ -707,6 +707,25 @@
 "item.mine_fargo.etherium_soul_stone":"以太魂石",
 "tooltip.mine_fargo.etherium_soul_stone.text":"穿戴者的生命值不会高于%d%%，在获得%d%%独立伤害减免的同时获得以太护盾[护盾会反弹大多数弹射物，提供50%%伤害抗性，攻击你的生物会被击退]",
 "tooltip.mine_fargo.soul_of_enigmatic_legacy.etherium_soul_stone":"以太——穿戴者的生命值不会高于%d%%，在获得%d%%独立伤害减免的同时获得以太护盾[护盾会反弹大多数弹射物，提供50%%伤害抗性，攻击你的生物会被击退]",
+
+
+
+"item.mine_fargo.soul_of_meet_fight":"迎战之魂",
+"item.mine_fargo.fossil_soul_stone":"化石魂石",
+"tooltip.mine_fargo.fossil_soul_stone.text":"攻击会对周围5x5造成一次%d%%攻击力的爆炸伤害；受到伤害数额超过%d%%最大生命值的伤害时，将超额部分减免%d%%",
+"tooltip.mine_fargo.soul_of_meet_fight.fossil_soul_stone":"化石——攻击会对周围5x5造成一次%d%%攻击力的爆炸伤害；受到伤害数额超过%d%%最大生命值的伤害时，将超额部分减免%d%%",
+
+"item.mine_fargo.phantoplasm_soul_stone":"幽魂魂石",
+"tooltip.mine_fargo.phantoplasm_soul_stone.text":"对周围63x63非随从实体施加缓慢II与发光效果",
+"tooltip.mine_fargo.soul_of_meet_fight.phantoplasm_soul_stone":"幽魂——对周围63x63非随从实体施加缓慢II与发光效果",
+
+"item.mine_fargo.ante_soul_stone":"赌注魂石",
+"tooltip.mine_fargo.ante_soul_stone.text":"攻击有概率获得%d%%增伤，有概率对自身造成随机原版正面效果；受击有概率减免60%%伤害；概率与幸运值相关",
+"tooltip.mine_fargo.soul_of_meet_fight.ante_soul_stone":"赌注——攻击有概率获得%d%%增伤，有翻倍概率对自身造成随机原版正面效果；受击有概率减免60%%伤害；概率与幸运值相关",
+
+"item.mine_fargo.violet_soul_stone":"暮光魂石",
+"tooltip.mine_fargo.violet_soul_stone.text":"减少%d%%最大生命值，获得%d%%伤害增幅；提升%d%%击杀实体经验掉落数量",
+"tooltip.mine_fargo.soul_of_meet_fight.violet_soul_stone":"暮光——减少%d%%最大生命值，获得%d%%伤害增幅；提升%d%%击杀实体经验掉落数量",
 
 
 

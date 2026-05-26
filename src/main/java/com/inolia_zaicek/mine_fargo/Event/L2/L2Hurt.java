@@ -6,6 +6,7 @@ import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import dev.xkmc.l2hostility.compat.curios.CurioCompat;
@@ -17,6 +18,7 @@ import dev.xkmc.l2library.init.events.GeneralEventHandler;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -28,8 +30,9 @@ public class L2Hurt {
     public void hurt(LivingHurtEvent event) {
         LivingEntity attacked = event.getEntity();
         if (event.getSource().getEntity() instanceof LivingEntity attacker && attacked != null) {
+            Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
             if (ModList.get().isLoaded("l2hostility")&& MyGoConfig.ultra_hostility_soul_stone.get()) {
-                if (MyGoUtil.hasL2Hostility(attacker, UltraHostilitySoulStone.get())) {
+                if (MyGoUtil.hasL2Hostility(curios,attacker, UltraHostilitySoulStone.get())) {
                     //—————————————————————————————————————————————————————数量与等级
                     GeneralEventHandler.schedule(() -> this.sealItems((int)(MyGoConfig.ultra_hostility_soul_stone_number.get()*1), attacked));
                 }

@@ -10,17 +10,21 @@ import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 public class FluidCollisionEvent {
     @SubscribeEvent
     public static void onFluidCollisionLava(LivingFluidCollisionEvent event) {
         if (event.getEntity() instanceof Player player) {
+            Set<Item> curios = MyGoUtil.getCuriosItems(player);
             boolean lava = false;
             boolean water = false;
-            if(MyGoUtil.hasNature(player, LavaSoulStone.get())){
+            if(MyGoUtil.hasNature(curios,player, LavaSoulStone.get())){
                 lava = true;
             }
             if (ModList.get().isLoaded("aquaculture")) {
@@ -29,16 +33,16 @@ public class FluidCollisionEvent {
                 }
             }
             if (ModList.get().isLoaded("cataclysm")) {
-                if (MyGoUtil.hasCataclysm(player, IgnisSoulStone.get())) {
+                if (MyGoUtil.hasCataclysm(curios,player, IgnisSoulStone.get())) {
                     lava = true;
                 }
             }
             if (ModList.get().isLoaded("legendary_monsters")) {
-                if (MyGoUtil.hasLegendaryEntity(player, LavaEaterSoulStone.get()) ) {
+                if (MyGoUtil.hasLegendaryEntity(curios,player, LavaEaterSoulStone.get()) ) {
                     lava = true;
                 }
             }
-            if(MyGoUtil.hasNature(player, OceanSoulStone.get())){
+            if(MyGoUtil.hasNature(curios,player, OceanSoulStone.get())){
                 water = true;
             }
             if (!player.isInLava() && !player.isCrouching() && event.getFluidState().is(FluidTags.LAVA)&&lava) {

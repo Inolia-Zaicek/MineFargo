@@ -13,6 +13,7 @@ import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -21,6 +22,8 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Set;
+
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE,modid = MineFargo.MODID)
@@ -28,17 +31,18 @@ public class BreakSpeedEvent {
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
         LivingEntity livingEntity =  event.getEntity();
+        Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
         float number = 0;
         if (ModList.get().isLoaded("malum")) {
-            if (MyGoUtil.hasMalum(livingEntity, TaintedSoulStone.get()) ) {
+            if (MyGoUtil.hasMalum(curios,livingEntity, TaintedSoulStone.get()) ) {
                 number+=MyGoConfig.tainted_soul_stone_dig.get();
             }
         }
-        if (MyGoUtil.hasOre(livingEntity, MyGoItemRegister.CopperSoulStone.get())) {
+        if (MyGoUtil.hasOre(curios,livingEntity, MyGoItemRegister.CopperSoulStone.get())) {
             number+=MyGoConfig.copper_soul_stone.get();
         }
         if (ModList.get().isLoaded("create")) {
-            if (MyGoUtil.hasCreate(livingEntity, MyGoItemRegister.ZincSoulStone.get())) {
+            if (MyGoUtil.hasCreate(curios,livingEntity, MyGoItemRegister.ZincSoulStone.get())) {
                 number += MyGoConfig.zinc_soul_stone_speed.get();
             }
         }
@@ -49,7 +53,7 @@ public class BreakSpeedEvent {
             }
         }
         if (ModList.get().isLoaded("alexscaves")) {
-            if (MyGoUtil.hasAlexsCaves(livingEntity, MyGoItemRegister.ForlornSoulStone.get())) {
+            if (MyGoUtil.hasAlexsCaves(curios,livingEntity, MyGoItemRegister.ForlornSoulStone.get())) {
                 number += MyGoConfig.forlorn_soul_stone_dig.get();
             }
         }

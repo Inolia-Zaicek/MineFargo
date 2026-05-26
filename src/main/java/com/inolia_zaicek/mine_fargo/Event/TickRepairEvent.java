@@ -6,10 +6,13 @@ import com.inolia_zaicek.mine_fargo.Item.Twilight.TwilightForest.SteeleafSoulSto
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 
 public class TickRepairEvent {
@@ -17,7 +20,8 @@ public class TickRepairEvent {
     public static void tick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
         if(ModList.get().isLoaded("l2complements")) {
-            if (MyGoUtil.hasL2Complements(player, EterniumComplementsSoulStone.get()) &&
+            Set<Item> curios = MyGoUtil.getCuriosItems(player);
+            if (MyGoUtil.hasL2Complements(curios,player, EterniumComplementsSoulStone.get()) &&
                     player.level().getGameTime() % (20) == 0) {
                 ItemStack mainHandItem = player.getMainHandItem();
                 ItemStack offHandItem = player.getOffhandItem();

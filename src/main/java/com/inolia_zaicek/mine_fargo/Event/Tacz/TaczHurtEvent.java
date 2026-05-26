@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 import static com.inolia_zaicek.mine_fargo.Event.Tacz.TaczTickEvent.sniper_rifle_soul_stone;
@@ -29,29 +31,31 @@ import static net.minecraft.tags.DamageTypeTags.IS_PROJECTILE;
 
 public class TaczHurtEvent {
     private static final UUID uuid = UUID.fromString("D2E5C4FB-613D-17E9-84B7-CF106C696BAC");
+
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("tacz")) {
             LivingEntity attacked = event.getEntity();
             if (event.getSource().getEntity() instanceof LivingEntity attacker && attacked != null) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
                 double number = 1;
                 double overNumber = 1;
                 double fixedNumber = 0;
                 if (event.getSource().is(ModDamageTypes.BULLETS_TAG) || event.getSource().is(ModDamageTypes.BULLET)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID) || event.getSource().is(ModDamageTypes.BULLET_IGNORE_ARMOR)
                         || event.getSource().is(ModDamageTypes.BULLET_VOID_IGNORE_ARMOR)) {
-                    if(ModList.get().isLoaded("legendary_monsters")) {
-                        if (MyGoUtil.hasLegendaryEntity(attacker, DuneSentinelSoulStone.get())) {
+                    if (ModList.get().isLoaded("legendary_monsters")) {
+                        if (MyGoUtil.hasLegendaryEntity(curios, attacker, DuneSentinelSoulStone.get())) {
                             number += MyGoConfig.dune_sentinel_soul_stone_up.get();
                         }
                     }
-                    if (ModList.get().isLoaded("l2damagetracker")||ModList.get().isLoaded("celestial_artifacts")) {
+                    if (ModList.get().isLoaded("l2damagetracker") || ModList.get().isLoaded("celestial_artifacts")) {
                         if (attacker.getAttributes().hasAttribute(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("l2damagetracker", "bow_strength"))))) {
                             overNumber *= attacker.getAttributeValue(Objects.requireNonNull(ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("l2damagetracker", "bow_strength"))));
                         }
                     }
                     //霰弹枪
-                    if (MyGoUtil.hasTacz(attacker, ShotgunSoulStone.get())){
+                    if (MyGoUtil.hasTacz(curios, attacker, ShotgunSoulStone.get())) {
                         Optional.of(attacked)
                                 .map(LivingEntity::getAttributes)
                                 .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
@@ -62,24 +66,24 @@ public class TaczHurtEvent {
                                                 MyGoConfig.shotgun_soul_stone.get() * -1, AttributeModifier.Operation.MULTIPLY_TOTAL)));
                     }
                     //暗杀
-                    if (MyGoUtil.hasTacz(attacker, SniperRifleSoulStone.get())
-                    && attacker.getPersistentData().getInt(sniper_rifle_soul_stone) > 0) {
+                    if (MyGoUtil.hasTacz(curios, attacker, SniperRifleSoulStone.get())
+                            && attacker.getPersistentData().getInt(sniper_rifle_soul_stone) > 0) {
                         //最高多少秒
-                        float max = (float) (MyGoConfig.sniper_rifle_soul_stone_time.get() * 2 * 20 );
+                        float max = (float) (MyGoConfig.sniper_rifle_soul_stone_time.get() * 2 * 20);
                         //当前等了多久
                         float now = attacker.getPersistentData().getInt(sniper_rifle_soul_stone);
-                        number += (MyGoConfig.sniper_rifle_soul_stone_damage.get()*now/(max) );
+                        number += (MyGoConfig.sniper_rifle_soul_stone_damage.get() * now / (max));
                         //造成伤害才清零
                         attacker.getPersistentData().putInt(sniper_rifle_soul_stone, 0);
                     }
                     //速射
-                    if (MyGoUtil.hasTacz(attacker, RifleSoulStone.get())
+                    if (MyGoUtil.hasTacz(curios, attacker, RifleSoulStone.get())
                             && attacker.getPersistentData().getInt(rifle_soul_stone_number) > 0) {
                         //最高多少次
-                        float max = (float) (MyGoConfig.rifle_soul_stone_number.get()*1);
+                        float max = (float) (MyGoConfig.rifle_soul_stone_number.get() * 1);
                         //当前射击次数
                         float now = attacker.getPersistentData().getInt(rifle_soul_stone_number);
-                        number += (MyGoConfig.rifle_soul_stone_damage.get()*now/max);
+                        number += (MyGoConfig.rifle_soul_stone_damage.get() * now / max);
                     }
                 }
                 float damage = (float) ((event.getAmount() * number + fixedNumber) * overNumber);
@@ -87,16 +91,13 @@ public class TaczHurtEvent {
             }
         }
     }
+
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
-        if (ModList.get().isLoaded("curios")) {
-            if (event.getSource().getEntity() instanceof LivingEntity attacker && MyGoUtil.hasTacz(attacker, ShotgunSoulStone.get())) {
-                Optional.of(event.getEntity())
-                        .map(LivingEntity::getAttributes)
-                        .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
-                        .map(manager -> manager.getInstance(Attributes.ARMOR))
-                        .ifPresent(instance -> instance.removeModifier(uuid));
-            }
-        }
+        Optional.of(event.getEntity())
+                .map(LivingEntity::getAttributes)
+                .filter(manager -> manager.hasAttribute(Attributes.ARMOR))
+                .map(manager -> manager.getInstance(Attributes.ARMOR))
+                .ifPresent(instance -> instance.removeModifier(uuid));
     }
 }

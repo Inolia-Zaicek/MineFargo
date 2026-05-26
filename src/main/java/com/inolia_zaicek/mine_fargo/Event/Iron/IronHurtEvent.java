@@ -5,6 +5,7 @@ import com.inolia_zaicek.mine_fargo.Item.Goety.Item.EscortSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Goety.Item.GoetyDarkSoulStoneItem;
 import com.inolia_zaicek.mine_fargo.Item.Iron.*;
 import com.inolia_zaicek.mine_fargo.Register.MyGoEffectsRegister;
+import com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -27,29 +29,31 @@ import org.confluence.mod.misc.ModAttributes;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 import static net.minecraft.tags.DamageTypeTags.*;
 
 public class IronHurtEvent {
-
+    
     @SubscribeEvent
     public static void hurt(LivingHurtEvent event) {
         if (ModList.get().isLoaded("irons_spellbooks")) {
             LivingEntity attacked = event.getEntity();
             if (attacked != null) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacked);
                 double number = 1;
                 double overNumber = 1;
                 double fixedNumber = 0;
                 //是随从
                 if (attacked instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null ) {
                     LivingEntity owner = ownableEntity.getOwner();
-                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStone.get())){
+                    if (MyGoUtil.hasIron(curios,owner, EvocationSectSoulStone.get())){
                         overNumber*=1-MyGoConfig.evocation_sect_soul_stone_armor.get();
                     }
                 }
                 if(attacked instanceof MagicSummon magicSummonMob&&magicSummonMob.getSummoner()!=null){
                     LivingEntity owner = magicSummonMob.getSummoner();
-                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStone.get())){
+                    if (MyGoUtil.hasIron(curios,owner, EvocationSectSoulStone.get())){
                         overNumber*=1-MyGoConfig.evocation_sect_soul_stone_armor.get();
                     }
                 }
@@ -60,7 +64,7 @@ public class IronHurtEvent {
                         || event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC) || event.getSource().is(ISSDamageTypes.ENDER_MAGIC)
                         || event.getSource().is(ISSDamageTypes.LIGHTNING_MAGIC) || event.getSource().is(ISSDamageTypes.NATURE_MAGIC)
                 )) {
-                    if (MyGoUtil.hasGoetyItem(attacked, GoetyDarkSoulStone.get())) {
+                    if (MyGoUtil.hasGoetyItem(curios,attacked, GoetyDarkSoulStone.get())) {
                         number *= 1 - MyGoConfig.goety_dark_soul_stone_magic.get();
                     }
                 }
@@ -68,6 +72,7 @@ public class IronHurtEvent {
                 event.setAmount((float) damage);
             }
             if (event.getSource().getEntity() instanceof LivingEntity attacker&&attacked!=null) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
                 double number = 1;
                 double overNumber = 1;
                 double fixedNumber = 0;
@@ -75,17 +80,17 @@ public class IronHurtEvent {
                 //是随从
                 if (attacker instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() != null ) {
                     LivingEntity owner = ownableEntity.getOwner();
-                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStone.get())){
+                    if (MyGoUtil.hasIron(curios,owner, EvocationSectSoulStone.get())){
                         number+=MyGoConfig.evocation_sect_soul_stone_damage.get();
                     }
                 }
                 if(attacker instanceof MagicSummon magicSummonMob&&magicSummonMob.getSummoner()!=null){
                     LivingEntity owner = magicSummonMob.getSummoner();
-                    if (MyGoUtil.hasIron(owner, EvocationSectSoulStone.get())){
+                    if (MyGoUtil.hasIron(curios,owner, EvocationSectSoulStone.get())){
                         number+=MyGoConfig.evocation_sect_soul_stone_damage.get();
                     }
                 }
-                if (MyGoUtil.hasIron(attacker, NatureSectSoulStone.get())) {
+                if (MyGoUtil.hasIron(curios,attacker, NatureSectSoulStone.get())) {
                     //用boolan值判断是否执行操作
                     boolean nature = false;
                     Random random = new Random();
@@ -156,7 +161,7 @@ public class IronHurtEvent {
                     }
                 }
                 //火
-                if(MyGoUtil.hasIron(attacker, FireSectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, FireSectSoulStone.get())) {
                     //最大增伤距离最小增伤的数额
                     double fire = MyGoConfig.fire_sect_soul_stone_fire_max_damage.get() - MyGoConfig.fire_sect_soul_stone_fire_min_damage.get();
                     double fireTime = Math.min(1, attacked.getRemainingFireTicks() / 100);
@@ -189,7 +194,7 @@ public class IronHurtEvent {
                     }
                 }
                 //冰
-                if(MyGoUtil.hasIron(attacker, IceSectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, IceSectSoulStone.get())) {
                     boolean ice = false;
                     int time = (int) (MyGoConfig.ice_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(ISSDamageTypes.ICE_MAGIC)) {
@@ -236,7 +241,7 @@ public class IronHurtEvent {
                     }
                 }
                 //神圣
-                if(MyGoUtil.hasIron(attacker, HolySectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, HolySectSoulStone.get())) {
                     boolean holy = false;
                     int time = (int) (MyGoConfig.holy_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(ISSDamageTypes.HOLY_MAGIC)) {
@@ -283,7 +288,7 @@ public class IronHurtEvent {
                     }
                 }
                 //邪术
-                if(MyGoUtil.hasIron(attacker, EldritchSectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, EldritchSectSoulStone.get())) {
                     boolean eldritch = false;
                     int time = (int) (MyGoConfig.eldritch_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(ISSDamageTypes.ELDRITCH_MAGIC)) {
@@ -339,7 +344,7 @@ public class IronHurtEvent {
                     }
                 }
                 //末影
-                if(MyGoUtil.hasIron(attacker, EnderSectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, EnderSectSoulStone.get())) {
                     boolean ender = false;
                     int time = (int) (MyGoConfig.ender_sect_soul_stone_time.get() * 20);
                     if (event.getSource().is(ISSDamageTypes.ENDER_MAGIC)) {
@@ -380,7 +385,7 @@ public class IronHurtEvent {
                     }
                 }
                 //唤魔
-                if (MyGoUtil.hasIron(attacker, EvocationSectSoulStone.get())) {
+                if (MyGoUtil.hasIron(curios,attacker, EvocationSectSoulStone.get())) {
                     //写在内部，不用管
                     if (event.getSource().is(ISSDamageTypes.EVOCATION_MAGIC)) {
                         number += MyGoConfig.evocation_sect_soul_stone_owner_damage.get();
@@ -409,7 +414,7 @@ public class IronHurtEvent {
                 }
                 double damage = (event.getAmount() * number + fixedNumber) * overNumber;
                 //雷霆&&
-                if (MyGoUtil.hasIron(attacker, LightningSectSoulStone.get())){
+                if (MyGoUtil.hasIron(curios,attacker, LightningSectSoulStone.get())){
                     int time = (int) Math.min(MyGoConfig.lightning_sect_soul_stone_time.get()*20,damage*MyGoConfig.lightning_sect_soul_stone_damage.get()*20 );
                     //记录
                     //attacker.sendSystemMessage(Component.translatable(String.valueOf(time)).withStyle(ChatFormatting.BLUE));
@@ -448,7 +453,7 @@ public class IronHurtEvent {
                     }
                 }
                 //血
-                if(MyGoUtil.hasIron(attacker, BloodSectSoulStone.get())) {
+                if(MyGoUtil.hasIron(curios,attacker, BloodSectSoulStone.get())) {
                     //写在内部，不用管
                     if (event.getSource().is(ISSDamageTypes.BLOOD_MAGIC) ) {
                         attacker.heal((float) (damage * MyGoConfig.blood_sect_soul_stone_heal.get()));

@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -18,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 public class ArsHurtEvent {
     @SubscribeEvent
@@ -25,11 +27,13 @@ public class ArsHurtEvent {
         if (ModList.get().isLoaded("ars_nouveau")) {
             LivingEntity attacked = event.getEntity();
             if (attacked != null) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacked);
                 double number = 1;
                 double overNumber = 1;
                 double fixedNumber = 0;
+                //诡厄的——魂石减伤
                 if (ModList.get().isLoaded("goety")) {
-                    if (MyGoUtil.hasGoetyItem(attacked, GoetyDarkSoulStone.get())&&(event.getSource().is(DamageTypesRegistry.GENERIC_SPELL_DAMAGE) || event.getSource().is(DamageTypesRegistry.COLD_SNAP)
+                    if (MyGoUtil.hasGoetyItem(curios,attacked, GoetyDarkSoulStone.get())&&(event.getSource().is(DamageTypesRegistry.GENERIC_SPELL_DAMAGE) || event.getSource().is(DamageTypesRegistry.COLD_SNAP)
                             || event.getSource().is(DamageTypesRegistry.FLARE) || event.getSource().is(DamageTypesRegistry.WINDSHEAR) ||
                             event.getSource().is(DamageTypesRegistry.CRUSH))) {
                         number *= 1 - MyGoConfig.goety_dark_soul_stone_magic.get();
@@ -40,7 +44,8 @@ public class ArsHurtEvent {
             }
             if (event.getSource().getEntity() instanceof LivingEntity attacker&&attacked!=null) {
                 var map = attacked.getActiveEffectsMap();
-                if(MyGoUtil.hasArs(attacker, ArchwoodSoulStone.get())) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
+                if(MyGoUtil.hasArs(curios,attacker, ArchwoodSoulStone.get())) {
                     Random random = new Random();
                     if (random.nextInt(100) <= MyGoConfig.archwood_soul_stone_chance.get() * 100) {
                         //爆炸【有配置文件，

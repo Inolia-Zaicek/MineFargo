@@ -14,9 +14,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 public class FEHurtEvent {
 
@@ -31,7 +34,7 @@ public class FEHurtEvent {
                 var map = attacked.getActiveEffectsMap();
                 if (
                         (event.getSource().is(ModDamageSources.DS_SOURCE)||event.getSource().is(ModDamageSources.FE_SOURCE))
-                        &&MyGoUtil.hasSupernatural(attacker, FantacySectSoulStone.get())
+                        &&MyGoUtil.isCurioEquipped(attacker, FantacySectSoulStone.get())
                 ) {
                     number += MyGoConfig.fantasy_sect_soul_stone_damage.get();
                 }else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC)||event.getSource().is(ISSDamageTypes.ICE_MAGIC)

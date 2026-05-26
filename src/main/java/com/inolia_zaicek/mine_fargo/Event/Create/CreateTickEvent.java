@@ -17,6 +17,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import vazkii.botania.api.mana.ManaItemHandler;
 
+import java.util.Set;
+
 public class CreateTickEvent {
     public static final TagKey<Item> sandpaper = TagKey.create(Registries.ITEM,new ResourceLocation("create","sandpaper"));
     @SubscribeEvent
@@ -26,7 +28,8 @@ public class CreateTickEvent {
                 return;
             LivingEntity livingEntity = event.getEntity();
             if (livingEntity.level().getGameTime() % 20L == 0) {
-                if(MyGoUtil.hasCreate(livingEntity, RoseQuartzSoulStone.get())) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
+                if(MyGoUtil.hasCreate(curios,livingEntity, RoseQuartzSoulStone.get())) {
                     ItemStack mainHandItem = livingEntity.getMainHandItem();
                     ItemStack offHandItem = livingEntity.getOffhandItem();
                     hand(mainHandItem);

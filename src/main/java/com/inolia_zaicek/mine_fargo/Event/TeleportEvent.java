@@ -8,10 +8,13 @@ import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 public class TeleportEvent {
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -25,12 +28,14 @@ public class TeleportEvent {
             var mobList = MyGoUtil.mobList((int) ((MyGoConfig.zone_hostility_soul_stone_range.get() + 1) / 2), livingEntity);
             var playerList = MyGoUtil.PlayerList((int) ((MyGoConfig.zone_hostility_soul_stone_range.get() + 1) / 2), livingEntity);
             for (Mob mobs : mobList) {
-                if (MyGoUtil.hasL2Hostility(mobs, ZoneHostilitySoulStone.get())&& mobs!=livingEntity){
+                Set<Item> curios = MyGoUtil.getCuriosItems(mobs);
+                if (MyGoUtil.hasL2Hostility(curios,mobs, ZoneHostilitySoulStone.get())&& mobs!=livingEntity){
                     event.setCanceled(true);
                 }
             }
             for (Player player : playerList) {
-                if (MyGoUtil.hasL2Hostility(player, ZoneHostilitySoulStone.get())&& player!=livingEntity){
+                Set<Item> curios = MyGoUtil.getCuriosItems(player);
+                if (MyGoUtil.hasL2Hostility(curios,player, ZoneHostilitySoulStone.get())&& player!=livingEntity){
                     event.setCanceled(true);
                 }
             }

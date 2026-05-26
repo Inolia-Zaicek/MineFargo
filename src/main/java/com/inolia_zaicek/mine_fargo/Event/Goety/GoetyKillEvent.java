@@ -16,6 +16,7 @@ import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -23,6 +24,8 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+
+import java.util.Set;
 
 import static com.Polarice3.Goety.utils.SEHelper.*;
 
@@ -32,7 +35,8 @@ public class GoetyKillEvent {
         if (ModList.get().isLoaded("goety")) {
             if (!(event.getEntity() instanceof Player)) {
                 if (event.getSource().getEntity() instanceof Player player && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
-                    if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStone.get())) {
+                    Set<Item> curios = MyGoUtil.getCuriosItems(player);
+                    if (MyGoUtil.hasGoetyItem(curios,player, EctoplasmSoulStone.get())) {
                         //判断是否有灵魂方舟
                         if (getSEActive(player)) {
                             sendSEUpdatePacket(player);
@@ -48,7 +52,8 @@ public class GoetyKillEvent {
                 //如果攻击者是随从
                 else if (event.getSource().getEntity() instanceof LivingEntity && !EntityType.getKey(event.getEntity().getType()).toString().equals("goety:obsidian_monolith")) {
                     if (event.getSource().getEntity() instanceof OwnableEntity ownableEntity && ownableEntity.getOwner() instanceof Player player) {
-                        if (MyGoUtil.hasGoetyItem(player, EctoplasmSoulStone.get())) {
+                        Set<Item> curios = MyGoUtil.getCuriosItems(player);
+                        if (MyGoUtil.hasGoetyItem(curios,player, EctoplasmSoulStone.get())) {
                             //判断是否有灵魂方舟
                             if (getSEActive(player)) {
                                 sendSEUpdatePacket(player);

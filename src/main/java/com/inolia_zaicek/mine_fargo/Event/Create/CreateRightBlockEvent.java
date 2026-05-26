@@ -16,10 +16,13 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Set;
 
 import static com.inolia_zaicek.mine_fargo.Event.TickEvent.zinc_soul_stone_time;
 
@@ -30,7 +33,8 @@ public class CreateRightBlockEvent {
             Player player = event.getEntity();
             BlockPos blockPos = event.getPos();
             Level level = player.level();
-            if (MyGoUtil.hasCreate(player, ZincSoulStone.get())&&level.getBlockEntity(blockPos) instanceof HandCrankBlockEntity
+            Set<Item> curios = MyGoUtil.getCuriosItems(player);
+            if (MyGoUtil.hasCreate(curios,player, ZincSoulStone.get())&&level.getBlockEntity(blockPos) instanceof HandCrankBlockEntity
                     && MyGoConfig.zinc_soul_stone_use.get() && player.getPersistentData().getInt(zinc_soul_stone_time)==0) {
                 player.getPersistentData().putInt(zinc_soul_stone_time, 50);
                 int food = player.getFoodData().getFoodLevel();
@@ -41,7 +45,7 @@ public class CreateRightBlockEvent {
                     player.getFoodData().setSaturation((float) Math.min(saturation + 1, 20));
                 }
             }
-            if (MyGoUtil.hasCreate(player, BlazeCakeSoulStone.get())) {
+            if (MyGoUtil.hasCreate(curios,player, BlazeCakeSoulStone.get())) {
                 //【可进行完全燃烧
                 if (MyGoConfig.blaze_cake_soul_stone_super.get()) {
                     //未进入完全燃烧

@@ -46,6 +46,7 @@ public class NeptuniumSoulStoneItem extends Item implements ICurioItem {
     }
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return !MyGoUtil.isCurioEquipped(slotContext.entity(), MyGoItemRegister.NeptuniumSoulStone.get() );
+        return !MyGoUtil.isCurioEquipped(slotContext.entity(), MyGoItemRegister.NeptuniumSoulStone.get() )&&
+                !MyGoUtil.isCurioEquipped(slotContext.entity(), SoulOfInolia.get() );
     }
 }

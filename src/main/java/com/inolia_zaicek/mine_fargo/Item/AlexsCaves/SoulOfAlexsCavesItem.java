@@ -32,6 +32,7 @@ public class SoulOfAlexsCavesItem extends Item implements ICurioItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("tooltip.mine_fargo.soul_of_alexs_caves.magnetic_soul_stone",
+                (float) (MyGoConfig.magnetic_soul_stone_cooldown.get() * 1),
                 (int)(MyGoConfig.magnetic_soul_stone_range.get()*1),(int)(MyGoConfig.magnetic_soul_stone_range.get()*1),
                 (float) (MyGoConfig.magnetic_soul_stone_base_atk.get() * 1),(float)(MyGoConfig.magnetic_soul_stone_atk.get()*100),
                 (float) (MyGoConfig.magnetic_soul_stone_time.get() * 1),(float)(MyGoConfig.magnetic_soul_stone_chance.get()*100)

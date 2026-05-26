@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "mine_fargo.refmap.json",
   "mixins": [
+    "Ino.PiglinAiFix",
+
     "Goety.WandUtilMixin",
     "Goety.CommonConfigMixin",
     "Create.GogglesItemMixin",

@@ -1,20 +1,30 @@
 package com.inolia_zaicek.mine_fargo.Item.Goety.Item;
 
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import com.inolia_zaicek.mine_fargo.Config.MyGoConfig;
 import com.inolia_zaicek.mine_fargo.Util.MyGoUtil;
 import static com.inolia_zaicek.mine_fargo.Register.MyGoItemRegister.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.ForgeRegistries;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @SuppressWarnings({"all", "removal"})
 public class GoetyFocusSoulStoneItem extends Item implements ICurioItem, GoetyItemST {
@@ -33,5 +43,18 @@ public class GoetyFocusSoulStoneItem extends Item implements ICurioItem, GoetyIt
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
         return ! MyGoUtil.hasGoetyItem(slotContext.entity(), GoetyFocusSoulStone.get());
+    }
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
+        Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
+        //洞穴
+        if(ModList.get().isLoaded("wizard_terra_cuiros")) {
+            if (slotContext.entity() != null && slotContext.entity().isSprinting()) {
+                atts.put( Objects.requireNonNull(
+                                ForgeRegistries.ATTRIBUTES.getValue(new ResourceLocation("wizard_terra_cuiros", "gotey_potency_add")))
+                        , new AttributeModifier(UUID.fromString("250A3C8E-1C9C-8E66-1ACB-42701F420625"), this.getTooltipItemName(), (int)(MyGoConfig.goety_focus_soul_stone.get()*1), AttributeModifier.Operation.ADDITION));
+            }
+        }
+        return atts;
     }
 }

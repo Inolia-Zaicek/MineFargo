@@ -31,7 +31,16 @@ public class SuperpositionHandlerMixin {
     private static void getCurseAmountMixin(Player player, CallbackInfoReturnable<Integer> cir){
         if(MyGoUtil.hasEnigmaticLegacy(player, CursesSoulStone.get())) {
             int number = cir.getReturnValue();
-            cir.setReturnValue((int) (number*MyGoConfig.curses_soul_stone.get()));
+            int finish = (int) (number*MyGoConfig.curses_soul_stone.get());
+            if(MyGoConfig.curse_sroll.get()){
+                int max = (int)(1*MyGoConfig.curse_sroll_number.get());
+                //在整合包内，会被影响最大数量
+                if(MyGoConfig.InoIntegrationPack.get()) {
+                    max=(int) (max*MyGoConfig.curses_soul_stone.get());
+                }
+                finish=Math.min(finish,max);
+            }
+            cir.setReturnValue(finish);
         }
     }
 }

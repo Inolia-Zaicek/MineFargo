@@ -8,12 +8,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import vazkii.botania.common.entity.PixieEntity;
 
 import java.util.Random;
+import java.util.Set;
 
 import static com.inolia_zaicek.mine_fargo.Event.TickEvent.elementium_soul_stone;
 
@@ -28,7 +30,8 @@ public class PixieSummon {
             //进攻
             if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
                 var mob = event.getEntity();
-                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStone.get())
+                Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
+                if ( MyGoUtil.hasBotania(curios,livingEntity, ElementiumSoulStone.get())
                         && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
                 && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
                     livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));
@@ -64,10 +67,10 @@ public class PixieSummon {
                 }
             }
             //挨打
-            if (event.getSource().getEntity() instanceof LivingEntity) {
-                var livingEntity = attacked;
+            if (event.getSource().getEntity() instanceof LivingEntity livingEntity) {
+                Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
                 LivingEntity mob = event.getSource().getEntity().getControllingPassenger();
-                if ( MyGoUtil.hasBotania(livingEntity, ElementiumSoulStone.get())
+                if ( MyGoUtil.hasBotania(curios,livingEntity, ElementiumSoulStone.get())
                         && random.nextInt(100) <= MyGoConfig.elementium_soul_stone_chance.get()*100
                         && livingEntity.getPersistentData().getInt(elementium_soul_stone) == 0) {
                     livingEntity.getPersistentData().putInt(elementium_soul_stone,(int)(MyGoConfig.elementium_soul_stone_cooldown.get()*20*2));

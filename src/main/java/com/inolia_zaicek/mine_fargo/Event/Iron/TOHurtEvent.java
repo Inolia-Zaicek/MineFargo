@@ -39,7 +39,7 @@ public class TOHurtEvent {
                 double chance = MyGoConfig.aqua_sect_soul_stone_chance.get() * 100;
                 int buffTime = (int) (MyGoConfig.aqua_sect_soul_stone_time.get() * 20);
                 var map = attacked.getActiveEffectsMap();
-                if (MyGoUtil.hasSupernatural(attacker, AquaSectSoulStone.get())) {
+                if (MyGoUtil.isCurioEquipped(attacker, AquaSectSoulStone.get())) {
                     if (event.getSource().is(TravelopticsDamageTypes.AQUA_MAGIC)) {
                         aqua=true;
                     } else if (event.getSource().is(ISSDamageTypes.FIRE_MAGIC) || event.getSource().is(ISSDamageTypes.ICE_MAGIC)

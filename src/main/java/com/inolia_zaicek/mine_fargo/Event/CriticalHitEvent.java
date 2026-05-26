@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 public class CriticalHitEvent {
     /// 暴击事件
@@ -31,8 +33,9 @@ public class CriticalHitEvent {
         ItemStack weapon = attacker.getMainHandItem();
         double criChance = 0;
         float criDamage = event.getDamageModifier();
+        Set<Item> curios = MyGoUtil.getCuriosItems(attacker);
         if (ModList.get().isLoaded("botania")) {
-            if (MyGoUtil.hasBotania(attacker, GaiaSoulStone.get())) {
+            if (MyGoUtil.hasBotania(curios,attacker, GaiaSoulStone.get())) {
                 criChance += MyGoConfig.gaia_soul_stone_chance.get();
             }
         }

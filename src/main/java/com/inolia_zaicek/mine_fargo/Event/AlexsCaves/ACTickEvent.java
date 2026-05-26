@@ -22,6 +22,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,6 +30,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class ACTickEvent {
     public static final String forlorn_soul_stone_buff = MineFargo.MODID + ":forlorn_soul_stone_buff";
@@ -42,7 +44,8 @@ public class ACTickEvent {
                 return;
             LivingEntity livingEntity = event.getEntity();
             Level level = livingEntity.level();
-            if (MyGoUtil.hasAlexsCaves(livingEntity, ToxicSoulStone.get())) {
+            Set<Item> curios = MyGoUtil.getCuriosItems(livingEntity);
+            if (MyGoUtil.hasAlexsCaves(curios,livingEntity, ToxicSoulStone.get())) {
                 livingEntity.removeEffect(Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "irradiated"))));
             }
             if (livingEntity.getPersistentData().getInt(primitive_soul_stone_damage) > 0) {
@@ -57,14 +60,14 @@ public class ACTickEvent {
                 livingEntity.getPersistentData().putInt(primitive_soul_stone_buff,
                         livingEntity.getPersistentData().getInt(primitive_soul_stone_buff) - 1);
             }
-            if (MyGoUtil.hasAlexsCaves(livingEntity, PrimitiveSoulStone.get())) {
+            if (MyGoUtil.hasAlexsCaves(curios,livingEntity, PrimitiveSoulStone.get())) {
                 livingEntity.addEffect(new MobEffectInstance(
                         Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation("alexscaves", "rage"))),
                         100, (int) (MyGoConfig.primitive_soul_stone_buff.get() - 1)));
             }
             //异寂——客户端or服务端
             if (livingEntity.level().isClientSide()) {
-                if (MyGoUtil.hasAlexsCaves(livingEntity, ForlornSoulStone.get()) && livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) == 0 &&
+                if (MyGoUtil.hasAlexsCaves(curios,livingEntity, ForlornSoulStone.get()) && livingEntity.getPersistentData().getInt(forlorn_soul_stone_buff) == 0 &&
                         ACKeybindRegistry.KEY_SPECIAL_ABILITY.isDown()) {
                     //客户端冷却
                     livingEntity.getPersistentData().putInt(forlorn_soul_stone_buff, (int) (MyGoConfig.forlorn_soul_stone_buff.get() * 20 * 2));

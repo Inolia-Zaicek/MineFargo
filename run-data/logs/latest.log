@@ -1,70 +1,70 @@
-[303月2026 17:38:47.672] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\lenovo\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.29, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, mine_fargo, --all, --output, F:\MineFargo\src\generated\resources, --existing, F:\MineFargo\src\main\resources, --mixin.config, mine_fargo.mixins.json]
-[303月2026 17:38:47.687] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.14 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[303月2026 17:38:47.947] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[303月2026 17:38:48.057] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/lenovo/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[303月2026 17:38:48.547] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.29\c0f2a96b88f344c7fa51185238ddb5f6d1be8560\javafmllanguage-1.20.1-47.3.29.jar is missing mods.toml file
-[303月2026 17:38:48.557] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.29\7dd674f592d85d4bc5e90ae9d48dbaa81a69462e\lowcodelanguage-1.20.1-47.3.29.jar is missing mods.toml file
-[303月2026 17:38:48.571] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.29\3e35d3e0c242a3ccdc0f8b2c4f9200a7978c3696\mclanguage-1.20.1-47.3.29.jar is missing mods.toml file
-[303月2026 17:38:48.584] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.29\14593d5e6d79f573c8f204ed40d52c15b32de896\fmlcore-1.20.1-47.3.29.jar is missing mods.toml file
-[303月2026 17:38:51.064] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select two dependency jars from JarJar which have the same identification: Mod File:  and Mod File: . Using Mod File: 
-[303月2026 17:38:51.070] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: geckolib. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\geckolib-1.20.1\1_mapped_official_1.20.1\geckolib-1.20.1-1_mapped_official_1.20.1.jar
-[303月2026 17:38:51.070] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: ponder. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\ponder-Forge-1.20.1\1.0.91_mapped_official_1.20.1\ponder-Forge-1.20.1-1.0.91_mapped_official_1.20.1.jar
-[303月2026 17:38:51.071] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: playeranimator. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\playeranimator-1.20.1\1_mapped_official_1.20.1\playeranimator-1.20.1-1_mapped_official_1.20.1.jar
-[303月2026 17:38:51.071] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: flywheel. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\flywheel-forge-1.20.1\1.0.5_mapped_official_1.20.1\flywheel-forge-1.20.1-1.0.5_mapped_official_1.20.1.jar
-[303月2026 17:38:51.071] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras. Using Mod File: C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-forge\0.4.1\5c35573a7b76103724799ca1174a69699b8a9aec\mixinextras-forge-0.4.1.jar
-[303月2026 17:38:51.071] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 21 dependencies adding them to mods collection
-[303月2026 17:39:01.875] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[303月2026 17:39:02.355] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.aizistral.enigmaticlegacy.MixinConnector]
-[303月2026 17:39:02.358] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\lenovo\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, mine_fargo, --all, --output, F:\MineFargo\src\generated\resources, --existing, F:\MineFargo\src\main\resources]
-[303月2026 17:39:02.365] [main/WARN] [mixin/]: Reference map 'mine_fargo.refmap.json' for mine_fargo.mixins.json could not be read. If this is a development environment you can ignore this message
-[303月2026 17:39:02.803] [main/INFO] [mixin/]: Remapping refMap rhino-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.806] [main/INFO] [mixin/]: Remapping refMap alshanex_familiars.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.808] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.814] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.817] [main/INFO] [mixin/]: Remapping refMap tacz.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.823] [main/INFO] [mixin/]: Remapping refMap tacz.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.825] [main/INFO] [mixin/]: Remapping refMap cafelib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.828] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.831] [main/INFO] [mixin/]: Remapping refMap goety.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.834] [main/INFO] [mixin/]: Remapping refMap citadel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.835] [main/INFO] [mixin/]: Remapping refMap placebo.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.969] [main/INFO] [mixin/]: Remapping refMap iceandfire.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.972] [main/WARN] [mixin/]: Reference map 'puzzlesaccessapi.common.refmap.json' for puzzlesaccessapi.common.mixins.json could not be read. If this is a development environment you can ignore this message
-[303月2026 17:39:02.978] [main/INFO] [mixin/]: Remapping refMap terra_entity.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.980] [main/INFO] [mixin/]: Remapping refMap dummmmmmy-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.985] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.988] [main/WARN] [mixin/]: Reference map 'mixins.sons_of_sins.refmap.json' for mixins.sons_of_sins.json could not be read. If this is a development environment you can ignore this message
-[303月2026 17:39:02.992] [main/INFO] [mixin/]: Remapping refMap alexscaves.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.996] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.998] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:02.999] [main/INFO] [mixin/]: Remapping refMap avaritia.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.001] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.005] [main/INFO] [mixin/]: Remapping refMap botania.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.008] [main/INFO] [mixin/]: Remapping refMap botania.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.011] [main/INFO] [mixin/]: Remapping refMap lionfishapi.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.013] [main/INFO] [mixin/]: Remapping refMap backend-flywheel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.016] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.018] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.021] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.025] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.028] [main/INFO] [mixin/]: Remapping refMap cataclysm.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.029] [main/INFO] [mixin/]: Remapping refMap touhou_little_maid.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.031] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.035] [main/INFO] [mixin/]: Remapping refMap ars_nouveau.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.037] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.064] [main/INFO] [mixin/]: Remapping refMap revelationfix.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.084] [main/INFO] [mixin/]: Remapping refMap ending_library.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.086] [main/INFO] [mixin/]: Remapping refMap malum.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.088] [main/INFO] [mixin/]: Remapping refMap ars_elemental.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.089] [main/INFO] [mixin/]: Remapping refMap legendary_monsters.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.091] [main/INFO] [mixin/]: Remapping refMap irons_spellbooks.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.092] [main/INFO] [mixin/]: Remapping refMap attributeslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.095] [main/WARN] [mixin/]: Reference map 'mob_weapon_api.refmap.json' for mob_weapon_api.mixins.json could not be read. If this is a development environment you can ignore this message
-[303月2026 17:39:03.098] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.100] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.101] [main/INFO] [mixin/]: Remapping refMap kubejs-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.104] [main/INFO] [mixin/]: Remapping refMap kubejs-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.134] [main/INFO] [Puzzles Lib/]: Loading 62 mods:
+[075月2026 13:36:14.174] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\lenovo\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.29, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, mine_fargo, --all, --output, F:\MineFargo\src\generated\resources, --existing, F:\MineFargo\src\main\resources, --mixin.config, mine_fargo.mixins.json]
+[075月2026 13:36:14.189] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.19 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[075月2026 13:36:14.491] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[075月2026 13:36:14.584] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/lenovo/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[075月2026 13:36:15.128] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.29\c0f2a96b88f344c7fa51185238ddb5f6d1be8560\javafmllanguage-1.20.1-47.3.29.jar is missing mods.toml file
+[075月2026 13:36:15.139] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.29\7dd674f592d85d4bc5e90ae9d48dbaa81a69462e\lowcodelanguage-1.20.1-47.3.29.jar is missing mods.toml file
+[075月2026 13:36:15.150] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.29\3e35d3e0c242a3ccdc0f8b2c4f9200a7978c3696\mclanguage-1.20.1-47.3.29.jar is missing mods.toml file
+[075月2026 13:36:15.163] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.29\14593d5e6d79f573c8f204ed40d52c15b32de896\fmlcore-1.20.1-47.3.29.jar is missing mods.toml file
+[075月2026 13:36:17.678] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select two dependency jars from JarJar which have the same identification: Mod File:  and Mod File: . Using Mod File: 
+[075月2026 13:36:17.680] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: geckolib. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\geckolib-1.20.1\1_mapped_official_1.20.1\geckolib-1.20.1-1_mapped_official_1.20.1.jar
+[075月2026 13:36:17.680] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: ponder. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\ponder-Forge-1.20.1\1.0.91_mapped_official_1.20.1\ponder-Forge-1.20.1-1.0.91_mapped_official_1.20.1.jar
+[075月2026 13:36:17.680] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: playeranimator. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\playeranimator-1.20.1\1_mapped_official_1.20.1\playeranimator-1.20.1-1_mapped_official_1.20.1.jar
+[075月2026 13:36:17.680] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: flywheel. Using Mod File: C:\Users\lenovo\.gradle\caches\forge_gradle\deobf_dependencies\blank\flywheel-forge-1.20.1\1.0.5_mapped_official_1.20.1\flywheel-forge-1.20.1-1.0.5_mapped_official_1.20.1.jar
+[075月2026 13:36:17.680] [main/WARN] [net.minecraftforge.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: mixinextras. Using Mod File: C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\io.github.llamalad7\mixinextras-forge\0.4.1\5c35573a7b76103724799ca1174a69699b8a9aec\mixinextras-forge-0.4.1.jar
+[075月2026 13:36:17.680] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 21 dependencies adding them to mods collection
+[075月2026 13:36:29.931] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[075月2026 13:36:30.444] [main/INFO] [mixin/]: Successfully loaded Mixin Connector [com.aizistral.enigmaticlegacy.MixinConnector]
+[075月2026 13:36:30.447] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\lenovo\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, mine_fargo, --all, --output, F:\MineFargo\src\generated\resources, --existing, F:\MineFargo\src\main\resources]
+[075月2026 13:36:30.458] [main/WARN] [mixin/]: Reference map 'mine_fargo.refmap.json' for mine_fargo.mixins.json could not be read. If this is a development environment you can ignore this message
+[075月2026 13:36:30.839] [main/INFO] [mixin/]: Remapping refMap rhino-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.842] [main/INFO] [mixin/]: Remapping refMap alshanex_familiars.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.844] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.849] [main/INFO] [mixin/]: Remapping refMap player-animation-lib-minecraft_common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.851] [main/INFO] [mixin/]: Remapping refMap tacz.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.856] [main/INFO] [mixin/]: Remapping refMap tacz.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.858] [main/INFO] [mixin/]: Remapping refMap cafelib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.860] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.863] [main/INFO] [mixin/]: Remapping refMap goety.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.866] [main/INFO] [mixin/]: Remapping refMap citadel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.868] [main/INFO] [mixin/]: Remapping refMap placebo.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.993] [main/INFO] [mixin/]: Remapping refMap iceandfire.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:30.996] [main/WARN] [mixin/]: Reference map 'puzzlesaccessapi.common.refmap.json' for puzzlesaccessapi.common.mixins.json could not be read. If this is a development environment you can ignore this message
+[075月2026 13:36:31.001] [main/INFO] [mixin/]: Remapping refMap terra_entity.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.006] [main/INFO] [mixin/]: Remapping refMap dummmmmmy-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.012] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.014] [main/WARN] [mixin/]: Reference map 'mixins.sons_of_sins.refmap.json' for mixins.sons_of_sins.json could not be read. If this is a development environment you can ignore this message
+[075月2026 13:36:31.017] [main/INFO] [mixin/]: Remapping refMap alexscaves.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.025] [main/INFO] [mixin/]: Remapping refMap moonlight-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.028] [main/INFO] [mixin/]: Remapping refMap moonlight-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.030] [main/INFO] [mixin/]: Remapping refMap avaritia.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.032] [main/INFO] [mixin/]: Remapping refMap jade.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.035] [main/INFO] [mixin/]: Remapping refMap botania.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.042] [main/INFO] [mixin/]: Remapping refMap botania.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.046] [main/INFO] [mixin/]: Remapping refMap lionfishapi.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.048] [main/INFO] [mixin/]: Remapping refMap backend-flywheel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.051] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.057] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.060] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.065] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.068] [main/INFO] [mixin/]: Remapping refMap cataclysm.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.074] [main/INFO] [mixin/]: Remapping refMap touhou_little_maid.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.078] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.083] [main/INFO] [mixin/]: Remapping refMap ars_nouveau.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.086] [main/INFO] [mixin/]: Remapping refMap patchouli.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.120] [main/INFO] [mixin/]: Remapping refMap revelationfix.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.148] [main/INFO] [mixin/]: Remapping refMap ending_library.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.154] [main/INFO] [mixin/]: Remapping refMap malum.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.160] [main/INFO] [mixin/]: Remapping refMap ars_elemental.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.165] [main/INFO] [mixin/]: Remapping refMap legendary_monsters.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.168] [main/INFO] [mixin/]: Remapping refMap irons_spellbooks.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.177] [main/INFO] [mixin/]: Remapping refMap attributeslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.184] [main/WARN] [mixin/]: Reference map 'mob_weapon_api.refmap.json' for mob_weapon_api.mixins.json could not be read. If this is a development environment you can ignore this message
+[075月2026 13:36:31.190] [main/INFO] [mixin/]: Remapping refMap architectury-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.194] [main/INFO] [mixin/]: Remapping refMap architectury-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.197] [main/INFO] [mixin/]: Remapping refMap kubejs-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.199] [main/INFO] [mixin/]: Remapping refMap kubejs-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.231] [main/INFO] [Puzzles Lib/]: Loading 63 mods:
 	- alexscaves 2.0.2
 	- alshanex_familiars 1.20.1_v1.1.2_HotFix
 	- aquaculture 2.5.7
@@ -107,7 +107,8 @@
 	- lionfishapi 2.4-Fix
 	- lodestone 1.20.1-1.6.4.1
 	- malum 1.20.1-1.6.7
-	- mine_fargo 1.2.3
+	- meetyourfight 1.20.1-1.6.0
+	- mine_fargo 1.2.58
 	- minecraft 1.20.1
 	- mixinextras 0.4.1
 	- moonlight 1.20-2.14.11
@@ -127,76 +128,76 @@
 		\-- simplebedrockmodel 1.2.1
 	- traveloptics 4.4.0-1.20.1
 	- twilightforest 4.3.2508
-[303月2026 17:39:03.137] [main/INFO] [mixin/]: Remapping refMap puzzleslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.141] [main/INFO] [mixin/]: Remapping refMap puzzleslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.143] [main/INFO] [mixin/]: Remapping refMap l2library.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.146] [main/INFO] [mixin/]: Remapping refMap l2tabs.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.149] [main/INFO] [mixin/]: Remapping refMap l2complements.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.151] [main/INFO] [mixin/]: Remapping refMap l2screentracker.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.153] [main/INFO] [mixin/]: Remapping refMap l2damagetracker.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.155] [main/INFO] [mixin/]: Remapping refMap l2hostility.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.158] [main/WARN] [mixin/]: Reference map 'itemselector.refmap.json' for l2itemselector.mixins.json could not be read. If this is a development environment you can ignore this message
-[303月2026 17:39:03.161] [main/INFO] [mixin/]: Remapping refMap lodestone.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.163] [main/INFO] [mixin/]: Remapping refMap expandability-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.167] [main/INFO] [mixin/]: Remapping refMap expandability-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.171] [main/INFO] [mixin/]: Remapping refMap overflowingbars.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.174] [main/INFO] [mixin/]: Remapping refMap mixins.goety_revelation.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:03.177] [main/INFO] [mixin/]: Remapping refMap enigmaticlegacy.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
-[303月2026 17:39:04.131] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:04.141] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:04.451] [main/WARN] [mixin/]: Error loading class: io/github/strikerrocker/vt/enchantments/SiphonEnchantment (java.lang.ClassNotFoundException: io.github.strikerrocker.vt.enchantments.SiphonEnchantment)
-[303月2026 17:39:04.770] [main/WARN] [mixin/]: Error loading class: mod/azure/azurelib/loading/FileLoader (java.lang.ClassNotFoundException: mod.azure.azurelib.loading.FileLoader)
-[303月2026 17:39:06.908] [main/WARN] [mixin/]: Error loading class: mezz/modnametooltip/TooltipEventHandler (java.lang.ClassNotFoundException: mezz.modnametooltip.TooltipEventHandler)
-[303月2026 17:39:06.911] [main/WARN] [mixin/]: Error loading class: me/shedaniel/rei/impl/client/ClientHelperImpl (java.lang.ClassNotFoundException: me.shedaniel.rei.impl.client.ClientHelperImpl)
-[303月2026 17:39:07.140] [main/WARN] [mixin/]: Error loading class: net/darkhax/darkutils/features/charms/CharmEffects (java.lang.ClassNotFoundException: net.darkhax.darkutils.features.charms.CharmEffects)
-[303月2026 17:39:07.143] [main/WARN] [mixin/]: Error loading class: com/brandon3055/csg/ModEventHandler (java.lang.ClassNotFoundException: com.brandon3055.csg.ModEventHandler)
-[303月2026 17:39:07.156] [main/WARN] [mixin/]: Error loading class: vazkii/quark/content/tweaks/module/AutomaticRecipeUnlockModule (java.lang.ClassNotFoundException: vazkii.quark.content.tweaks.module.AutomaticRecipeUnlockModule)
-[303月2026 17:39:07.194] [main/WARN] [mixin/]: Error loading class: vazkii/quark/content/management/client/screen/widgets/MiniInventoryButton (java.lang.ClassNotFoundException: vazkii.quark.content.management.client.screen.widgets.MiniInventoryButton)
-[303月2026 17:39:07.287] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
-[303月2026 17:39:07.287] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapAccessor
-[303月2026 17:39:07.291] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
-[303月2026 17:39:07.291] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapMixin
-[303月2026 17:39:07.323] [main/WARN] [mixin/]: Redundant @Unique on injector method initMixin(Lnet/minecraft/world/item/Item$Properties;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V in cafelib.mixins.json:ItemMixin. Injectors are implicitly unique
-[303月2026 17:39:07.935] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[303月2026 17:39:08.516] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mine_fargo]
-[303月2026 17:39:10.706] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:10.707] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:10.737] [main/INFO] [mixin/]: Mixing MixinLivingEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.LivingEntity
-[303月2026 17:39:11.871] [main/INFO] [mixin/]: Mixing MixinPlayer from enigmaticlegacy.mixins.json into net.minecraft.world.entity.player.Player
-[303月2026 17:39:12.351] [main/WARN] [mixin/]: Redundant @Unique on injector method initMixin(Lnet/minecraft/world/item/Item$Properties;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V in cafelib.mixins.json:ItemMixin. Injectors are implicitly unique
-[303月2026 17:39:12.644] [main/INFO] [mixin/]: Mixing MixinMobEffect from enigmaticlegacy.mixins.json into net.minecraft.world.effect.MobEffect
-[303月2026 17:39:14.885] [main/INFO] [mixin/]: Mixing AccessorAbstractArrowEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
-[303月2026 17:39:15.277] [main/INFO] [mixin/]: Mixing MixinEnchantmentContainer from enigmaticlegacy.mixins.json into net.minecraft.world.inventory.EnchantmentMenu
-[303月2026 17:39:15.277] [main/INFO] [mixin/]: Renaming synthetic method lambda$onEnchantedItem$0(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/inventory/EnchantmentMenu;ILnet/minecraft/world/entity/player/Player;ILnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V to mdb72972$lambda$onEnchantedItem$0$1 in enigmaticlegacy.mixins.json:MixinEnchantmentContainer
-[303月2026 17:39:15.379] [main/INFO] [mixin/]: Mixing MixinItemStack from enigmaticlegacy.mixins.json into net.minecraft.world.item.ItemStack
-[303月2026 17:39:15.680] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:15.680] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
-[303月2026 17:39:16.895] [main/INFO] [mixin/]: Mixing MixinEnderEyeItem from enigmaticlegacy.mixins.json into net.minecraft.world.item.EnderEyeItem
-[303月2026 17:39:16.988] [main/INFO] [mixin/]: Mixing MixinCrossbowItem from enigmaticlegacy.mixins.json into net.minecraft.world.item.CrossbowItem
-[303月2026 17:39:18.766] [main/INFO] [mixin/]: Mixing MixinEnderDragon from enigmaticlegacy.mixins.json into net.minecraft.world.entity.boss.enderdragon.EnderDragon
-[303月2026 17:39:18.767] [main/INFO] [mixin/]: Renaming synthetic method lambda$onTickDeath$0(Lnet/minecraft/server/level/ServerPlayer;)V to mdb72972$lambda$onTickDeath$0$0 in enigmaticlegacy.mixins.json:MixinEnderDragon
-[303月2026 17:39:19.277] [main/INFO] [mixin/]: Mixing MixinShulker from enigmaticlegacy.mixins.json into net.minecraft.world.entity.monster.Shulker
-[303月2026 17:39:19.593] [main/INFO] [mixin/]: Mixing MixinVillagerEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.npc.Villager
-[303月2026 17:39:19.595] [main/INFO] [mixin/]: Mixing MixinVillager from enigmaticlegacy.mixins.json into net.minecraft.world.entity.npc.Villager
-[303月2026 17:39:20.129] [main/INFO] [mixin/]: Mixing MixinBindingCurseEnchantment from enigmaticlegacy.mixins.json into net.minecraft.world.item.enchantment.BindingCurseEnchantment
-[303月2026 17:39:21.101] [main/WARN] [mixin/]: Mixin alexscaves.mixins.json:SwampHutPieceMixin has multiple constructors, (Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePieceType;IIIIIILnet/minecraft/core/Direction;)V was selected
+[075月2026 13:36:31.234] [main/INFO] [mixin/]: Remapping refMap puzzleslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.238] [main/INFO] [mixin/]: Remapping refMap puzzleslib.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.242] [main/INFO] [mixin/]: Remapping refMap l2library.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.245] [main/INFO] [mixin/]: Remapping refMap l2tabs.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.248] [main/INFO] [mixin/]: Remapping refMap l2complements.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.250] [main/INFO] [mixin/]: Remapping refMap l2screentracker.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.251] [main/INFO] [mixin/]: Remapping refMap l2damagetracker.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.254] [main/INFO] [mixin/]: Remapping refMap l2hostility.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.258] [main/WARN] [mixin/]: Reference map 'itemselector.refmap.json' for l2itemselector.mixins.json could not be read. If this is a development environment you can ignore this message
+[075月2026 13:36:31.262] [main/INFO] [mixin/]: Remapping refMap lodestone.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.264] [main/INFO] [mixin/]: Remapping refMap expandability-forge-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.269] [main/INFO] [mixin/]: Remapping refMap expandability-common-refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.277] [main/INFO] [mixin/]: Remapping refMap overflowingbars.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.281] [main/INFO] [mixin/]: Remapping refMap mixins.goety_revelation.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:31.285] [main/INFO] [mixin/]: Remapping refMap enigmaticlegacy.refmap.json using F:\MineFargo\build\createSrgToMcp\output.srg
+[075月2026 13:36:32.315] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:32.328] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:32.693] [main/WARN] [mixin/]: Error loading class: io/github/strikerrocker/vt/enchantments/SiphonEnchantment (java.lang.ClassNotFoundException: io.github.strikerrocker.vt.enchantments.SiphonEnchantment)
+[075月2026 13:36:33.027] [main/WARN] [mixin/]: Error loading class: mod/azure/azurelib/loading/FileLoader (java.lang.ClassNotFoundException: mod.azure.azurelib.loading.FileLoader)
+[075月2026 13:36:35.379] [main/WARN] [mixin/]: Error loading class: mezz/modnametooltip/TooltipEventHandler (java.lang.ClassNotFoundException: mezz.modnametooltip.TooltipEventHandler)
+[075月2026 13:36:35.382] [main/WARN] [mixin/]: Error loading class: me/shedaniel/rei/impl/client/ClientHelperImpl (java.lang.ClassNotFoundException: me.shedaniel.rei.impl.client.ClientHelperImpl)
+[075月2026 13:36:35.601] [main/WARN] [mixin/]: Error loading class: net/darkhax/darkutils/features/charms/CharmEffects (java.lang.ClassNotFoundException: net.darkhax.darkutils.features.charms.CharmEffects)
+[075月2026 13:36:35.605] [main/WARN] [mixin/]: Error loading class: com/brandon3055/csg/ModEventHandler (java.lang.ClassNotFoundException: com.brandon3055.csg.ModEventHandler)
+[075月2026 13:36:35.617] [main/WARN] [mixin/]: Error loading class: vazkii/quark/content/tweaks/module/AutomaticRecipeUnlockModule (java.lang.ClassNotFoundException: vazkii.quark.content.tweaks.module.AutomaticRecipeUnlockModule)
+[075月2026 13:36:35.642] [main/WARN] [mixin/]: Error loading class: vazkii/quark/content/management/client/screen/widgets/MiniInventoryButton (java.lang.ClassNotFoundException: vazkii.quark.content.management.client.screen.widgets.MiniInventoryButton)
+[075月2026 13:36:35.732] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[075月2026 13:36:35.732] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapAccessor
+[075月2026 13:36:35.736] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[075月2026 13:36:35.737] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapMixin
+[075月2026 13:36:35.766] [main/WARN] [mixin/]: Redundant @Unique on injector method initMixin(Lnet/minecraft/world/item/Item$Properties;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V in cafelib.mixins.json:ItemMixin. Injectors are implicitly unique
+[075月2026 13:36:36.418] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[075月2026 13:36:37.141] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mine_fargo]
+[075月2026 13:36:39.827] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:39.829] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:39.854] [main/INFO] [mixin/]: Mixing MixinLivingEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.LivingEntity
+[075月2026 13:36:41.098] [main/INFO] [mixin/]: Mixing MixinPlayer from enigmaticlegacy.mixins.json into net.minecraft.world.entity.player.Player
+[075月2026 13:36:41.682] [main/WARN] [mixin/]: Redundant @Unique on injector method initMixin(Lnet/minecraft/world/item/Item$Properties;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V in cafelib.mixins.json:ItemMixin. Injectors are implicitly unique
+[075月2026 13:36:42.027] [main/INFO] [mixin/]: Mixing MixinMobEffect from enigmaticlegacy.mixins.json into net.minecraft.world.effect.MobEffect
+[075月2026 13:36:44.463] [main/INFO] [mixin/]: Mixing AccessorAbstractArrowEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
+[075月2026 13:36:44.923] [main/INFO] [mixin/]: Mixing MixinEnchantmentContainer from enigmaticlegacy.mixins.json into net.minecraft.world.inventory.EnchantmentMenu
+[075月2026 13:36:44.924] [main/INFO] [mixin/]: Renaming synthetic method lambda$onEnchantedItem$0(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/inventory/EnchantmentMenu;ILnet/minecraft/world/entity/player/Player;ILnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V to md2ecb77$lambda$onEnchantedItem$0$1 in enigmaticlegacy.mixins.json:MixinEnchantmentContainer
+[075月2026 13:36:45.029] [main/INFO] [mixin/]: Mixing MixinItemStack from enigmaticlegacy.mixins.json into net.minecraft.world.item.ItemStack
+[075月2026 13:36:45.411] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:45.412] [main/INFO] [net.minecraftforge.coremod.CoreMod.placebo/COREMODLOG]: Patching IForgeItemStack#getEnchantmentLevel
+[075月2026 13:36:46.816] [main/INFO] [mixin/]: Mixing MixinEnderEyeItem from enigmaticlegacy.mixins.json into net.minecraft.world.item.EnderEyeItem
+[075月2026 13:36:46.937] [main/INFO] [mixin/]: Mixing MixinCrossbowItem from enigmaticlegacy.mixins.json into net.minecraft.world.item.CrossbowItem
+[075月2026 13:36:48.648] [main/INFO] [mixin/]: Mixing MixinEnderDragon from enigmaticlegacy.mixins.json into net.minecraft.world.entity.boss.enderdragon.EnderDragon
+[075月2026 13:36:48.649] [main/INFO] [mixin/]: Renaming synthetic method lambda$onTickDeath$0(Lnet/minecraft/server/level/ServerPlayer;)V to md2ecb77$lambda$onTickDeath$0$0 in enigmaticlegacy.mixins.json:MixinEnderDragon
+[075月2026 13:36:49.239] [main/INFO] [mixin/]: Mixing MixinShulker from enigmaticlegacy.mixins.json into net.minecraft.world.entity.monster.Shulker
+[075月2026 13:36:49.699] [main/INFO] [mixin/]: Mixing MixinVillagerEntity from enigmaticlegacy.mixins.json into net.minecraft.world.entity.npc.Villager
+[075月2026 13:36:49.703] [main/INFO] [mixin/]: Mixing MixinVillager from enigmaticlegacy.mixins.json into net.minecraft.world.entity.npc.Villager
+[075月2026 13:36:50.510] [main/INFO] [mixin/]: Mixing MixinBindingCurseEnchantment from enigmaticlegacy.mixins.json into net.minecraft.world.item.enchantment.BindingCurseEnchantment
+[075月2026 13:36:52.253] [main/WARN] [mixin/]: Mixin alexscaves.mixins.json:SwampHutPieceMixin has multiple constructors, (Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePieceType;IIIIIILnet/minecraft/core/Direction;)V was selected
 
-[303月2026 17:39:22.529] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEntityRenderer from enigmaticlegacy.mixins.json into net.minecraft.client.renderer.entity.EntityRenderer
-[303月2026 17:39:23.008] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.29, for MC 1.20.1 with MCP 20230612.114412
-[303月2026 17:39:23.012] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.29 Initialized
-[303月2026 17:39:23.489] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
-[303月2026 17:39:23.553] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
-[303月2026 17:39:24.356] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
-[303月2026 17:39:25.872] [modloading-worker-0/INFO] [mixin/]: Mixing MixinForgeHooksClient from enigmaticlegacy.mixins.json into net.minecraftforge.client.ForgeHooksClient
-[303月2026 17:39:25.872] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$4(Lcom/mojang/datafixers/util/Either;)Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipComponent; to mdb72972$lambda$onGatherTooltipComponents$4$0 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
-[303月2026 17:39:25.872] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$3(Lnet/minecraft/network/chat/FormattedText;)Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipComponent; to mdb72972$lambda$onGatherTooltipComponents$3$1 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
-[303月2026 17:39:25.872] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$2(Lnet/minecraft/client/gui/Font;Lcom/mojang/datafixers/util/Either;)I to mdb72972$lambda$onGatherTooltipComponents$2$2 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
-[303月2026 17:39:25.873] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$1(Lnet/minecraft/world/inventory/tooltip/TooltipComponent;)Ljava/lang/Integer; to mdb72972$lambda$onGatherTooltipComponents$1$3 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
-[303月2026 17:39:25.873] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$0(Ljava/util/List;Lnet/minecraft/world/inventory/tooltip/TooltipComponent;)V to mdb72972$lambda$onGatherTooltipComponents$0$4 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
-[303月2026 17:39:26.319] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEnterBlockTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.EnterBlockTrigger
-[303月2026 17:39:26.340] [modloading-worker-0/INFO] [mixin/]: Mixing MixinInventoryChangeTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.InventoryChangeTrigger
-[303月2026 17:39:26.431] [modloading-worker-0/INFO] [mixin/]: Mixing MixinSummonedEntityTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.SummonedEntityTrigger
-[303月2026 17:39:26.458] [modloading-worker-0/ERROR] [mezz.jei.forge.startup.ForgePluginFinder/]: Failed to load: com.sammy.malum.compability.jei.JEIHandler
+[075月2026 13:36:54.325] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEntityRenderer from enigmaticlegacy.mixins.json into net.minecraft.client.renderer.entity.EntityRenderer
+[075月2026 13:36:54.582] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.29, for MC 1.20.1 with MCP 20230612.114412
+[075月2026 13:36:54.662] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.29 Initialized
+[075月2026 13:36:55.090] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
+[075月2026 13:36:55.118] [modloading-worker-0/INFO] [net.minecraftforge.coremod.CoreMod.attributeslib/COREMODLOG]: Patching EffectRenderingInventoryScreen#renderEffects
+[075月2026 13:36:55.539] [modloading-worker-0/WARN] [software.bernie.geckolib.GeckoLib/]: Minecraft.getInstance() was null, could not register reload listeners
+[075月2026 13:36:57.886] [modloading-worker-0/INFO] [mixin/]: Mixing MixinForgeHooksClient from enigmaticlegacy.mixins.json into net.minecraftforge.client.ForgeHooksClient
+[075月2026 13:36:57.887] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$4(Lcom/mojang/datafixers/util/Either;)Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipComponent; to md2ecb77$lambda$onGatherTooltipComponents$4$0 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
+[075月2026 13:36:57.888] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$3(Lnet/minecraft/network/chat/FormattedText;)Lnet/minecraft/client/gui/screens/inventory/tooltip/ClientTooltipComponent; to md2ecb77$lambda$onGatherTooltipComponents$3$1 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
+[075月2026 13:36:57.889] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$2(Lnet/minecraft/client/gui/Font;Lcom/mojang/datafixers/util/Either;)I to md2ecb77$lambda$onGatherTooltipComponents$2$2 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
+[075月2026 13:36:57.889] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$1(Lnet/minecraft/world/inventory/tooltip/TooltipComponent;)Ljava/lang/Integer; to md2ecb77$lambda$onGatherTooltipComponents$1$3 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
+[075月2026 13:36:57.889] [modloading-worker-0/INFO] [mixin/]: Renaming synthetic method lambda$onGatherTooltipComponents$0(Ljava/util/List;Lnet/minecraft/world/inventory/tooltip/TooltipComponent;)V to md2ecb77$lambda$onGatherTooltipComponents$0$4 in enigmaticlegacy.mixins.json:MixinForgeHooksClient
+[075月2026 13:36:58.392] [modloading-worker-0/INFO] [mixin/]: Mixing MixinEnterBlockTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.EnterBlockTrigger
+[075月2026 13:36:58.415] [modloading-worker-0/INFO] [mixin/]: Mixing MixinInventoryChangeTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.InventoryChangeTrigger
+[075月2026 13:36:58.494] [modloading-worker-0/INFO] [mixin/]: Mixing MixinSummonedEntityTrigger from enigmaticlegacy.mixins.json into net.minecraft.advancements.critereon.SummonedEntityTrigger
+[075月2026 13:36:58.491] [modloading-worker-0/ERROR] [mezz.jei.forge.startup.ForgePluginFinder/]: Failed to load: com.sammy.malum.compability.jei.JEIHandler
 java.lang.reflect.InvocationTargetException: null
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
@@ -224,16 +225,16 @@ java.lang.reflect.InvocationTargetException: null
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
 Caused by: java.lang.NullPointerException: Cannot invoke "net.minecraft.client.Minecraft.submit(java.lang.Runnable)" because the return value of "net.minecraft.client.Minecraft.getInstance()" is null
-	at com.sammy.malum.registry.client.HiddenTagRegistry.blankOutHidingTags(HiddenTagRegistry.java:69) ~[malum-1.20.1-1.6.7_mapped_official_1.20.1.jar%23233!/:1.20.1-1.6.7]
-	at com.sammy.malum.compability.jei.JEIHandler.<init>(JEIHandler.java:54) ~[malum-1.20.1-1.6.7_mapped_official_1.20.1.jar%23233!/:1.20.1-1.6.7]
+	at com.sammy.malum.registry.client.HiddenTagRegistry.blankOutHidingTags(HiddenTagRegistry.java:69) ~[malum-1.20.1-1.6.7_mapped_official_1.20.1.jar%23234!/:1.20.1-1.6.7]
+	at com.sammy.malum.compability.jei.JEIHandler.<init>(JEIHandler.java:54) ~[malum-1.20.1-1.6.7_mapped_official_1.20.1.jar%23234!/:1.20.1-1.6.7]
 	... 25 more
-[303月2026 17:39:27.089] [modloading-worker-0/INFO] [mixin/]: Mixing MixinPlayerList from enigmaticlegacy.mixins.json into net.minecraft.server.players.PlayerList
-[303月2026 17:39:27.167] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[303月2026 17:39:27.202] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 19.52 ms
-[303月2026 17:39:28.416] [modloading-worker-0/INFO] [KubeJS/]: Loaded common.properties
-[303月2026 17:39:28.417] [modloading-worker-0/INFO] [KubeJS/]: Loaded dev.properties
-[303月2026 17:39:28.648] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.8 initializing! Commit hash: 1a1a9a2819b4f89f78caec41b55ed8cb222fa24b
-[303月2026 17:39:29.339] [modloading-worker-0/ERROR] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Failed to create mod instance. ModID: ending_library, class com.mega.endinglib.EndingLibrary
+[075月2026 13:36:58.988] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[075月2026 13:36:59.044] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 40.45 ms
+[075月2026 13:36:59.064] [modloading-worker-0/INFO] [mixin/]: Mixing MixinPlayerList from enigmaticlegacy.mixins.json into net.minecraft.server.players.PlayerList
+[075月2026 13:36:59.830] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.8 initializing! Commit hash: 1a1a9a2819b4f89f78caec41b55ed8cb222fa24b
+[075月2026 13:36:59.949] [modloading-worker-0/INFO] [KubeJS/]: Loaded common.properties
+[075月2026 13:36:59.951] [modloading-worker-0/INFO] [KubeJS/]: Loaded dev.properties
+[075月2026 13:37:00.833] [modloading-worker-0/ERROR] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Failed to create mod instance. ModID: ending_library, class com.mega.endinglib.EndingLibrary
 java.lang.ExceptionInInitializerError: null
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
@@ -250,47 +251,47 @@ java.lang.ExceptionInInitializerError: null
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
 Caused by: java.lang.NullPointerException: Cannot invoke "net.minecraft.client.Minecraft.getResourceManager()" because the return value of "net.minecraft.client.Minecraft.getInstance()" is null
-	at com.mega.endinglib.proxy.ClientProxy.<init>(ClientProxy.java:52) ~[endingLibrary-1.20.1-2.1.9_mapped_official_1.20.1.jar%23236!/:2.1.9]
+	at com.mega.endinglib.proxy.ClientProxy.<init>(ClientProxy.java:52) ~[endingLibrary-1.20.1-2.1.9_mapped_official_1.20.1.jar%23237!/:2.1.9]
 	at net.minecraftforge.fml.DistExecutor.safeRunForDist(DistExecutor.java:187) ~[fmlcore-1.20.1-47.3.29.jar%23195!/:?]
-	at com.mega.endinglib.EndingLibrary.<clinit>(EndingLibrary.java:31) ~[endingLibrary-1.20.1-2.1.9_mapped_official_1.20.1.jar%23236!/:2.1.9]
+	at com.mega.endinglib.EndingLibrary.<clinit>(EndingLibrary.java:31) ~[endingLibrary-1.20.1-2.1.9_mapped_official_1.20.1.jar%23237!/:2.1.9]
 	... 14 more
-[303月2026 17:39:31.715] [modloading-worker-0/INFO] [touhou_little_maid/]: common default pack init start...
-[303月2026 17:39:33.675] [modloading-worker-0/INFO] [Enigmatic Legacy/INFO]: Constructing mod instance...
-[303月2026 17:39:34.718] [modloading-worker-0/INFO] [KubeJS Startup/]: Capturing errors for startup scripts enabled
-[303月2026 17:39:34.718] [modloading-worker-0/INFO] [KubeJS/]: Looking for KubeJS plugins...
-[303月2026 17:39:34.780] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source kubejs
-[303月2026 17:39:34.866] [modloading-worker-0/WARN] [KubeJS/]: Plugin dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration does not have required mod gamestages loaded, skipping
-[303月2026 17:39:34.869] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source tacz
-[303月2026 17:39:34.870] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source avaritia
-[303月2026 17:39:34.879] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source touhou_little_maid
-[303月2026 17:39:34.886] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source revelationfix
-[303月2026 17:39:34.892] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source l2hostility
-[303月2026 17:39:34.919] [modloading-worker-0/INFO] [KubeJS/]: Done in 197.7 ms
-[303月2026 17:39:35.133] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
-[303月2026 17:39:35.139] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
-[303月2026 17:39:35.172] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing common components for puzzleslib:main
-[303月2026 17:39:35.651] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing client components for puzzleslib:main
-[303月2026 17:39:36.299] [modloading-worker-0/INFO] [be.florens.expandability.ExpandAbility/]: ExpandAbility here, who dis?
-[303月2026 17:39:36.366] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing common components for overflowingbars:main
-[303月2026 17:39:36.541] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing client components for overflowingbars:main
-[303月2026 17:39:36.664] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading Rhino Minecraft remapper...
-[303月2026 17:39:36.667] [modloading-worker-0/INFO] [dev.latvian.mods.rhino.mod.util.RhinoProperties/]: Rhino properties loaded.
-[303月2026 17:39:36.682] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading mappings for 1.20.1
-[303月2026 17:39:36.944] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Done in 0.280 s
-[303月2026 17:39:37.768] [modloading-worker-0/INFO] [touhou_little_maid/]: common default pack init finished, cost time: 5991.954 ms
-[303月2026 17:39:38.811] [modloading-worker-0/INFO] [Enigmatic Legacy/INFO]: Mod instance constructed successfully.
-[303月2026 17:39:38.829] [modloading-worker-0/INFO] [KubeJS Startup/]: example.js#5: Hello, World! (Loaded startup scripts)
-[303月2026 17:39:38.837] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded script startup_scripts:example.js in 0.211 s
-[303月2026 17:39:38.845] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded 1/1 KubeJS startup scripts in 1.894 s with 0 errors and 0 warnings
-[303月2026 17:39:39.002] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:send_data_from_client
-[303月2026 17:39:39.006] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:send_data_from_server
-[303月2026 17:39:39.007] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:paint
-[303月2026 17:39:39.009] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:add_stage
-[303月2026 17:39:39.010] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:remove_stage
-[303月2026 17:39:39.011] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:sync_stages
-[303月2026 17:39:39.013] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:first_click
-[303月2026 17:39:39.014] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:toast
-[303月2026 17:39:39.018] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:reload_startup_scripts
-[303月2026 17:39:39.020] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_server_errors
-[303月2026 17:39:39.021] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_client_errors
-[303月2026 17:39:40.964] [main/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: Failed to complete lifecycle event CONSTRUCT, 1 errors found
+[075月2026 13:37:02.009] [modloading-worker-0/INFO] [touhou_little_maid/]: common default pack init start...
+[075月2026 13:37:03.067] [modloading-worker-0/INFO] [Enigmatic Legacy/INFO]: Constructing mod instance...
+[075月2026 13:37:03.426] [modloading-worker-0/INFO] [KubeJS Startup/]: Capturing errors for startup scripts enabled
+[075月2026 13:37:03.426] [modloading-worker-0/INFO] [KubeJS/]: Looking for KubeJS plugins...
+[075月2026 13:37:03.446] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source kubejs
+[075月2026 13:37:03.477] [modloading-worker-0/WARN] [KubeJS/]: Plugin dev.latvian.mods.kubejs.integration.forge.gamestages.GameStagesIntegration does not have required mod gamestages loaded, skipping
+[075月2026 13:37:03.480] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source tacz
+[075月2026 13:37:03.482] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source avaritia
+[075月2026 13:37:03.500] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source touhou_little_maid
+[075月2026 13:37:03.509] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source revelationfix
+[075月2026 13:37:03.515] [modloading-worker-0/INFO] [KubeJS/]: Found plugin source l2hostility
+[075月2026 13:37:03.560] [modloading-worker-0/INFO] [KubeJS/]: Done in 132.4 ms
+[075月2026 13:37:03.881] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id architectury:sync_ids
+[075月2026 13:37:03.889] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id architectury:sync_ids
+[075月2026 13:37:03.929] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing common components for puzzleslib:main
+[075月2026 13:37:04.245] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing client components for puzzleslib:main
+[075月2026 13:37:04.598] [modloading-worker-0/INFO] [be.florens.expandability.ExpandAbility/]: ExpandAbility here, who dis?
+[075月2026 13:37:04.666] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing common components for overflowingbars:main
+[075月2026 13:37:04.762] [modloading-worker-0/INFO] [Puzzles Lib/]: Constructing client components for overflowingbars:main
+[075月2026 13:37:05.058] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading Rhino Minecraft remapper...
+[075月2026 13:37:05.091] [modloading-worker-0/INFO] [dev.latvian.mods.rhino.mod.util.RhinoProperties/]: Rhino properties loaded.
+[075月2026 13:37:05.108] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Loading mappings for 1.20.1
+[075月2026 13:37:05.401] [modloading-worker-0/INFO] [Rhino Script Remapper/]: Done in 0.343 s
+[075月2026 13:37:06.911] [modloading-worker-0/INFO] [touhou_little_maid/]: common default pack init finished, cost time: 4882.515 ms
+[075月2026 13:37:07.028] [modloading-worker-0/INFO] [KubeJS Startup/]: example.js#5: Hello, World! (Loaded startup scripts)
+[075月2026 13:37:07.032] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded script startup_scripts:example.js in 0.217 s
+[075月2026 13:37:07.042] [modloading-worker-0/INFO] [KubeJS Startup/]: Loaded 1/1 KubeJS startup scripts in 1.63 s with 0 errors and 0 warnings
+[075月2026 13:37:07.048] [modloading-worker-0/INFO] [Enigmatic Legacy/INFO]: Mod instance constructed successfully.
+[075月2026 13:37:07.176] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:send_data_from_client
+[075月2026 13:37:07.179] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:send_data_from_server
+[075月2026 13:37:07.180] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:paint
+[075月2026 13:37:07.182] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:add_stage
+[075月2026 13:37:07.184] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:remove_stage
+[075月2026 13:37:07.187] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:sync_stages
+[075月2026 13:37:07.189] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering C2S receiver with id kubejs:first_click
+[075月2026 13:37:07.190] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:toast
+[075月2026 13:37:07.192] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:reload_startup_scripts
+[075月2026 13:37:07.193] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_server_errors
+[075月2026 13:37:07.195] [modloading-worker-0/INFO] [dev.architectury.networking.forge.NetworkManagerImpl/]: Registering S2C receiver with id kubejs:display_client_errors
+[075月2026 13:37:09.439] [main/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: Failed to complete lifecycle event CONSTRUCT, 1 errors found
